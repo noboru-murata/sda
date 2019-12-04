@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>講義の概要</title>
+<meta name="author" content="村田 昇"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css" id="theme"/>
+
+<link rel="stylesheet" href="./reveal.js/plugin/toc-progress/toc-progress.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
+
+<link rel="stylesheet" href="./myconf.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-state="no-toc-progress">
+<!-- This is an HTML template for the title slide. -->
+<!-- Embed logos as necessary. -->
+<!-- <a class="nooutlink" href="url"><img class="state-background your-logo-class" src="whatever.png" alt="Whatever" /></a> -->
+<div class="talk-title">
+    <h1 class="no-toc-progress">講義の概要</h1>
+</div>
+<div class="talk-subtitle">
+    <p>数理科学続論J (統計データ解析)</p>
+</div>
+<div class="keyboard-usage">
+    <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
+</div>
+<div class="talk-author">
+  <p>村田 昇<br />
+  2019.09.27</p>
+</div>
+
+</section>
+
+<section>
+<section id="slide-org05560cd">
+<h2 id="org05560cd">講義について</h2>
+<div class="outline-text-2" id="text-org05560cd">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6544b48">
+<h3 id="org6544b48">講義の概要</h3>
+<ul>
+<li>講義名: 数理科学続論J (統計データ解析II)</li>
+<li>担当: 村田 昇</li>
+<li>授業の目標 
+<ul>
+<li>統計ソフトウェアRの基本的な扱いを習得する</li>
+<li>統計解析手法である <b>多変量解析</b> の基本的な解析法に習熟する
+<ul>
+<li>大規模データから効果的に情報を抽出する</li>
+<li>データの背後に潜む統計的構造を分析する</li>
+
+</ul></li>
+<li>解析法の数理科学的側面を理解する</li>
+<li>Rを用いて実データに多変量解析を適用する</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org00b563d">
+<h3 id="org00b563d">受講にあたっての注意</h3>
+<ul>
+<li>微分積分学，線形代数学および確率統計学が既習であること(が望ましい)</li>
+<li>自身でRの環境を準備できること</li>
+<li>講義の資料はITC-LMSを通して公開する</li>
+<li>成績評価は課題の提出による</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4c6cdd7">
+<h3 id="org4c6cdd7">講義計画 (予定)</h3>
+<ul>
+<li>統計ソフトウェアRの使い方 (3回)
+<ul>
+<li>Rのインストールと基礎</li>
+<li>データの取り扱い</li>
+<li>グラフの描き方</li>
+<li>確率的シミュレーション</li>
+
+</ul></li>
+<li>回帰分析 (3回)</li>
+<li>主成分分析 (2回)</li>
+<li>判別分析 (2回)</li>
+<li>クラスタ分析 (1回)</li>
+<li>時系列解析入門 (2回)</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orge372ed8">
+<h2 id="orge372ed8">多変量解析とは</h2>
+<ul>
+<li>複数の変量からなるデータを分析する手法の総称
+<ul>
+<li>回帰分析: 複数の量を用いて注目する変数の値を説明する</li>
+<li>主成分分析: 全体を説明する少数の特徴量を構成する</li>
+<li>判別分析: 特徴量の違いでカテゴリ分けを行う</li>
+<li>クラスタ分析: 特徴量の違いに着目してクラスタを構成する</li>
+<li>時系列解析: 時間とともに変化する現象を記述する</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org6ed4b0e">
+<h2 id="org6ed4b0e">回帰分析</h2>
+<div class="outline-text-2" id="text-org6ed4b0e">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgcb6ebf1">
+<h3 id="orgcb6ebf1">回帰分析の考え方</h3>
+<ul>
+<li>ある変数を別の変数によって説明・予測するための関係式(回帰式)を構成する
+<ul>
+<li>単回帰: 一つの変数で目的変数を説明する</li>
+<li>重回帰: 複数の変数で目的変数を説明する</li>
+
+</ul></li>
+<li>分析の事例:
+<ul>
+<li>身長から体重を予測する式を作り，ある身長の人がある体重だったときに，それが普通かどうか判定する</li>
+<li>築年数・駅からの距離・広さ・間取りで家賃を説明する式を作り，新規に家賃を設定する際に利用する</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfdf0e9e">
+<h3 id="orgfdf0e9e"></h3>
+
+<div id="orgfeb6452" class="figure">
+<p><img src="./figs/r-brainbody05.png" alt="r-brainbody05.png">
+</p>
+<p><span class="figure-number">Figure 1: </span>体重と脳の重さの関係 (単回帰)</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org86338c7">
+<h3 id="org86338c7"></h3>
+
+<div id="org1ac5b12" class="figure">
+<p><img src="./figs/r-wine01.png" alt="r-wine01.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 2: </span>ワインの価格と生産環境の関係</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf2c2914">
+<h3 id="orgf2c2914"></h3>
+
+<div id="org600e0d5" class="figure">
+<p><img src="./figs/r-wine05.png" alt="r-wine05.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 3: </span>生産環境によるワイン価格の予測 (重回帰)</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgf9edd08">
+<h2 id="orgf9edd08">主成分分析</h2>
+<div class="outline-text-2" id="text-orgf9edd08">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org283f7e7">
+<h3 id="org283f7e7">主成分分析の考え方</h3>
+<ul>
+<li>多数の変数が与えられたときに，変数のもつ構造を効率的に記述できる少数個の特徴量を構成する</li>
+<li>分析の事例:
+<ul>
+<li>野球選手の打撃成績(打率，本塁打数，打点など)から，打者としての特徴を記述する指標を作成する</li>
+<li>複数銘柄からなる株価の時系列データから，市場全体の変動を記述する総合指標を作成する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org238af20">
+<h3 id="org238af20"></h3>
+
+<div id="org0bfe07d" class="figure">
+<p><img src="./figs/p-jpamenity01.png" alt="p-jpamenity01.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 4: </span>県別の生活環境(人口動態)の散布図</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf43d3ed">
+<h3 id="orgf43d3ed"></h3>
+
+<div id="org650f07d" class="figure">
+<p><img src="./figs/p-jpamenity02.png" alt="p-jpamenity02.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 5: </span>県別の生活環境(教育・労働)の散布図</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7347278">
+<h3 id="org7347278"></h3>
+
+<div id="org33c9c10" class="figure">
+<p><img src="./figs/p-jpamenity03.png" alt="p-jpamenity03.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 6: </span>県別の生活環境(貯蓄・余暇)の散布図</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfd41150">
+<h3 id="orgfd41150"></h3>
+
+<div id="orgd9fd632" class="figure">
+<p><img src="./figs/p-jpamenity06.png" alt="p-jpamenity06.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 7: </span>県別の生活環境の主成分分析</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgc40a915">
+<h2 id="orgc40a915">判別分析</h2>
+<div class="outline-text-2" id="text-orgc40a915">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2ec2777">
+<h3 id="org2ec2777">判別分析の考え方</h3>
+<ul>
+<li>ある個体が複数のクラスのいずれかに属するとき，その個体の特徴量からどのクラスに属するか予測するモデルを構築する</li>
+<li>分析の事例:
+<ul>
+<li>花の種類を，その花の花弁の幅・長さおよび萼片(がくへん)の幅・長さから判別する</li>
+<li>食道がんを患っている人とそうでない人を，年齢・飲酒量・喫煙度から判別する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6d7b4b6">
+<h3 id="org6d7b4b6"></h3>
+
+<div id="org25ed904" class="figure">
+<p><img src="./figs/d-biopsy01.png" alt="d-biopsy01.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 8: </span>乳癌患者(良性・悪性)の生研検査の散布図</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org688b0c7">
+<h3 id="org688b0c7"></h3>
+
+<div id="orgc030417" class="figure">
+<p><img src="./figs/d-biopsy02.png" alt="d-biopsy02.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 9: </span>生研検査の主成分分析</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge4b4421">
+<h3 id="orge4b4421"></h3>
+
+<div id="orgb0bc3b3" class="figure">
+<p><img src="./figs/d-biopsy03.png" alt="d-biopsy03.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 10: </span>生研検査による乳癌患者の判別分析</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org11a7aa1">
+<h2 id="org11a7aa1">クラスタ分析</h2>
+<div class="outline-text-2" id="text-org11a7aa1">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org874ce26">
+<h3 id="org874ce26">クラスタ分析の考え方</h3>
+<ul>
+<li>特徴量の違いに着目して，妥当な個体のグループ(クラスタ)を構成する
+<ul>
+<li>階層的な方法: 系統樹を作成する</li>
+<li>非階層的な方法: グループの代表値を推定する</li>
+
+</ul></li>
+<li>分析の事例:
+<ul>
+<li>映画に関するアンケート調査から潜在的なジャンル(グループ)を抽出する</li>
+<li>顧客の購買履歴から，嗜好の異なる顧客グループに分類し，グループごとの販売戦略を立てる</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org5ab5c40">
+<h3 id="org5ab5c40"></h3>
+
+<div id="orge65405f" class="figure">
+<p><img src="./figs/c-omusubi01.png" alt="c-omusubi01.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 11: </span>おむすびの具に関するアンケート分析 (県別の集計)</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6310210">
+<h3 id="org6310210"></h3>
+
+<div id="orgda18ae7" class="figure">
+<p><img src="./figs/c-omusubi02.png" alt="c-omusubi02.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 12: </span>アンケート結果にもとづく県のクラスタ分析</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org4da376d">
+<h2 id="org4da376d">時系列解析</h2>
+<div class="outline-text-2" id="text-org4da376d">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd5c1eef">
+<h3 id="orgd5c1eef">時系列解析の考え方</h3>
+<ul>
+<li>時間とともに変化する現象を記述するために，未来の値を過去の値で近似する式を構成する
+<ul>
+<li>自己回帰 (ARモデル): 過去の影響の記述</li>
+<li>移動平均 (MAモデル): 記憶のある不確定性</li>
+
+</ul></li>
+<li>分析の事例:
+<ul>
+<li>市町村の過去の年齢別の人口変動から将来の人口比率を予測する</li>
+<li>食品・飲料の季節ごとの販売履歴から将来の需要量を予測する</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf8d5681">
+<h3 id="orgf8d5681"></h3>
+
+<div id="org5c425ed" class="figure">
+<p><img src="./figs/t-airpass01.png" alt="t-airpass01.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 13: </span>航空機旅客量の変遷</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9c8d687">
+<h3 id="org9c8d687"></h3>
+
+<div id="org02160c8" class="figure">
+<p><img src="./figs/t-airpass04.png" alt="t-airpass04.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 14: </span>階差時系列の自己相関分析</p>
+</div>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgbd0b1d3">
+<h3 id="orgbd0b1d3"></h3>
+
+<div id="org9321749" class="figure">
+<p><img src="./figs/t-airpass12.png" alt="t-airpass12.png" width="55%" height="55%">
+</p>
+<p><span class="figure-number">Figure 15: </span>航空機旅客量の予測 (SARIMAモデルによる)</p>
+</div>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: true,
+fragmentInURL: true,
+pdfSeparateFragments: false,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/jump/jump.js', async: true },
+ { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
+ { src: './reveal.js/plugin/anything/anything.js' },
+ { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+,audio: {
+    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+  anything: [
+	{className: "animate",  initialize: (function(container, options){
+		Reveal.addEventListener( 'fragmentshown', function( event ) {
+			if (typeof event.fragment.beginElement === "function" ) {
+				event.fragment.beginElement();
+			}
+		});
+		Reveal.addEventListener( 'fragmenthidden', function( event ) {
+			if (event.fragment.hasAttribute('data-reverse') ) {
+				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
+				if ( reverse && typeof reverse.beginElement === "function" ) {
+					reverse.beginElement();
+				}
+			}
+		});
+		if ( container.getAttribute("data-svg-src") ) {
+			var xhr = new XMLHttpRequest();
+			xhr.onload = function() {
+				if (xhr.readyState === 4) {
+					var svg = container.querySelector('svg');
+					container.removeChild( svg );
+					container.innerHTML = xhr.responseText + container.innerHTML;
+					if ( svg ) {
+						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
+					}
+				}
+				else {
+					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
+				}
+			};
+			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
+			xhr.send();
+		}
+	}) },
+	{className: "randomPic",
+	 defaults: {imgalt: "Dummy alt text",
+		    imgcaption: "Image by {name}",
+		    choices: [ {name: "dummyname", path: "dummypath"} ]},
+	 initialize: (function(container, options){
+	     var choice = Math.trunc( Math.random()*(options.choices.length) );
+	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
+	     container.innerHTML = img + caption;
+	 }) },
+	{className: "notes",
+	 initialize: (function(container, options){
+	     container.addEventListener('click', function(e) { RevealNotes.open(); });
+	 }) }
+],
+  coursemod: { enabled: true, shown: false }});
+</script>
+</body>
+</html>
