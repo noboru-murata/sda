@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>概要 on 統計データ解析</title>
-    <link>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/</link>
+    <link>https://noboru-murata.github.io/sda/</link>
     <description>Recent content in 概要 on 統計データ解析</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 Aug 2019 00:00:00 +0900</lastBuildDate>
     
-	<atom:link href="https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://noboru-murata.github.io/sda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>講義資料</title>
-      <link>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/notes/</link>
+      <link>https://noboru-murata.github.io/sda/page/notes/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/notes/</guid>
+      <guid>https://noboru-murata.github.io/sda/page/notes/</guid>
       <description>テキスト  Rの基礎編 [PDF]​ 確率と統計編 [PDF]​ 多変量解析編 [PDF]​  R script  Rの基礎編 [zipped]​ 確率と統計編 [zipped]​ 多変量解析編 [zipped]​  </description>
     </item>
     
     <item>
       <title>数理科学続論 I</title>
-      <link>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/spring/</link>
+      <link>https://noboru-murata.github.io/sda/page/spring/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/spring/</guid>
+      <guid>https://noboru-murata.github.io/sda/page/spring/</guid>
       <description>前半はR言語の基本的な使い方を解説し，後半はR言語を利用した数値シミュレーションを行いながら，確率論や推測統計の基礎を学びます．
 講義資料としては
  Rの基礎編 [PDF]​ 確率と統計編 [PDF]​  を主に使います．
@@ -35,10 +35,10 @@
     
     <item>
       <title>数理科学続論 J</title>
-      <link>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/autumn/</link>
+      <link>https://noboru-murata.github.io/sda/page/autumn/</link>
       <pubDate>Sun, 01 Sep 2019 00:00:00 +0900</pubDate>
       
-      <guid>https://www.murata.eb.waseda.ac.jp/noboru.murata/sda/page/autumn/</guid>
+      <guid>https://noboru-murata.github.io/sda/page/autumn/</guid>
       <description>初めの数回でR言語の基本的な使い方を解説し，データを用いた実習を交えて多変量解析の様々な手法を学びます．
 講義資料としては
  Rの基礎編 [PDF]​ 多変量解析編 [PDF]​  を主に使います．
