@@ -1,0 +1,106 @@
+#+HUGO_BASE_DIR: ../
+#+HUGO_SECTION: page
+#+HUGO_WEIGHT: auto
+#+author: Noboru Murata
+#+link: github https://noboru-murata.github.io/sda/
+# C-c C-e H A (generate MDs for all subtrees)
+
+* 概要
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: _index
+  :EXPORT_HUGO_SECTION: ./
+  :EXPORT_DATE: <2019-08-30 Fri>
+  :END:
+  R言語を用いた実習と座学で，確率論と統計解析の基礎を学ぶためのコースです．
+
+  2つの科目があり，それぞれ
+  - 数理科学続論 I (Sセメスター 金曜5限)\\
+    確率論と統計学を中心とした基礎的な知識を身に付ける
+  - 数理科学続論 J (Aセメスター 金曜5限)\\
+    多変量解析のさまざまな手法を実データに適用しながら学ぶ
+  ことを目標としています．
+  どちらもR言語を用いた演習を行うので，
+  R言語に関する部分は一部重複します．
+
+* 講義資料
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: notes
+  :EXPORT_DATE: <2019-04-01 Mon>
+  :END:
+** テキスト
+   1. Rの基礎編 [[https://github.com/noboru-murata/sda/blob/master/text/note1.pdf][(PDF)]] 
+   1. Rの基礎編 [[github:text/note1.pdf][(PDF)]] 
+   2. 確率と統計編 (準備中)
+   3. 多変量解析編 (準備中)
+** Rscript とデータ
+   1. Rの基礎編 [[https://github.com/noboru-murata/sda/blob/master/text/script11.zip][(zipped)]] 
+   2. 確率と統計編 (準備中)
+   3. 多変量解析編 (準備中)
+
+* 数理科学続論 I
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: spring
+  :EXPORT_DATE: <2019-04-01 Mon>
+  :END:
+  前半はR言語の基本的な使い方を解説し，
+  後半はR言語を利用した
+  数値シミュレーションを行いながら，
+  確率論や推測統計の基礎を学びます．
+
+  講義資料としては
+   - Rの基礎編 [[https://github.com/noboru-murata/sda/blob/master/text/note1.pdf][(PDF)]] 
+   - 確率と統計編 (準備中) 
+  を主に使います．
+
+  [[../../spring/slide00.html][ガイダンス資料]]
+
+** スライド (2019年度版)
+   1. [[../../spring/slide01.html][Rの基本的な操作]]
+   2. [[../../spring/slide02.html][データ構造と関数]]
+   3. [[../../spring/slide03.html][データの整理と集計]]
+   4. [[../../spring/slide04.html][データのプロット]]
+   5. [[../../spring/slide05.html][確率シミュレーション]] (Monte-Carlo法)
+   6. [[../../spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
+   7. [[../../spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)
+   8. [[../../spring/slide08.html][記述統計量]] (基礎的な記述統計量とデータの集約)
+   9. [[../../spring/slide09.html][推定]] (確率分布を推定する)
+   10. [[../../spring/slide10.html][検定]] (仮説の正当性をデータから検証する)
+   11. [[../../spring/slide11.html][分散分析]] (複数のグループ間の違いを検証する)
+   12. [[../../spring/slide12.html][回帰分析]] (変数間の関係を推測する)
+
+* 数理科学続論 J
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: autumn
+  :EXPORT_DATE: <2019-09-01 Sun>
+  :END:
+  初めの数回でR言語の基本的な使い方を解説し，
+  データを用いた実習を交えて
+  多変量解析の様々な手法を学びます．
+
+  講義資料としては
+   - Rの基礎編 [[https://github.com/noboru-murata/sda/blob/master/text/note1.pdf][(PDF)]]  
+   - 多変量解析編 (準備中) 
+  を主に使います．
+
+  [[../../autumn/slide00.html][ガイダンス資料]]
+
+** スライド (2019年度版)
+   1. [[../../autumn/slide01.html][RとRstudio]] (R言語の使い方)
+   2. [[../../autumn/slide02.html][データの取り扱い]]
+   3. [[../../autumn/slide03.html][可視化とモンテカルロ法]]
+   4. [[../../autumn/slide04.html][回帰分析 - モデルの推定]]
+   5. [[../../autumn/slide05.html][回帰分析 - モデルの評価]]
+   6. [[../../autumn/slide06.html][回帰分析 - 予測と発展的なモデル]]
+   7. [[../../autumn/slide07.html][主成分分析 - 考え方]]
+   8. [[../../autumn/slide08.html][主成分分析 - 評価と視覚化]]
+   9. [[../../autumn/slide09.html][判別分析 - 考え方]]
+   10. [[../../autumn/slide10.html][判別分析 - 評価]]
+   11. [[../../autumn/slide11.html][クラスター分析 - 階層的方法]]
+   12. [[../../autumn/slide12.html][クラスター分析 - 非階層的方法]]
+   13. [[../../autumn/slide13.html][時系列解析 - 基本的なモデル]]
+   14. [[../../autumn/slide14.html][時系列解析 - 推定と予測]]
+
+* COMMENT Local Variables 
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:

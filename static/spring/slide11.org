@@ -1,0 +1,420 @@
+#+TITLE: 分散分析
+#+SUBTITLE: 複数のグループ間の違いを検証する
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE: 2019.06.28
+:preamble:
+#+INCLUDE: "./myconf.org"
+#+STARTUP: hidestars content
+# C-c C-x C-v でinlineを切り替え
+# <l C-i でlatex block
+# C-c '
+#+OPTIONS: LaTeX:t    
+#+PROPERTY: results output
+#+PROPERTY: exports both
+:end:
+
+* 分散分析とは
+** 分散分析
+   - 平均の差の検定: 
+     *2つのグループ間* で平均の差があるか否か
+   - 分散分析: 
+     *2つ以上のグループ間* で平均の差があるか否か
+   - 仮説の例: 
+     - ある小売店について「売上高は月によって差があるか」
+     - ある銘柄の株価について「収益率は曜日によって差があるか」
+     という仮説を検定するのに分散分析は有用
+   - 検定問題の一つ
+
+** 基本的な考え方
+   - データの変動を分解:
+     - グループ間での変動
+     - 観測誤差のみに起因する変動
+   - 変動の大きさを比較:
+     - 平均に差がない: 自由度を除いて両者に本質的な差がない
+     - 平均に差がある: グループ間の変動が増してより大きくなる
+   - 分散分析は「データの変動の分析」 \\ (変動=不確定性)
+
+* 分散の比の検定 (再掲)
+** 分散の比の検定
+   - 2種類のデータの分散が等しいか否かを検定する
+     \begin{equation}%\label{mean-equal}
+       H_0:\sigma_1^2=\sigma_2^2\quad\text{vs}\quad H_1:\sigma_1^2\neq\sigma_2^2
+     \end{equation}
+
+** 考え方
+   - $X_1,\dotsc,X_m$ の不偏分散: $s_1^2$
+   - $Y_1,\dotsc,Y_n$ の不偏分散: $s_2^2$
+   - このとき $s_1^2,s_2^2$ は独立でそれぞれ
+     - $(m{-}1)s_1^2/\sigma_1^2$
+       自由度 $m{-}1$ の $\chi^2$ 分布に従う
+     - $(n{-}1)s_2^2/\sigma_2^2$
+       は自由度 $n{-}1$ の $\chi^2$ 分布に従う
+   - 検定統計量:
+     \begin{equation}
+       F=s_1^2/s_2^2
+     \end{equation}
+   - 帰無仮説 $H_0$ が正しいならば
+     $F$ は自由度 $m{-}1,n{-}1$ の $F$ 分布に従う
+  
+** 棄却域の取り方
+   - 有意水準: $\alpha\in(0,1)$
+   - 自由度 $m{-}1,n{-}1$ の $F$ 分布の
+     $\alpha/2,\,1{-}\alpha/2$ 分位点:
+     $F_{\alpha/2}(m{-}1,n{-}1)$,
+     $F_{1{-}\alpha/2}(m{-}1,n{-}1)$
+   - $H_0$ の下では以下が成立:
+     \begin{equation}
+       P(F < F_{\alpha/2}(m{-}1,n{-}1)
+       \text{ または }F > F_{1{-}\alpha/2}(m{-}1,n{-}1))=\alpha
+     \end{equation}
+   - 第一種過誤の上限が $\alpha$ の棄却域:
+     \begin{equation}
+       R_{\alpha}=
+       \left(-\infty,F_{\alpha/2}(m{-}1,n{-}1)\right)
+       \cup\left(F_{1{-}\alpha/2}(m{-}1,n{-}1),\infty\right)
+     \end{equation}
+
+** 検定の手順 (棄却域を用いる場合)
+   - データから検定統計量 $F$ の値を計算
+   - 以下の場合，帰無仮説を棄却
+     \begin{equation}
+       F < F_{\alpha/2}(m{-}1,n{-}1)
+       \text{ または }F>F_{1{-}\alpha/2}(m{-}1,n{-}1)
+     \end{equation}
+   - $p$ 値の計算や片側対立仮説への対応方法は前と同様
+
+# ** 演習
+#    :PROPERTIES:
+#    :reveal_background: #fef4f4
+#    :END:
+#    - ~test-ratio.r~ を確認しなさい．
+#    - 自身で収集したデータについて，
+#      2標本の分散の比に関する検定を行いなさい．
+
+* 一元配置
+** 一元配置の問題設定
+   - グループ分けが1種類の場合
+   - $p$ 個のグループ $A_1,A_2,\dotsc,A_p$ を想定
+   - 各グループ $i$ ごとに $n_i$ 個のデータを観測
+     \begin{equation}
+       Y_{i1},Y_{i2},\dotsc,Y_{in_i},\quad (i=1,2,\dotsc,p)
+     \end{equation}
+   - 例: 小売店の売上高の問題
+     - $A_1,A_2,\dotsc,A_p$: 月
+     - $Y_{i1},Y_{i2},\dotsc,Y_{in_i}$: $i$ 月の各日における売上高
+   - 分散分析の用語:
+     - *因子*: グループ分けのこと (月ごと)
+     - *水準*: 因子内の各グループのこと (1月，2月，3月，…)
+
+** 一元配置のモデル
+   - 観測データのモデル:
+     \begin{equation}\label{one-way}
+       Y_{ij}=\mu_i+\varepsilon_{ij}\quad(i=1,\dotsc,p;\;j=1,\dotsc,n_i).
+     \end{equation}
+   - モデルの仮定:
+     - 水準 $A_i$ における観測データの平均値 $\mu_i$ は定数
+     - $\varepsilon_{ij}$ は独立同分布(平均0, 分散 $\sigma^2$ の正規分布)
+   - 各水準 $A_1,A_2,\dotsc,A_p$ の平均値に差があるか否かを検定する問題:
+     \begin{equation}
+       H_0:\mu_1=\cdots=\mu_p\quad\text{vs}\quad
+       H_1:\text{ある$i,j$に対して}\mu_i\neq\mu_j.
+     \end{equation}
+
+** 分析の考え方
+  - データの変動から因子間での変動と観測誤差の変動を抽出して比較
+  - 各種平均: ($n=\sum_{i=1}^pn_i$ は全サンプル数)
+    \begin{align}
+      &\text{(全データの標本平均)}
+      &\bar{Y}_{\cdot\cdot}&=\frac{1}{n}\sum_{i=1}^p\sum_{j=1}^{n_i}Y_{ij},\\
+      &\text{(水準$A_i$の標本平均)}
+      &\bar{Y}_{i\cdot}&=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\quad
+      (i=1,\dotsc,p).
+    \end{align}
+    
+** 分析の考え方 (つづき)
+  - 各種変動:
+    \begin{align}
+      &\text{(全変動)}
+      &SS_T&=\sum_{i=1}^p\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{\cdot\cdot})^2,\\
+      &\text{(級内変動)}
+      &SS_W&=\sum_{i=1}^p\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{i\cdot})^2,\\
+      &\text{(級間変動)}
+      &SS_B&=\sum_{i=1}^p\sum_{j=1}^{n_i}(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2
+      =\sum_{i=1}^pn_i(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2.
+    \end{align}
+    - *級内変動*: 各水準内でのデータの変動 (観測誤差に起因)
+    - *級間変動*: 水準間でのデータの変動
+
+** 分析の考え方 (つづき)
+   - 変動の分解:
+     \begin{equation}
+       \underbrace{\text{(全変動) }SS_T}_{\text{自由度 }n{-}1}
+       =\underbrace{\text{(級内変動) }SS_W}_{\text{自由度 }n{-}p}
+       +\underbrace{\text{(級間変動) }SS_B}_{\text{自由度 }p{-}1}
+     \end{equation}
+   - 帰無仮説 $H_0$ が正しい:
+     - 水準内・水準間でのデータの変動はともに観測誤差が原因
+     - 自由度を除けば本質的な違いはない
+     - $SS_W/(n{-}p)$, $SS_B/(p{-}1)$ はともに $\sigma^2$ の不偏推定量
+   - 対立仮説 $H_1$ が正しい:
+     - 水準間での変動は観測誤差と平均値の差に影響される
+     - $SS_B$ は $SS_W$ より本質的に大きくなる
+
+** 一元配置の検定
+   - 検定統計量:
+     \begin{equation}
+       F=\frac{SS_B/(p{-}1)}{SS_W/(n{-}p)}
+     \end{equation}
+   - 帰無仮説の下で次の事実が成り立つ:
+     - $SS_B,SS_W$ は独立
+     - $SS_B$ は自由度 $p{-}1$ の $\chi^2$ 分布に従う
+     - $SS_W$ は自由度 $n{-}p$ の $\chi^2$ 分布に従う
+   - 帰無仮説の下 $F$ は自由度 $p{-}1,n{-}p$ の $F$ 分布に従う
+   - 対立仮説の下 $F$ は大きな値をとるので右片側検定
+
+** 棄却域の取り方
+   - 有意水準: $\alpha\in(0,1)$
+   - 自由度 $p{-}1,n{-}p$ の $F$ 分布の $1{-}\alpha$ 分位点:
+     $F_{1{-}\alpha}(p{-}1,n{-}p)$
+   - $H_0$ の下で以下が成立:
+     \begin{equation}
+       P(F>F_{1{-}\alpha}(p{-}1,n{-}p))=\alpha
+     \end{equation}
+   - 第一種過誤の上限が $\alpha$ となる棄却域:
+     \begin{equation}
+       \left(F_{1{-}\alpha}(p{-}1,n{-}p),\infty\right)
+     \end{equation}
+
+** 検定の手順
+   - データから検定統計量 $F$ の値を計算
+   - 棄却域を用いる方法: 以下の場合，帰無仮説を棄却
+     \begin{equation}
+       F>F_{1{-}\alpha}(p{-}1,n{-}p)
+     \end{equation}
+   - $p$ 値を用いる方法: $p$ 値を計算
+     \begin{equation}
+       \text{$p$値}=\int_{F}^\infty f(x)dx
+     \end{equation}
+     ($f(x)$ は自由度 $p{-}1,n{-}p$ の $F$ 分布の密度) \\
+     $p$ 値が $\alpha$ 未満なら帰無仮説を棄却
+
+** 分散分析表 (一元配置の場合)
+   |--------+---------+--------+----------------+--------+------------------------------------+---|
+   |        | 自由度  | 平方和 | 平均平方和     | $F$ 値 | $p$ 値                             |   |
+   |--------+---------+--------+----------------+--------+------------------------------------+---|
+   | 級間   | $p{-}1$ | $SS_B$ | $SS_B/(p{-}1)$ | $F$    | $\mathstrut\int_{F}^\infty f(x)dx$ |   |
+   | 級内   | $n{-}p$ | $SS_W$ | $SS_W/(n{-}p)$ |        |                                    |   |
+   |--------+---------+--------+----------------+--------+------------------------------------+---|
+   | 全変動 | $n{-}1$ | $SS_T$ |                |        |                                    |   |
+   |--------+---------+--------+----------------+--------+------------------------------------+---|
+
+** モデルの別表現
+  各水準の平均値の相対効果による定式化:
+  - 因子 $A$ 全体の平均効果: $\mu$
+  - 平均 $\mu$ を基準とした各水準 $A_i$ の相対的な効果: $\alpha_i$
+  - 平均値の別表現:
+    \begin{equation}
+      \mu_i=\mu+\alpha_i,\quad
+      \mu=\frac{1}{n}\sum_{i=1}^pn_i\mu_i,\quad
+      \sum_{i=1}^pn_i\alpha_i=0
+    \end{equation}
+  - 帰無仮説 $H_0$ は以下と同等:
+    \begin{equation}
+      \alpha_1=\cdots=\alpha_p=0
+    \end{equation}
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+    - ~anova-oneway.r~ を確認しなさい．
+    - 自身で収集したデータについて，
+      一元配置の問題を考えてみなさい．
+
+* 二元配置
+** 二元配置の問題
+  - 因子が2種類ある場合
+  - 一方の因子の水準の平均値に差があるか否かを検定
+  - もう一方の因子の水準で平均値に差があるかは不問
+  - 例: 複数の薬の効能を複数の被験者に投与する治験
+    - 「薬の種類」と「被験者番号」の2種類の因子
+    - 「薬の種類」という因子での薬の効能の差を検証したい
+    - 「被験者番号」という因子で効能に差があることは許容したい
+      (薬の効き目には個人差があると考えられるため)
+
+** 二元配置のモデル
+  - 2種類の因子 $A, B$
+    - 因子 $A$ には $a$ 個の水準: $A_1,\dotsc,A_a$
+    - 因子 $B$ には $b$ 個の水準: $B_1,\dotsc,B_b$
+    - 因子 $A,B$ の水準がそれぞれ $A_i,B_j$ である観測値: $Y_{ij}$
+  - 観測データのモデル:
+    \begin{equation}\label{two-way}
+      Y_{ij}=\alpha_i+\beta_j+\varepsilon_{ij}\quad
+      (i=1,\dotsc,a;\;j=1,\dotsc,b).
+    \end{equation}
+  - モデルの仮定:
+    - $\alpha_i,\beta_j$ は定数，それぞれ因子 $A,B$ の水準 $A_i,B_j$ における効果
+    - $\varepsilon_{ij}$ は独立同分布 (平均0, 分散 $\sigma^2$ の正規分布)
+
+** 二元配置の例
+  - 例: 複数の薬の治験の問題
+    - 因子 $A$: 「薬の種類」/ 因子 $B$: 「被験者番号」
+    - $\alpha_i$: 薬 $A_i$ の効能 / $\beta_j$: 被験者 $B_j$ 固有の薬の効きやすさ
+    - 薬の効能に差があるか否かという検定
+  - 因子 $A$ の各水準の効果に差があるか否かを検定する問題:
+    \begin{equation}
+      H_0:\alpha_1=\cdots=\alpha_a\quad\text{vs}\quad
+      H_1:\text{ある$i_1,i_2$に対して}\alpha_{i_1}\neq\alpha_{i_2}.
+    \end{equation}
+
+** 分析の考え方
+  - データの変動から因子間での変動と観測誤差の変動を抽出して比較
+  - 各種平均:
+    \begin{align}
+      &\text{(全データの標本平均)}
+      &\bar{Y}_{\cdot\cdot}&=\frac{1}{n}\sum_{i=1}^p\sum_{j=1}^{n_i}Y_{ij},\\
+      &\text{(水準$A_i$の標本平均)}
+      &\bar{Y}_{i\cdot}&=\frac{1}{b}\sum_{j=1}^bY_{ij}\quad
+                         (i=1,\dotsc,a),\\
+      &\text{(水準$B_j$の標本平均)}
+      &\bar{Y}_{\cdot j}&=\frac{1}{a}\sum_{i=1}^aY_{ij}\quad
+                          (j=1,\dotsc,b).
+    \end{align}
+    ただし $n=ab$
+
+** 分析の考え方 (つづき)
+  - 因子効果の推定量としての標本平均:
+    \begin{align}
+      \bar{Y}_{i\cdot}
+      &\to\alpha_i+\frac{1}{b}\sum_{j=1}^b\beta_j,\\
+      \bar{Y}_{\cdot j}
+      &\to\frac{1}{a}\sum_{i=1}^a\alpha_i+\beta_j,\\
+      \bar{Y}_{\cdot\cdot}
+      &\to\frac{1}{ab}\sum_{i=1}^a\sum_{j=1}^b(\alpha_i+\beta_j)=\frac{1}{a}\sum_{i=1}^a\alpha_i+\frac{1}{b}\sum_{j=1}^b\beta_j
+    \end{align}
+    \begin{equation}
+      Y_{ij}-\bar{Y}_{i\cdot}
+      -\bar{Y}_{\cdot j}+\bar{Y}_{\cdot\cdot}
+      \to\varepsilon_{ij}
+    \end{equation}
+
+** 分析の考え方 (つづき)
+  - 各種変動:
+    \begin{align}
+      &\text{(行間変動)}
+      &SS_A&=b\sum_{i=1}^a(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2,\\
+      &\text{(列間変動)}
+      &SS_B&=a\sum_{j=1}^b(\bar{Y}_{\cdot j}-\bar{Y}_{\cdot\cdot})^2,\\
+      &\text{(誤差変動)}
+      &SS_E&=\sum_{i=1}^a\sum_{j=1}^b(Y_{ij}-\bar{Y}_{i\cdot}
+             -\bar{Y}_{\cdot j}+\bar{Y}_{\cdot\cdot})^2.
+    \end{align}
+    - *行間変動*: 水準 $A$ 内でのデータの変動
+    - *列間変動*: 水準 $B$ 内でのデータの変動
+
+** 分析の考え方 (つづき)
+  - 変動の分解:
+    \begin{multline}
+      \underbrace{\text{(全変動) }SS_T}_{\text{自由度 }ab-1}
+      =\underbrace{\text{(行間変動) }SS_A}_{\text{自由度 }a-1}\\
+      +\underbrace{\text{(列間変動) }SS_B}_{\text{自由度 }b-1}
+      +\underbrace{\text{(誤差変動) }SS_B}_{\text{自由度 }(a-1)(b-1)}
+    \end{multline}
+  - 帰無仮説 $H_0$ が正しい:
+    - 変動 $SS_A,SS_E$ はともに観測誤差のみが原因で生じる
+    - 自由度を除けば本質的な違いはない
+    - $SS_A/(a{-}1)$, $SS_E/\{(a{-}1)(b{-}1)\}$ は $\sigma^2$ の不偏推定量
+
+** 分析の考え方 (つづき)
+  - 変動の分解:
+    \begin{multline}
+      \underbrace{\text{(全変動) }SS_T}_{\text{自由度 }ab-1}
+      =\underbrace{\text{(行間変動) }SS_A}_{\text{自由度 }a-1}\\
+      +\underbrace{\text{(列間変動) }SS_B}_{\text{自由度 }b-1}
+      +\underbrace{\text{(誤差変動) }SS_B}_{\text{自由度 }(a-1)(b-1)}
+    \end{multline}
+  - 対立仮説 $H_1$ が正しい:
+    - 因子 $A$ 内の水準間での効果 $\alpha_1,\dotsc,\alpha_a$ の差に影響される
+    - $SS_A$ は $SS_E$ より本質的に大きくなる
+
+** 二元配置の検定
+  - 検定統計量:
+    \begin{equation}
+      F_A=\frac{SS_A/(a{-}1)}{SS_E/\{(a{-}1)(b{-}1)\}}
+    \end{equation}
+  - 帰無仮説の下で次の事実が成り立つ:
+    - $SS_A,SS_E$ は独立
+    - $SS_A$ は自由度 $a{-}1$ の $\chi^2$ 分布に従う
+    - $SS_E$ は自由度 $(a{-}1)(b{-}1)$ の $\chi^2$ 分布に従う
+  - 帰無仮説の下 $F_A$ は自由度 $a{-}1,(a{-}1)(b{-}1)$ の $F$ 分布に従う
+  - 対立仮説の下 $F_A$ は大きな値をとるので右片側検定
+
+** 棄却域の取り方
+  - 有意水準: $\alpha\in(0,1)$
+  - 自由度 $a{-}1,(a{-}1)(b{-}1)$ の $F$ 分布の $1{-}\alpha$ 分位点:
+    $F_{1{-}\alpha}(a{-}1,(a{-}1)(b{-}1))$
+  - $H_0$ の下で以下が成立:
+    \begin{equation}
+      P(F_A>F_{1{-}\alpha}(a{-}1,(a{-}1)(b{-}1)))=\alpha
+    \end{equation}
+  - 第一種過誤の上限が $\alpha$ となる棄却域:
+    \begin{equation}
+      (F_{1{-}\alpha}(a{-}1,(a{-}1)(b{-}1)),\infty)
+    \end{equation}
+
+** 検定の手順
+  - データから検定統計量 $F_A$ の値を計算
+  - 棄却域を使う方法: 以下の場合，帰無仮説を棄却
+    \begin{equation}
+      F_A>F_{1{-}\alpha}(a{-}1,(a{-}1)(b{-}1))
+    \end{equation}
+  - $p$ 値を使う方法: $p$ 値を計算
+    \begin{equation}
+      \text{($p$値)}=\int_{F_A}^\infty f_{a{-}1,(a{-}1)(b{-}1)}(x)dx
+    \end{equation}
+    ($f$ は自由度 $a{-}1,(a{-}1)(b{-}1)$ の $F$ 分布の確率密度関数)\\
+    $p$ 値が $\alpha$ 未満なら帰無仮説を棄却
+
+** 分散分析表 (二配置の場合)
+   |----------------+------------------+--------+--------------------------------------------+--------------+----------------------------------------------------------------|
+   |                | 自由度           | 平方和 | 平均平方和                                 | $F\text{値}$ | $p\text{値}$                                                   |
+   |----------------+------------------+--------+--------------------------------------------+--------------+----------------------------------------------------------------|
+   | $\text{因子}A$ | $a{-}1$          | $SS_A$ | $\displaystyle\frac{SS_A}{a{-}1}$          | $F_A$        | $\displaystyle\int_{F_A}^\infty f_{a{-}1,(a{-}1)(b{-}1)}(x)dx$ |
+   | $\text{因子}B$ | $b{-}1$          | $SS_B$ | $\displaystyle\frac{SS_B}{b{-}1}$          | $F_B$        | $\displaystyle\int_{F_B}^\infty f_{b{-}1,(a{-}1)(b{-}1)}(x)dx$ |
+   |----------------+------------------+--------+--------------------------------------------+--------------+----------------------------------------------------------------|
+   | $\text{誤差}$  | $(a{-}1)(b{-}1)$ | $SS_E$ | $\displaystyle\frac{SS_E}{(a{-}1)(b{-}1)}$ |              |                                                                |
+   |----------------+------------------+--------+--------------------------------------------+--------------+----------------------------------------------------------------|
+   
+  # 因子 $A$ ではなく因子 $B$ の水準間の平均の差に関心がある場合は，
+  # $A$ と $B$ の役割を入れ替えて同様の議論を行えばよい  
+
+** モデルの別表現
+  相対効果による定式化:
+  - モデルの書き換え:
+    \begin{align}
+      \mu^*&=\bar{\alpha}+\bar{\beta},&
+      \alpha^*_i&=\alpha_i-\bar{\alpha},&
+      \beta^*_j&=\beta_j-\bar{\beta}\\
+           &&\bar{\alpha}&=\frac{1}{a}\sum_{i=1}^a\alpha_i,
+                &\bar{\beta}&=\frac{1}{b}\sum_{j=1}^b\beta_j
+    \end{align}
+    \begin{equation}
+      Y_{ij}=\mu^*+\alpha^*_i+\beta^*_j+\varepsilon_{ij}\quad
+      (i=1,\dotsc,a;\;j=1,\dotsc,b)
+    \end{equation}
+    \begin{equation}
+      \text{ただし }\sum_{i=1}^a\alpha^*_i=\sum_{j=1}^b\beta^*_j=0
+    \end{equation}
+  - 帰無仮説 $H_0$ は以下と同等:
+    \begin{equation}
+      \alpha^*_1=\cdots=\alpha^*_a=0
+    \end{equation}
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+    - ~anova-twoway.r~ を確認しなさい．
+    - 自身で収集したデータについて，
+      二元配置の問題を考えてみなさい．

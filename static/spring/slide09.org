@@ -1,0 +1,490 @@
+#+TITLE: 推定
+#+SUBTITLE: 確率分布を推定する
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE: 2019.06.14
+:preamble:
+#+INCLUDE: "./myconf.org"
+#+STARTUP: hidestars content
+# C-c C-x C-v でinlineを切り替え
+# <l C-i でlatex block
+# C-c '
+#+OPTIONS: LaTeX:t    
+#+PROPERTY: results output
+#+PROPERTY: exports both
+:end:
+
+* 推定とは
+** 統計解析の目標
+   - 観測データを確率変数の実現値と考えてモデル化
+   - 観測データの背後の確率分布を *推定*
+     - 分布のもつなんらかの特性量(平均や分散など)を評価する
+     - 分布そのものを決定する
+   - 統計学で広く利用されている推定方法を説明
+
+** 推定の枠組
+   - 観測データは独立同分布な確率変数列 $X_1,X_2,\dots,X_n$ 
+   - $X_i$ の従う共通の分布 $\mathcal{L}$ を想定
+   - $\mathcal{L}$  としてすべての分布を考察対象とすることは困難
+     - 対象とする範囲が広くなりすぎる
+     - データ数 $n$ が大きくないと意味のある結論を導き出せない
+   - 確率分布 $\mathcal{L}$ を特徴づけるパラメータ $\theta$ を考察対象
+     - $\mathcal{L}$ の平均・分散・歪度・尖度など
+     - $\mathcal{L}$ の *確率関数・確率密度関数のパラメータ*
+
+* 点推定
+** パラメータの点推定
+   - $\mathcal{L}$ に含まれるパラメータ $\theta$ を $X_1,\dots,X_n$ の関数
+     \begin{equation}
+       \hat{\theta}=\hat{\theta}(X_1,\dots,X_n)
+     \end{equation}
+     で推定すること
+   -  $\hat{\theta}$ を $\theta$ の *推定量* と呼ぶ
+   - 記述統計量は分布のパラメータの推定量の一つ
+     - 例: $\mathcal{L}$ の平均 $\mu$ を
+       標本平均 $\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i$ によって
+       推定することが点推定であり,
+       $\bar{X}$ は $\mu$ の推定量となる．
+
+** 良い推定量
+   - 一般に1つのパラメータの推定量は無数に存在
+   - 推定量の良さを評価する基準が必要
+   - 代表的な基準: *不偏性・一致性*
+     - $\hat{\theta}$ が $\theta$ の不偏推定量:
+       \begin{equation}
+	 E[\hat{\theta}]=\theta
+       \end{equation}
+     -  $\hat{\theta}$ が $\theta$ の(強)一致推定量:
+       \begin{equation}
+	 \text{$\hat{\theta}$ が $\theta$ に収束する確率が1}\quad (n\to\infty)
+       \end{equation}
+     - 例: 標本平均, 不偏分散はそれぞれ
+       $\mathcal{L}$ の平均, 分散の不偏かつ一致性をもつ推定量
+
+** 良い不偏推定量
+   - 一般に不偏推定量も複数存在
+     - 例: $\mathcal{L}$ の平均 $\mu$ の不偏推定量:
+       - 標本平均 $\bar{X}$ 
+       - $X_1$ 
+       - $X_1,\dots,X_n$ のメディアン
+	 ( $\mathcal{L}$ が $x=\mu$ に関して対称な場合)
+   - 不偏推定量の良さを評価する基準が必要
+   - *一様最小分散不偏推定量*:
+     $\theta$ の任意の不偏推定量 $\hat{\theta}'$ 
+     に対して推定値のばらつき(分散)が最も小さいもの
+     \begin{equation}
+       \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
+     \end{equation}
+
+** Cramer-Raoの不等式
+   $\mathcal{L}$ は1次元パラメータ $\theta$ を含む連続分布とし，
+   その確率密度関数 $f_\theta(x)$ は $\theta$ に関して
+   偏微分可能であるとする．
+   このとき，緩やかな仮定の下で，
+   $\theta$ の任意の不偏推定量 $\hat{\theta}$ に対して
+   以下の不等式が成り立つ:
+   \begin{equation}%\label{cr-bound}
+     \mathrm{Var}(\hat{\theta})\ge \frac{1}{nI(\theta)}.
+   \end{equation}
+   ただし
+   \begin{equation}
+     I(\theta)=\int_{-\infty}^\infty
+     \left(\frac{\partial}{\partial\theta}\log f_\theta(x)\right)^2
+     f_\theta(x)dx.
+   \end{equation}
+
+** 一様最小分散不偏推定量
+   - 定理の不等式: *Cramer-Raoの不等式*
+   - 下界 $1/(nI(\theta))$ : *Cramer-Rao下界*
+   - $I(\theta)$ : *Fisher情報量*
+
+   Cramer-Raoの不等式は
+   一様最小分散不偏推定量を見出す方法の1つとして利用できる．
+
+   $\theta$ の不偏推定量 $\hat{\theta}$ で
+   分散がCramer-Rao下界 $1/(nI(\theta))$ に一致するものが存在すれば，
+   それは一様最小分散不偏推定量となる．
+
+** 例: 正規分布モデルの標本平均
+   - $\mathcal{L}$ が平均 $\mu$ , 分散 $\sigma^2$ の正規分布を考える
+   - 平均パラメーター $\mu$ に関するFisher情報量:
+     \begin{align}
+       I(\mu)=\frac{1}{\sqrt{2\pi\sigma^2}}
+       \int_{-\infty}^\infty\frac{(x-\mu)^2}{\sigma^4}
+       e^{-\frac{(x-\mu)^2}{2\sigma^2}}dx
+       =\frac{1}{\sigma^2}
+     \end{align}
+   - Cramer-Rao下界: $\sigma^2/n$ 
+   - 標本平均 $\bar{X}$ の分散: $\sigma^2/n$ (=Cramer-Rao下界)
+   - $\bar{X}$ は $\mu$ の一様最小分散不偏推定量
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ~est-umvue.r~ を確認しなさい．
+   - 一様乱数を用いて，以下の平均値の推定量の分散を比較しなさい．
+     - 標本平均
+     - メディアン
+     - 最大値と最小値の平均
+
+
+* 最尤法
+** 離散分布の場合
+   - 確率関数: $f_{\boldsymbol{\theta}}(x)$ 
+   - 確率関数のパラメータ: $\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)$ 
+   - 観測値 $X_1=x_1,X_2=x_2,\dots,X_n=x_n$ の同時確率:
+     \begin{align}
+       & P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)\\
+       =&\prod_{i=1}^nP(X_i=x_i)\\
+       =&
+       \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+       =f_{\boldsymbol{\theta}}(x_1)\cdot
+       f_{\boldsymbol{\theta}}(x_2)\cdots
+       f_{\boldsymbol{\theta}}(x_n)
+     \end{align}
+
+** 尤度関数
+   - $\boldsymbol{\theta}$ *の尤度* $L(\boldsymbol{\theta})$ : 
+     パラメータ $\boldsymbol{\theta}$ に対して
+     観測データ $X_1,X_2,\dots,X_n$ が得られる理論上の確率: 
+     \begin{equation}
+       L(\boldsymbol{\theta})
+       :=\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
+     \end{equation}
+   - 観測データ $X_1,X_2,\dots,X_n$ が現れるのに
+     パラメータ $\boldsymbol{\theta}$ の値が
+     どの程度尤もらしいかを測る尺度
+   - *尤度関数* $L(\boldsymbol{\theta})$ :
+     $\boldsymbol{\theta}$ の関数とみなしたもの
+
+** 最尤法
+   - *最尤法*: 観測データに対して「最も尤もらしい」パラメータ
+     を $\boldsymbol{\theta}$ の推定量として採用する方法 
+   - *最尤推定量* $\hat{\boldsymbol{\theta}}$ :
+     尤度関数を最大とする $\boldsymbol{\theta}$ 
+     \begin{equation}
+       L(\hat{\boldsymbol{\theta}})
+       =\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+     \end{equation}
+     または以下のように表現
+     \begin{equation}
+       \hat{\boldsymbol{\theta}}
+       =\arg\max_{\boldsymbol{\theta}\in\Theta}L(\boldsymbol{\theta}).
+     \end{equation}
+     $\Theta$ は尤度関数の定義域
+
+** 最尤推定量の計算
+   - 扱い易い和の形に直すために対数を取ることが多い
+   - *対数尤度関数*:
+     \begin{equation}
+       \ell(\boldsymbol{\theta})
+       :=\log L(\boldsymbol{\theta})
+       =\sum_{i=1}^n\log f_{\boldsymbol{\theta}}(X_i).
+     \end{equation}
+     - 対数関数は狭義増加
+     - $\ell(\boldsymbol{\theta})$ の最大化と $L(\boldsymbol{\theta})$ の最大化は同義
+   - 広い範囲の確率分布に対して最尤推定量は *一致性を持つ*
+
+** 連続分布の場合
+   - *確率密度関数* を用いて尤度を定義
+   - 確率密度関数: $f_{\boldsymbol{\theta}}(x)$ 
+   - *尤度関数*: 
+     \begin{equation}
+       L(\boldsymbol{\theta})
+       =\prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+       =f_{\boldsymbol{\theta}}(x_1)\cdot
+       f_{\boldsymbol{\theta}}(x_2)\cdots
+       f_{\boldsymbol{\theta}}(x_n)
+     \end{equation}
+   - *対数尤度関数*:
+     \begin{equation}
+       \ell(\boldsymbol{\theta})
+       :=\log L(\boldsymbol{\theta})
+       =\sum_{i=1}^n\log f_{\boldsymbol{\theta}}(X_i)
+     \end{equation}
+
+** 例: Poisson分布
+   - $\mathcal{L}$ をパラメータ $\lambda>0$ のPoisson分布でモデル化
+   - 対数尤度関数 (未知パラメータ: $\lambda$ )
+     \begin{equation}
+       \ell(\lambda)=\sum_{i=1}^n\log\frac{\lambda^{X_i}}{X_i!}e^{-\lambda}
+       =\sum_{i=1}^n(X_i\log\lambda-\log X_i!)-n\lambda
+     \end{equation}
+   - 少なくとも1つの $i$ について $X_i>0$ を仮定する
+
+** 例: Poisson分布 (つづき)
+   - $\ell(\lambda)$ の微分: 
+     \begin{equation}
+       \ell'(\lambda)=\frac{1}{\lambda}\sum_{i=1}^nX_i-n,\quad
+       \ell''(\lambda)=-\frac{1}{\lambda^2}\sum_{i=1}^nX_i<0
+     \end{equation}
+   - 方程式 $\ell'(\lambda)=0$ の解が $\ell(\lambda)$ を最大化
+   - $\lambda$ の最尤推定量:
+     \begin{equation}
+       \hat{\lambda}=\frac{1}{n}\sum_{i=1}^nX_i
+     \end{equation}
+
+** 例: 指数分布
+   - $\mathcal{L}$ をパラメータ $\lambda>0$ の指数分布でモデル化
+   - 対数尤度関数 (未知パラメータ: $\lambda$ )
+     \begin{equation}
+       \ell(\lambda)=\sum_{i=1}^n\log\lambda e^{-\lambda X_i}
+       =n\log\lambda-\lambda\sum_{i=1}^nX_i
+     \end{equation}
+
+** 例: 指数分布 (つづき)
+   - $\ell(\lambda)$ の微分: 
+     \begin{equation}
+       \ell'(\lambda)=\frac{n}{\lambda}-\sum_{i=1}^nX_i,\quad
+       \ell''(\lambda)=-\frac{n}{\lambda^2}<0
+     \end{equation}
+   - 方程式 $\ell'(\lambda)=0$ の解が $\ell(\lambda)$ を最大化
+   - $\lambda$ の最尤推定量:
+     \begin{equation}
+       \hat{\lambda}=\frac{1}{\frac{1}{n}\sum_{i=1}^nX_i}
+     \end{equation}
+
+** 例: ガンマ分布
+   - $\mathcal{L}$ をパラメータ $\nu,\alpha>0$ のガンマ分布でモデル化
+   - 対数尤度関数 (未知パラメータ: $\nu,\alpha$ )
+     \begin{align}
+       \ell(\nu,\alpha)
+       &=\sum_{i=1}^n\log\frac{\alpha^\nu}{\Gamma(\nu)}X_i^{\nu-1}e^{-\alpha X_i}\\
+       &=n\nu\log\alpha-n\log\Gamma(\nu)+\sum_{i=1}^n\{(\nu-1)\log X_i-\alpha X_i\}
+     \end{align}
+   - $\ell(\nu,\alpha)$ を最大化する $\nu,\alpha$ は解析的に求まらないので実際の計算では数値的に求める
+   # % - 数値計算の際に対数尤度関数の勾配(偏導関数からなるベクトル)があると便利なので計算しておく: 
+   # %   \begin{align}
+   # %     \frac{\partial\ell}{\partial\nu}(\nu,\alpha)
+   # %     &=n\log\alpha-n\psi(\nu)+\sum_{i=1}^n\log X_i,\\
+   # %     \frac{\partial\ell}{\partial\alpha}(\nu,\alpha)
+   # %     &=\frac{n\nu}{\alpha}-\sum_{i=1}^nX_i
+   # %   \end{align}
+   # %   ここに,  $ \psi(\nu)=\frac{d}{d\nu}\log\Gamma(\nu) $ であり, ディガンマ関数と呼ばれる(Rでは\fun{digamma}で計算できる)
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ~est-mle.r~ を確認しなさい．
+   - 自身で収集したデータについてモデル化し，
+     最尤推定量を求めなさい．
+
+* 区間推定
+** 推定誤差
+   - 推定量 $\hat{\theta}$ には推定誤差が必ず存在
+   - 推定結果の定量的な評価には推定誤差の評価が重要
+   - 「誤差 $\hat{\theta}-\theta$ が
+     区間 $[l,u]$ の外側(内側)にある確率が $\alpha$ ($1{-}\alpha$) 以下 」 
+     \begin{equation}
+       P(l\le\hat{\theta}-\theta\le u)\ge 1{-}\alpha
+     \end{equation}
+   - 「 $\theta$ が含まれる確率が $1{-}\alpha$ 以上となるような区間
+      $[\hat{\theta}-u,\hat{\theta}-l]$ を推定」
+     \begin{equation}
+       P(\hat{\theta}-u\le\theta\le \hat{\theta}-l)\ge 1{-}\alpha
+     \end{equation}
+   # 
+   # % - *区間推定*: 固定した $\alpha\in(0,1)$ に対し $l,u$ を観測データから推定
+
+** 区間推定
+   - *区間推定*: 
+     未知パラメータ $\theta$ とある値 $\alpha\in(0,1)$ に対して
+     以下を満たす確率変数 $L,U$ を観測データから求めること
+     \begin{equation}
+       P(L\le\theta\le U)\ge 1{-}\alpha
+     \end{equation}
+     - 区間 $[L,U]$ : $1{-}\alpha$ *信頼区間* ($100(1{-}\alpha)$ % と書くことも多い)
+     - $L$ : $1{-}\alpha$ *下側信頼限界*
+     - $U$ : $1{-}\alpha$ *上側信頼限界*
+     - $1{-}\alpha$ : *信頼係数*
+       ($\alpha=0.01,0.05,0.1$ とすることが多い)
+
+** 信頼区間
+   - 信頼区間は幅が狭いほど推定精度が良い\\
+     (真のパラメータが取りうる値の範囲を限定することになるため)
+   - 最も推定精度の良い $1{-}\alpha$ 信頼区間 $[L,U]$ は
+     \begin{equation}
+       P(L\le\theta\le U)=1{-}\alpha
+     \end{equation}
+     (信頼区間の幅が狭いほど確率 $P(L\le\theta\le U)$ は小さくなるため)
+   - 実行可能である限り
+     $1{-}\alpha$ 信頼区間 $[L,U]$ は上式を満たすように
+     $L,U$ を決定する
+
+* 正規母集団の区間推定
+** 正規分布の性質1
+   正規分布に従う独立な確率変数の重み付き和は正規分布に従う
+   - $Z_1,Z_2,\dots,Z_k$ を独立な確率変数列とし，
+     各 $i=1,2,\dots,k$ に対して $Z_i$ は平均 $\mu_i$ ，
+     分散 $\sigma_i^2$ の正規分布に従うとする．
+     このとき $a_0,a_1,\dots,a_k$ を $(k+1)$ 個の0でない実数とすると，
+     $a_0+\sum_{i=1}^ka_iZ_i$ は
+     平均 $a_0+\sum_{i=1}^ka_i\mu_i$ ，
+     分散 $\sum_{i=1}^ka_i^2\sigma_i^2$ の正規分布に従う．
+
+** 正規分布の性質2
+   - $k=n$, $\mu_i=\mu$, $\sigma_i^2=\sigma^2$, $a_0=0$,
+     $a_i=1/n\;(i=1,\dots,n)$
+     \begin{equation}
+       \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i \quad\text{(標本平均)}
+     \end{equation}
+     は平均 $\mu$ , 分散 $\sigma^2/n$ の正規分布に従う
+   -  $k=1$ , $\mu_1=\mu$ , $\sigma_1^2=\sigma^2/n$ ,
+      $a_0=-\sqrt{n}\mu/\sigma$ , $a_1=\sqrt{n}/\sigma$
+     \begin{equation}
+       \frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+     \end{equation}
+     は標準正規分布に従う
+
+** 平均の区間推定 (分散既知)
+   - $z_{1{-}\alpha/2}$ を標準正規分布の
+     $1{-}\alpha/2$ 分位点とすれば
+     \begin{equation}
+       P\Bigl(-z_{1{-}\alpha/2}\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+	 \le z_{1{-}\alpha/2}\Bigr)=1{-}\alpha
+     \end{equation}
+   - $\mu$ について解くと
+     \begin{equation}
+       P\Bigl(\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\le\mu
+	 \le\bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n} \Bigr)=1{-}\alpha
+     \end{equation}
+   -  $\sigma$ が既知の場合の平均 $\mu$ の $1{-}\alpha$ *信頼区間*:
+     \begin{equation}
+       \bigl[\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n},\;
+       \bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\bigr]
+     \end{equation}
+
+** 正規分布の性質3
+   - $X_1,X_2,\dots,X_n$ は独立同分布な確率変数列で，
+     平均 $\mu$ ，分散 $\sigma^2$ の正規分布に従うとする．
+     不偏分散を
+     \begin{equation}
+       s^2=\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2
+     \end{equation}
+     とすると， $\bar{X}$ と $s^2$ は独立であり，
+     確率変数 $(n{-}1)s^2/\sigma^2$ は自由度 $n{-}1$ の $\chi^2$ 分布に従う．
+
+** 正規分布の性質4
+   - 上の命題と $\sqrt{n}(\bar{X}-\mu)/\sigma$ が標準正規分布に従うこ
+     とから，
+     確率変数
+     \begin{equation}
+       \frac{\sqrt{n}(\bar{X}-\mu)}{s}
+       \left(=\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
+	 {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}\right)
+     \end{equation}
+     は自由度 $n{-}1$ の $t$ 分布に従う
+
+** 平均の区間推定 (分散未知)
+   -  $t_{1{-}\alpha/2}(n{-}1)$ を自由度 $n{-}1$ の $t$ 分布の
+     $1{-}\alpha/2$ 分位点とすれば
+     \begin{equation}
+       P\Bigl(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
+	 \le t_{1{-}\alpha/2}(n{-}1)\Bigr)=1{-}\alpha
+     \end{equation}
+   - 分散が未知の場合の平均 $\mu$ の $1{-}\alpha$ *信頼区間*:
+     \begin{equation}
+       \bigl[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot s/\sqrt{n},\;
+       \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot s/\sqrt{n}\bigr]
+     \end{equation}
+
+** 正規分布の性質5
+   -  $(n{-}1)s^2/\sigma^2$ は自由度 $n{-}1$ の $\chi^2$ 分布に従う
+   -  $\chi^2_{\alpha/2}(n{-}1)$ ,  $\chi^2_{1{-}\alpha/2}(n{-}1)$ を
+     それぞれ自由度 $n{-}1$ の $\chi^2$ 分布の
+      $\alpha/2, 1{-}\alpha/2$ 分位点とすれば
+     \begin{equation}\label{eq:svar-chisq}
+       P\Bigl(\chi^2_{\alpha/2}(n{-}1)\le(n{-}1)s^2/\sigma^2
+	 \le \chi^2_{1{-}\alpha/2}(n{-}1)\Bigr)
+       =1{-}\alpha
+     \end{equation}
+
+** 分散の区間推定
+   -  $\sigma^2$ について解いて
+     \begin{multline}
+       P\Bigl((n{-}1)s^2/\chi^2_{1{-}\alpha/2}(n{-}1)
+	 \le \sigma^2\le(n{-}1)s^2/\chi^2_{\alpha/2}(n{-}1)\Bigr)\\
+       =1{-}\alpha
+     \end{multline}
+   -  $\sigma^2$ の $1{-}\alpha$ *信頼区間*: 
+     \begin{equation}
+       \bigl[(n{-}1)s^2/\chi^2_{1{-}\alpha/2}(n{-}1),(n{-}1)s^2/\chi^2_{\alpha/2}(n{-}1)\bigr]
+     \end{equation}
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ~est-ci-mean.r~ を確認しなさい．
+   - ~est-ci-mean-unknown.r~ を確認しなさい．
+   - ~est-ci-var.r~ を確認しなさい．
+
+* 漸近正規性による区間推定
+** 推定量の漸近正規性
+   - *漸近正規性*: 多くの推定量 $\hat{\theta}$ の分布は正規分布で近似できる
+     - モーメントに基づく記述統計量は漸近正規性をもつ
+     - 最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ
+     いずれも中心極限定理にもとづく
+   - 正規分布を用いて近似的に信頼区間を構成することができる
+   # - 推定誤差の分布が正規分布で近似できる場合
+
+** 標本平均の漸近正規性
+   - 確率分布 $\mathcal{L}$ が2次のモーメントを持てば，
+     $\mathcal{L}$ の平均 $\mu$ の推定量である標本平均
+     は漸近正規性をもつ
+     \begin{equation}
+       \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
+     \end{equation}
+   - $\mathcal{L}$ の標準偏差を $\sigma$ とすれば, 
+     任意の $a\le b$ に対して以下が成立する
+   ( $\phi$ は標準正規分布の確率密度関数)
+     \begin{equation}\label{ci-clt}
+       P\left(a\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+	 \le b\right)\to\int_a^b\phi(x)dx\quad(n\to\infty)
+     \end{equation}
+     
+** 標本平均の漸近正規性 (つづき)
+   -  $z_{1{-}\alpha/2}$ を標準正規分布の
+      $1{-}\alpha/2$ 分位点とすれば
+     \begin{equation}
+       P\left(-z_{1{-}\alpha/2}\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+	 \le z_{1{-}\alpha/2}\right)\to1{-}\alpha\quad(n\to\infty)
+     \end{equation}
+   -  $\mu$ について解くと
+     \begin{multline}
+       P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}
+	 \le\mu \le\bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n} \right)\\
+       \to1{-}\alpha\quad(n\to\infty)
+     \end{multline}
+
+** 平均の区間推定 (分散既知)
+   -  $\sigma$ が既知の場合の平均 $\mu$ の $1{-}\alpha$ *信頼区間*:
+     \begin{equation}
+       \left[\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n},\;
+       \bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\right]
+     \end{equation}
+     (サンプル数 $n$ が十分大きい場合に近似的に正しい)
+
+** 平均の区間推定 (分散未知)
+   -  $\sigma$ をその一致推定量 $\hat{\sigma}$ で置き換えてもそのまま成立する
+   -  $\sigma$ が未知の場合の平均 $\mu$ の $1{-}\alpha$ *信頼区間*:
+     \begin{equation}
+       \left[\bar{X}-z_{1{-}\alpha/2}\cdot\hat{\sigma}/\sqrt{n},\;
+       \bar{X}+z_{1{-}\alpha/2}\cdot\hat{\sigma}/\sqrt{n}\right]
+     \end{equation}
+     (サンプル数 $n$ が十分大きい場合に近似的に正しい)
+   - $\hat{\sigma}$ としては例えば不偏分散の平方根を用いる:
+     \begin{equation}
+       \hat{\sigma}=\sqrt{\frac{1}{n{-}1}\sum_{i=1}^n(X_i-\bar{X})^2}
+     \end{equation}
+
+** 演習
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - ~est-ci-mean-asymp.r~ を確認しなさい．
+   - ~est-ci-mle.r~ を確認しなさい．
+   - 自身で収集したデータについてモデル化し，
+     区間推定を行いなさい．

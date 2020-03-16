@@ -1,0 +1,5 @@
+> install.packages("ggplot2",repos='https://cran.ism.ac.jp/')
+
+ ダウンロードされたパッケージは、以下にあります 
+ 	/var/folders/py/fjm6f39972b0n4__dl9d_8xw0000z8/T//RtmpMsVncS/downloaded_packages 
+> 
