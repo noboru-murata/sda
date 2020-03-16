@@ -77,7 +77,7 @@
   多変量解析の様々な手法を学びます．
 
   講義資料としては
-   - Rの基礎編 [[https://github.com/noboru-murata/sda/blob/master/text/note1.pdf][(PDF)]]  
+   - Rの基礎編 [[github:docs/note1.pdf][(PDF)]]  
    - 多変量解析編 (準備中) 
   を主に使います．
 
