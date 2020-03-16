@@ -47,7 +47,7 @@
   確率論や推測統計の基礎を学びます．
 
   講義資料としては
-   - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] 
+   - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] [[github:docs/script1.zip][(Rscript)]] 
    - 確率と統計編 (準備中) 
   を主に使います．
 
@@ -77,7 +77,7 @@
   多変量解析の様々な手法を学びます．
 
   講義資料としては
-   - Rの基礎編 [[github:docs/note1.pdf][(PDF)]]  
+   - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] [[github:docs/script1.zip][(Rscript)]]  
    - 多変量解析編 (準備中) 
   を主に使います．
 
