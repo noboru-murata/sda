@@ -17,22 +17,22 @@ weight = 1004
 
 を主に使います．
 
-[ガイダンス資料](../../autumn/slide00.html)
+[ガイダンス資料](https://noboru-murata.github.io/sda/autumn/slide00.html)
 
 
 ## スライド (2019年度版) {#スライド--2019年度版}
 
-1.  [RとRstudio](../../autumn/slide01.html) (R言語の使い方)
-2.  [データの取り扱い](../../autumn/slide02.html)
-3.  [可視化とモンテカルロ法](../../autumn/slide03.html)
-4.  [回帰分析 - モデルの推定](../../autumn/slide04.html)
-5.  [回帰分析 - モデルの評価](../../autumn/slide05.html)
-6.  [回帰分析 - 予測と発展的なモデル](../../autumn/slide06.html)
-7.  [主成分分析 - 考え方](../../autumn/slide07.html)
-8.  [主成分分析 - 評価と視覚化](../../autumn/slide08.html)
-9.  [判別分析 - 考え方](../../autumn/slide09.html)
-10. [判別分析 - 評価](../../autumn/slide10.html)
-11. [クラスター分析 - 階層的方法](../../autumn/slide11.html)
-12. [クラスター分析 - 非階層的方法](../../autumn/slide12.html)
-13. [時系列解析 - 基本的なモデル](../../autumn/slide13.html)
-14. [時系列解析 - 推定と予測](../../autumn/slide14.html)
+1.  [RとRstudio](https://noboru-murata.github.io/sda/autumn/slide01.html) (R言語の使い方)
+2.  [データの取り扱い](https://noboru-murata.github.io/sda/autumn/slide02.html)
+3.  [可視化とモンテカルロ法](https://noboru-murata.github.io/sda/autumn/slide03.html)
+4.  [回帰分析 - モデルの推定](https://noboru-murata.github.io/sda/autumn/slide04.html)
+5.  [回帰分析 - モデルの評価](https://noboru-murata.github.io/sda/autumn/slide05.html)
+6.  [回帰分析 - 予測と発展的なモデル](https://noboru-murata.github.io/sda/autumn/slide06.html)
+7.  [主成分分析 - 考え方](https://noboru-murata.github.io/sda/autumn/slide07.html)
+8.  [主成分分析 - 評価と視覚化](https://noboru-murata.github.io/sda/autumn/slide08.html)
+9.  [判別分析 - 考え方](https://noboru-murata.github.io/sda/autumn/slide09.html)
+10. [判別分析 - 評価](https://noboru-murata.github.io/sda/autumn/slide10.html)
+11. [クラスター分析 - 階層的方法](https://noboru-murata.github.io/sda/autumn/slide11.html)
+12. [クラスター分析 - 非階層的方法](https://noboru-murata.github.io/sda/autumn/slide12.html)
+13. [時系列解析 - 基本的なモデル](https://noboru-murata.github.io/sda/autumn/slide13.html)
+14. [時系列解析 - 推定と予測](https://noboru-murata.github.io/sda/autumn/slide14.html)

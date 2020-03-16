@@ -3,8 +3,8 @@ all: html
 html:
 	hugo
 
-sync:
-	rsync --delete -auv public/ ~/Sites/sda/
+push:
+	git push -u origin master
 
 clean:
 	rm -f content/*~

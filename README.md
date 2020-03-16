@@ -1,1 +1,6 @@
-# statisitcal data analysis
+
+
+# 統計データ解析
+
+講義ノートとコードの公開用
+
