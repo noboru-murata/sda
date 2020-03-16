@@ -15,6 +15,6 @@ weight = 1002
 
 ## Rscript とデータ {#rscript-とデータ}
 
-1.  Rの基礎編 [(zipped)](https://noboru-murata.github.io/sda/docs/script11.zip)
+1.  Rの基礎編 [(zipped)](https://noboru-murata.github.io/sda/docs/script1.zip)
 2.  確率と統計編 (準備中)
 3.  多変量解析編 (準備中)
