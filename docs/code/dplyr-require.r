@@ -1,1 +1,1 @@
-require(dplyr) # パッケージdplyrを読み込む
+library(dplyr) # パッケージdplyrを読み込む

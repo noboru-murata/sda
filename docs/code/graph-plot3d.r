@@ -11,7 +11,7 @@ persp(x, y, z,
       col="royalblue", main=expression(z==x^2-y^2))
 ### 3次元散布図(パッケージscatterplot3dを利用)
 ## install.packages("scatterplot3d") # 初めて使う場合
-require(scatterplot3d) # パッケージのロード
+library(scatterplot3d) # パッケージのロード
 par(family="HiraginoSans-W4") 
 myData <- subset(read.csv("data/tokyo_weather.csv",
                           fileEncoding="utf8"), 

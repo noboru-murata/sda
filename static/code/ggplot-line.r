@@ -9,7 +9,7 @@ ggplot(myData, aes(x=Date)) +
     geom_line(aes(y=Ozone), colour="red") +
     geom_line(aes(y=Temp), colour="blue") # 重ね描き
 ## 複数の系列を描画
-require(tidyverse)
+library(tidyverse)
 myData <- airquality %>% 
     mutate(Date=as.Date(
                paste(Month,Day,"73",sep="/"),

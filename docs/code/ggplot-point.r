@@ -1,6 +1,6 @@
 ### datasets::airquality を用いた描画例
-require(MASS) # パッケージの読み込み
-require(tidyverse) # 読み込む順番にも注意が必要
+library(MASS) # パッケージの読み込み
+library(tidyverse) # 読み込む順番にも注意が必要
 ## 日射量とオゾン量の関係を見るために散布図を描く
 ggplot(airquality, aes(Solar.R, Ozone)) +
     geom_point(colour="red", size=2, # 色とサイズを指定

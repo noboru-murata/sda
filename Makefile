@@ -6,7 +6,7 @@ html:
 	hugo
 
 push:
-	git add -u
+	git add --all
 	git commit -m ${MSG}
 	git push -u origin master
 
