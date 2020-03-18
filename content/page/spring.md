@@ -14,7 +14,7 @@ weight = 1003
 講義資料としては
 
 -   Rの基礎編 [(PDF)](https://noboru-murata.github.io/sda/docs/note1.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script1.zip)
--   確率と統計編 (準備中)
+-   確率と統計編 [(PDF)](https://noboru-murata.github.io/sda/docs/note2.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script2.zip)
 
 を主に使います．
 

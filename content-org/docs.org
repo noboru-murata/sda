@@ -29,11 +29,11 @@
   :END:
 ** テキスト
    1. Rの基礎編 [[github:docs/note1.pdf][(PDF)]] 
-   2. 確率と統計編 (準備中)
+   2. 確率と統計編 [[github:docs/note2.pdf][(PDF)]] 
    3. 多変量解析編 (準備中)
 ** Rscript とデータ
    1. Rの基礎編 [[github:docs/script1.zip][(zipped)]] 
-   2. 確率と統計編 (準備中)
+   2. 確率と統計編 [[github:docs/script2.zip][(zipped)]] 
    3. 多変量解析編 (準備中)
 
 * 数理科学続論 I
@@ -48,7 +48,7 @@
 
   講義資料としては
    - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] [[github:docs/script1.zip][(Rscript)]] 
-   - 確率と統計編 (準備中) 
+   - 確率と統計編 [[github:docs/note2.pdf][(PDF)]] [[github:docs/script2.zip][(Rscript)]] 
   を主に使います．
 
   [[github:spring/slide00.html][ガイダンス資料]]
