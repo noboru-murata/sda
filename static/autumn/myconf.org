@@ -1,7 +1,0 @@
-# Local IspellDict: en
-#+INCLUDE: "~/.emacs.d/oer-reveal-org/config.org"
-
-# Use custom title slide.
-#+REVEAL_TITLE_SLIDE: title-slide.html
-# Use my css 
-#+REVEAL_EXTRA_CSS: ./myconf.css
