@@ -1,9 +1,11 @@
 ### データの標準化 (気候データによる例)
-kikou <- read.csv("kikou2016.csv", fileEncoding="sjis") # データの読み込み
-dat <- subset(kikou, select=-c(月, 日)) # 月日は計算対象から削除
-head(dat)
-dat.std <- scale(dat) # 各変数ごとに標準化
-head(dat.std)
-colMeans(dat.std) # 各変数の平均が0であることの確認
-apply(dat.std, 2, "sd") # 各変数の標準偏差が1であることの確認
+myData <- subset(read.csv("data/tokyo_weather.csv",
+                          fileEncoding="utf8"), 
+                 select=c(気温,降水量,日射量,風速))
+### 基本的な箱ひげ図
+head(myData)
+myData.std <- scale(myData) # 各変数ごとに標準化
+head(myData.std)
+colMeans(myData.std) # 各変数の平均が0か確認
+apply(myData.std, 2, "sd") # 各変数の標準偏差が1か確認
 
