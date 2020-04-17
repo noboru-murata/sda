@@ -55,7 +55,7 @@
 
 ** スライド
    1. [[github:spring/slide01.html][Rの基本的な操作]]
-
+      [[github:spring/pdfs/Rの基本的な操作.pdf][(PDF)]]
 ** 参考: 2019年度版スライド
    2. [[github:spring/slide02.html][データ構造と関数]]
    3. [[github:spring/slide03.html][データの整理と集計]]
