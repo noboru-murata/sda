@@ -25,7 +25,7 @@ canonifyurls = true
   # logoalt = ""
 
   # Mention your hosting provider 
-  hosted_on = "github.com"
+  hosted_on = "GitHub"
   hosted_on_url= "https://noboru-murata.github.io/"
 
   # main sections
