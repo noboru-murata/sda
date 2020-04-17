@@ -15,8 +15,6 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
 <link rel="stylesheet" href="./myconf.css"/>
@@ -31,9 +29,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body prefix="dc: http://purl.org/dc/elements/1.1/ dcterms: http://purl.org/dc/terms/ dcmitype: http://purl.org/dc/dcmitype/ cc: http://creativecommons.org/ns#" typeof="dcmitype:InteractiveResource">
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -51,20 +49,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.04.05</p>
+  2020.04.17</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgbb31a55">
-<h2 id="orgbb31a55">R言語の概要</h2>
-<div class="outline-text-2" id="text-orgbb31a55">
+<section id="slide-orge9b0025">
+<h2 id="orge9b0025">R言語の概要</h2>
+<div class="outline-text-2" id="text-orge9b0025">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaf1e241">
-<h3 id="orgaf1e241">R言語とは</h3>
+<section id="slide-org87a1608">
+<h3 id="org87a1608">R言語とは</h3>
 <ul>
 <li>統計計算のための言語と環境の総称</li>
 <li>オープンソース・フリーソフトウェア</li>
@@ -74,54 +72,50 @@
 <li>最新の技術や方法が簡単に導入できることも多い</li>
 
 </ul></li>
-<li><a href="https://www.r-project.org/">https://www.r-project.org/</a> (開発プロジェクトのサイト)</li>
+<li><a href="https://www.r-project.org/">https://www.r-project.org/</a> (プロジェクトのサイト)</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8190e15">
-<h3 id="org8190e15">RStudioとは</h3>
+<section id="slide-orgcf4fddb">
+<h3 id="orgcf4fddb">RStudioとは</h3>
 <ul>
-<li><p>
-RStudio社により開発・公開されている統合開発環境(IDE)
-</p>
+<li>RStudio社が開発している統合開発環境(IDE)
 <ul>
 <li>R によるデータ解析や統計計算・パッケージ開発を支援</li>
 <li>OSに依存しない対話型操作環境を提供</li>
 
-</ul>
-<p>
-本講義ではRStudioを用いて説明を行う
-</p></li>
+</ul></li>
+<li>本講義ではRStudioを用いて説明を行う</li>
 <li><a href="https://www.rstudio.com/">https://www.rstudio.com/</a> (RStudio社のサイト)</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfca0320">
-<h3 id="orgfca0320">Rの得意分野</h3>
+<section id="slide-orgd6d9d45">
+<h3 id="orgd6d9d45">Rの得意分野</h3>
 <ul>
 <li>データの分類・集計・整理</li>
 <li>記述統計量 (基本・要約統計量) の計算</li>
 <li>グラフによる視覚化</li>
 <li>プログラムによる処理の自動化</li>
 <li>擬似乱数による不確定性を含む現象の模擬 <br>
-(確率的シミュレーション・モンテカルロ法)</li>
+<span style="color:green;">確率的シミュレーション・モンテカルロ法</span></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgffb1725">
-<h3 id="orgffb1725">データの形式</h3>
+<section id="slide-orgc99ac0c">
+<h3 id="orgc99ac0c">データ形式の分類</h3>
 <ul>
 <li>構造化データ
 <ul>
 <li>個々のデータが項目ごとに表形式で整理されている</li>
 <li>集計・分類・抽出・追加など整理が比較的容易</li>
-<li><span style="color:green;">例: 国別の経済指標，学生の成績表</span></li>
+<li><span style="color:green;">国別の経済指標，学生の成績表</span></li>
 
 </ul></li>
 
@@ -129,7 +123,7 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 <ul>
 <li>データごとに形式や項目数など属性が異なる</li>
 <li>データの整理や比較がそのままでは困難</li>
-<li><span style="color:green;">例: 文書，画像，動画，音声</span></li>
+<li><span style="color:green;">文書，画像，動画，音声</span></li>
 
 </ul></li>
 
@@ -139,27 +133,27 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 </section>
 </section>
 <section>
-<section id="slide-org7fa9c37">
-<h2 id="org7fa9c37">R/Rstudio のインストール</h2>
-<div class="outline-text-2" id="text-org7fa9c37">
+<section id="slide-org1b92d83">
+<h2 id="org1b92d83">(参考) R および RStudio の導入方法</h2>
+<div class="outline-text-2" id="text-org1b92d83">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org59898f7">
-<h3 id="org59898f7">Rのインストール手順</h3>
+<section id="slide-org113ea03">
+<h3 id="org113ea03">Rのインストール手順</h3>
 <ol>
-<li><i>R: The R project for Statistical Computing</i>
+<li><span class="underline">R: The R project for Statistical Computing</span>
 にアクセス
 <ul>
 <li><a href="http://www.r-project.org/">http://www.r-project.org/</a> を直接入力</li>
 <li>または <span style="color:green;">&ldquo;r install&rdquo;</span> などで検索</li>
 
 </ul></li>
-<li><i>download R</i>
+<li><span class="underline">download R</span>
 というリンクをクリック</li>
 <li>CRANのミラーサイトを選ぶ:
 <ul>
-<li>どれでも利用可だが &ldquo;Japan&rdquo; のいずれかを選ぶと良い</li>
+<li>どれでも利用可だが <span style="color:green;">&ldquo;Japan&rdquo; のいずれか</span> を選ぶと良い</li>
 <li>OSごとにインストール方法が異なるので注意</li>
 
 </ul></li>
@@ -168,14 +162,14 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc5ee976">
-<h3 id="orgc5ee976">Windowsの場合</h3>
+<section id="slide-org9864343">
+<h3 id="org9864343">Windowsの場合</h3>
 <ol>
-<li><i>Download R for Windows</i>
+<li><span class="underline">Download R for Windows</span>
 をクリック</li>
-<li><i>base</i>
+<li><span class="underline">base</span>
 をクリック</li>
-<li><i>Download R (バージョン名) for Windows</i>
+<li><span class="underline">Download R (バージョン名) for Windows</span>
 をクリック</li>
 <li>ダウンロードされたインストーラを起動</li>
 <li>指示に従って R をインストールする</li>
@@ -184,12 +178,12 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org508b239">
-<h3 id="org508b239">Macの場合</h3>
+<section id="slide-orgb736daa">
+<h3 id="orgb736daa">Macの場合</h3>
 <ol>
-<li><i>Download R for (Mac) OS X</i>
+<li><span class="underline">Download R for (Mac) OS X</span>
 をクリック</li>
-<li><i>R-(バージョン名).pkg</i>
+<li><span class="underline">R-(バージョン名).pkg</span>
 をクリック</li>
 <li>ダウンロードされたインストーラを起動</li>
 <li>指示に従って R をインストールする</li>
@@ -198,18 +192,18 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0f84f04">
-<h3 id="org0f84f04">RStudioのインストール手順</h3>
+<section id="slide-org22f3189">
+<h3 id="org22f3189">RStudioのインストール手順</h3>
 <ol>
-<li><i>Download RStudio - RStudio</i>
+<li><span class="underline">Download RStudio - RStudio</span>
 にアクセス
 <ul>
 <li><a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a></li>
 <li><span style="color:green;">&ldquo;rstudio install&rdquo;</span> などで検索</li>
 
 </ul></li>
-<li><i>Installers for Supported Platforms</i>
-から自分の環境(OS)を選択</li>
+<li><span class="underline">Installers for Supported Platforms</span>
+から自分の環境に合わせて OS を選択</li>
 <li>ダウンロードしたインストーラを起動</li>
 <li>指示に従って RStudio をインストールする</li>
 
@@ -219,19 +213,19 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 </section>
 </section>
 <section>
-<section id="slide-org94b4ebd">
-<h2 id="org94b4ebd">起動と終了</h2>
-<div class="outline-text-2" id="text-org94b4ebd">
+<section id="slide-org342b56e">
+<h2 id="org342b56e">RStudio のインターフェース</h2>
+<div class="outline-text-2" id="text-org342b56e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf3cdb08">
-<h3 id="orgf3cdb08">起動画面</h3>
+<section id="slide-org18dce13">
+<h3 id="org18dce13">起動画面</h3>
 <ul>
-<li><i>以下 RStudio を用いて説明する</i></li>
-<li>起動すると4つのペイン(枠)を持つウィンドウが立ち上がる
+<li><b>以下 RStudio を用いて説明する</b></li>
+<li>起動すると4つの枠(pane)を持つウィンドウが立ち上がる
 <ul>
-<li>左上: エディタ</li>
+<li>左上: エディタ (開いていない場合もある)</li>
 <li>左下: コンソール</li>
 <li>右上: 作業環境内の変数・コマンド履歴</li>
 <li>右下: パッケージ・グラフィックス・ヘルプ</li>
@@ -243,15 +237,15 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgccc4cfd">
-<h3 id="orgccc4cfd">エディタ (左上のペイン)</h3>
+<section id="slide-org38a67cd">
+<h3 id="org38a67cd">エディタ (左上)</h3>
 <ul>
-<li>コマンドを記述したファイルを扱うためのウィンドウ</li>
-<li>コンソール上に入力したコマンドは直ちに実行されてしまう</li>
+<li>コマンドを記述したファイルを扱うためのペイン</li>
+<li>コンソール上に入力したコマンドは直ちに実行される</li>
 <li>複雑なコマンドを書いたり，後から修正するための機能
 <ul>
 <li>コマンドを実行順に記述したファイルを作成 
-<i>(R Script)</i></li>
+<span class="underline">(R Script)</span></li>
 <li>ファイルを保存</li>
 <li>ファイルを実行</li>
 
@@ -262,10 +256,10 @@ RStudio社により開発・公開されている統合開発環境(IDE)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org13996d3">
-<h3 id="org13996d3">コンソール (左下のペイン)</h3>
+<section id="slide-orgd09ea73">
+<h3 id="orgd09ea73">コンソール (左下)</h3>
 <ul>
-<li>プログラムを実行するコマンドを入力するためのウィンドウ</li>
+<li>コマンドを入力するためのペイン</li>
 <li><p>
 例えば，コンソール上で終了を指示する以下のコマンドを入力すれば
 R を終了させることができる
@@ -275,14 +269,31 @@ R を終了させることができる
 <pre  class="src src-R">q()
 </pre>
 </div></li>
-<li>終了できない場合はOSの機能で強制終了する</li>
+<li>(終了できない場合はOSの機能で強制終了)</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0756819">
-<h3 id="org0756819">終了時の注意</h3>
+<section id="slide-org5b12723">
+<h3 id="org5b12723">作業ディレクトリ</h3>
+<ul>
+<li>プログラムが実行されるディレクトリ(フォルダ)</li>
+<li>作業ディレクトリにあるファイルの読み書きはパスを指定する必要がない</li>
+<li><b>Session</b> メニューの <b>Set Working Directory</b> で指定
+<ul>
+<li>読み込んだファイルの場所を選択</li>
+<li>File Pane の場所を選択</li>
+<li>ディレクトリを直接選択</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8ef56c6">
+<h3 id="org8ef56c6">終了時の注意</h3>
 <ul>
 <li><p>
 R終了前に以下のメッセージが表示される場合がある
@@ -295,7 +306,7 @@ R終了前に以下のメッセージが表示される場合がある
 <pre  class="example">
 Save workspace image? [y/n/c]:     
 </pre></li>
-<li>作業で使われた変数などをセーブするか尋ねている
+<li>作業で使った変数などをセーブするか尋ねている
 <ul>
 <li>y を入力: セーブする (yesの略)</li>
 <li>n を入力: セーブしない (noの略)</li>
@@ -308,43 +319,44 @@ Save workspace image? [y/n/c]:
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org296f610" data-background="#fef4f4">
-<h3 id="org296f610">演習</h3>
-<p>
-RStudioを起動し上記の方法で終了してみよう
-</p>
-
-<div class="slide-footer"><br></div>
-</section>
 </section>
 <section>
-<section id="slide-org19255a6">
-<h2 id="org19255a6">基本的な使い方</h2>
-<div class="outline-text-2" id="text-org19255a6">
+<section id="slide-org88fb8c6">
+<h2 id="org88fb8c6">基本的な使い方</h2>
+<div class="outline-text-2" id="text-org88fb8c6">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgebf1ad6">
-<h3 id="orgebf1ad6">式の入力</h3>
+<section id="slide-org5f76c64">
+<h3 id="org5f76c64">式の入力</h3>
 <ul>
-<li>四則演算や一般的な関数は直感に沿った文法で計算可能
+<li>四則演算や数学関数は直感的な文法で計算可能
 <ul>
 <li>+ (加算)，- (減算)，* (乗算)，/ (除算)，＾または** (ベキ乗)</li>
 <li>sin, cos, tan (三角関数)，exp (指数関数)，log (対数関数)</li>
 
 </ul></li>
 <li><p>
-<span style="color:green;">コンソール上での計算</span>
+<span style="color:green;">コンソール上での計算例</span>
 </p>
 <div class="org-src-container">
 
 <pre  class="src src-R">1*2+3^2 
-sin(pi/4) + log(10)
 </pre>
 </div>
 
 <pre class="example">
 [1] 11
+</pre>
+
+
+<div class="org-src-container">
+
+<pre  class="src src-R">sin(pi/4) + log(10)
+</pre>
+</div>
+
+<pre class="example">
 [1] 3.009692
 </pre></li>
 
@@ -352,23 +364,8 @@ sin(pi/4) + log(10)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdf3db8e" data-background="#fef4f4">
-<h3 id="orgdf3db8e">演習</h3>
-<p>
-以下の式を R を用いて計算してみよう
-</p>
-<ul>
-<li>\(123\times456-789\)</li>
-<li>\((2^{2^5}+1)\div641\)</li>
-<li>\(\sin^2(\pi/3)+\cos^2(\pi/3)\)</li>
-<li>適当な数学関数を試す</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgb309099">
-<h3 id="orgb309099">エディタからの実行</h3>
+<section id="slide-org8aeb17d">
+<h3 id="org8aeb17d">エディタからの実行</h3>
 <ul>
 <li>新規ファイルの作成 (以下のいずれか)
 <ul>
@@ -399,23 +396,8 @@ sin(pi/4) + log(10)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc381a6f" data-background="#fef4f4">
-<h3 id="orgc381a6f">演習</h3>
-<p>
-先程の演習の内容をエディタから実行してみよう
-</p>
-<ul>
-<li>\(123\times456-789\)</li>
-<li>\((2^{2^5}+1)\div641\)</li>
-<li>\(\sin^2(\pi/3)+\cos^2(\pi/3)\)</li>
-<li>適当な数学関数を試す</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org349e3f7">
-<h3 id="org349e3f7">ファイルの保存</h3>
+<section id="slide-org682aec2">
+<h3 id="org682aec2">ファイルの保存</h3>
 <ul>
 <li>ファイルの保存 (以下のいずれか)
 <ul>
@@ -439,10 +421,10 @@ sin(pi/4) + log(10)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org00db976" data-background="#fef4f4">
-<h3 id="org00db976">演習</h3>
+<section id="slide-org7d831e6" data-background="#fef4f4">
+<h3 id="org7d831e6">演習</h3>
 <p>
-作業ディレクトリを作成しファイルに保存してみよう
+以下の計算を行うRsciptを作成し保存してみよう
 </p>
 <ul>
 <li>\(123\times456-789\)</li>
@@ -454,8 +436,8 @@ sin(pi/4) + log(10)
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3aafa01">
-<h3 id="org3aafa01">関数の実行</h3>
+<section id="slide-org8248b15">
+<h3 id="org8248b15">関数の実行</h3>
 <ul>
 <li>関数の取り扱いは一般的な計算機言語とほぼ同様</li>
 <li>関数は引数とその値を指定して実行</li>
@@ -466,20 +448,16 @@ sin(pi/4) + log(10)
 <div class="org-src-container">
 
 <pre  class="src src-R">f(arg1=value1, arg2=value2) 
-<span style="color: #5C6370;"># </span><span style="color: #5C6370;">arg1, arg2 &#12399;&#24341;&#25968;&#12398;&#21517;&#21069;&#65292;value1, value2 &#12399;&#24341;&#25968;&#12395;&#28193;&#12377;&#20516;&#12434;&#34920;&#12377;</span>
-f(value1, value2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
+<span style="color: #6272a4;"># </span><span style="color: #6272a4;">arg1, arg2 &#12399;&#24341;&#25968;&#12398;&#21517;&#21069;&#65292;value1, value2 &#12399;&#24341;&#25968;&#12395;&#28193;&#12377;&#20516;&#12434;&#34920;&#12377;</span>
+f(value1, value2) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
 </pre>
 </div></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbc5657e" data-background="#fef4f4">
-<h3 id="orgbc5657e">演習</h3>
-<p>
-以下の例を確認してみよう
-</p>
+<section id="slide-org51dc6f3">
+<h3 id="org51dc6f3">関数呼び出しの例</h3>
 <ul>
 <li><p>
 <span style="color:green;">正弦関数の計算</span>
@@ -487,7 +465,7 @@ f(value1, value2) <span style="color: #5C6370;"># </span><span style="color: #5C
 <div class="org-src-container">
 
 <pre  class="src src-R">sin(x = pi/2)
-sin(pi/2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
+sin(pi/2) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
 </pre>
 </div></li>
 <li><p>
@@ -495,64 +473,19 @@ sin(pi/2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">log(x, b) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#24213;&#12434;b&#12392;&#12377;&#12427;&#23550;&#25968;</span>
-log(x=x, base=b) <span style="color: #5C6370;">#</span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
-log(base=b, x=x) <span style="color: #5C6370;">#</span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
-log(b,x) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">= log(x=b,base=x) </span>
-log(x) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#33258;&#28982;&#23550;&#25968; =log(x,base=exp(1))</span>
+<pre  class="src src-R">log(x, b) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#24213;&#12434;b&#12392;&#12377;&#12427;&#23550;&#25968;</span>
+log(x=x, base=b) <span style="color: #6272a4;">#</span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
+log(base=b, x=x) <span style="color: #6272a4;">#</span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
+log(b,x) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">= log(x=b,base=x) </span>
+log(x) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#33258;&#28982;&#23550;&#25968; =log(x,base=exp(1))</span>
 </pre>
 </div></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf0b8fe6">
-<h3 id="orgf0b8fe6">ヘルプ機能</h3>
-<ul>
-<li>各関数の詳細(機能，引数名，引数の既定値，実行例など)を記述した
-ヘルプファイルが用意されている</li>
-<li>ヘルプファイルに関連する関数:
-<ul>
-<li><code>help()</code> (使い方や例の表示)</li>
-<li><code>example()</code> (例を実際に実行してくれる)</li>
-<li><code>help.search()</code> (キーワード検索)</li>
-
-</ul></li>
-<li>右下ペインの <b><span style="color:blue;">Help</span></b> タブ右上の検索バーでも参照可能</li>
-<li><p>
-<span style="color:green;">ヘルプの使い方</span> (ヘルプは右下のペインに表示される)
-</p>
-<div class="org-src-container">
-
-<pre  class="src src-R">help(log) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#38306;&#25968;log&#12398;&#12504;&#12523;&#12503;</span>
-?log <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
-example(log) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12504;&#12523;&#12503;&#20869;&#12398;&#20363;&#12434;&#23455;&#34892;</span>
-help.search(<span style="color: #98C379;">"log"</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">"log"&#12395;&#38306;&#36899;&#12377;&#12427;&#38917;&#30446;&#12399;&#65311;</span>
-??<span style="color: #98C379;">"log"</span> <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#20516;</span>
-</pre>
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgbe520e4" data-background="#fef4f4">
-<h3 id="orgbe520e4">演習</h3>
-<p>
-以下の項目についてヘルプを利用してみよう
-</p>
-<ul>
-<li>三角関数(trigonometric function)を計算するための関数について
-ヘルプファイルを調べよ</li>
-<li>双曲線関数(hyperbolic function)についても調べよ</li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org4655fdc">
-<h3 id="org4655fdc">オブジェクト</h3>
+<section id="slide-orgf36fe5c">
+<h3 id="orgf36fe5c">オブジェクト</h3>
 <ul>
 <li>Rで扱うことのできる数値
 <ul>
@@ -561,17 +494,26 @@ help.search(<span style="color: #98C379;">"log"</span>) <span style="color: #5C6
 
 </ul></li>
 <li>文字列を変数名として数値等を保持することができる</li>
-<li>変数，関数，計算結果などを総称して <i>オブジェクト</i> と呼ぶ</li>
-<li>オブジェクトの情報は右上
-<b><span style="color:blue;">Environment</span></b> タブで確認できる</li>
+<li>変数，関数，計算結果などを総称して <b>オブジェクト</b> と呼ぶ</li>
+<li>オブジェクトの情報は右上ペインの
+<b>Environment</b> タブで確認できる</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org20e74c4">
+<h3 id="org20e74c4">オブジェクトの代入</h3>
+<ul>
+<li>オブジェクトの内容(情報)を別のオブジェクトに代入することができる</li>
+<li>計算結果や良く使う文字列の保存に利用できる</li>
 <li><p>
 <span style="color:green;">代入操作</span>
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">(foo <span style="color: #56B6C2;">&lt;-</span> 3) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#25968;&#20516;&#12434;&#22793;&#25968; foo &#12395;&#20195;&#20837;</span>
-bar <span style="color: #56B6C2;">&lt;-</span> sin(2/3*pi) + cos(foo * pi/4) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#35336;&#31639;&#32080;&#26524;&#12434;&#20195;&#20837;</span>
-print(bar) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#22793;&#25968;&#12398;&#20869;&#23481;&#12434;&#34920;&#31034;</span>
+<pre  class="src src-R">(foo <span style="color: #8be9fd;">&lt;-</span> 3) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#25968;&#20516;&#12434;&#22793;&#25968; foo &#12395;&#20195;&#20837;</span>
+bar <span style="color: #8be9fd;">&lt;-</span> sin(2/3*pi) + cos(foo * pi/4) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#35336;&#31639;&#32080;&#26524;&#12434;&#20195;&#20837;</span>
+print(bar) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#22793;&#25968;&#12398;&#20869;&#23481;&#12434;&#34920;&#31034;</span>
 </pre>
 </div>
 
@@ -582,10 +524,49 @@ print(bar) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">
 
 </ul>
 
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org001bf11">
-<h3 id="org001bf11">パッケージの操作</h3>
+<section id="slide-orge3b25de">
+<h3 id="orge3b25de">ヘルプ機能</h3>
+<ul>
+<li>各関数の詳細(機能，引数名，引数の既定値，実行例など)を記述した
+ヘルプが用意されている</li>
+<li>ヘルプに関連する関数:
+<ul>
+<li><code>help()</code> (使い方や例の表示)</li>
+<li><code>example()</code> (例を実際に実行してくれる)</li>
+<li><code>help.search()</code> (キーワード検索)</li>
+
+</ul></li>
+<li>右下ペイン <b>Help</b> タブ右上の検索窓でも参照可能</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org337fd91">
+<h3 id="org337fd91">ヘルプの利用例</h3>
+<ul>
+<li><p>
+<span style="color:green;">ヘルプの使い方</span> <br>
+(ヘルプは右下のペインに表示される)
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">help(log) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38306;&#25968;log&#12398;&#12504;&#12523;&#12503;</span>
+?log <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
+example(log) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#12504;&#12523;&#12503;&#20869;&#12398;&#20363;&#12434;&#23455;&#34892;</span>
+help.search(<span style="color: #f1fa8c;">"log"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">"log"&#12395;&#38306;&#36899;&#12377;&#12427;&#38917;&#30446;&#12399;&#65311;</span>
+??<span style="color: #f1fa8c;">"log"</span> <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#20516;</span>
+</pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge6fed37">
+<h3 id="orge6fed37">パッケージの操作</h3>
 <ul>
 <li>機能を拡張するために多数のパッケージが用意されている</li>
 <li>パッケージのインストール方法
@@ -596,23 +577,503 @@ print(bar) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">
 </ul></li>
 <li>RStudioの機能を利用したインストール手順
 <ul>
-<li>右下ペインの <b>Package</b> タブをクリック</li>
+<li>右下ペイン <b>Package</b> タブをクリック</li>
 <li>左上の <b>Install</b> をクリック</li>
 <li>パッケージ名を入力し <b>Install</b> をクリック</li>
 
 </ul></li>
-<li>パッケージの情報は右下 <b>Package</b> タブで確認できる</li>
+<li>利用可能なパッケージの情報は
+右下ペイン <b>Package</b> タブで確認できる</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0d5662d" data-background="#fef4f4">
-<h3 id="org0d5662d">演習</h3>
+<section id="slide-org9be09f0" data-background="#fef4f4">
+<h3 id="org9be09f0">演習</h3>
 <p>
-<b>swir</b> パッケージを導入して
-関数 <code>swirl()</code> を実行してみよう
+講義で用いるパッケージを導入して，
+その中の関数について調べてみよう
 </p>
+<ul>
+<li>package e1071 を導入する</li>
+<li>関数 kurtosis を調べる</li>
+<li>関数 kurtosis を呼出す</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org0277854">
+<h2 id="org0277854">データ構造</h2>
+<div class="outline-text-2" id="text-org0277854">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgea4c1db">
+<h3 id="orgea4c1db">Rに用意されているデータ構造</h3>
+<p>
+下記は代表的なもので，これ以外にもある
+</p>
+<ul>
+<li>ベクトル (vector)</li>
+<li>行列 (matrix)</li>
+<li>リスト (list)</li>
+<li>データフレーム (data frame)</li>
+<li>配列 (array)</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org670cb18">
+<h2 id="org670cb18">ベクトル</h2>
+<div class="outline-text-2" id="text-org670cb18">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org32763ca">
+<h3 id="org32763ca">ベクトルとは</h3>
+<ul>
+<li>スカラー値の集合</li>
+<li><p>
+スカラー値として扱われるものには
+</p>
+<ul>
+<li>数値 (実数や複素数)</li>
+<li>文字列 (&rsquo;や&ldquo;で囲まれた文字．&rdquo;foo&ldquo;，&rdquo;bar&ldquo;など)</li>
+<li>論理値 ( <code>TRUE</code> , <code>FALSE</code> )</li>
+
+</ul>
+<p>
+などが含まれる 
+</p></li>
+<li>Rオブジェクトの多くはベクトルとして扱われる<br>
+(スカラー値は長さ1のベクトルとして扱われる)</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga977cd8">
+<h3 id="orga977cd8">ベクトルの生成と操作</h3>
+<ul>
+<li><p>
+数値や文字列の要素からなるベクトルの生成:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">c(1,-2,3,-4,5) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#25968;&#20516;&#12398;&#12505;&#12463;&#12488;&#12523;</span>
+c(<span style="color: #f1fa8c;">"Alice"</span>,<span style="color: #f1fa8c;">"Bob"</span>,<span style="color: #f1fa8c;">"Cathy"</span>,<span style="color: #f1fa8c;">"David"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#25991;&#23383;&#21015;&#12398;&#12505;&#12463;&#12488;&#12523;</span>
+</pre>
+</div>
+
+<pre class="example">
+[1]  1 -2  3 -4  5
+[1] "Alice" "Bob"   "Cathy" "David"
+</pre></li>
+
+<li><p>
+ベクトルの要素の取得:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">x[i] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">x&#12398;&#31532;i&#35201;&#32032; (&#12505;&#12463;&#12488;&#12523;&#12398;&#28155;&#12360;&#23383;&#12399;1&#12363;&#12425;&#22987;&#12414;&#12427;)</span>
+x[c(1,3,4)] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#35079;&#25968;&#12398;&#35201;&#32032;</span>
+            <span style="color: #6272a4;"># </span><span style="color: #6272a4;">= c(x[1],x[3],x[4])</span>
+</pre>
+</div></li>
+<li><p>
+ベクトル <code>x</code> の長さの取得:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">length(x)    
+</pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgc777df0">
+<h3 id="orgc777df0">ベクトルの作成と操作 (その2)</h3>
+<ul>
+<li><p>
+実数 <code>x</code> から <code>y</code> まで
+1ずつ変化するベクトル:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">x:y <span style="color: #6272a4;"># </span><span style="color: #6272a4;">x &lt; y &#12398;&#22580;&#21512;&#12399;1&#12378;&#12388;&#22679;&#21152;&#65292;&#36870;&#12398;&#22580;&#21512;&#12399;1&#12378;&#12388;&#28187;&#23569;</span>
+</pre>
+</div></li>
+
+</ul>
+
+<ul>
+<li><p>
+実数 <code>x</code> から <code>y</code> まで
+<code>a</code> ずつ変化するベクトル:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">seq(x,y,by=a) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">from=x,to=y &#12392;&#26126;&#31034;&#12375;&#12390;&#12418;&#12424;&#12356;    </span>
+</pre>
+</div></li>
+<li><p>
+ベクトル <code>x</code> を <code>n</code> 回繰り返したベクトル:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">rep(x,n) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38263;&#12373;&#12399; length(x) * n &#12392;&#12394;&#12427;</span>
+</pre>
+</div></li>
+<li><p>
+ベクトル <code>x</code> とベクトル <code>y</code> の結合:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">c(x,y)    
+</pre>
+</div></li>
+<li><p>
+ベクトル <code>x</code> の反転:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">rev(x)    
+</pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge57acd3" data-background="#fef4f4">
+<h3 id="orge57acd3">演習</h3>
+<p>
+ベクトルの操作に慣れよう
+</p>
+<ul>
+<li>以下に示すベクトルを作成してみよう
+<ul>
+<li>1から10までの自然数のベクトル</li>
+<li>1以上30以下の奇数を昇順に並べたベクトル</li>
+<li>すべての要素が1からなる長さ10のベクトル</li>
+
+</ul></li>
+<li>作成したベクトルを操作してみよう
+<ul>
+<li>ベクトルの長さを求める</li>
+<li>3番目の要素を取り出す</li>
+<li>最後の要素を取り出す</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org8491fe2">
+<h2 id="org8491fe2">行列</h2>
+<div class="outline-text-2" id="text-org8491fe2">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2db2929">
+<h3 id="org2db2929">行列の生成と操作</h3>
+<ul>
+<li><p>
+すべての要素が <code>a</code> である \(m\times n\) 行列:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">matrix(a,m,n)     
+</pre>
+</div></li>
+<li><p>
+長さ \(mn\) のベクトル <code>x</code> を \(m\times n\) 行列に変換:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-R">x <span style="color: #8be9fd;">&lt;-</span> c(x11,...,xm1,x12,...,xm2,...,x1n,...,xmn)
+matrix(x,m,n)    
+</pre>
+</div></li>
+<li><p>
+関数 <code>as.vector()</code> を用いたベクトル化:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">x <span style="color: #8be9fd;">&lt;-</span> as.vector(matrix(x,m,n))
+</pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org38ce03a">
+<h3 id="org38ce03a">行列の生成と操作 (その2)</h3>
+<ul>
+<li><p>
+行列のサイズの取得: 
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">dim(X) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38263;&#12373;2&#12398;&#12505;&#12463;&#12488;&#12523;</span>
+nrow(X) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#34892;&#25968;</span>
+ncol(X) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21015;&#25968;</span>
+</pre>
+</div></li>
+
+</ul>
+
+<ul>
+<li><p>
+行列の成分の取得:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">X[i,j] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">(i,j)&#25104;&#20998;</span>
+X[i, ] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#31532;i&#34892;</span>
+X[ ,j] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#31532;j&#21015;</span>
+X[c(1,3),2:4] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">1&#65292;3&#34892;&#12392;&#65292;2&#12316;4&#21015;&#12363;&#12425;&#12394;&#12427;&#37096;&#20998;&#34892;&#21015;</span>
+</pre>
+</div></li>
+<li><p>
+長さが等しい複数のベクトルの結合:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">rbind(x, y, ...) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#34892;&#12505;&#12463;&#12488;&#12523;&#12392;&#12375;&#12390;&#32080;&#21512;</span>
+cbind(x, y, ...) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21015;&#12505;&#12463;&#12488;&#12523;&#12392;&#12375;&#12390;&#32080;&#21512;</span>
+</pre>
+</div></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgab823db">
+<h3 id="orgab823db">行列の生成と操作 (補足)</h3>
+<ul>
+<li>関数 <code>cbind()/rbind()</code> は行数/列数が等しい行列を横/縦に結合できる</li>
+<li>行列の高次元版として配列(array)が用意されている</li>
+<li>関数 <code>rownames()/colnames()</code> を用いると行と列に名前を付けることができる</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfc1941a" data-background="#fef4f4">
+<h3 id="orgfc1941a">演習</h3>
+<p>
+行列の操作に慣れよう
+</p>
+<ul>
+<li><p>
+以下に示す行列を作成してみよう
+</p>
+
+<div>
+\begin{equation*}
+  \begin{pmatrix}
+    1  & 2  & 3  \\
+    4  & 5  & 6 
+  \end{pmatrix}
+\end{equation*}
+
+</div></li>
+<li>行列を操作してみよう
+<ul>
+<li>2行2列成分を取り出す</li>
+<li>転置行列を作成する</li>
+<li>行名をつける</li>
+
+</ul></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org8e510c8">
+<h2 id="org8e510c8">リスト</h2>
+<div class="outline-text-2" id="text-org8e510c8">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4412a03">
+<h3 id="org4412a03">リストとは</h3>
+<ul>
+<li>異なる構造のデータを1つにまとめたもの</li>
+<li>リストの各要素は異なる型であって構わない</li>
+<li>本講義のデータ解析ではほとんど用いない</li>
+<li>Rの関数の操作ではときどき必要</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd1d04c4">
+<h3 id="orgd1d04c4">リストの生成と操作</h3>
+<ul>
+<li><p>
+リストの生成:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">L <span style="color: #8be9fd;">&lt;-</span> list(x,y) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">x,y&#12434;&#35201;&#32032;&#12392;&#12377;&#12427;&#12522;&#12473;&#12488;</span>
+L[[i]] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#12522;&#12473;&#12488;&#12398;&#31532;i&#35201;&#32032;</span>
+</pre>
+</div></li>
+<li><p>
+リストの各要素に名前を付与:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">L1 <span style="color: #8be9fd;">&lt;-</span> list(first=x, second=y) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26041;&#27861;1</span>
+L2 <span style="color: #8be9fd;">&lt;-</span> list(x,y)               <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26041;&#27861;2</span>
+names(L2) <span style="color: #8be9fd;">&lt;-</span> c(<span style="color: #f1fa8c;">"first"</span>,<span style="color: #f1fa8c;">"second"</span>)
+</pre>
+</div></li>
+<li><p>
+名前によるリストの要素の取得:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">L1$first      <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26041;&#27861;1</span>
+L2[[<span style="color: #f1fa8c;">"first"</span>]] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26041;&#27861;2</span>
+</pre>
+</div></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org7073309">
+<h2 id="org7073309">データフレーム</h2>
+<div class="outline-text-2" id="text-org7073309">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7e2398d">
+<h3 id="org7e2398d">データフレームとは</h3>
+<ul>
+<li>長さの等しいベクトルを束ねたリスト</li>
+<li>いくつかの個体について，いくつかの属性を集計したデータ</li>
+<li><span style="color:green;">ある小学校の1年生の身長・体重・性別・血液型</span>
+<ul>
+<li>各成分はある個体のある属性に関する観測データ</li>
+<li>個体数は集計項目に関わらず変化しないが，
+集計項目によっては定量的データ・定性的データの違いが出てくるので
+データ型は変わりうる</li>
+
+</ul></li>
+<li>実データの多くは表形式で与えられるため，
+実データに則したデータ構造</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org6139617">
+<h3 id="org6139617">データフレームの生成と操作</h3>
+<ul>
+<li><p>
+データフレームの生成:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">data.frame(A=x,B=y,C=z) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">x,y,z&#12399;&#21516;&#12376;&#38263;&#12373;&#65292;&#21508;&#21015;&#12399;A,B,C&#12392;&#12356;&#12358;&#21517;&#21069;</span>
+</pre>
+</div></li>
+<li>データフレームは <b>リスト</b> でもある<br>
+リストと同様にして各変数にアクセスできる</li>
+<li>データフレームは <b>行列</b> でもある<br>
+行数がベクトルの長さ(個体数), 列数が変数の個数(観測項目の数)の行列と同様にアクセスできる</li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org624444f" data-background="#fef4f4">
+<h3 id="org624444f">演習</h3>
+<p>
+データフレームの操作に慣れよう
+</p>
+<ul>
+<li><p>
+次の表に対応するデータフレームを作成してみよう
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">国語</th>
+<th scope="col" class="org-right">数学</th>
+<th scope="col" class="org-right">英語</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Alice</td>
+<td class="org-right">90</td>
+<td class="org-right">25</td>
+<td class="org-right">65</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob</td>
+<td class="org-right">80</td>
+<td class="org-right">50</td>
+<td class="org-right">100</td>
+</tr>
+
+<tr>
+<td class="org-left">Cathy</td>
+<td class="org-right">70</td>
+<td class="org-right">75</td>
+<td class="org-right">70</td>
+</tr>
+
+<tr>
+<td class="org-left">David</td>
+<td class="org-right">60</td>
+<td class="org-right">100</td>
+<td class="org-right">40</td>
+</tr>
+</tbody>
+</table></li>
+<li>データフレームを操作してみよう
+<ul>
+<li>数学の列を取り出す</li>
+<li>Cathyの行を取り出す</li>
+
+</ul></li>
+
+</ul>
 <div class="slide-footer"><br></div>
 </section>
 </section>
@@ -633,82 +1094,22 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
-{ src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
-	{className: "animate",  initialize: (function(container, options){
-		Reveal.addEventListener( 'fragmentshown', function( event ) {
-			if (typeof event.fragment.beginElement === "function" ) {
-				event.fragment.beginElement();
-			}
-		});
-		Reveal.addEventListener( 'fragmenthidden', function( event ) {
-			if (event.fragment.hasAttribute('data-reverse') ) {
-				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
-				if ( reverse && typeof reverse.beginElement === "function" ) {
-					reverse.beginElement();
-				}
-			}
-		});
-		if ( container.getAttribute("data-svg-src") ) {
-			var xhr = new XMLHttpRequest();
-			xhr.onload = function() {
-				if (xhr.readyState === 4) {
-					var svg = container.querySelector('svg');
-					container.removeChild( svg );
-					container.innerHTML = xhr.responseText + container.innerHTML;
-					if ( svg ) {
-						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
-					}
-				}
-				else {
-					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
-				}
-			};
-			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
-			xhr.send();
-		}
-	}) },
-	{className: "randomPic",
-	 defaults: {imgalt: "Dummy alt text",
-		    imgcaption: "Image by {name}",
-		    choices: [ {name: "dummyname", path: "dummypath"} ]},
-	 initialize: (function(container, options){
-	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
-	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
-	     container.innerHTML = img + caption;
-	 }) },
-	{className: "notes",
-	 initialize: (function(container, options){
-	     container.addEventListener('click', function(e) { RevealNotes.open(); });
-	 }) }
-],
-  coursemod: { enabled: true, shown: false }});
+
+});
 </script>
 </body>
 </html>
