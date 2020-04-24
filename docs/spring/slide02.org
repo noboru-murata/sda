@@ -111,15 +111,15 @@
        A
        =
        \begin{pmatrix}
-	 a_{11}&a_{12}&\dots&a_{1n}\\
-	 a_{21}&a_{22}&\dots&a_{2n}\\
-	 \vdots&&\ddots&\vdots\\
-	 a_{m1}&a_{m2}&\dots&a_{mn}
+         a_{11}&a_{12}&\dots&a_{1n}\\
+         a_{21}&a_{22}&\dots&a_{2n}\\
+         \vdots&&\ddots&\vdots\\
+         a_{m1}&a_{m2}&\dots&a_{mn}
        \end{pmatrix}
      \end{equation}
      # #+end_export
      #+begin_src R :exports code
-	A <- matrix(c(a11,a21,...,amn),m,n) # m x n 行列の作成
+        A <- matrix(c(a11,a21,...,amn),m,n) # m x n 行列の作成
      #+end_src
    - 別の書き方:
      # #+begin_export latex
@@ -257,8 +257,8 @@
        \text{(回転行列)}
        =
        \begin{pmatrix}
-	 \cos(\theta)&-\sin(\theta)\\
-	 \sin(\theta)& \cos(\theta)
+         \cos(\theta)&-\sin(\theta)\\
+         \sin(\theta)& \cos(\theta)
        \end{pmatrix}
      \end{equation}
      # #+end_export
@@ -267,9 +267,9 @@
        ### 30度の回転行列の2乗は60度の回転行列
        theta <- pi/6 # 30度のラジアン値
        R30 <- matrix(c(cos(theta),sin(theta),
-		       -sin(theta),cos(theta)),2,2)
+                       -sin(theta),cos(theta)),2,2)
        R60 <- matrix(c(cos(2*theta),sin(2*theta),
-		       -sin(2*theta),cos(2*theta)),2,2)) 
+                       -sin(2*theta),cos(2*theta)),2,2)
        R30 # 30度の回転行列
        R30 %*% R30 # 30度の回転行列の2乗
        R60 # 60度の回転行列
@@ -391,9 +391,9 @@
    :END:
    - 1から10の2乗値からなるベクトルを作成せよ．
      #+begin_src R :exports none :tangle yes
-	### 練習2.1
-	### 1から10までの2乗値からなるベクトル
-	(1:10)^2 # ^2も関数として成分ごとに計算される
+        ### 練習2.1
+        ### 1から10までの2乗値からなるベクトル
+        (1:10)^2 # ^2も関数として成分ごとに計算される
      #+end_src
    - 2次元ベクトルを回転行列で変換しても長さが変わらないことを確かめよ．
      #+begin_src R :exports none :tangle yes
@@ -402,12 +402,12 @@
        ## 回転行列とベクトルを作成 (好きに設定してよい)
        theta <- 2*pi/3 # 120度のラジアン値
        (R <- matrix(c(cos(theta),sin(theta),
-		     -sin(theta),cos(theta)),2,2))
+                     -sin(theta),cos(theta)),2,2))
        (x <- 1:2)
        (y <- R %*% x) # xを回転してyを作成
        ## 長さの2乗はベクトルの内積で計算できる
        x %*% x # xの長さの2乗
-       y %*% y # yの長さの2乗
+       as.vector(y) %*% as.vector(y) # yの長さの2乗
      #+end_src
    - 例題の $A$ と $\boldsymbol{b}$ を用いて
      #+begin_src R :exports code
@@ -429,11 +429,11 @@
    - [[color:green][半径 r から球の体積と表面積を求める関数]]
      #+begin_src R 
        myfunc <- function(r){
-	   V <- (4/3) * pi * r^3 # 球の体積
-	   S <- 4 * pi * r^2     # 球の表面積
-	   out <- c(V,S) # 返り値のベクトルを作る
-	   names(out) <- c("volume", "area") # 返り値の要素に名前を付ける
-	   return(out) # 値を返す
+           V <- (4/3) * pi * r^3 # 球の体積
+           S <- 4 * pi * r^2     # 球の表面積
+           out <- c(V,S) # 返り値のベクトルを作る
+           names(out) <- c("volume", "area") # 返り値の要素に名前を付ける
+           return(out) # 値を返す
        }
        myfunc(1) # 実行
      #+end_src
@@ -465,11 +465,11 @@
      #+end_src
      #+begin_src R :tangle yes
        if(20200724 %% 19 == 0) {# %% は余りを計算
-	   print("割り切れます")
-	   print(20200724 %/% 19) # 商を表示
+           print("割り切れます")
+           print(20200724 %/% 19) # 商を表示
        } else { # {}で囲まれたブロックが1つのプログラム
-	   print("割り切れません")
-	   print(20200724 %% 19) # 余りを表示
+           print("割り切れません")
+           print(20200724 %% 19) # 余りを表示
        } 
      #+end_src
 ** ~for~ 文
@@ -488,7 +488,7 @@
      #+begin_src R :tangle yes
        print(LETTERS) # LETTERS ベクトルの内容を表示
        for(i in c(20,15,11,25,15)) {
-	   print(LETTERS[i]) # 順番に表示
+           print(LETTERS[i]) # 順番に表示
        }
      #+end_src
 ** ~while~ 文
@@ -509,14 +509,14 @@
        n <- 20200809 # 分解の対象
        p <- 2 # 最初に調べる数
        while(n != 1){ # 商が1になるまで計算する
-	   for(i in p:n){ # pからnまで順に調べる
-	       if(n%%i == 0) { # 余りが0か確認
-		   print(i) # 割り切った数を表示
-		   n <- n/i # 商を計算して分解の対象を更新
-		   p <- i # 最初に調べる数を更新
-		   break # for文を途中で終了
-	       }  
-	   }
+           for(i in p:n){ # pからnまで順に調べる
+               if(n%%i == 0) { # 余りが0か確認
+                   print(i) # 割り切った数を表示
+                   n <- n/i # 商を計算して分解の対象を更新
+                   p <- i # 最初に調べる数を更新
+                   break # for文を途中で終了
+               }  
+           }
        }
      #+end_src
 # ** ~repeat~ 文
@@ -559,9 +559,9 @@
    #+end_src
    #+begin_src R :exports both :results output :tangle yes
      area <- function(x,y,z){
-	 s <- (x+y+z)/2
-	 S <- (s*(s-x)*(s-y)*(s-z))^(1/2)
-	 ## S <- sqrt(s*(s-x)*(s-y)*(s-z)) # 平方根を求める関数を用いても良い
+         s <- (x+y+z)/2
+         S <- (s*(s-x)*(s-y)*(s-z))^(1/2)
+         ## S <- sqrt(s*(s-x)*(s-y)*(s-z)) # 平方根を求める関数を用いても良い
        return(S)
      }
      area(3,4,5) # 直角三角形で検算
@@ -577,11 +577,11 @@
        ### 階乗を計算する関数
        ## for文を用いた関数
        fact1 <- function(n){
-	   val <- 1
-	   for(i in 1:n){
-	       val <- val*i
-	   }
-	   return(val)
+           val <- 1
+           for(i in 1:n){
+               val <- val*i
+           }
+           return(val)
        }
        fact1(0) # 間違い
        fact1(1)
@@ -590,15 +590,15 @@
        fact1(4)
        ## if文を用いた修正版
        fact2 <- function(n){
-	   if(n==0){
-	       return(1)
-	   } else {
-	       val <- 1
-	       for(i in 1:n){
-		   val <- val*i
-	       }
-	       return(val)
-	   }
+           if(n==0){
+               return(1)
+           } else {
+               val <- 1
+               for(i in 1:n){
+                   val <- val*i
+               }
+               return(val)
+           }
        }
        fact2(0) # 正しい
        fact2(1)
@@ -607,12 +607,12 @@
        fact2(4)
        ## while文を用いた関数
        fact3 <- function(n){
-	   val <- 1
-	   while(n>0){
-	       val <- val*n
-	       n <- n-1
-	   }
-	   return(val)
+           val <- 1
+           while(n>0){
+               val <- val*n
+               n <- n-1
+           }
+           return(val)
        }
        fact3(0)
        fact3(1)
@@ -632,24 +632,24 @@
        ### 練習3.2
        ### Fibonacci数を返す関数
        fibo <- function(n){
-	   f0 <- 0 # 第0項の設定
-	   f1 <- 1 # 第1項の設定
-	   if(n<0) {
-	       print("計算できません")
-	       return(NA) # 欠損値を返す
-	   }
-	   if(n==0) { # n=0の場合
-	       return(f0)
-	   }
-	   if(n==1) { # n=1の場合
-	       return(f1)
-	   }
-	   for(i in 2:n) { # n>=2の場合
-	       fn <- f1 + f0 # fn = fn-1 + fn-2 の計算
-	       f0 <- f1 # fn-2 の値の更新
-	       f1 <- fn # fn-1 の値の更新
-	   }
-	   return(fn) # 計算結果を返す
+           f0 <- 0 # 第0項の設定
+           f1 <- 1 # 第1項の設定
+           if(n<0) {
+               print("計算できません")
+               return(NA) # 欠損値を返す
+           }
+           if(n==0) { # n=0の場合
+               return(f0)
+           }
+           if(n==1) { # n=1の場合
+               return(f1)
+           }
+           for(i in 2:n) { # n>=2の場合
+               fn <- f1 + f0 # fn = fn-1 + fn-2 の計算
+               f0 <- f1 # fn-2 の値の更新
+               f1 <- fn # fn-1 の値の更新
+           }
+           return(fn) # 計算結果を返す
        }
      #+end_src
    - 行列 $X$ が与えられたとき，各列の平均を計算する関数を作成せよ．
@@ -657,12 +657,12 @@
        ### 練習3.3
        ### 行列の列の平均を計算する関数
        colave <- function(X) {
-	   ave <- rep(0,length=ncol(X)) # 平均を記録するベクトルを用意
-	   for(i in 1:ncol(X)){ # 列ごとに計算
-	       ave[i] <- sum(X[,i])/nrow(X) # 平均の定義に従って計算
-	       ## ave[i] <- mean(X[,i]) # 平均を計算する関数を用いても良い
-	   }
-	   return(ave)
+           ave <- rep(0,length=ncol(X)) # 平均を記録するベクトルを用意
+           for(i in 1:ncol(X)){ # 列ごとに計算
+               ave[i] <- sum(X[,i])/nrow(X) # 平均の定義に従って計算
+               ## ave[i] <- mean(X[,i]) # 平均を計算する関数を用いても良い
+           }
+           return(ave)
        }
        (A <- matrix(1:12,3,4,byrow=TRUE))
        colave(A)
@@ -673,15 +673,15 @@
        ### 練習3.4
        ### ベクトルと行列を扱えるように修正
        colave <- function(X){ 
-	   if(is.vector(X)){
-	       ave <- mean(X)
-	   } else {
-	       ave <- rep(0,length=ncol(X))
-	       for(i in 1:ncol(X)){
-		   ave[i] <- mean(X[,i])
-	       }
-	   }
-	   return(ave)
+           if(is.vector(X)){
+               ave <- mean(X)
+           } else {
+               ave <- rep(0,length=ncol(X))
+               for(i in 1:ncol(X)){
+                   ave[i] <- mean(X[,i])
+               }
+           }
+           return(ave)
        }
        (A <- matrix(1:12,3,4,byrow=TRUE))
        colave(A)

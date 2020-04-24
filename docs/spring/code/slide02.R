@@ -28,9 +28,9 @@ matrix(rep(1:9,9),9,9) * matrix(rep(1:9,9),9,9,byrow=TRUE)
 ### 30度の回転行列の2乗は60度の回転行列
 theta <- pi/6 # 30度のラジアン値
 R30 <- matrix(c(cos(theta),sin(theta),
-		-sin(theta),cos(theta)),2,2)
+                -sin(theta),cos(theta)),2,2)
 R60 <- matrix(c(cos(2*theta),sin(2*theta),
-		-sin(2*theta),cos(2*theta)),2,2)) 
+                -sin(2*theta),cos(2*theta)),2,2)
 R30 # 30度の回転行列
 R30 %*% R30 # 30度の回転行列の2乗
 R60 # 60度の回転行列
@@ -56,12 +56,12 @@ A%*%x # 結果の確認(b になるはず)
 ## 回転行列とベクトルを作成 (好きに設定してよい)
 theta <- 2*pi/3 # 120度のラジアン値
 (R <- matrix(c(cos(theta),sin(theta),
-	      -sin(theta),cos(theta)),2,2))
+              -sin(theta),cos(theta)),2,2))
 (x <- 1:2)
 (y <- R %*% x) # xを回転してyを作成
 ## 長さの2乗はベクトルの内積で計算できる
 x %*% x # xの長さの2乗
-y %*% y # yの長さの2乗
+as.vector(y) %*% as.vector(y) # yの長さの2乗
 
 ### 練習2.3
 ### エラーになる理由を考察
@@ -95,12 +95,12 @@ n <- 20200809 # 分解の対象
 p <- 2 # 最初に調べる数
 while(n != 1){ # 商が1になるまで計算する
     for(i in p:n){ # pからnまで順に調べる
-	if(n%%i == 0) { # 余りが0か確認
-	    print(i) # 割り切った数を表示
-	    n <- n/i # 商を計算して分解の対象を更新
-	    p <- i # 最初に調べる数を更新
-	    break # for文を途中で終了
-	}  
+        if(n%%i == 0) { # 余りが0か確認
+            print(i) # 割り切った数を表示
+            n <- n/i # 商を計算して分解の対象を更新
+            p <- i # 最初に調べる数を更新
+            break # for文を途中で終了
+        }  
     }
 }
 
@@ -122,7 +122,7 @@ area(12,13,5)
 fact1 <- function(n){
     val <- 1
     for(i in 1:n){
-	val <- val*i
+        val <- val*i
     }
     return(val)
 }
@@ -134,13 +134,13 @@ fact1(4)
 ## if文を用いた修正版
 fact2 <- function(n){
     if(n==0){
-	return(1)
+        return(1)
     } else {
-	val <- 1
-	for(i in 1:n){
-	    val <- val*i
-	}
-	return(val)
+        val <- 1
+        for(i in 1:n){
+            val <- val*i
+        }
+        return(val)
     }
 }
 fact2(0) # 正しい
@@ -152,8 +152,8 @@ fact2(4)
 fact3 <- function(n){
     val <- 1
     while(n>0){
-	val <- val*n
-	n <- n-1
+        val <- val*n
+        n <- n-1
     }
     return(val)
 }
@@ -169,19 +169,19 @@ fibo <- function(n){
     f0 <- 0 # 第0項の設定
     f1 <- 1 # 第1項の設定
     if(n<0) {
-	print("計算できません")
-	return(NA) # 欠損値を返す
+        print("計算できません")
+        return(NA) # 欠損値を返す
     }
     if(n==0) { # n=0の場合
-	return(f0)
+        return(f0)
     }
     if(n==1) { # n=1の場合
-	return(f1)
+        return(f1)
     }
     for(i in 2:n) { # n>=2の場合
-	fn <- f1 + f0 # fn = fn-1 + fn-2 の計算
-	f0 <- f1 # fn-2 の値の更新
-	f1 <- fn # fn-1 の値の更新
+        fn <- f1 + f0 # fn = fn-1 + fn-2 の計算
+        f0 <- f1 # fn-2 の値の更新
+        f1 <- fn # fn-1 の値の更新
     }
     return(fn) # 計算結果を返す
 }
@@ -191,8 +191,8 @@ fibo <- function(n){
 colave <- function(X) {
     ave <- rep(0,length=ncol(X)) # 平均を記録するベクトルを用意
     for(i in 1:ncol(X)){ # 列ごとに計算
-	ave[i] <- sum(X[,i])/nrow(X) # 平均の定義に従って計算
-	## ave[i] <- mean(X[,i]) # 平均を計算する関数を用いても良い
+        ave[i] <- sum(X[,i])/nrow(X) # 平均の定義に従って計算
+        ## ave[i] <- mean(X[,i]) # 平均を計算する関数を用いても良い
     }
     return(ave)
 }
@@ -203,12 +203,12 @@ colave(A)
 ### ベクトルと行列を扱えるように修正
 colave <- function(X){ 
     if(is.vector(X)){
-	ave <- mean(X)
+        ave <- mean(X)
     } else {
-	ave <- rep(0,length=ncol(X))
-	for(i in 1:ncol(X)){
-	    ave[i] <- mean(X[,i])
-	}
+        ave <- rep(0,length=ncol(X))
+        for(i in 1:ncol(X)){
+            ave[i] <- mean(X[,i])
+        }
     }
     return(ave)
 }
