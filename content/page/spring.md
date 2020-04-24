@@ -24,10 +24,10 @@ weight = 1003
 ## スライド {#スライド}
 
 1.  [Rの基本的な操作](https://noboru-murata.github.io/sda/spring/slide01.html)
-    [(PDF)](https://noboru-murata.github.io/sda/spring/pdfs/R%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E6%93%8D%E4%BD%9C.pdf)
+    [[PDF](https://noboru-murata.github.io/sda/spring/pdfs/R%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E6%93%8D%E4%BD%9C.pdf)]
 2.  [ベクトル・行列の演算と関数](https://noboru-murata.github.io/sda/spring/slide02.html)
-    [(PDF)](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%83%BB%E8%A1%8C%E5%88%97%E3%81%AE%E6%BC%94%E7%AE%97%E3%81%A8%E9%96%A2%E6%95%B0.pdf)
-    [(解答例)](https://noboru-murata.github.io/sda/spring/code/slide02.R)
+    [[PDF](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%83%BB%E8%A1%8C%E5%88%97%E3%81%AE%E6%BC%94%E7%AE%97%E3%81%A8%E9%96%A2%E6%95%B0.pdf)]
+    [[解答例](https://noboru-murata.github.io/sda/spring/code/slide02.R)]
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
