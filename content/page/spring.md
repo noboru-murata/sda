@@ -25,18 +25,20 @@ weight = 1003
 
 1.  [Rの基本的な操作](https://noboru-murata.github.io/sda/spring/slide01.html)
     [(PDF)](https://noboru-murata.github.io/sda/spring/pdfs/R%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E6%93%8D%E4%BD%9C.pdf)
+2.  [ベクトル・行列の演算と関数](https://noboru-murata.github.io/sda/spring/slide02.html)
+    [(PDF)](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%83%BB%E8%A1%8C%E5%88%97%E3%81%AE%E6%BC%94%E7%AE%97%E3%81%A8%E9%96%A2%E6%95%B0.pdf)
+    [(解答例)](https://noboru-murata.github.io/sda/spring/code/slide02.R)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
 
-1.  [データ構造と関数](https://noboru-murata.github.io/sda/spring/slide02.html)
-2.  [データの整理と集計](https://noboru-murata.github.io/sda/spring/slide03.html)
-3.  [データのプロット](https://noboru-murata.github.io/sda/spring/slide04.html)
-4.  [確率シミュレーション](https://noboru-murata.github.io/sda/spring/slide05.html) (Monte-Carlo法)
-5.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
-6.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
-7.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
-8.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
-9.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
-10. [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
-11. [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+1.  [データの整理と集計](https://noboru-murata.github.io/sda/spring/slide03.html)
+2.  [データのプロット](https://noboru-murata.github.io/sda/spring/slide04.html)
+3.  [確率シミュレーション](https://noboru-murata.github.io/sda/spring/slide05.html) (Monte-Carlo法)
+4.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
+5.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
+6.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
+7.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
+8.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
+9.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
+10. [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)

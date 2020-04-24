@@ -1,0 +1,42 @@
+#+TITLE: 注意事項
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE: 2020年度
+:preamble:
+#+INCLUDE: "./myconf.org"
+#+STARTUP: hidestars content
+# C-c C-x C-v でinlineを切り替え
+# <l C-i でlatex block
+# C-c '
+#+OPTIONS: LaTeX:t    
+#+PROPERTY: results output
+#+PROPERTY: exports both
+:end:
+
+* 注意
+  - 講義の配信開始は 17:00 とします
+  - 時間までに演習環境を整えて下さい
+    - RStudio を準備
+    - 講義資料はこちらから
+      https://noboru-murata.github.io/sda/
+      - 第1回スライドに沿って説明します
+      - スライドのPDF版は若干重いです(5MB)
+      - 細かな説明は講義資料を参考にして下さい
+* 注意
+  - 講義の配信開始は 17:00 とします
+  - 時間までに演習環境を整えて下さい
+    - RStudio を準備
+    - 講義資料はこちらから
+      https://noboru-murata.github.io/sda/
+      - スライドに沿って説明します
+      - スライドのPDF版は若干重いです
+      - 細かな説明は講義資料を参考にして下さい
+
+* 参考
+  - 以下のサイトは自習の助けになります
+    - RStudio.cloud の自習コース \\
+      https://rstudio.cloud/learn/primers
+    - Data Camp のR入門コース
+      https://www.datacamp.com/onboarding
+  - *"R オンライン 講座"* などで検索して下さい
+

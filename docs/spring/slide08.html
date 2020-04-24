@@ -15,8 +15,6 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
 <link rel="stylesheet" href="./myconf.css"/>
@@ -31,9 +29,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body prefix="dc: http://purl.org/dc/elements/1.1/ dcterms: http://purl.org/dc/terms/ dcmitype: http://purl.org/dc/dcmitype/ cc: http://creativecommons.org/ns#" typeof="dcmitype:InteractiveResource">
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -57,14 +55,14 @@
 </section>
 
 <section>
-<section id="slide-org5fad1a7">
-<h2 id="org5fad1a7">基礎的な記述統計量</h2>
-<div class="outline-text-2" id="text-org5fad1a7">
+<section id="slide-org96cb114">
+<h2 id="org96cb114">基礎的な記述統計量</h2>
+<div class="outline-text-2" id="text-org96cb114">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgce5e6e4">
-<h3 id="orgce5e6e4">記述統計量</h3>
+<section id="slide-orgfb7e08e">
+<h3 id="orgfb7e08e">記述統計量</h3>
 <ul>
 <li><b>記述統計量</b> : (または要約統計量・基本統計量)
 <ul>
@@ -93,14 +91,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orge42a4b0">
-<h2 id="orge42a4b0">モーメントに基づく　記述統計量</h2>
-<div class="outline-text-2" id="text-orge42a4b0">
+<section id="slide-org1a01ed1">
+<h2 id="org1a01ed1">モーメントに基づく　記述統計量</h2>
+<div class="outline-text-2" id="text-org1a01ed1">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org130c6cc">
-<h3 id="org130c6cc">平均</h3>
+<section id="slide-orga90fba8">
+<h3 id="orga90fba8">平均</h3>
 <ul>
 <li><p>
 <b>標本平均</b> (sample mean):
@@ -121,8 +119,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0ac1987">
-<h3 id="org0ac1987">分散・標準偏差</h3>
+<section id="slide-orgb66c845">
+<h3 id="orgb66c845">分散・標準偏差</h3>
 <ul>
 <li><p>
 <b>標本分散</b> (sample variance):
@@ -145,8 +143,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd67fae6">
-<h3 id="orgd67fae6">独立同分布性</h3>
+<section id="slide-orgf17788e">
+<h3 id="orgf17788e">独立同分布性</h3>
 <ul>
 <li>統計解析における重要な仮定とその帰結:
 <ul>
@@ -166,8 +164,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org751f3c1">
-<h3 id="org751f3c1">推定量の一致性</h3>
+<section id="slide-orgb06c502">
+<h3 id="orgb06c502">推定量の一致性</h3>
 <p>
 サンプル数が大きい場合に「まともな」推定量となる根拠の1つ
 </p>
@@ -176,14 +174,14 @@
 推定量がサンプル数 \(n\to\infty\) のとき確率1で真の値に収束する性質</li>
 <li><b>(強)一致推定量</b> : 一致性をもつ推定量</li>
 <li>標本平均・標本分散・標本標準偏差は
-「真の」平均・分散・標準偏差の一致推定量</li>
+平均・分散・標準偏差の一致推定量</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0b95a5e">
-<h3 id="org0b95a5e">推定量の不偏性</h3>
+<section id="slide-org2a1ed84">
+<h3 id="org2a1ed84">推定量の不偏性</h3>
 <p>
 サンプル数が小さい場合の推定量の良さに関する性質の1つ
 </p>
@@ -209,8 +207,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5ab79f5">
-<h3 id="org5ab79f5">標本平均・分散の不偏性</h3>
+<section id="slide-orgdd6c6d9">
+<h3 id="orgdd6c6d9">標本平均・分散の不偏性</h3>
 <ul>
 <li><p>
 標本平均は \(\mu\) の <b>不偏推定量である</b>:
@@ -238,8 +236,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org38d6607">
-<h3 id="org38d6607">不偏分散</h3>
+<section id="slide-org67df1e4">
+<h3 id="org67df1e4">不偏分散</h3>
 <p>
 不偏性を担保した分散の推定量
 </p>
@@ -263,8 +261,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org81c59c0">
-<h3 id="org81c59c0">標本標準偏差</h3>
+<section id="slide-org8ccdc7e">
+<h3 id="org8ccdc7e">標本標準偏差</h3>
 <ul>
 <li>標本標準偏差: 通常, 不偏分散の平方根 \(s\) を指す</li>
 <li>一般に \(s\) は標準偏差 \(\sigma\) の <b>不偏推定量ではない</b></li>
@@ -274,8 +272,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4560470" data-background="#fef4f4">
-<h3 id="org4560470">演習</h3>
+<section id="slide-orgce7fcee" data-background="#fef4f4">
+<h3 id="orgce7fcee">演習</h3>
 <ul>
 <li><code>summary-unbiased.r</code> を確認しなさい</li>
 <li>標本標準偏差が不偏推定量となるかどうかを確かめなさい</li>
@@ -294,8 +292,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf1afbef" data-background="#fef4f4">
-<h3 id="orgf1afbef">演習</h3>
+<section id="slide-orge647479" data-background="#fef4f4">
+<h3 id="orge647479">演習</h3>
 <p>
 <a href="https://www.e-stat.go.jp">https://www.e-stat.go.jp</a>
 から適当なデータをダウンロードして，
@@ -308,8 +306,8 @@
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">mydata <span style="color: #56B6C2;">&lt;-</span> read.csv(<span style="color: #98C379;">"mydata.csv"</span>,
-                   fileEncoding=<span style="color: #98C379;">"sjis"</span>,skip=8)      
+<pre  class="src src-R">mydata <span style="color: #8be9fd;">&lt;-</span> read.csv(<span style="color: #f1fa8c;">"mydata.csv"</span>,
+                   fileEncoding=<span style="color: #f1fa8c;">"sjis"</span>,skip=8)      
 </pre>
 </div>
 
@@ -317,14 +315,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org816ed84">
-<h2 id="org816ed84">標準化と偏差値</h2>
-<div class="outline-text-2" id="text-org816ed84">
+<section id="slide-orgad60c73">
+<h2 id="orgad60c73">標準化と偏差値</h2>
+<div class="outline-text-2" id="text-orgad60c73">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org293e60b">
-<h3 id="org293e60b">標準化</h3>
+<section id="slide-orgadc5257">
+<h3 id="orgadc5257">標準化</h3>
 <p>
 複数のデータを分析するために単位や基準を揃える
 </p>
@@ -348,8 +346,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdad1651">
-<h3 id="orgdad1651">偏差値</h3>
+<section id="slide-org25754bd">
+<h3 id="org25754bd">偏差値</h3>
 <p>
 別の基準での標準化
 </p>
@@ -371,8 +369,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org651a31e" data-background="#fef4f4">
-<h3 id="org651a31e">演習</h3>
+<section id="slide-orge92e63d" data-background="#fef4f4">
+<h3 id="orge92e63d">演習</h3>
 <ul>
 <li><code>summary-scale.r</code> を確認しなさい</li>
 <li><p>
@@ -392,14 +390,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orga3ef65e">
-<h2 id="orga3ef65e">歪度と尖度</h2>
-<div class="outline-text-2" id="text-orga3ef65e">
+<section id="slide-org4e642cc">
+<h2 id="org4e642cc">歪度と尖度</h2>
+<div class="outline-text-2" id="text-org4e642cc">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1048a20">
-<h3 id="org1048a20">歪度と尖度</h3>
+<section id="slide-org2ebe74b">
+<h3 id="org2ebe74b">歪度と尖度</h3>
 <p>
 正規分布からのずれを調べるための統計量
 </p>
@@ -417,8 +415,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3daef1b">
-<h3 id="org3daef1b">歪度</h3>
+<section id="slide-orgccd6b84">
+<h3 id="orgccd6b84">歪度</h3>
 <p>
 分布の非対称性を表す統計量
 </p>
@@ -450,8 +448,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org08e4269">
-<h3 id="org08e4269">尖度</h3>
+<section id="slide-org52c1dd2">
+<h3 id="org52c1dd2">尖度</h3>
 <p>
 平均の周囲の分布の尖り具合を表す統計量
 </p>
@@ -484,8 +482,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org207768a">
-<h3 id="org207768a">超過尖度</h3>
+<section id="slide-org41570ce">
+<h3 id="org41570ce">超過尖度</h3>
 <ul>
 <li>正規分布と比較して
 <ul>
@@ -518,8 +516,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4ac6ede">
-<h3 id="org4ac6ede">標本歪度と標本尖度</h3>
+<section id="slide-orged5f055">
+<h3 id="orged5f055">標本歪度と標本尖度</h3>
 <p>
 観測データ \(X_{1},X_{2},\dotsc,X_{n}\) からの歪度と尖度の推定
 </p>
@@ -547,8 +545,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org894edbf">
-<h3 id="org894edbf">歪度と尖度の計算</h3>
+<section id="slide-org4835412">
+<h3 id="org4835412">歪度と尖度の計算</h3>
 <ul>
 <li>標本歪度・標本尖度を計算する関数はRの標準機能にはない</li>
 <li><code>package::e1071</code> の利用例:
@@ -566,8 +564,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga98fb54" data-background="#fef4f4">
-<h3 id="orga98fb54">演習</h3>
+<section id="slide-org7267b58" data-background="#fef4f4">
+<h3 id="org7267b58">演習</h3>
 <ul>
 <li><code>summary-skewkurt.r</code> を確認しなさい．</li>
 <li>標本歪度のばらつきがどの程度あるか確かめなさい．</li>
@@ -579,14 +577,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgeaf029a">
-<h2 id="orgeaf029a">相関と共分散</h2>
-<div class="outline-text-2" id="text-orgeaf029a">
+<section id="slide-org2bc4bfe">
+<h2 id="org2bc4bfe">相関と共分散</h2>
+<div class="outline-text-2" id="text-org2bc4bfe">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org30395ed">
-<h3 id="org30395ed">相関と共分散</h3>
+<section id="slide-org5d4fa6d">
+<h3 id="org5d4fa6d">相関と共分散</h3>
 <p>
 複数のデータ間の関係性を知るための記述統計量
 </p>
@@ -616,8 +614,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5c80861">
-<h3 id="org5c80861">相関と共分散</h3>
+<section id="slide-org2c3ca14">
+<h3 id="org2c3ca14">相関と共分散</h3>
 <ul>
 <li>直感的には2種類のデータ間の比例関係の大きさ</li>
 <li>相関の値は \(-1\) 以上 \(1\) 以下
@@ -640,8 +638,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcff3085" data-background="#fef4f4">
-<h3 id="orgcff3085">演習</h3>
+<section id="slide-org182bfcf" data-background="#fef4f4">
+<h3 id="org182bfcf">演習</h3>
 <ul>
 <li><code>summary-cor.r</code> を確認しなさい</li>
 <li><p>
@@ -662,14 +660,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org722d86a">
-<h2 id="org722d86a">順序に基づく統計量</h2>
-<div class="outline-text-2" id="text-org722d86a">
+<section id="slide-org195c817">
+<h2 id="org195c817">順序に基づく統計量</h2>
+<div class="outline-text-2" id="text-org195c817">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb0aa3c2">
-<h3 id="orgb0aa3c2">メディアン</h3>
+<section id="slide-orgcb1e2d1">
+<h3 id="orgcb1e2d1">メディアン</h3>
 <p>
 データの順序にもとづく記述統計量
 </p>
@@ -699,8 +697,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf1a5c75">
-<h3 id="orgf1a5c75">分位点</h3>
+<section id="slide-org6510ad5">
+<h3 id="org6510ad5">分位点</h3>
 <ul>
 <li><p>
 \(100\alpha\) % <b>分位点 (percentile/quantile)</b>: メディアンの一般化
@@ -729,8 +727,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6e5d45c" data-background="#fef4f4">
-<h3 id="org6e5d45c">演習</h3>
+<section id="slide-org7a59454" data-background="#fef4f4">
+<h3 id="org7a59454">演習</h3>
 <ul>
 <li><code>summary-order.r</code> を確認しなさい</li>
 <li>自身のデータのヒストグラムを描き，
@@ -740,8 +738,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org25334f4">
-<h3 id="org25334f4">連続分布の分位点</h3>
+<section id="slide-orga16d292">
+<h3 id="orga16d292">連続分布の分位点</h3>
 <ul>
 <li>分位点は推定や検定において重要な役割を果たす</li>
 <li><p>
@@ -775,8 +773,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgce440e9">
-<h3 id="orgce440e9">分位点の性質</h3>
+<section id="slide-org9454c40">
+<h3 id="org9454c40">分位点の性質</h3>
 <ul>
 <li>\(X_1,X_2,\dots,X_n\) が独立同分布な確率変数の列のとき,
 \(X_1,X_2,\dots,X_n\) の \(100\alpha\) %分位点は，
@@ -801,8 +799,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org500c679" data-background="#fef4f4">
-<h3 id="org500c679">演習</h3>
+<section id="slide-org2550f9c" data-background="#fef4f4">
+<h3 id="org2550f9c">演習</h3>
 <ul>
 <li><code>summary-quantile.r</code> を確認しなさい</li>
 <li>\(t\) 分布やガンマ分布の密度関数を描き，
@@ -814,14 +812,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org3977d35">
-<h2 id="org3977d35">ばらつきの指標</h2>
-<div class="outline-text-2" id="text-org3977d35">
+<section id="slide-org28ca6ee">
+<h2 id="org28ca6ee">ばらつきの指標</h2>
+<div class="outline-text-2" id="text-org28ca6ee">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0a8d37d">
-<h3 id="org0a8d37d">ばらつきの指標</h3>
+<section id="slide-org8038fa6">
+<h3 id="org8038fa6">ばらつきの指標</h3>
 <p>
 データのばらつきを測るための記述統計量
 </p>
@@ -838,8 +836,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga829962" data-background="#fef4f4">
-<h3 id="orga829962">演習</h3>
+<section id="slide-orgc8bdbbd" data-background="#fef4f4">
+<h3 id="orgc8bdbbd">演習</h3>
 <ul>
 <li><code>summary-range.r</code> を確認しなさい</li>
 <li>自身のデータのヒストグラムを描き，
@@ -851,14 +849,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org3bee570">
-<h2 id="org3bee570">頻度に基づく統計量</h2>
-<div class="outline-text-2" id="text-org3bee570">
+<section id="slide-orge5ad39f">
+<h2 id="orge5ad39f">頻度に基づく統計量</h2>
+<div class="outline-text-2" id="text-orge5ad39f">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org43511fa">
-<h3 id="org43511fa">頻度に基づく統計量</h3>
+<section id="slide-org7d4b56a">
+<h3 id="org7d4b56a">頻度に基づく統計量</h3>
 <ul>
 <li><b>モード (mode)</b> もしくは <b>最頻値</b> : データの中で最も頻度が高く現れる値</li>
 <li>モードはデータが有限個の値を取る場合に特に有効</li>
@@ -875,8 +873,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc63058a" data-background="#fef4f4">
-<h3 id="orgc63058a">演習</h3>
+<section id="slide-org20a4160" data-background="#fef4f4">
+<h3 id="org20a4160">演習</h3>
 <ul>
 <li><code>summary-mode.r</code> を確認しなさい</li>
 <li>東京都の風のデータについて，
@@ -906,33 +904,33 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
 { src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
 	{className: "animate",  initialize: (function(container, options){
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
 			if (typeof event.fragment.beginElement === "function" ) {
@@ -972,7 +970,7 @@ dependencies: [
 		    choices: [ {name: "dummyname", path: "dummypath"} ]},
 	 initialize: (function(container, options){
 	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
 	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
 	     container.innerHTML = img + caption;
 	 }) },
@@ -981,7 +979,8 @@ dependencies: [
 	     container.addEventListener('click', function(e) { RevealNotes.open(); });
 	 }) }
 ],
-  coursemod: { enabled: true, shown: false }});
+coursemod: { enabled: true, shown: false },
+});
 </script>
 </body>
 </html>
