@@ -59,8 +59,9 @@
    2. [[github:spring/slide02.html][ベクトル・行列の演算と関数]]
       [[github:spring/pdfs/ベクトル・行列の演算と関数.pdf][[PDF]​]]
       [[github:spring/code/slide02.R][[解答例]​]]
+      *[[github:spring/code/qa02.R][[質問への回答]​]]*
    3. [[github:spring/slide03.html][データの整理と集計]]
-      [[github:spring/pdfs/データの整理と集計.pdf][[PDF]​]] \\
+      [[github:spring/pdfs/データの整理と集計.pdf][[PDF]​]] 
       [[github:spring/code/slide03.R][[解答例]​]] 
 
 ** 参考: 2019年度版スライド

@@ -25,8 +25,9 @@ weight = 1003
 2.  [ベクトル・行列の演算と関数](https://noboru-murata.github.io/sda/spring/slide02.html)
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%83%BB%E8%A1%8C%E5%88%97%E3%81%AE%E6%BC%94%E7%AE%97%E3%81%A8%E9%96%A2%E6%95%B0.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide02.R)
+    **[[質問への回答]​](https://noboru-murata.github.io/sda/spring/code/qa02.R)**
 3.  [データの整理と集計](https://noboru-murata.github.io/sda/spring/slide03.html)
-    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%95%B4%E7%90%86%E3%81%A8%E9%9B%86%E8%A8%88.pdf) <br />
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%95%B4%E7%90%86%E3%81%A8%E9%9B%86%E8%A8%88.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide03.R)
 
 
