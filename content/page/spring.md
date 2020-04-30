@@ -29,6 +29,7 @@ weight = 1003
 3.  [データの整理と集計](https://noboru-murata.github.io/sda/spring/slide03.html)
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%95%B4%E7%90%86%E3%81%A8%E9%9B%86%E8%A8%88.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide03.R)
+    **[[サンプルデータ(jpdata.zip)]​](https://noboru-murata.github.io/sda/spring/data/jpdata.zip)**
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}

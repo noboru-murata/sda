@@ -63,6 +63,7 @@
    3. [[github:spring/slide03.html][データの整理と集計]]
       [[github:spring/pdfs/データの整理と集計.pdf][[PDF]​]] 
       [[github:spring/code/slide03.R][[解答例]​]] 
+      *[[github:spring/data/jpdata.zip][[サンプルデータ(jpdata.zip)]​]]*
 
 ** 参考: 2019年度版スライド
    4. [[github:spring/slide04.html][データのプロット]]
