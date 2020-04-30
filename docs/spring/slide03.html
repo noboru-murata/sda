@@ -15,8 +15,6 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
 <link rel="stylesheet" href="./myconf.css"/>
@@ -32,7 +30,7 @@
     }
 </script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -50,20 +48,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  </p>
+  2020.05.01</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgc271c06">
-<h2 id="orgc271c06">データフレームの基本操作</h2>
-<div class="outline-text-2" id="text-orgc271c06">
+<section id="slide-org90e1fa3">
+<h2 id="org90e1fa3">データフレームの操作</h2>
+<div class="outline-text-2" id="text-org90e1fa3">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9843ebc">
-<h3 id="org9843ebc">Rに用意されているデータ構造 (再掲)</h3>
+<section id="slide-org933a7e8">
+<h3 id="org933a7e8">Rに用意されているデータ構造</h3>
 <p>
 下記は代表的なもので，これ以外にもある
 </p>
@@ -78,16 +76,48 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf08ef28">
-<h3 id="orgf08ef28">データフレームからの項目の抽出</h3>
+<section id="slide-org92005d4">
+<h3 id="org92005d4">データフレームからの項目の抽出</h3>
 <ul>
 <li>添字の番号を指定</li>
 <li>要素の名前で指定</li>
 <li><b>除外</b>: マイナス記号(-)をつけて指定</li>
-<li>論理値で指定
+<li><p>
+論理値で指定
+</p>
 <ul>
 <li><code>TRUE</code>: 要素の選択</li>
 <li><code>FALSE</code>: 要素の <b>除外</b></li>
+
+</ul>
+<p>
+(欠損値 <code>NA</code> が含まれると正しく指定できない場合があるので注意)
+</p></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org8524a83">
+<h3 id="org8524a83">データ例</h3>
+<ul>
+<li><b><code>datasets::airquality</code></b> (Rに準備されている)<br />
+<b>New York Air Quality Measurements</b>
+<ul>
+<li>Description:
+Daily air quality measurements in New York, May to September 1973.</li>
+<li>Format: 
+A data frame with 153 observations on 6 variables.
+<ul>
+<li>[,1]   Ozone   numeric Ozone (ppb)</li>
+<li>[,2]   Solar.R numeric Solar R (lang)</li>
+<li>[,3]   Wind    numeric Wind (mph)</li>
+<li>[,4]   Temp    numeric Temperature (degrees F)</li>
+<li>[,5]   Month   numeric Month (1&#x2013;12)</li>
+<li>[,6]   Day     numeric Day of month (1&#x2013;31)</li>
+
+</ul></li>
+<li>(<code>help(airquality)</code> または <code>?ariquality</code> で詳細を確認)</li>
 
 </ul></li>
 
@@ -95,30 +125,157 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8a79afb">
-<h4 id="org8a79afb">例: <code>data-select.r</code></h4>
+<section id="slide-org1a63be5">
+<h3 id="org1a63be5">行の抽出 (1/3)</h3>
+<ul>
+<li><p>
+行番号による指定
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#26465;&#20214;&#12395;&#21512;&#33268;&#12377;&#12427;&#34892;&#12398;&#36984;&#25246;</span>
-which(airquality$Ozone&gt;100 &amp; airquality$Wind&lt;=5) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#35079;&#25968;&#12398;&#26465;&#20214;&#12398; AND</span>
-which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5))     <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#12376; (&#12362;&#34214;&#12417;&#12398;&#30701;&#12356;&#26360;&#12365;&#26041;)</span>
-<span style="color: #5C6370;"># </span><span style="color: #5C6370;">airquality$Ozone&gt;100 &amp; airquality$Wind&lt;=5 # (NA&#12399;NA&#12392;&#12394;&#12427;&#12371;&#12392;&#12395;&#27880;&#24847;)</span>
-
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#34892;&#12398;&#25277;&#20986;</span>
-airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), ] 
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#21015;&#12398;&#25277;&#20986;</span>
-airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), c(<span style="color: #98C379;">"Month"</span>,<span style="color: #98C379;">"Day"</span>)] 
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#25277;&#20986;&#12377;&#12427;&#34892;&#30058;&#21495;&#12398;&#12505;&#12463;&#12488;&#12523;&#12391;&#25351;&#23450;</span>
+airquality[1:10,] <span style="color: #6272a4;"># </span><span style="color: #6272a4;">1-10&#34892;&#12434;&#25277;&#20986;</span>
 </pre>
 </div>
 
 <pre class="example">
+
+   Ozone Solar.R Wind Temp Month Day
+1     41     190  7.4   67     5   1
+2     36     118  8.0   72     5   2
+3     12     149 12.6   74     5   3
+4     18     313 11.5   62     5   4
+5     NA      NA 14.3   56     5   5
+6     28      NA 14.9   66     5   6
+7     23     299  8.6   65     5   7
+8     19      99 13.8   59     5   8
+9      8      19 20.1   61     5   9
+10    NA     194  8.6   69     5  10
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9d47b5c">
+<h3 id="org9d47b5c">行の抽出 (2/3)</h3>
+<ul>
+<li><p>
+条件の指定
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#26465;&#20214;&#12395;&#21512;&#33268;&#12377;&#12427;&#34892;&#12399;TRUE (NA&#12399;&#27424;&#25613;&#20516;)</span>
+airquality[1:16,]$Ozone&gt;100 <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26465;&#20214;&#12398;&#25351;&#23450;</span>
+airquality[1:16,]$Ozone&gt;100 &amp; airquality[1:16,]$Wind&lt;=5 <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26465;&#20214;&#12398;AND</span>
+with(airquality[1:16,], Ozone&gt;100 &amp; Wind&lt;=5) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#12376;(&#30701;&#12356;&#26360;&#12365;&#26041;)</span>
+with(airquality[1:24,], Ozone&gt;100 | Wind&lt;=5) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26465;&#20214;&#12398;OR</span>
+</pre>
+</div>
+
+<pre class="example">
+
+ [1] FALSE FALSE FALSE FALSE    NA FALSE FALSE FALSE
+ [9] FALSE    NA FALSE FALSE FALSE FALSE FALSE FALSE
+
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [9] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+
+ [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [9] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+
+ [1] FALSE FALSE FALSE FALSE    NA FALSE FALSE FALSE
+ [9] FALSE    NA FALSE FALSE FALSE FALSE FALSE FALSE
+[17] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org84e46c2">
+<h3 id="org84e46c2">行の抽出 (3/3)</h3>
+<ul>
+<li><p>
+条件に合致する行番号の抽出
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#38306;&#25968;which&#12391;TRUE&#12398;&#30058;&#21495;&#12434;&#25277;&#20986;</span>
+which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#20840;&#12487;&#12540;&#12479;&#12363;&#12425;&#25277;&#20986;</span>
+</pre>
+</div>
+
+<pre class="example">
+
 [1]  62  99 117 121
-[1]  62  99 117 121
+</pre></li>
+
+<li><p>
+条件に合致する行の抽出
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#34892;&#12398;&#25277;&#20986;</span>
+airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), ] 
+</pre>
+</div>
+
+<pre class="example">
+
     Ozone Solar.R Wind Temp Month Day
 62    135     269  4.1   84     7   1
 99    122     255  4.0   89     8   7
 117   168     238  3.4   81     8  25
 121   118     225  2.3   94     8  29
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf4fb578">
+<h3 id="orgf4fb578">列の抽出 (1/2)</h3>
+<ul>
+<li><p>
+列番号による指定
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#21015;&#30058;&#21495;&#12398;&#12505;&#12463;&#12488;&#12523;&#12391;&#25351;&#23450;</span>
+airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), c(1,5,6)] 
+</pre>
+</div>
+
+<pre class="example">
+
+    Ozone Month Day
+62    135     7   1
+99    122     8   7
+117   168     8  25
+121   118     8  29
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4490f62">
+<h3 id="org4490f62">列の抽出 (2/2)</h3>
+<ul>
+<li><p>
+列名による指定
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#35079;&#25968;&#12398;&#21015;&#12398;&#22580;&#21512;</span>
+airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), 
+           c(<span style="color: #f1fa8c;">"Month"</span>,<span style="color: #f1fa8c;">"Day"</span>)] 
+</pre>
+</div>
+
+<pre class="example">
+
     Month Day
 62      7   1
 99      8   7
@@ -126,10 +283,25 @@ airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), c(<span style
 121     8  29
 </pre>
 
+
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">1&#12388;&#12398;&#21015;&#12398;&#22580;&#21512;&#12399;&#20197;&#19979;&#12391;&#12418;&#33391;&#12356; (&#12383;&#12384;&#12375;&#12505;&#12463;&#12488;&#12523;&#12395;&#12394;&#12427;)</span>
+airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)),]$Month
+</pre>
+</div>
+
+<pre class="example">
+
+[1] 7 8 8 8
+</pre></li>
+
+</ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org73275e0">
-<h4 id="org73275e0">関数 <code>subset()</code></h4>
+<section id="slide-org211c0b4">
+<h3 id="org211c0b4">関数 <code>subset()</code></h3>
 <p>
 複合的な条件を指定してデータを整理する
 </p>
@@ -139,14 +311,14 @@ airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), c(<span style
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">subset(x,subset,select,drop=<span style="color: #E5C07B;">FALSE</span>)
+<pre  class="src src-R">subset(x,subset,select,drop=<span style="color: #bd93f9;">FALSE</span>)
 </pre>
 </div></li>
 <li>関数の引数
 <ul>
 <li><code>x</code>:  データフレーム</li>
-<li><code>subset</code>: 行に関する条件</li>
-<li><code>select</code>: 列に関する条件(未指定の場合は全ての列)</li>
+<li><code>subset</code>: 抽出する行の条件</li>
+<li><code>select</code>: 列の選択(未指定の場合は全ての列)</li>
 <li><code>drop</code>: 結果が1行または1列の場合ベクトルとする(TRUE)かデータフレームとする(FALSE)か</li>
 
 </ul></li>
@@ -155,24 +327,59 @@ airquality[which(with(airquality, Ozone&gt;100 &amp; Wind&lt;=5)), c(<span style
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbd4ae69">
-<h4 id="orgbd4ae69">例: <code>data-subset.r</code></h4>
+<section id="slide-org1e65d81">
+<h3 id="org1e65d81">関数 <code>subset()</code> の例 (1/3)</h3>
+<ul>
+<li><p>
+前出の例の書き換え
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">Ozone&#12364;120&#12434;&#36229;&#12360;&#12427;&#34892;&#12391;&#29305;&#23450;&#12398;&#21015;(Wind&#12392;Day)&#12398;&#12487;&#12540;&#12479;</span>
-subset(airquality, Ozone&gt;120, select=c(Wind,Day)) <span style="color: #5C6370;"># </span>
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">Ozone&#12395;&#27424;&#28204;(NA)&#12364;&#12394;&#12367;, &#12363;&#12388;(AND)Day&#12364;5&#12363;10&#12391;Wind&#12363;&#12425;Day&#12414;&#12391;&#12398;&#21015;&#12398;&#12487;&#12540;&#12479;</span>
-subset(airquality, !is.na(Ozone) &amp; Day <span style="color: #56B6C2;">%in%</span> c(5,10),select=Wind:Day)
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">Ozone&#12364;120&#20197;&#19978;&#12363;&#65292;&#12414;&#12383;&#12399;Wind&#12364;3&#20197;&#19979;(OR)&#12391;Temp&#20197;&#22806;&#12398;&#21015;&#12434;&#25277;&#20986;</span>
-subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
+<pre  class="src src-R">subset(airquality,
+       subset = Ozone&gt;100 &amp; Wind&lt;=5,
+       select = c(1,5,6))
+subset(airquality,
+       Ozone&gt;100 &amp; Wind&lt;=5, <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38918;&#24207;&#36890;&#12426;&#12394;&#12425;&#24341;&#25968;&#12398;&#21517;&#21069;&#12399;&#30465;&#30053;&#21487;</span>
+       c(Month,Day)) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21517;&#21069;&#12399;$&#12398;&#24460;&#12392;&#21516;&#12376;&#25201;&#12356;</span>
 </pre>
 </div>
 
 <pre class="example">
-    Wind Day
-62   4.1   1
-99   4.0   7
-117  3.4  25
+
+    Ozone Month Day
+62    135     7   1
+99    122     8   7
+117   168     8  25
+121   118     8  29
+
+    Month Day
+62      7   1
+99      8   7
+117     8  25
+121     8  29
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgdefad77">
+<h3 id="orgdefad77">関数 <code>subset()</code> の例 (2/3)</h3>
+<ul>
+<li><p>
+いろいろな記述の仕方
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">Ozone&#12395;&#27424;&#28204;(NA)&#12364;&#12394;&#12367;, &#12363;&#12388;Day&#12364;5&#12363;10&#12398;Wind&#12363;&#12425;Day&#12414;&#12391;&#12398;&#21015;&#12434;&#25277;&#20986;</span>
+subset(airquality, 
+       subset = !is.na(Ozone) &amp; Day <span style="color: #8be9fd;">%in%</span> c(5,10),
+       select = Wind:Day)
+</pre>
+</div>
+
+<pre class="example">
+
     Wind Temp Month Day
 41  11.5   87     6  10
 66   4.6   83     7   5
@@ -180,6 +387,29 @@ subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
 97   7.4   85     8   5
 128  7.4   87     9   5
 133  9.7   73     9  10
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgfc5d48e">
+<h3 id="orgfc5d48e">関数 <code>subset()</code> の例 (3/3)</h3>
+<ul>
+<li><p>
+いろいろな記述の仕方
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">Ozone&#12364;120&#20197;&#19978;&#12363;&#65292;&#12414;&#12383;&#12399;Wind&#12364;3&#20197;&#19979;&#12398;Temp&#20197;&#22806;&#12398;&#21015;&#12434;&#25277;&#20986;</span>
+subset(airquality,
+       subset = Ozone&gt;120 | Wind &lt;= 3,
+       select = -Temp)
+</pre>
+</div>
+
+<pre class="example">
+
     Ozone Solar.R Wind Month Day
 53     NA      59  1.7     6  22
 62    135     269  4.1     7   1
@@ -187,23 +417,7 @@ subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
 117   168     238  3.4     8  25
 121   118     225  2.3     8  29
 126    73     183  2.8     9   3
-</pre>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org0728837" data-background="#fef4f4">
-<h3 id="org0728837">演習</h3>
-<ul>
-<li><code>datasets::airquality</code> に対して
-以下の条件を満たすデータを取り出しなさい．
-<ul>
-<li>7月のオゾン濃度 (<code>Ozone</code>)</li>
-<li>風速 (<code>Wind</code>) が時速10マイル以上で，
-かつ気温 (<code>Temp</code>) が華氏80度以上の日のデータ</li>
-<li>日射量 (<code>Solar.R</code>) が欠測 (<code>NA</code>) でないデータの
-月 (<code>Month</code>) と日 (<code>Day</code>)</li>
-
-</ul></li>
+</pre></li>
 
 </ul>
 
@@ -211,14 +425,37 @@ subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
 </section>
 </section>
 <section>
-<section id="slide-orgd6b5b69">
-<h2 id="orgd6b5b69">データファイルの取り扱い</h2>
-<div class="outline-text-2" id="text-orgd6b5b69">
+<section id="slide-orgefbe8e7" data-background="#fef4f4">
+<h2 id="orgefbe8e7">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org61358e8" data-background="#fef4f4">
+<h3 id="org61358e8">練習問題</h3>
+<ul>
+<li><code>datasets::airquality</code> に対して
+以下の条件を満たすデータを取り出しなさい．
+<ul>
+<li>7月のオゾン濃度 (<code>Ozone</code>)</li>
+<li>風速 (<code>Wind</code>) が時速10マイル以上で，
+かつ気温 (<code>Temp</code>) が華氏80度以上の日のデータ</li>
+<li>オゾン (<code>Ozone</code>) も日射量 (<code>Solar.R</code>) も
+欠測 (<code>NA</code>) でないデータの月 (<code>Month</code>) と日 (<code>Day</code>)</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org7988fc9">
+<h2 id="org7988fc9">ファイルの取り扱い</h2>
+<div class="outline-text-2" id="text-org7988fc9">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc617616">
-<h3 id="orgc617616">データファイルの読み書き</h3>
+<section id="slide-org8d55cb5">
+<h3 id="org8d55cb5">データファイルの読み書き</h3>
 <ul>
 <li>実際の解析においては以下の操作が必要
 <ul>
@@ -230,20 +467,24 @@ subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
 <ul>
 <li>CSV形式(comma separated values): テキストファイル</li>
 <li>RData形式: Rの内部表現を用いたバイナリーファイル</li>
+<li>(Excel形式: RStudio の読み込み機能が利用可能)</li>
 
 </ul></li>
-<li>データフレームを対象としたファイルの扱いをまとめる</li>
+<li>データフレームを対象とした扱いを整理する</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0b04dad">
-<h3 id="org0b04dad">作業ディレクトリ</h3>
+<section id="slide-org337ba6b">
+<h3 id="org337ba6b">作業ディレクトリ</h3>
 <ul>
-<li>Rは特定のフォルダ(<b>作業ディレクトリ</b>)で実行される</li>
-<li>ファイルは作業ディレクトリに存在するものとして扱われる<br>
-それ以外のファイルを扱う場合はパスを含めて指定する</li>
+<li>Rは <b>作業ディレクトリ</b> で実行される
+<ul>
+<li>ファイルは作業ディレクトリに存在するものとして扱われる</li>
+<li>それ以外のファイルを扱う場合はパスを含めて指定する</li>
+
+</ul></li>
 <li>作業ディレクトリの確認の仕方
 <ul>
 <li>コンソールの上部の表示</li>
@@ -252,35 +493,40 @@ subset(airquality, Ozone&gt;120 | Wind &lt;= 3, select = -Temp)
 </ul></li>
 <li>作業ディレクトリの変更の仕方
 <ul>
-<li>&ldquo;Session&rdquo;&gt;&ldquo;Set Working Directory&rdquo;&gt;&ldquo;Choose Directory&#x2026;&rdquo;</li>
+<li><b>Session</b> メニューの <b>Set Working Directory</b> で指定
+<ul>
+<li>読み込んだファイルの場所を選択</li>
+<li>File Pane の場所を選択</li>
+<li>ディレクトリを直接選択</li>
+
+</ul></li>
 <li>関数 <code>setwd()</code></li>
 
 </ul></li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgad4d1e0">
-<h4 id="orgad4d1e0">例: <code>data-wd.r</code></h4>
+<section id="slide-org0f2b2c1">
+<h3 id="org0f2b2c1">関数 <code>getwd()/setwd()</code> の例</h3>
+<ul>
+<li>コンソール/Rscriptからの作業ディレクトリの操作</li>
+
+</ul>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#20316;&#26989;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#12398;&#30906;&#35469; (&#29872;&#22659;&#12395;&#12424;&#12387;&#12390;&#23455;&#34892;&#32080;&#26524;&#12364;&#30064;&#12394;&#12427;)</span>
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#20316;&#26989;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#12398;&#30906;&#35469; (&#29872;&#22659;&#12395;&#12424;&#12387;&#12390;&#23455;&#34892;&#32080;&#26524;&#12364;&#30064;&#12394;&#12427;)</span>
 getwd()
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#20316;&#26989;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#12398;&#31227;&#21205; (&#29872;&#22659;&#12395;&#12424;&#12387;&#12390;&#25351;&#23450;&#12398;&#20181;&#26041;&#12418;&#30064;&#12394;&#12427;)</span>
-<span style="color: #56B6C2;">setwd</span>(<span style="color: #98C379;">"~/Documents"</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12507;&#12540;&#12512;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#19979;&#12398;&#12300;&#26360;&#39006;&#12301;&#12501;&#12457;&#12523;&#12480;&#12395;&#31227;&#21205;</span>
+<span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#20316;&#26989;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#12398;&#31227;&#21205; (&#29872;&#22659;&#12395;&#12424;&#12387;&#12390;&#25351;&#23450;&#12398;&#20181;&#26041;&#12418;&#30064;&#12394;&#12427;)</span>
+<span style="color: #8be9fd;">setwd</span>(<span style="color: #f1fa8c;">"~/Documents"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#12507;&#12540;&#12512;&#12487;&#12451;&#12524;&#12463;&#12488;&#12522;&#19979;&#12398;&#12300;&#26360;&#39006;&#12301;&#12501;&#12457;&#12523;&#12480;&#12395;&#31227;&#21205;</span>
 </pre>
 </div>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd43ab93">
-<h3 id="orgd43ab93">CSV形式の操作</h3>
-<div class="outline-text-3" id="text-orgd43ab93">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org0094bb7">
-<h4 id="org0094bb7">関数 <code>write.csv()</code></h4>
+<section id="slide-orgd9fca26">
+<h3 id="orgd9fca26">関数 <code>write.csv()</code></h3>
 <p>
 データフレームをCSVファイルへ書き出す
 </p>
@@ -290,23 +536,54 @@ getwd()
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">write.csv(x, file=<span style="color: #98C379;">""</span>)
+<pre  class="src src-R">write.csv(x, file=<span style="color: #f1fa8c;">"&#12501;&#12449;&#12452;&#12523;&#21517;"</span>)
 </pre>
 </div></li>
 <li>関数の引数
 <ul>
 <li><code>x</code>: 書き出すデータフレーム</li>
-<li><code>file</code>: 書き出すファイルの名前<br>
+<li><code>file</code>: 書き出すファイルの名前<br />
 (作業ディレクトリ下，またはパスを指定)</li>
 
 </ul></li>
-<li>他にも細かいオプションがあるのでヘルプを参照のこと</li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb099ad9">
-<h4 id="orgb099ad9">関数 <code>read.csv()</code></h4>
+<section id="slide-orgf1c25a2">
+<h3 id="orgf1c25a2">関数 <code>write.csv()</code> の例</h3>
+<ul>
+<li><p>
+CSVファイルの書き出し
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#38306;&#25968;write.csv&#12398;&#20351;&#12356;&#26041;</span>
+(myData <span style="color: #8be9fd;">&lt;-</span> subset(airquality, 
+                  subset = Ozone&gt;120,
+                  select = -Temp)) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#20316;&#25104;</span>
+dim(myData) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
+write.csv(myData,file=<span style="color: #f1fa8c;">"mydata.csv"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">csv&#12501;&#12449;&#12452;&#12523;&#12392;&#12375;&#12390;&#26360;&#12365;&#20986;&#12375;</span>
+</pre>
+</div>
+
+<pre class="example">
+
+    Ozone Solar.R Wind Month Day
+62    135     269  4.1     7   1
+99    122     255  4.0     8   7
+117   168     238  3.4     8  25
+
+[1] 3 5
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org4bbb31e">
+<h3 id="org4bbb31e">関数 <code>read.csv()</code></h3>
 <p>
 CSVファイルからデータフレームを読み込む
 </p>
@@ -316,63 +593,57 @@ CSVファイルからデータフレームを読み込む
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">read.csv(file, header=<span style="color: #E5C07B;">TRUE</span>, row.names)      
+<pre  class="src src-R">read.csv(file=<span style="color: #f1fa8c;">"&#12501;&#12449;&#12452;&#12523;&#21517;"</span>, header=<span style="color: #bd93f9;">TRUE</span>,
+         row.names, fileEncoding)      
 </pre>
 </div></li>
 <li>関数の引数
 <ul>
-<li><code>file</code>: 読み込むファイルの名前<br>
+<li><code>file</code>: 読み込むファイルの名前<br />
 (作業ディレクトリ下，またはパスを指定)</li>
 <li><code>header</code>: 1行目を列名として使うか否か</li>
-<li><code>row.names</code>: 行名の指定<br>
+<li><code>row.names</code>: 行名の指定<br />
 (行名を含む列番号/列名，または行名の直接指定が可能)</li>
+<li><code>fileEncoding</code>: 文字コードの指定<br />
+(日本語の場合，主に使うのは <b>&ldquo;utf8&rdquo;,&ldquo;sjis&rdquo;</b>)</li>
 
 </ul></li>
-<li>他にも細かいオプションがあるのでヘルプを参照のこと</li>
-<li>関数 <code>read.table()</code> , <code>scan()</code> なども参照</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcb46f44">
-<h4 id="orgcb46f44">例: <code>data-write/read.csv.r</code></h4>
+<section id="slide-org79f71bb">
+<h3 id="org79f71bb">関数 <code>read.csv()</code> の例</h3>
+<ul>
+<li><p>
+CSVファイルの読み込み 
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;write.csv&#12398;&#20351;&#12356;&#26041;</span>
-(mydata <span style="color: #56B6C2;">&lt;-</span> subset(airquality, Ozone&gt;120, select=-Temp)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#20316;&#25104;</span>
-dim(mydata) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
-write.csv(mydata,file=<span style="color: #98C379;">"mydata.csv"</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">csv&#12501;&#12449;&#12452;&#12523;&#12392;&#12375;&#12390;&#26360;&#12365;&#20986;&#12375;</span>
-
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;read.csv&#12398;&#20351;&#12356;&#26041;</span>
-(newdata <span style="color: #56B6C2;">&lt;-</span> read.csv(file=<span style="color: #98C379;">"mydata.csv"</span>,row.names=1)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">csv&#12501;&#12449;&#12452;&#12523;&#12398;&#35501;&#12415;&#36796;&#12415;</span>
-dim(newdata) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#38306;&#25968;read.csv&#12398;&#20351;&#12356;&#26041;</span>
+(newdata <span style="color: #8be9fd;">&lt;-</span> read.csv(file=<span style="color: #f1fa8c;">"mydata.csv"</span>,
+                     row.names=1)) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">1&#21015;&#30446;&#12434;&#34892;&#21517;&#12395;&#25351;&#23450;</span>
+dim(newdata) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#27491;&#12375;&#12367;&#35501;&#12415;&#36796;&#12417;&#12383;&#12363;&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
 </pre>
 </div>
 
 <pre class="example">
+
     Ozone Solar.R Wind Month Day
 62    135     269  4.1     7   1
 99    122     255  4.0     8   7
 117   168     238  3.4     8  25
+
 [1] 3 5
-    Ozone Solar.R Wind Month Day
-62    135     269  4.1     7   1
-99    122     255  4.0     8   7
-117   168     238  3.4     8  25
-[1] 3 5
-</pre>
+</pre></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4399992">
-<h3 id="org4399992">RData形式の操作</h3>
-<div class="outline-text-3" id="text-org4399992">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org75d00b2">
-<h4 id="org75d00b2">関数 <code>save()</code></h4>
+<section id="slide-orgb88294a">
+<h3 id="orgb88294a">関数 <code>save()</code></h3>
 <p>
 RDataファイルへ書き出す
 </p>
@@ -382,26 +653,59 @@ RDataファイルへ書き出す
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">save(..., file)
+<pre  class="src src-R">save(..., file=<span style="color: #f1fa8c;">"&#12501;&#12449;&#12452;&#12523;&#21517;"</span>)
 </pre>
 </div></li>
 <li>関数の引数
 <ul>
-<li><code>...</code>: 保存するオブジェクト名<br>
+<li><code>...</code>: 保存するオブジェクト名<br />
 (複数可，データフレーム以外も可)</li>
-<li><code>file</code>: 書き出すファイルの名前<br>
+<li><code>file</code>: 書き出すファイルの名前<br />
 (作業ディレクトリ下，またはパスを指定)</li>
 
 </ul></li>
 <li>CSV形式と異なり，
-複数のデータフレームを1つのファイルに保存することができる</li>
+<b>複数</b> のデータフレームを1つのファイルに保存することができる</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfdbcd7e">
-<h4 id="orgfdbcd7e">関数 <code>load()</code></h4>
+<section id="slide-org1403a6e">
+<h3 id="org1403a6e">関数 <code>save()</code> の例</h3>
+<ul>
+<li><p>
+RDataファイルの書き出し
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#38306;&#25968;save&#12398;&#20351;&#12356;&#26041;</span>
+(myDat1 <span style="color: #8be9fd;">&lt;-</span> subset(airquality, Temp&gt;95, select=-Ozone)) 
+(myDat2 <span style="color: #8be9fd;">&lt;-</span> subset(airquality, Temp&lt;57, select=-Ozone)) 
+dim(myDat1); dim(myDat2) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
+save(myDat1,myDat2,file=<span style="color: #f1fa8c;">"mydata.rdata"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">RData&#24418;&#24335;&#12391;&#26360;&#12365;&#20986;&#12375;</span>
+</pre>
+</div>
+
+<pre class="example">
+
+    Solar.R Wind Temp Month Day
+120     203  9.7   97     8  28
+122     237  6.3   96     8  30
+
+  Solar.R Wind Temp Month Day
+5      NA 14.3   56     5   5
+
+[1] 2 5
+[1] 1 5
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgcd41f14">
+<h3 id="orgcd41f14">関数 <code>load()</code></h3>
 <p>
 RDataファイルから読み込む
 </p>
@@ -411,12 +715,12 @@ RDataファイルから読み込む
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #56B6C2;">load</span>(file)
+<pre  class="src src-R"><span style="color: #8be9fd;">load</span>(file=<span style="color: #f1fa8c;">"&#12501;&#12449;&#12452;&#12523;&#21517;"</span>)
 </pre>
 </div></li>
 <li>関数の引数
 <ul>
-<li><code>file</code>: 読み込むファイルの名前<br>
+<li><code>file</code>: 読み込むファイルの名前<br />
 (作業ディレクトリ下，またはパスを指定)</li>
 
 </ul></li>
@@ -425,134 +729,138 @@ RDataファイルから読み込む
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org959b723">
-<h4 id="org959b723">例: <code>data-save/load.r</code></h4>
+<section id="slide-org63d7935">
+<h3 id="org63d7935">関数 <code>load()</code> の例</h3>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;save&#12398;&#20351;&#12356;&#26041;</span>
-(mydat1 <span style="color: #56B6C2;">&lt;-</span> subset(airquality, Temp&gt;95, select=-Ozone)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#20316;&#25104;</span>
-(mydat2 <span style="color: #56B6C2;">&lt;-</span> subset(airquality, Temp&lt;57, select=-Ozone)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#20316;&#25104;</span>
-dim(mydat1); dim(mydat2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#22823;&#12365;&#12373;&#12434;&#30906;&#35469;</span>
-save(mydat1,mydat2,file=<span style="color: #98C379;">"mydata.rdata"</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">RData&#24418;&#24335;&#12391;&#26360;&#12365;&#20986;&#12375;</span>
-
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;load&#12398;&#20351;&#12356;&#26041;</span>
-(mydat1 <span style="color: #56B6C2;">&lt;-</span> subset(airquality, Ozone &gt; 160)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12487;&#12540;&#12479;&#12501;&#12524;&#12540;&#12512;&#12398;&#20316;&#25104;</span>
-<span style="color: #56B6C2;">load</span>(file=<span style="color: #98C379;">"mydata.rdata"</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">RData&#24418;&#24335;&#12398;&#35501;&#12415;&#36796;&#12415;</span>
-mydat1; mydat2 <span style="color: #5C6370;"># </span><span style="color: #5C6370;">save&#12375;&#12383;&#12392;&#12365;&#12398;&#21517;&#21069;&#12391;&#35501;&#12415;&#36796;&#12414;&#12428;&#19978;&#26360;&#12365;&#12373;&#12428;&#12427;</span>
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#38306;&#25968;load&#12398;&#20351;&#12356;&#26041;</span>
+(myDat1 <span style="color: #8be9fd;">&lt;-</span> subset(airquality, Ozone &gt; 160)) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26032;&#12383;&#12395;&#20316;&#25104;</span>
+<span style="color: #8be9fd;">load</span>(file=<span style="color: #f1fa8c;">"mydata.rdata"</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">RData&#24418;&#24335;&#12398;&#35501;&#12415;&#36796;&#12415;</span>
+myDat1 <span style="color: #6272a4;"># </span><span style="color: #6272a4;">save&#12375;&#12383;&#12392;&#12365;&#12398;&#21517;&#21069;&#12391;&#35501;&#12415;&#36796;&#12414;&#12428;&#19978;&#26360;&#12365;&#12373;&#12428;&#12427;</span>
+myDat2 
 </pre>
 </div>
 
 <pre class="example">
-    Solar.R Wind Temp Month Day
-120     203  9.7   97     8  28
-122     237  6.3   96     8  30
-  Solar.R Wind Temp Month Day
-5      NA 14.3   56     5   5
-[1] 2 5
-[1] 1 5
+
     Ozone Solar.R Wind Temp Month Day
 117   168     238  3.4   81     8  25
+
     Solar.R Wind Temp Month Day
 120     203  9.7   97     8  28
 122     237  6.3   96     8  30
+
   Solar.R Wind Temp Month Day
 5      NA 14.3   56     5   5
 </pre>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga691c1a" data-background="#fef4f4">
-<h3 id="orga691c1a">演習</h3>
+</section>
+<section>
+<section id="slide-orgf8bb256" data-background="#fef4f4">
+<h2 id="orgf8bb256">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org3bed23b" data-background="#fef4f4">
+<h3 id="org3bed23b">練習問題</h3>
 <ul>
 <li>以下のデータを読み込み，データの操作を行ってみよう．
 <ul>
-<li>データファイル
+<li>データファイル (文字コード: utf8)
 <ul>
-<li>jpdata1-sjis/utf8.csv: 県別の対象データ</li>
-<li>jpdata2-sjis/utf8.csv: 対象データの内容</li>
-<li>jpdata3-sjis/utf8.csv: 県別と地域の対応関係</li>
+<li>jpdata1.csv: 県別の対象データ</li>
+<li>jpdata2.csv: 対象データの内容</li>
+<li>jpdata3.csv: 県別と地域の対応関係</li>
 
 </ul></li>
+<li><a href="https://www.e-stat.go.jp">https://www.e-stat.go.jp</a> より取得したデータ<br />
+(地域から探す / 全県を選択 / 項目を選択してダウンロード)</li>
 <li><p>
-<a href="https://www.e-stat.go.jp">https://www.e-stat.go.jp</a> より取得<br>
-(地域から探す / 全県を選択 / 項目を選択してダウンロード)
+作業ディレクトリに置いて，以下のように読み込む
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">mydat <span style="color: #56B6C2;">&lt;-</span> read.csv(file=<span style="color: #98C379;">"jpdata1-utf8.csv"</span>,fileEncoding=<span style="color: #98C379;">"utf8"</span>,row.names=1)
-myval <span style="color: #56B6C2;">&lt;-</span> read.csv(file=<span style="color: #98C379;">"jpdata2-utf8.csv"</span>,fileEncoding=<span style="color: #98C379;">"utf8"</span>)
-myreg <span style="color: #56B6C2;">&lt;-</span> read.csv(file=<span style="color: #98C379;">"jpdata3-utf8.csv"</span>,fileEncoding=<span style="color: #98C379;">"utf8"</span>)
+<pre  class="src src-R">myData <span style="color: #8be9fd;">&lt;-</span> read.csv(file=<span style="color: #f1fa8c;">"jpdata1.csv"</span>, fileEncoding=<span style="color: #f1fa8c;">"utf8"</span>, row.names=1)
+myItem <span style="color: #8be9fd;">&lt;-</span> read.csv(file=<span style="color: #f1fa8c;">"jpdata2.csv"</span>, fileEncoding=<span style="color: #f1fa8c;">"utf8"</span>)
+myArea <span style="color: #8be9fd;">&lt;-</span> read.csv(file=<span style="color: #f1fa8c;">"jpdata3.csv"</span>, fileEncoding=<span style="color: #f1fa8c;">"utf8"</span>)
 </pre>
 </div></li>
 
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org516f483">
-<h2 id="org516f483">データの集計</h2>
-<div class="outline-text-2" id="text-org516f483">
+<section id="slide-org2e976f4">
+<h2 id="org2e976f4">データの集計</h2>
+<div class="outline-text-2" id="text-org2e976f4">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd2bc982">
-<h3 id="orgd2bc982">データの集約</h3>
-<p>
-データを集約するための基本的な関数は用意されている
-</p>
+<section id="slide-orgc29beab">
+<h3 id="orgc29beab">集約のための関数</h3>
+<ul>
+<li>データを集約するための基本的な関数は用意されている
 <ul>
 <li>関数 <code>sum()</code>: 総和</li>
 <li>関数 <code>mean()</code>: 平均</li>
 <li>関数 <code>max()</code>: 最大値</li>
 <li>関数 <code>min()</code>: 最小値</li>
-<li>これ以外にもベクトルの集約を行なう関数は沢山ある</li>
+
+</ul></li>
+
+</ul>
+
+<ul>
+<li>(これ以外にも集約を行なう関数は沢山ある)</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1e7d992">
-<h4 id="org1e7d992">例: <code>data-summary.r</code></h4>
+<section id="slide-orgc9b8f4e">
+<h3 id="orgc9b8f4e">関数の例</h3>
+<ul>
+<li><p>
+練習問題のデータの集計を行う
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R">mydat <span style="color: #56B6C2;">&lt;-</span> read.csv(file=<span style="color: #98C379;">"jpdata1-utf8.csv"</span>,fileEncoding=<span style="color: #98C379;">"utf8"</span>,row.names=1)
-<span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19968;&#24230;&#35501;&#12415;&#36796;&#12435;&#12391;&#12356;&#12428;&#12400;&#19978;&#12398;&#34892;&#12399;&#19981;&#35201;</span>
-sum(mydat$&#20154;&#21475;) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20840;&#22269;&#12398;&#32207;&#20154;&#21475; (&#21015;&#21517;&#12391;&#36984;&#25246;)</span>
-mean(mydat[,4]) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#38754;&#31309;&#12398;&#24179;&#22343;&#20516; (&#34892;&#21015;&#12392;&#12375;&#12390;&#21015;&#12434;&#36984;&#25246;)</span>
-median(mydat[[4]]) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#38754;&#31309;&#12398;&#20013;&#22830;&#20516; (&#12522;&#12473;&#12488;&#12392;&#12375;&#12390;&#21015;&#12434;&#36984;&#25246;)</span>
-min(mydat[<span style="color: #98C379;">'&#33509;&#24180;'</span>])  <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#33509;&#24180;&#20154;&#21475;&#12398;&#26368;&#23567;&#20516; (&#21015;&#21517;&#12391;&#36984;&#25246;)</span>
-with(mydat,max(&#32769;&#20154;))  <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#32769;&#24180;&#20154;&#21475;&#12398;&#26368;&#22823;&#20516; (&#38306;&#25968;with&#12434;&#21033;&#29992;)</span>
+<pre  class="src src-R">myData <span style="color: #8be9fd;">&lt;-</span> read.csv(file=<span style="color: #f1fa8c;">"jpdata1.csv"</span>,
+                   row.names=1, fileEncoding=<span style="color: #f1fa8c;">"utf8"</span>)
+<span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#19968;&#24230;&#35501;&#12415;&#36796;&#12435;&#12391;&#12356;&#12428;&#12400;&#19978;&#12398;&#34892;&#12399;&#19981;&#35201;</span>
+sum(myData$&#20154;&#21475;) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#20840;&#22269;&#12398;&#32207;&#20154;&#21475; (&#21015;&#21517;&#12391;&#36984;&#25246;)</span>
+mean(myData[,4]) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38754;&#31309;&#12398;&#24179;&#22343;&#20516; (&#34892;&#21015;&#12392;&#12375;&#12390;&#21015;&#12434;&#36984;&#25246;)</span>
+median(myData[[4]]) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#38754;&#31309;&#12398;&#20013;&#22830;&#20516; (&#12522;&#12473;&#12488;&#12392;&#12375;&#12390;&#21015;&#12434;&#36984;&#25246;)</span>
+min(myData[<span style="color: #f1fa8c;">"&#33509;&#24180;"</span>])  <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#33509;&#24180;&#20154;&#21475;&#12398;&#26368;&#23567;&#20516; (&#21015;&#21517;&#12391;&#36984;&#25246;)</span>
+with(myData,max(&#32769;&#20154;))  <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#32769;&#24180;&#20154;&#21475;&#12398;&#26368;&#22823;&#20516; (&#38306;&#25968;with&#12434;&#21033;&#29992;)</span>
 </pre>
 </div>
 
 <pre class="example">
-file(file, "rt", encoding = fileEncoding) でエラー: 
-  コネクションを開くことができません 
-追加情報:  警告メッセージ: 
-file(file, "rt", encoding = fileEncoding) で: 
-  ファイル 'jpdata1-utf8.csv' を開くことができません: No such file or directory
 
-エラー:  オブジェクト 'mydat' がありません
+[1] 126708000
 
-mean(mydat[, 4]) でエラー:  オブジェクト 'mydat' がありません
+[1] 793554.5
 
-median(mydat[[4]]) でエラー:  オブジェクト 'mydat' がありません
+[1] 609719
 
-エラー:  オブジェクト 'mydat' がありません
+[1] 72000
 
-with(mydat, max(老人)) でエラー:  オブジェクト 'mydat' がありません
-</pre>
+[1] 3160000
+</pre></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org927302b">
-<h4 id="org927302b">関数 <code>apply()</code></h4>
+<section id="slide-org92f09c3">
+<h3 id="org92f09c3">関数 <code>apply()</code></h3>
 <p>
-列(あるいは行)ごとの計算を行う
+列あるいは行ごとの計算を行う
 </p>
 <ul>
 <li><p>
@@ -570,48 +878,53 @@ with(mydat, max(老人)) でエラー:  オブジェクト 'mydat' がありま�
 <li><code>FUN</code>: 計算すべき統計量の関数</li>
 
 </ul></li>
-<li>行・列の総和や平均を計算する専用の関数が用意されている<br>
-(rowSums/colSums, rowMeans/colMeans)</li>
+<li>総和や平均は専用の関数も用意されている<br />
+<b><code>rowSums()/colSums()</code>, <code>rowMeans()/colMeans()</code></b></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org929d954">
-<h4 id="org929d954">例: <code>data-apply.r</code></h4>
+<section id="slide-org46079c1">
+<h3 id="org46079c1">関数 <code>apply()</code> の例</h3>
+<ul>
+<li><p>
+抽出したデータの集計を行う
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R">x <span style="color: #56B6C2;">&lt;-</span> subset(mydat, select=&#23130;&#23035;:&#21220;&#22899;)
-colMeans(x) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21508;&#21015;&#12398;&#24179;&#22343;</span>
-apply(x, 2, max) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21015;&#12372;&#12392;&#12398;&#26368;&#22823;&#20516;</span>
-sapply(x, max)   <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#19978;&#12392;&#21516;&#12376;</span>
-apply(x, 2, min) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21015;&#12372;&#12392;&#12398;&#26368;&#23567;&#20516;</span>
-<span style="color: #5C6370;">## </span><span style="color: #5C6370;">&#33258;&#20316;&#38306;&#25968;&#12398;&#36969;&#29992;</span>
-apply(x, 2, <span style="color: #C678DD;">function</span>(x){sum(x&gt;mean(x))}) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21015;&#12372;&#12392;&#12395;&#24179;&#22343;&#12424;&#12426;&#22823;&#12365;&#12356;&#12487;&#12540;&#12479;&#25968;&#12434;&#35336;&#31639;</span>
+<pre  class="src src-R">x <span style="color: #8be9fd;">&lt;-</span> subset(myData, select=&#23130;&#23035;:&#21220;&#22899;) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#25277;&#20986;</span>
+colMeans(x) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21508;&#21015;&#12398;&#24179;&#22343;</span>
+apply(x, 2, max) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21015;&#12372;&#12392;&#12398;&#26368;&#22823;&#20516;</span>
+sapply(x, max)   <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#19978;&#12392;&#21516;&#12376; (help(sapply)&#12434;&#21442;&#29031;)</span>
+<span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#33258;&#20316;&#38306;&#25968;&#12398;&#36969;&#29992; (&#38306;&#25968;&#12395;&#21517;&#21069;&#12434;&#20184;&#12369;&#12378;&#12395;&#21033;&#29992;&#12391;&#12365;&#12427;)</span>
+apply(x, 2, <span style="color: #ff79c6;">function</span>(z){sum(z&gt;mean(z))}) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#24179;&#22343;&#12424;&#12426;&#22823;&#12365;&#12356;&#12487;&#12540;&#12479;&#25968;</span>
 </pre>
 </div>
 
 <pre class="example">
-subset(mydat, select = 婚姻:勤女) でエラー: 
-  オブジェクト 'mydat' がありません
 
-is.data.frame(x) でエラー:  オブジェクト 'x' がありません
+      婚姻       離婚       失業       勤男       勤女 
+  4.437021   1.631064   4.221277 410.702128 296.659574
 
-apply(x, 2, max) でエラー:  オブジェクト 'x' がありません
+  婚姻   離婚   失業   勤男   勤女 
+  6.19   2.41   6.30 444.00 336.00
 
-lapply(X = X, FUN = FUN, ...) でエラー:  オブジェクト 'x' がありません
+  婚姻   離婚   失業   勤男   勤女 
+  6.19   2.41   6.30 444.00 336.00
 
-apply(x, 2, min) でエラー:  オブジェクト 'x' がありません
+婚姻 離婚 失業 勤男 勤女 
+  20   22   25   27   22
+</pre></li>
 
-apply(x, 2, function(x) { でエラー:  オブジェクト 'x' がありません
-</pre>
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org622e22b">
-<h4 id="org622e22b">関数 <code>aggregate()</code></h4>
+<section id="slide-org7b52901">
+<h3 id="org7b52901">関数 <code>aggregate()</code></h3>
 <p>
-各行をいくつかのグループにまとめて統計量を計算する
+各行をグループにまとめて統計量を計算する
 </p>
 <ul>
 <li><p>
@@ -629,82 +942,226 @@ apply(x, 2, function(x) { でエラー:  オブジェクト 'x' がありませ�
 <li><code>FUN</code>: 求めたい統計量を計算するための関数</li>
 
 </ul></li>
-<li><code>x</code> がベクトルの場合には関数 <code>tapply()</code> も利用可能</li>
+<li><i>(<code>x</code> がベクトルの場合には関数 <code>tapply()</code> も利用可)</i></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org50daf40">
-<h4 id="org50daf40">例: <code>data-aggregate.r</code></h4>
+<section id="slide-orgaa2d7a4">
+<h3 id="orgaa2d7a4">関数 <code>aggregate()</code> の例 (1/6)</h3>
+<ul>
+<li><p>
+同じ値を持つグループごとの平均値を求める
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">## </span><span style="color: #5C6370;">&#22320;&#26041;&#12372;&#12392;&#12398;&#20154;&#21475;&#12392;&#38754;&#31309;&#12398;&#24179;&#22343;&#20516;&#12434;&#27714;&#12417;&#12427;</span>
-x <span style="color: #56B6C2;">&lt;-</span> subset(mydat,select=&#20154;&#21475;:&#38754;&#31309;)
-aggregate(x, by=list(&#22320;&#26041;=myreg$&#22320;&#26041;), FUN=mean) 
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#20154;&#21475;&#12363;&#12425;&#38754;&#31309;&#12414;&#12391;&#22320;&#26041;&#12372;&#12392;&#12398;&#24179;&#22343;&#20516;&#12434;&#35336;&#31639;</span>
+x <span style="color: #8be9fd;">&lt;-</span> subset(myData,select=&#20154;&#21475;:&#38754;&#31309;)
+aggregate(x, by=list(&#22320;&#26041;=myArea$&#22320;&#26041;), FUN=mean) 
 </pre>
 </div>
 
 <pre class="example">
 
-subset(mydat, select = 人口:面積) でエラー: 
-  オブジェクト 'mydat' がありません
+    地方    人口     若年      老人      面積
+1   関東 6178286 737000.0 1564000.0  463329.3
+2   近畿 3204429 395714.3  898714.3  473223.6
+3   九州 1795000 243875.0  511000.0  556395.0
+4   四国  947000 112250.0  305750.0  470091.5
+5   中国 1473800 186400.0  448600.0  638433.4
+6   中部 2372889 302888.9  667555.6  742297.6
+7   東北 1472667 169333.3  452666.7 1115790.7
+8 北海道 5320000 588000.0 1632000.0 7842078.0
+</pre></li>
 
-aggregate(x, by = list(地方 = myreg$地方), FUN = mean) でエラー: 
-  オブジェクト 'x' がありません
-</pre>
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1a212ed">
-<h4 id="org1a212ed">例: <code>data-aggregate.r</code></h4>
+<section id="slide-org9cae05d">
+<h3 id="org9cae05d">関数 <code>aggregate()</code> の例 (2/6)</h3>
+<ul>
+<li><p>
+代入せずにまとめて書くことも可能
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">## </span><span style="color: #5C6370;">&#20197;&#19979;&#12398;&#12467;&#12540;&#12489;&#12418;&#21516;&#12376;&#32080;&#26524;&#12434;&#36820;&#12377;</span>
-y <span style="color: #56B6C2;">&lt;-</span> data.frame(x,&#22320;&#26041;=myreg$&#22320;&#26041;) 
+<pre  class="src src-R">aggregate(subset(myData,select=&#20154;&#21475;:&#38754;&#31309;),
+          by=list(&#22320;&#26041;=myArea$&#22320;&#26041;),
+          FUN=mean) 
+</pre>
+</div>
+
+<pre class="example">
+
+    地方    人口     若年      老人      面積
+1   関東 6178286 737000.0 1564000.0  463329.3
+2   近畿 3204429 395714.3  898714.3  473223.6
+3   九州 1795000 243875.0  511000.0  556395.0
+4   四国  947000 112250.0  305750.0  470091.5
+5   中国 1473800 186400.0  448600.0  638433.4
+6   中部 2372889 302888.9  667555.6  742297.6
+7   東北 1472667 169333.3  452666.7 1115790.7
+8 北海道 5320000 588000.0 1632000.0 7842078.0
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org16ef402">
+<h3 id="org16ef402">関数 <code>aggregate()</code> の例 (3/6)</h3>
+<ul>
+<li><p>
+以下も同じ結果を返す
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">y <span style="color: #8be9fd;">&lt;-</span> data.frame(x,&#22320;&#26041;=myArea$&#22320;&#26041;) 
 aggregate( . ~ &#22320;&#26041;, data=y, FUN=mean)
 </pre>
 </div>
 
 <pre class="example">
 
-data.frame(x, 地方 = myreg$地方) でエラー: 
-  オブジェクト 'x' がありません
+    地方    人口     若年      老人      面積
+1   関東 6178286 737000.0 1564000.0  463329.3
+2   近畿 3204429 395714.3  898714.3  473223.6
+3   九州 1795000 243875.0  511000.0  556395.0
+4   四国  947000 112250.0  305750.0  470091.5
+5   中国 1473800 186400.0  448600.0  638433.4
+6   中部 2372889 302888.9  667555.6  742297.6
+7   東北 1472667 169333.3  452666.7 1115790.7
+8 北海道 5320000 588000.0 1632000.0 7842078.0
+</pre></li>
 
-eval(m$data, parent.frame()) でエラー:  オブジェクト 'y' がありません
-</pre>
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgafef27d">
-<h4 id="orgafef27d">例: <code>data-aggregate.r</code></h4>
+<section id="slide-org5cb73f8">
+<h3 id="org5cb73f8">関数 <code>aggregate()</code> の例 (4/6)</h3>
+<ul>
+<li><p>
+まとめて書くことも可能
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">## </span><span style="color: #5C6370;">&#21508;&#22320;&#26041;&#12392;&#20154;&#21475;&#12364;&#20013;&#22830;&#20516;&#20197;&#19979;&#12363;&#21542;&#12363;&#12391;&#12464;&#12523;&#12540;&#12503;&#20998;&#12369;</span>
-aggregate(x, by=list(&#22320;&#26041;=myreg$&#22320;&#26041;,
-                     &#36942;&#30094;=with(mydat, &#20154;&#21475;&lt;=median(&#20154;&#21475;))),
+<pre  class="src src-R">aggregate( . ~ &#22320;&#26041;, <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21491;&#36794;&#12391;&#26465;&#20214;&#20184;&#12369;&#12390;&#24038;&#36794;(&#21491;&#36794;&#20197;&#22806;)&#12434;&#35336;&#31639;</span>
+          data=data.frame(subset(myData,select=&#20154;&#21475;:&#38754;&#31309;),
+                          &#22320;&#26041;=myArea$&#22320;&#26041;), 
           FUN=mean)
 </pre>
 </div>
 
 <pre class="example">
 
-aggregate(x, by = list(地方 = myreg$地方, 過疎 = with(mydat,  でエラー: 
-  オブジェクト 'x' がありません
-</pre>
+    地方    人口     若年      老人      面積
+1   関東 6178286 737000.0 1564000.0  463329.3
+2   近畿 3204429 395714.3  898714.3  473223.6
+3   九州 1795000 243875.0  511000.0  556395.0
+4   四国  947000 112250.0  305750.0  470091.5
+5   中国 1473800 186400.0  448600.0  638433.4
+6   中部 2372889 302888.9  667555.6  742297.6
+7   東北 1472667 169333.3  452666.7 1115790.7
+8 北海道 5320000 588000.0 1632000.0 7842078.0
+</pre></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8520921" data-background="#fef4f4">
-<h3 id="org8520921">演習</h3>
+<section id="slide-org4550b77">
+<h3 id="org4550b77">関数 <code>aggregate()</code> の例 (5/6)</h3>
+<ul>
+<li><p>
+複数の条件でグループ分け
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R"><span style="color: #6272a4;">## </span><span style="color: #6272a4;">&#22320;&#26041;&#12392;&#65292;&#20154;&#21475;&#12364;&#20013;&#22830;&#20516;&#20197;&#19979;&#12363;&#21542;&#12363;&#12391;&#12464;&#12523;&#12540;&#12503;&#20998;&#12369;&#12375;&#12390;&#24179;&#22343;&#20516;&#12434;&#35336;&#31639;</span>
+aggregate(x, by=list(&#22320;&#26041;=myArea$&#22320;&#26041;,
+                     &#36942;&#30094;=with(myData, &#20154;&#21475;&lt;=median(&#20154;&#21475;))),
+          FUN=mean)
+</pre>
+</div>
+
+<pre class="example">
+
+     地方  過疎      人口     若年      老人      面積
+1    関東 FALSE 6178285.7 737000.0 1564000.0  463329.3
+2    近畿 FALSE 4681250.0 573750.0 1305500.0  517317.2
+3    九州 FALSE 3436000.0 456000.0  957500.0  619800.0
+4    中国 FALSE 2368000.0 305500.0  688000.0  779697.5
+5    中部 FALSE 3510200.0 451400.0  973200.0  994346.8
+6    東北 FALSE 2102500.0 250000.0  600000.0 1053306.0
+7  北海道 FALSE 5320000.0 588000.0 1632000.0 7842078.0
+8    近畿  TRUE 1235333.3 158333.3  356333.3  414432.0
+9    九州  TRUE 1248000.0 173166.7  362166.7  535260.0
+10   四国  TRUE  947000.0 112250.0  305750.0  470091.5
+11   中国  TRUE  877666.7 107000.0  289000.0  544257.3
+12   中部  TRUE  951250.0 117250.0  285500.0  427236.0
+13   東北  TRUE 1157750.0 129000.0  379000.0 1147033.0
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org005050a">
+<h3 id="org005050a">関数 <code>aggregate()</code> の例 (6/6)</h3>
+<ul>
+<li><p>
+別の書き方
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-R">aggregate( . ~ &#22320;&#26041; + &#36942;&#30094;, FUN=mean, <span style="color: #6272a4;"># </span><span style="color: #6272a4;">+ &#12391;&#26465;&#20214;&#12434;&#36861;&#21152;</span>
+          data=data.frame(subset(myData,select=&#20154;&#21475;:&#38754;&#31309;),
+                          &#22320;&#26041;=myArea$&#22320;&#26041;,
+                          &#36942;&#30094;=with(myData, &#20154;&#21475;&lt;=median(&#20154;&#21475;))))
+</pre>
+</div>
+
+<pre class="example">
+
+     地方  過疎      人口     若年      老人      面積
+1    関東 FALSE 6178285.7 737000.0 1564000.0  463329.3
+2    近畿 FALSE 4681250.0 573750.0 1305500.0  517317.2
+3    九州 FALSE 3436000.0 456000.0  957500.0  619800.0
+4    中国 FALSE 2368000.0 305500.0  688000.0  779697.5
+5    中部 FALSE 3510200.0 451400.0  973200.0  994346.8
+6    東北 FALSE 2102500.0 250000.0  600000.0 1053306.0
+7  北海道 FALSE 5320000.0 588000.0 1632000.0 7842078.0
+8    近畿  TRUE 1235333.3 158333.3  356333.3  414432.0
+9    九州  TRUE 1248000.0 173166.7  362166.7  535260.0
+10   四国  TRUE  947000.0 112250.0  305750.0  470091.5
+11   中国  TRUE  877666.7 107000.0  289000.0  544257.3
+12   中部  TRUE  951250.0 117250.0  285500.0  427236.0
+13   東北  TRUE 1157750.0 129000.0  379000.0 1147033.0
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-org13b6169" data-background="#fef4f4">
+<h2 id="org13b6169">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orga09b02b" data-background="#fef4f4">
+<h3 id="orga09b02b">練習問題</h3>
 <p>
-サンプルデータの整理をしてみよう．
+サンプルデータ(jpdata)の整理をしてみよう．
 </p>
 <ul>
 <li>県別の人口密度を求めよ</li>
-<li>地方別の人口密度を求めよ<br>
-(県ごとに人口が異なるので単純に平均してはいけない)</li>
-<li>地方別の婚姻率・離婚率を概算せよ<br>
+<li>地方別の人口密度を求めよ<br />
+(県ごとに人口が異なるので単純に人口密度を平均してはいけない)</li>
+<li>地方別の婚姻率・離婚率を概算せよ<br />
 (婚姻年齢は15歳以上として概算してよい)</li>
 
 </ul>
@@ -713,6 +1170,7 @@ aggregate(x, by = list(地方 = myreg$地方, 過疎 = with(mydat,  でエラー
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -728,82 +1186,22 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
-{ src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
-	{className: "animate",  initialize: (function(container, options){
-		Reveal.addEventListener( 'fragmentshown', function( event ) {
-			if (typeof event.fragment.beginElement === "function" ) {
-				event.fragment.beginElement();
-			}
-		});
-		Reveal.addEventListener( 'fragmenthidden', function( event ) {
-			if (event.fragment.hasAttribute('data-reverse') ) {
-				var reverse = event.fragment.parentElement.querySelector('[id=\"' + event.fragment.getAttribute('data-reverse') + '\"]');
-				if ( reverse && typeof reverse.beginElement === "function" ) {
-					reverse.beginElement();
-				}
-			}
-		});
-		if ( container.getAttribute("data-svg-src") ) {
-			var xhr = new XMLHttpRequest();
-			xhr.onload = function() {
-				if (xhr.readyState === 4) {
-					var svg = container.querySelector('svg');
-					container.removeChild( svg );
-					container.innerHTML = xhr.responseText + container.innerHTML;
-					if ( svg ) {
-						container.querySelector('svg').innerHTML = container.querySelector('svg').innerHTML + svg.innerHTML;
-					}
-				}
-				else {
-					console.warn( "Failed to get file. ReadyState: " + xhr.readyState + ", Status: " + xhr.status);
-				}
-			};
-			xhr.open( 'GET', container.getAttribute("data-svg-src"), true );
-			xhr.send();
-		}
-	}) },
-	{className: "randomPic",
-	 defaults: {imgalt: "Dummy alt text",
-		    imgcaption: "Image by {name}",
-		    choices: [ {name: "dummyname", path: "dummypath"} ]},
-	 initialize: (function(container, options){
-	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
-	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
-	     container.innerHTML = img + caption;
-	 }) },
-	{className: "notes",
-	 initialize: (function(container, options){
-	     container.addEventListener('click', function(e) { RevealNotes.open(); });
-	 }) }
-],
-  coursemod: { enabled: true, shown: false }});
+
+});
 </script>
 </body>
 </html>

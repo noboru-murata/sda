@@ -355,21 +355,21 @@
   :reveal_background: #fef4f4
   :END:
 ** 例題
-  :PROPERTIES:
-  :reveal_background: #fef4f4
-  :END:
-  - 適当な3次正方行列 $A$ と3次元ベクトル $\boldsymbol{b}$ を作成して
-    $\boldsymbol{x}$ に関する連立1次方程式
-    # #+begin_export latex
-    \begin{equation}
-      A\boldsymbol{x}=\boldsymbol{b}
-    \end{equation}
-    # #+end_export
-    を解け
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 適当な3次正方行列 $A$ と3次元ベクトル $\boldsymbol{b}$ を作成して
+     $\boldsymbol{x}$ に関する連立1次方程式
+     # #+begin_export latex
+     \begin{equation}
+       A\boldsymbol{x}=\boldsymbol{b}
+     \end{equation}
+     # #+end_export
+     を解け
 ** 解答例
-  :PROPERTIES:
-  :reveal_background: #fef4f4
-  :END:
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
    #+begin_src R :exports none :tangle yes
      ### 例題2
      ### 3元連立1次方程式の解法
@@ -519,17 +519,17 @@
            }
        }
      #+end_src
-# ** ~repeat~ 文
-#    - プログラムXを繰り返し実行
-#      #+begin_src R :exports code
-#        repeat プログラムX
-#      #+end_src
-#    - プログラムXには
-#      #+begin_src R :exports code
-#        if(条件A) break
-#      #+end_src
-#      という記述が含まれている必要がある．
-#      この記述は，「条件Aが成立したら繰り返しをやめる」という意味
+   # ** ~repeat~ 文
+   #    - プログラムXを繰り返し実行
+   #      #+begin_src R :exports code
+   #        repeat プログラムX
+   #      #+end_src
+   #    - プログラムXには
+   #      #+begin_src R :exports code
+   #        if(条件A) break
+   #      #+end_src
+   #      という記述が含まれている必要がある．
+   #      この記述は，「条件Aが成立したら繰り返しをやめる」という意味
 
 * 演習
   :PROPERTIES:

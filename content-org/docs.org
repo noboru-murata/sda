@@ -55,12 +55,15 @@
 
 ** スライド
    1. [[github:spring/slide01.html][Rの基本的な操作]]
-      [[github:spring/pdfs/Rの基本的な操作.pdf][[PDF]]]
+      [[github:spring/pdfs/Rの基本的な操作.pdf][[PDF]​]]
    2. [[github:spring/slide02.html][ベクトル・行列の演算と関数]]
-      [[github:spring/pdfs/ベクトル・行列の演算と関数.pdf][[PDF]]]
-      [[github:spring/code/slide02.R][[解答例]]]
-** 参考: 2019年度版スライド
+      [[github:spring/pdfs/ベクトル・行列の演算と関数.pdf][[PDF]​]]
+      [[github:spring/code/slide02.R][[解答例]​]]
    3. [[github:spring/slide03.html][データの整理と集計]]
+      [[github:spring/pdfs/データの整理と集計.pdf][[PDF]​]] \\
+      [[github:spring/code/slide03.R][[解答例]​]] 
+
+** 参考: 2019年度版スライド
    4. [[github:spring/slide04.html][データのプロット]]
    5. [[github:spring/slide05.html][確率シミュレーション]] (Monte-Carlo法)
    6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
