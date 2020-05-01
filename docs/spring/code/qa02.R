@@ -92,21 +92,11 @@ switch(which(c(score<60,
        "B", # 3のとき
        "A", # 4のとき
        "S") # 5のとき
-## 最後の条件判定はサボれる
-switch(which(c(score<60,
-               score>=60 & score<70,
-               score>=70 & score<80,
-               score>=80 & score<90)),
-       "D",
-       "C",
-       "B",
-       "A",
-       "S") # あてはまらないとき
 ## 条件の順序を考えるともう少しサボれる
 c(score<60,score<70,score<80,score<90)
 which(c(score<60,score<70,score<80,score<90))
 min(which(c(score<60,score<70,score<80,score<90)))
-## 以下だと破綻する
+## 以下だと破綻するのでちょっと工夫
 score <- 100
 min(which(c(score<60,score<70,score<80,score<90)))
 min(which(c(score<60,score<70,score<80,score<90)),
