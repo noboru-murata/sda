@@ -96,6 +96,7 @@
    #+end_src
    #+NAME:   fig:graph-plot1
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot1.png]]
 
 ** ベクトルの描画の例 (2/3)
@@ -106,6 +107,7 @@
    #+end_src
    #+NAME:   fig:graph-plot2
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot2.png]]
 
 ** ベクトルの描画の例 (3/3)
@@ -116,6 +118,7 @@
    #+end_src
    #+NAME:   fig:graph-plot3
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot3.png]]
 
 ** 重ね描き
@@ -146,6 +149,7 @@
    #+CAPTION: ベクトルデータの重ね描き
    #+NAME:   fig:graph-plot4
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot4.png]]
 
 ** 関数 ~curve()~ 
@@ -182,6 +186,7 @@
    #+CAPTION: 関数の描画
    #+NAME:   fig:graph-plot5
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot5.png]] 
 
 ** 関数の描画の例 (2/2)
@@ -197,6 +202,7 @@
    #+CAPTION: 関数とベクトルデータの重ね描き
    #+NAME:   fig:graph-plot6
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-plot6.png]]
 
 ** 散布図
@@ -233,6 +239,7 @@
     #+end_src
     #+NAME: fig:graph-plot7
     #+ATTR_HTML: :height 100%
+    #+ATTR_LATEX: :width 0.6\linewidth
     [[file:figs/graph-plot7.png]]
 
 ** (参考) 日本語に関する注意
@@ -342,6 +349,7 @@
     #+CAPTION: ヒストグラム
     #+NAME:   fig:graph-hist1
     #+ATTR_HTML: :height 100%
+    #+ATTR_LATEX: :width 0.6\linewidth
     [[file:figs/graph-hist1.png]]
 
 ** ヒストグラムの例 (2/2)
@@ -357,6 +365,7 @@
     # #+CAPTION: ヒストグラム
     #+NAME:   fig:graph-hist2
     #+ATTR_HTML: :height 100%
+    #+ATTR_LATEX: :width 0.6\linewidth
     [[file:figs/graph-hist2.png]]
 
 ** 箱ひげ図
@@ -397,6 +406,7 @@
    #+CAPTION: 箱ひげ図
    #+NAME:   fig:graph-boxplot1
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-boxplot1.png]]
 
 ** 箱ひげ図の例 (2/2)
@@ -414,6 +424,7 @@
    #+CAPTION: 箱ひげ図
    #+NAME:   fig:graph-boxplot2
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-boxplot2.png]]
 
 * 比率の視覚化
@@ -450,6 +461,7 @@
    #+CAPTION: 棒グラフ
    #+NAME:   fig:graph-barplot1
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-barplot1.png]]
 
 ** 棒グラフの例 (2/2)
@@ -468,6 +480,7 @@
    # #+CAPTION: 棒グラフ
    #+NAME:   fig:graph-barplot2
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-barplot2.png]]
 
 ** 関数 ~pie()~ 
@@ -497,6 +510,7 @@
    # #+CAPTION: 円グラフ
    #+NAME:   fig:graph-pie1
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-pie1.png]]
 
 * 演習
@@ -584,6 +598,7 @@
    #+CAPTION: 散布図行列
    #+NAME:   fig:graph-pairs1
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-pairs1.png]]
 
 ** 関数 ~persp()~ 
@@ -617,6 +632,7 @@
     # #+CAPTION: 俯瞰図
     #+NAME:   fig:graph-plot3d1
     #+ATTR_HTML: :height 100%
+    #+ATTR_LATEX: :width 0.6\linewidth
     [[file:figs/graph-plot3d1.png]]
 
 ** 3次元グラフのためのパッケージ
@@ -645,6 +661,7 @@
     #+CAPTION: 3次元散布図
     #+NAME:   fig:graph-plot3d2
     #+ATTR_HTML: :height 100%
+    #+ATTR_LATEX: :width 0.6\linewidth
     [[file:figs/graph-plot3d2.png]]
 
 * 凡例の追加
@@ -678,6 +695,7 @@
    #+CAPTION: 凡例の追加
    #+NAME:   fig:graph-legend
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-legend.png]]
 
 ** 凡例の例 (2/2)
@@ -702,6 +720,7 @@
    #+CAPTION: 日本語フォントの指定
    #+NAME:   fig:graph-font
    #+ATTR_HTML: :height 100%
+   #+ATTR_LATEX: :width 0.6\linewidth
    [[file:figs/graph-font.png]]
 
 * 補遺
