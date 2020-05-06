@@ -65,7 +65,7 @@
       [[github:spring/code/slide03.R][[解答例]​]] 
       [[github:spring/data/jpdata.zip][[サンプルデータ(jpdata.zip)]​]]
    4. [[github:spring/slide04.html][データの視覚化]]
-      [[github:spring/pdfs/データの視覚化.pdf][[PDF]​]] 
+      [[github:spring/pdfs/slide04.pdf][[PDF]​]] 
       [[github:spring/code/slide04.R][[解答例]​]] 
       [[github:spring/data/dataset4.zip][[サンプルデータ(dataset4.zip)]​]]
 

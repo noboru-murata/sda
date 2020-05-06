@@ -583,7 +583,7 @@
    #+REVEAL: split
    #+CAPTION: 散布図行列
    #+NAME:   fig:graph-pairs1
-   #+ATTR_HTML: :width 50% :height 50%
+   #+ATTR_HTML: :height 100%
    [[file:figs/graph-pairs1.png]]
 
 ** 関数 ~persp()~ 
@@ -616,7 +616,7 @@
     #+REVEAL: split
     # #+CAPTION: 俯瞰図
     #+NAME:   fig:graph-plot3d1
-    #+ATTR_HTML: :width 50% :height 50%
+    #+ATTR_HTML: :height 100%
     [[file:figs/graph-plot3d1.png]]
 
 ** 3次元グラフのためのパッケージ
@@ -644,7 +644,7 @@
     #+REVEAL: split
     #+CAPTION: 3次元散布図
     #+NAME:   fig:graph-plot3d2
-    #+ATTR_HTML: :width 50% :height 50%
+    #+ATTR_HTML: :height 100%
     [[file:figs/graph-plot3d2.png]]
 
 * 凡例の追加
@@ -701,7 +701,7 @@
    #+REVEAL: split
    #+CAPTION: 日本語フォントの指定
    #+NAME:   fig:graph-font
-   #+ATTR_HTML: :height 50%
+   #+ATTR_HTML: :height 100%
    [[file:figs/graph-font.png]]
 
 * 補遺

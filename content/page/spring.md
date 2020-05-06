@@ -31,7 +31,7 @@ weight = 1003
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide03.R)
     [[サンプルデータ(jpdata.zip)]​](https://noboru-murata.github.io/sda/spring/data/jpdata.zip)
 4.  [データの視覚化](https://noboru-murata.github.io/sda/spring/slide04.html)
-    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%A6%96%E8%A6%9A%E5%8C%96.pdf)
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide04.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide04.R)
     [[サンプルデータ(dataset4.zip)]​](https://noboru-murata.github.io/sda/spring/data/dataset4.zip)
 
