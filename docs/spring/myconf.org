@@ -23,7 +23,7 @@
 #+REVEAL_TRANS: fade
 #+REVEAL_THEME: oer-reveal
 
-#+REVEAL_PLUGINS: (notes search zoom)
+#+REVEAL_PLUGINS: (notes search zoom highlight)
 
 # The following variables are non-standard.
 # Do not display TOC-progress on title slide.
@@ -38,6 +38,7 @@
 #+REVEAL_EXTRA_CSS: ./reveal.js/plugin/toc-progress/toc-progress.css
 #+REVEAL_EXTRA_CSS: ./reveal.js/css/theme/toc-style.css
 #+REVEAL_EXTRA_CSS: ./reveal.js/lib/font/source-sans-pro/source-sans-pro.css
+#+REVEAL_EXTRA_CSS: ./reveal.js/plugin/accessibility/helper.css
 
 # The following creates an empty footer, for which the css style defines
 # a height that agrees with the TOC-progress footer’s height.
@@ -60,7 +61,8 @@
 #+MACRO: BR @@latex:\\@@@@html:<br />@@
 
 # Setup for PDF generation via LaTeX export.
-#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LaTeX_CLASS: memo
+#+LaTeX_CLASS_OPTIONS: [10pt,oneside]
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{references.bib}
 #+LATEX_HEADER: \newenvironment{notes}{\par\footnotesize}{\par}

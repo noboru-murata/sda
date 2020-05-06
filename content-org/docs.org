@@ -59,14 +59,17 @@
    2. [[github:spring/slide02.html][ベクトル・行列の演算と関数]]
       [[github:spring/pdfs/ベクトル・行列の演算と関数.pdf][[PDF]​]]
       [[github:spring/code/slide02.R][[解答例]​]]
-      *[[github:spring/code/qa02.R][[質問への回答]​]]*
+      [[github:spring/code/qa02.R][[質問への回答]​]]
    3. [[github:spring/slide03.html][データの整理と集計]]
       [[github:spring/pdfs/データの整理と集計.pdf][[PDF]​]] 
       [[github:spring/code/slide03.R][[解答例]​]] 
-      *[[github:spring/data/jpdata.zip][[サンプルデータ(jpdata.zip)]​]]*
+      [[github:spring/data/jpdata.zip][[サンプルデータ(jpdata.zip)]​]]
+   4. [[github:spring/slide04.html][データの視覚化]]
+      [[github:spring/pdfs/データの視覚化.pdf][[PDF]​]] 
+      [[github:spring/code/slide04.R][[解答例]​]] 
+      [[github:spring/data/dataset4.zip][[サンプルデータ(dataset4.zip)]​]]
 
 ** 参考: 2019年度版スライド
-   4. [[github:spring/slide04.html][データのプロット]]
    5. [[github:spring/slide05.html][確率シミュレーション]] (Monte-Carlo法)
    6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
    7. [[github:spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)

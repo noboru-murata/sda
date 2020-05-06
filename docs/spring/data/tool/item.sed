@@ -1,0 +1,12 @@
+s/県名/prefecture/
+s/人口/population/
+s/若年/young_population/
+s/老人/old_population/
+s/面積/area/
+s/婚姻/marriage/
+s/離婚/divorce/
+s/失業/unemployed/
+s/勤男/working_hours_male/
+s/勤女/working_hours_female/
+s/地方/area/
+s/コード/code/
