@@ -521,14 +521,14 @@
    :PROPERTIES:
    :reveal_background: #fef4f4
    :END:
-   - ~covid19-tokyo.csv~ (東京都の新型コロナウイルス感染動向データ)
+   - ~covid19_tokyo.csv~ (東京都の新型コロナウイルス感染動向データ)
      を用いて以下の問に答えよ．
      - 陽性患者数の推移の折線グラフを描け．
        #+begin_src R :exports none :tangle yes
 	 ### 練習2.1
 	 ### 陽性患者数の推移 (折れ線グラフ)
 	 ## データの読み込み
-	 myData <- read.csv(file="data/covid19-tokyo.csv",fileEncoding="utf8")
+	 myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
 	 ## 折れ線グラフ
 	 par(family="HiraginoSans-W4") # 日本語表示
 	 plot(myData$陽性患者数, type="l", col="red", ylab="陽性患者数") 
@@ -558,7 +558,7 @@
      - (参考) 読み込み方: 
        #+begin_src R :exports no 
 	 ## CSVファイルは作業ディレクトリの下の data サブディレクトリにあるとする
-	 myData <- read.csv(file="data/covid19-tokyo.csv",fileEncoding="utf8")
+	 myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
        #+end_src
 
 ** COMMENT 練習問題
@@ -755,7 +755,8 @@
    - 配布したデータ
      - ~jpdata1.csv~
      - ~tokyo_weather.csv~
-     - ~covid19-tokyo.csv~
+     - ~covid19_tokyo.csv~
+     - ~covid19_tokyo_patients.csv~
      を用いて3次元の散布図を作成せよ．
      #+begin_src R :exports none :tangle yes
        ### 練習3.1
@@ -771,9 +772,9 @@
    - 前の演習で作成したグラフに凡例を加えてみよ．
      #+begin_src R :exports none :tangle yes
        ### 練習3.2
-       ### 凡例の追加 (covid19-tokyo.csvを用いた例)
+       ### 凡例の追加 (covid19_tokyo.csvを用いた例)
        ## データの読み込み
-       myData <- read.csv(file="data/covid19-tokyo.csv",fileEncoding="utf8")
+       myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
        days <- as.Date(with(myData,paste("2020",月,日, sep="-"))) # 日付ラベル
        ## 
        par(family="HiraginoSans-W4") # 日本語表示
