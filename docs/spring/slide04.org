@@ -560,7 +560,7 @@
 	 ## CSVファイルは作業ディレクトリの下の data サブディレクトリにあるとする
 	 myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
        #+end_src
-     - covid19データは東京都 (https://stopcovid19.metro.tokyo.lg.jp/) から取得して整理したもの
+     - (参考) covid19データは東京都 (https://stopcovid19.metro.tokyo.lg.jp/) から取得して整理したもの
 
 ** COMMENT 練習問題
    :PROPERTIES:
