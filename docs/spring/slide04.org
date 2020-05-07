@@ -555,11 +555,12 @@
 	 par(family="HiraginoSans-W4") # 日本語表示
 	 boxplot(検査実施件数 ~ 曜日, data=myData, col=cm.colors(7))
        #+end_src
-     - (参考) 読み込み方: 
+     - (参考) 読み込み方:
        #+begin_src R :exports no 
 	 ## CSVファイルは作業ディレクトリの下の data サブディレクトリにあるとする
 	 myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
        #+end_src
+     - covid19データは東京都 (https://stopcovid19.metro.tokyo.lg.jp/) から取得して整理したもの
 
 ** COMMENT 練習問題
    :PROPERTIES:
@@ -757,8 +758,9 @@
      - ~tokyo_weather.csv~
      - ~covid19_tokyo.csv~
      - ~covid19_tokyo_patients.csv~
-     を用いて3次元の散布図を作成せよ．
-     #+begin_src R :exports none :tangle yes
+     を用いて以下の問いに答えよ．
+     - 3次元の散布図を作成せよ．
+       #+begin_src R :exports none :tangle yes
        ### 練習3.1
        ### 3次元の散布図 (jpdat1.csvを用いた例)
        ## データの読み込み
@@ -768,21 +770,50 @@
        scatterplot3d(subset(myData, select=c(婚姻,離婚,失業)), 
 		     pch=19, color="blue")
        pairs(subset(myData, select=c(婚姻,離婚,失業)), col="blue") # 三面図で見てみる
-     #+end_src
-   - 前の演習で作成したグラフに凡例を加えてみよ．
-     #+begin_src R :exports none :tangle yes
-       ### 練習3.2
-       ### 凡例の追加 (covid19_tokyo.csvを用いた例)
-       ## データの読み込み
-       myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
-       days <- as.Date(with(myData,paste("2020",月,日, sep="-"))) # 日付ラベル
-       ## 
-       par(family="HiraginoSans-W4") # 日本語表示
-       plot(days,myData$検査実施人数, type="h", col="blue", xlab="日付", ylab="人数")
-       abline(h=seq(0,500,by=100), lty=2, col="darkgray") # 補助線の追加
-       lines(days,myData$陽性患者数, col="red")
-       title(main="検査実績の推移") 
-       legend("topleft", inset=0.01, 
-	      legend=c("検査実施人数","陽性患者数"),
-	      col=c("blue","red"), lwd=3, lty=1)
-     #+end_src
+       #+end_src
+     - 凡例を加えたグラフを作成せよ．
+       #+begin_src R :exports none :tangle yes
+	 ### 練習3.2
+	 ### 凡例の追加 (covid19_tokyo.csvを用いた例)
+	 ## データの読み込み
+	 myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
+	 days <- as.Date(with(myData,paste("2020",月,日, sep="-"))) # 日付ラベル
+	 ## 
+	 par(family="HiraginoSans-W4") # 日本語表示
+	 plot(days,myData$検査実施人数, type="h", col="blue", xlab="日付", ylab="人数")
+	 abline(h=seq(0,500,by=100), lty=2, col="darkgray") # 補助線の追加
+	 lines(days,myData$陽性患者数, col="red")
+	 title(main="検査実績の推移") 
+	 legend("topleft", inset=0.01, 
+		legend=c("検査実施人数","陽性患者数"),
+		col=c("blue","red"), lwd=3, lty=1)
+       #+end_src
+       #+begin_src R :exports none :tangle yes
+	 ### 凡例の追加 (covid19_tokyo_patients.csvを用いた例)
+	 ## データの読み込み
+	 myData <- read.csv(file="data/covid19_tokyo_patients.csv")
+	 ## 簡単な集計には関数table()を使うとよい
+	 table(subset(myData,select=c(患者_年代))) # 名前のついたベクトル
+	 barplot(table(subset(tmp,select=c(患者_年代))))
+	 ## 月別の年齢分布を調べる
+	 x <-with(tmp,data.frame(age=患者_年代,
+			     month=months(as.Date(公表_年月日))))
+	 (tab1 <- table(x)) # (年齢 x 月) の患者数の表(行列)
+	 (tab2 <- apply(tab1,2,function(z){z/sum(z)})) # 月ごとの年齢分布
+	 ## 描画
+	 par(family="HiraginoSans-W4") # 日本語表示
+	 barplot(tab1, # 人数のグラフ
+		 col=rainbow(13), # 13色に色分け
+		 beside=TRUE, # 棒グラフを横に並べる
+		 space=c(1.5, 3), # 棒グラフ間・変数間のスペースを指定
+		 legend.text=rownames(tab1), # 凡例の指定, 2列，縮小, 左上に表示
+		 args.legend=list(ncol=2,cex=0.5,x="topleft",inset=0.01)) 
+	 barplot(tab2, # 比率のグラフ
+		 col=rainbow(13), # 13色に色分け
+		 beside=TRUE, # 棒グラフを横に並べる
+		 space=c(1.5, 3), # 棒グラフ間・変数間のスペースを指定
+		 legend.text=rownames(tab1), # 凡例の指定，2列，縮小
+		 args.legend=list(ncol=2,cex=0.5)) 
+       #+end_src
+
+

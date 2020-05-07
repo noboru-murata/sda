@@ -122,7 +122,7 @@ pie(x, clockwise=TRUE, main="日射量別の日数の割合",
 ### 練習2.1
 ### 陽性患者数の推移 (折れ線グラフ)
 ## データの読み込み
-myData <- read.csv(file="data/covid19-tokyo.csv",fileEncoding="utf8")
+myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
 ## 折れ線グラフ
 par(family="HiraginoSans-W4") # 日本語表示
 plot(myData$陽性患者数, type="l", col="red", ylab="陽性患者数") 
@@ -211,9 +211,9 @@ scatterplot3d(subset(myData, select=c(婚姻,離婚,失業)),
 pairs(subset(myData, select=c(婚姻,離婚,失業)), col="blue") # 三面図で見てみる
 
 ### 練習3.2
-### 凡例の追加 (covid19-tokyo.csvを用いた例)
+### 凡例の追加 (covid19_tokyo.csvを用いた例)
 ## データの読み込み
-myData <- read.csv(file="data/covid19-tokyo.csv",fileEncoding="utf8")
+myData <- read.csv(file="data/covid19_tokyo.csv",fileEncoding="utf8")
 days <- as.Date(with(myData,paste("2020",月,日, sep="-"))) # 日付ラベル
 ## 
 par(family="HiraginoSans-W4") # 日本語表示
@@ -224,3 +224,29 @@ title(main="検査実績の推移")
 legend("topleft", inset=0.01, 
        legend=c("検査実施人数","陽性患者数"),
        col=c("blue","red"), lwd=3, lty=1)
+
+### 凡例の追加 (covid19_tokyo_patients.csvを用いた例)
+## データの読み込み
+myData <- read.csv(file="data/covid19_tokyo_patients.csv")
+## 簡単な集計には関数table()を使うとよい
+table(subset(myData,select=c(患者_年代))) # 名前のついたベクトル
+barplot(table(subset(tmp,select=c(患者_年代))))
+## 月別の年齢分布を調べる
+x <-with(tmp,data.frame(age=患者_年代,
+		    month=months(as.Date(公表_年月日))))
+(tab1 <- table(x)) # (年齢 x 月) の患者数の表(行列)
+(tab2 <- apply(tab1,2,function(z){z/sum(z)})) # 月ごとの年齢分布
+## 描画
+par(family="HiraginoSans-W4") # 日本語表示
+barplot(tab1, # 人数のグラフ
+	col=rainbow(13), # 13色に色分け
+	beside=TRUE, # 棒グラフを横に並べる
+	space=c(1.5, 3), # 棒グラフ間・変数間のスペースを指定
+	legend.text=rownames(tab1), # 凡例の指定, 2列，縮小, 左上に表示
+	args.legend=list(ncol=2,cex=0.5,x="topleft",inset=0.01)) 
+barplot(tab2, # 比率のグラフ
+	col=rainbow(13), # 13色に色分け
+	beside=TRUE, # 棒グラフを横に並べる
+	space=c(1.5, 3), # 棒グラフ間・変数間のスペースを指定
+	legend.text=rownames(tab1), # 凡例の指定，2列，縮小
+	args.legend=list(ncol=2,cex=0.5))
