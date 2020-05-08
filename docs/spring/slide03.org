@@ -11,15 +11,14 @@
 #+OPTIONS: date:t H:4 num:nil toc:nil \n:nil
 #+OPTIONS: @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t 
 #+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+PROPERTY: header-args :session *R* 
-#+PROPERTY: header-args+ :cache yes 
-#+PROPERTY: header-args+ :results output
-#+PROPERTY: header-args+ :exports both 
-#+PROPERTY: header-args+ :tangle no
+#+PROPERTY: header-args:R :session *R* :cache yes 
+#+PROPERTY: header-args:R+ :exports both :results output
+#+PROPERTY: header-args:R+ :tangle no
+#+PROPERTY: header-args:latex :exports results :results raw
 :end:
 
 #+begin_src R :exports none
-  setwd("~/Desktop/lectures/u-tokyo/spring/slide/data/")
+  setwd("~/Desktop/lectures/u-tokyo/spring/slide")
 #+end_src
 #+begin_src R :exports none :tangle yes
   ### 第3回 演習問題解答例
@@ -254,7 +253,7 @@
                          subset = Ozone>120,
                          select = -Temp)) # データフレームの作成
        dim(myData) # データフレームの大きさを確認
-       write.csv(myData,file="mydata.csv") # csvファイルとして書き出し
+       write.csv(myData,file="data/mydata.csv") # csvファイルとして書き出し
      #+end_src
 
 ** 関数 ~read.csv()~
@@ -279,7 +278,7 @@
    - CSVファイルの読み込み 
      #+begin_src R :tangle yes
        ## 関数read.csvの使い方
-       (newdata <- read.csv(file="mydata.csv",
+       (newdata <- read.csv(file="data/mydata.csv",
                             row.names=1)) # 1列目を行名に指定
        dim(newdata) # 正しく読み込めたか大きさを確認
      #+end_src
@@ -309,7 +308,7 @@
        (myDat1 <- subset(airquality, Temp>95, select=-Ozone)) 
        (myDat2 <- subset(airquality, Temp<57, select=-Ozone)) 
        dim(myDat1); dim(myDat2) # 大きさを確認
-       save(myDat1,myDat2,file="mydata.rdata") # RData形式で書き出し
+       save(myDat1,myDat2,file="data/mydata.rdata") # RData形式で書き出し
      #+end_src
 
 ** 関数 ~load()~ 
@@ -326,7 +325,7 @@
    #+begin_src R :tangle yes
      ## 関数loadの使い方
      (myDat1 <- subset(airquality, Ozone > 160)) # 新たに作成
-     load(file="mydata.rdata") # RData形式の読み込み
+     load(file="data/mydata.rdata") # RData形式の読み込み
      myDat1 # saveしたときの名前で読み込まれ上書きされる
      myDat2 
    #+end_src
@@ -352,9 +351,9 @@
          ### サンプルデータの読み込み
        #+end_src
        #+begin_src R :exports code :tangle yes
-         myData <- read.csv(file="jpdata1.csv", fileEncoding="utf8", row.names=1)
-         myItem <- read.csv(file="jpdata2.csv", fileEncoding="utf8")
-         myArea <- read.csv(file="jpdata3.csv", fileEncoding="utf8")
+         myData <- read.csv(file="data/jpdata1.csv", fileEncoding="utf8", row.names=1)
+         myItem <- read.csv(file="data/jpdata2.csv", fileEncoding="utf8")
+         myArea <- read.csv(file="data/jpdata3.csv", fileEncoding="utf8")
        #+end_src
        #+begin_src R :exports none :tangle yes
          ### データ操作の例
@@ -393,7 +392,7 @@
        ### データを集約する関数
      #+end_src
      #+begin_src R :tangle yes
-       myData <- read.csv(file="jpdata1.csv",
+       myData <- read.csv(file="data/jpdata1.csv",
                           row.names=1, fileEncoding="utf8")
        ## 一度読み込んでいれば上の行は不要
        sum(myData$人口) # 全国の総人口 (列名で選択)
@@ -527,8 +526,11 @@
        (myDat2 <- data.frame(myDat2, 
                              人口密度=with(myDat2,人口/面積)))
      #+end_src
-   - 地方別の婚姻率・離婚率を概算せよ\\
-     (婚姻年齢は15歳以上として概算してよい)
+   - 地方別の婚姻率・離婚率(1000人当たり)を概算せよ\\
+     (「人口1000人当たり」とあるが，
+      若年層は婚姻不可として除いた
+      「婚姻可能な人口1000人当たり」
+      で置き換えて計算しなさい)
      #+begin_src R :exports none :tangle yes
        ### 練習3.3
        ### 地方別の婚姻率・離婚率
@@ -537,14 +539,14 @@
                           婚姻可能=with(myData,人口-若年)))
        ## 婚姻率と離婚率から人数を推計
        (tmp <- data.frame(tmp,
-                         婚姻数=with(tmp, 婚姻可能*婚姻/100),
-                         離婚数=with(tmp, 婚姻可能*離婚/100),
+                         婚姻数=with(tmp, 婚姻可能*婚姻/1000),
+                         離婚数=with(tmp, 婚姻可能*離婚/1000),
                          地方=myArea$地方))
        ## 地方別の婚姻・離婚数を集計
        (myDat3 <- aggregate(. ~ 地方, FUN=sum,
                             data=subset(tmp,select=-c(婚姻,離婚))))
        ## 婚姻率・離婚率を計算して追加
        (myDat3 <- data.frame(myDat3,
-                             婚姻率=with(myDat3,婚姻数/婚姻可能*100),
-                             離婚率=with(myDat3,離婚数/婚姻可能*100)))
+                             婚姻率=with(myDat3,婚姻数/婚姻可能*1000),
+                             離婚率=with(myDat3,離婚数/婚姻可能*1000)))
      #+end_src

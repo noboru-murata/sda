@@ -1,46 +1,65 @@
 #+TITLE: 確率シミュレーション
-#+SUBTITLE: Monte-Carlo 法
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2019.05.24
-:preamble:
+#+DATE: 2020.05.15
+:reveal:
+# #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
 #+STARTUP: hidestars content
 # C-c C-x C-v でinlineを切り替え
 # <l C-i でlatex block
 # C-c '
-#+OPTIONS: LaTeX:t    
-#+PROPERTY: results output
-#+PROPERTY: exports both
+#+OPTIONS: date:t H:4 num:nil toc:nil \n:nil
+#+OPTIONS: @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t 
+#+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+PROPERTY: header-args:R :session *R* :cache yes 
+#+PROPERTY: header-args:R+ :exports both :results output
+#+PROPERTY: header-args:R+ :tangle no
+#+PROPERTY: header-args:latex :exports results :results raw
+
+#+begin_src R :exports none
+  setwd("~/Desktop/lectures/u-tokyo/spring/slide")
+#+end_src
+#+begin_src R :exports none :tangle yes
+  ### 第5回 演習問題解答例
+#+end_src
 :end:
 
-* シミュレーション
+* 計算機による数値実験
 ** データ解析の枠組
    - 分析の目的:
      - 集団の背後にある共通の法則の発見
      - 将来の予測
-   - 分析対象の集団全体のデータが入手できることは稀:
+   - 集団全体のデータが入手できることは稀:
      - 現時点の集団に含まれているとは限らない
      - 将来のデータは入手不可
-   - *問題* \\
+   - *問題*
+     #+begin_quote
      分析対象の集団の一部のデータのみを用いて，
-     そこから集団全体の性質についての知見を得る
+     そこから集団全体の性質についての知見を得るには?
+     #+end_quote
 
 ** データのもつべき性質
-   - 偏ったデータから集団全体の性質を推測することは困難
-     - 知りたい事柄: 日本全体の平均気温
-     - 得られるデータ: 沖縄県の各地点の気温
-   - データを「ランダム」に収集すれば良い
-   - *疑問* \\
-     「ランダム」にデータを収集することで
-     問題が解決できる根拠は？
+   - 偏った一部のデータから全体の性質の推測は困難:
+     - 知りたい事柄: [[color:darkgreen][日本全体の平均気温]]
+     - 得られるデータ: [[color:darkgreen][沖縄県の各地点の気温]]
+   - データを *ランダム* に収集すれば良い:
+     - そもそもランダムとは?
+     - ランダムにデータを収集するコストは?
+   - *問題* 
+     #+begin_quote
+     [[color:darkred][ランダム]]
+     にデータを収集することで課題が解決できる根拠は？
+     #+end_quote
 
-** Monte Carlo 法
-   - *疑問* \\
-     「ランダム」にデータを収集することで
-     問題が解決できる根拠は？
+** 理論解析と数値実験
+   - *問題* 
+     #+begin_quote
+     [[color:darkred][ランダム]]
+     にデータを収集することで課題が解決できる根拠は？
+     #+end_quote
    - 厳密な意味での解答: 
-     - (測度論的)確率論
+     - (測度論的)確率論 
      - その理解のための他の数学分野
    - 乱数を使った数値実験:
      - 計算機上でランダムネスを実現
@@ -50,30 +69,51 @@
 ** 擬似乱数
    - コンピューターで生成された数列:
      - 完全にランダムに数字を発生されることは不可能 
-     - Rでは ``Mersenne-Twister法'' が標準で用いられる \\
-       (~help(Random)~ 参照)
+     - Rでは *Mersenne-Twister法* が標準で用いられる
+     - ~help(Random)~ 参照
    - 数値シミュレーションは再現可能:
-     - 乱数の *シード値* を指定して再現性を担保 \\
-       同一のシード値から生成される乱数系列は同一 \\
-       (~set.seed()~ 参照)
+     - 乱数の *シード値* を指定して再現性を担保 
+     - 同一のシード値から生成される乱数系列は同一
+     - 関数 ~set.seed()~ 参照
 
-** 乱数
+** 基本的な乱数
 #   基本的な乱数: ランダムサンプリング・二項乱数・一様乱数
-   - *ランダムサンプリング* \\
-     与えられた集合の要素を無作為抽出することで発生する乱数
+   - *ランダムサンプリング* (無作為抽出)\\
+     与えられた集合の要素をランダムに抽出する乱数
    - *二項乱数* (確率 $p$ に対する次数 $n$ の二項乱数) \\
      確率 $p$ で表が出るコインを $n$ 回投げた際の表の数
    - *一様乱数* (区間 $(a,b)$ 上の一様乱数) \\
      決まった区間 $(a, b)$ からランダムに発生する乱数
-   - 上記は基本的なもの
+   - (これ以外にも種々の乱数が存在)
+
 ** 乱数を発生する関数
    - Rには様々な確率分布に従う乱数が実装されている
      - ~sample()~: ランダムサンプリング
      - ~rbinom()~: 二項乱数
      - ~runif()~: 一様乱数
    - これ以外は次回以降で取り上げる
-** 関数の利用例
-   #+begin_src R :exports code :results output
+
+** テスト
+   - てすと
+     #+begin_src R :tangle yes
+       ## 抽出する行番号のベクトルで指定
+       airquality[1:10,] # 1-10行を抽出
+     #+end_src
+
+     #+RESULTS:
+     |  41 | 190 |  7.4 | 67 | 5 |  1 |
+     |  36 | 118 |    8 | 72 | 5 |  2 |
+     |  12 | 149 | 12.6 | 74 | 5 |  3 |
+     |  18 | 313 | 11.5 | 62 | 5 |  4 |
+     | nil | nil | 14.3 | 56 | 5 |  5 |
+     |  28 | nil | 14.9 | 66 | 5 |  6 |
+     |  23 | 299 |  8.6 | 65 | 5 |  7 |
+     |  19 |  99 | 13.8 | 59 | 5 |  8 |
+     |   8 |  19 | 20.1 | 61 | 5 |  9 |
+     | nil | 194 |  8.6 | 69 | 5 | 10 |
+
+** 関数の利用例 (1/3)
+   #+begin_src R :tangle yes
      ### 関数sampleの使い方
      x <- 1:10 # サンプリング対象の集合をベクトルとして定義
      set.seed(123) # 乱数のシード値(任意に決めてよい)を指定
@@ -82,12 +122,18 @@
      sample(x, 5, replace=TRUE) # xから5つの要素を重複ありでランダムに抽出
      sample(1:6, 10, replace=TRUE) # サイコロを10回振る実験の再現
      sample(1:6, 10, prob=6:1, replace=TRUE) # 出る目の確率に偏りがある場合
+   #+end_src
+** 関数の利用例 (2/3)
+   #+begin_src R :tangle yes
      ### 関数rbinomの使い方
      rbinom(10, size=4, prob=0.5) # 確率0.5に対する次数4の二項乱数を10個発生
      rbinom(20, size=4, prob=0.2) # 個数を20, 確率を0.2に変更
      ### 関数runifの使い方
      runif(5, min=-1, max=2) # 区間(-1,2)上の一様乱数を5個発生
      runif(5) # 指定しない場合は区間(0,1)が既定値
+   #+end_src
+** 関数の利用例 (3/3)
+   #+begin_src R :tangle yes
      ### 関数set.seedについて
      set.seed(1) # 乱数の初期値をseed=1で指定
      runif(5) 

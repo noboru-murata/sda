@@ -12,14 +12,10 @@
 #+OPTIONS: date:t H:4 num:nil toc:nil \n:nil
 #+OPTIONS: @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t 
 #+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+PROPERTY: header-args:R :session *R* 
-#+PROPERTY: header-args+:R :cache yes 
-#+PROPERTY: header-args+:R :results output
-#+PROPERTY: header-args+:R :exports both 
-#+PROPERTY: header-args+:R :tangle no
-#+PROPERTY: header-args:latex :exports results
-#+PROPERTY: header-args+:latex :results raw
-#+BEAMER_FRAME_LEVEL: 1
+#+PROPERTY: header-args:R :session *R* :cache yes 
+#+PROPERTY: header-args:R+ :exports both :results output
+#+PROPERTY: header-args:R+ :tangle no
+#+PROPERTY: header-args:latex :exports results :results raw
 
 #+begin_src R :exports none
   setwd("~/Desktop/lectures/u-tokyo/spring/slide")
@@ -794,9 +790,9 @@
 	 myData <- read.csv(file="data/covid19_tokyo_patients.csv")
 	 ## 簡単な集計には関数table()を使うとよい
 	 table(subset(myData,select=c(患者_年代))) # 名前のついたベクトル
-	 barplot(table(subset(tmp,select=c(患者_年代))))
+	 barplot(table(subset(myData,select=c(患者_年代))))
 	 ## 月別の年齢分布を調べる
-	 x <-with(tmp,data.frame(age=患者_年代,
+	 x <-with(myData,data.frame(age=患者_年代,
 			     month=months(as.Date(公表_年月日))))
 	 (tab1 <- table(x)) # (年齢 x 月) の患者数の表(行列)
 	 (tab2 <- apply(tab1,2,function(z){z/sum(z)})) # 月ごとの年齢分布

@@ -76,10 +76,10 @@ subset(airquality, # 書き方はいろいろある
                   subset = Ozone>120,
                   select = -Temp)) # データフレームの作成
 dim(myData) # データフレームの大きさを確認
-write.csv(myData,file="mydata.csv") # csvファイルとして書き出し
+write.csv(myData,file="data/mydata.csv") # csvファイルとして書き出し
 
 ## 関数read.csvの使い方
-(newdata <- read.csv(file="mydata.csv",
+(newdata <- read.csv(file="data/mydata.csv",
                      row.names=1)) # 1列目を行名に指定
 dim(newdata) # 正しく読み込めたか大きさを確認
 
@@ -90,20 +90,20 @@ dim(newdata) # 正しく読み込めたか大きさを確認
 (myDat1 <- subset(airquality, Temp>95, select=-Ozone)) 
 (myDat2 <- subset(airquality, Temp<57, select=-Ozone)) 
 dim(myDat1); dim(myDat2) # 大きさを確認
-save(myDat1,myDat2,file="mydata.rdata") # RData形式で書き出し
+save(myDat1,myDat2,file="data/mydata.rdata") # RData形式で書き出し
 
 ## 関数loadの使い方
 (myDat1 <- subset(airquality, Ozone > 160)) # 新たに作成
-load(file="mydata.rdata") # RData形式の読み込み
+load(file="data/mydata.rdata") # RData形式の読み込み
 myDat1 # saveしたときの名前で読み込まれ上書きされる
 myDat2
 
 ### 練習2
 ### サンプルデータの読み込み
 
-myData <- read.csv(file="jpdata1.csv", fileEncoding="utf8", row.names=1)
-myItem <- read.csv(file="jpdata2.csv", fileEncoding="utf8")
-myArea <- read.csv(file="jpdata3.csv", fileEncoding="utf8")
+myData <- read.csv(file="data/jpdata1.csv", fileEncoding="utf8", row.names=1)
+myItem <- read.csv(file="data/jpdata2.csv", fileEncoding="utf8")
+myArea <- read.csv(file="data/jpdata3.csv", fileEncoding="utf8")
 
 ### データ操作の例
 ## 項目名の内容を確認
@@ -126,7 +126,7 @@ rownames(myData)[with(myData,order(人口,decreasing=TRUE))] # 県名を表示
 ### 例題5
 ### データを集約する関数
 
-myData <- read.csv(file="jpdata1.csv",
+myData <- read.csv(file="data/jpdata1.csv",
                    row.names=1, fileEncoding="utf8")
 ## 一度読み込んでいれば上の行は不要
 sum(myData$人口) # 全国の総人口 (列名で選択)
@@ -197,13 +197,13 @@ with(myData,人口/面積) # 値のみ返す
                    婚姻可能=with(myData,人口-若年)))
 ## 婚姻率と離婚率から人数を推計
 (tmp <- data.frame(tmp,
-                  婚姻数=with(tmp, 婚姻可能*婚姻/100),
-                  離婚数=with(tmp, 婚姻可能*離婚/100),
+                  婚姻数=with(tmp, 婚姻可能*婚姻/1000),
+                  離婚数=with(tmp, 婚姻可能*離婚/1000),
                   地方=myArea$地方))
 ## 地方別の婚姻・離婚数を集計
 (myDat3 <- aggregate(. ~ 地方, FUN=sum,
                      data=subset(tmp,select=-c(婚姻,離婚))))
 ## 婚姻率・離婚率を計算して追加
 (myDat3 <- data.frame(myDat3,
-                      婚姻率=with(myDat3,婚姻数/婚姻可能*100),
-                      離婚率=with(myDat3,離婚数/婚姻可能*100)))
+                      婚姻率=with(myDat3,婚姻数/婚姻可能*1000),
+                      離婚率=with(myDat3,離婚数/婚姻可能*1000)))

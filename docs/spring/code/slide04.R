@@ -230,9 +230,9 @@ legend("topleft", inset=0.01,
 myData <- read.csv(file="data/covid19_tokyo_patients.csv")
 ## 簡単な集計には関数table()を使うとよい
 table(subset(myData,select=c(患者_年代))) # 名前のついたベクトル
-barplot(table(subset(tmp,select=c(患者_年代))))
+barplot(table(subset(myData,select=c(患者_年代))))
 ## 月別の年齢分布を調べる
-x <-with(tmp,data.frame(age=患者_年代,
+x <-with(myData,data.frame(age=患者_年代,
 		    month=months(as.Date(公表_年月日))))
 (tab1 <- table(x)) # (年齢 x 月) の患者数の表(行列)
 (tab2 <- apply(tab1,2,function(z){z/sum(z)})) # 月ごとの年齢分布

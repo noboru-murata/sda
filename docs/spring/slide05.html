@@ -15,11 +15,12 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
 <link rel="stylesheet" href="./myconf.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,9 +32,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -44,27 +45,27 @@
     <h1 class="no-toc-progress">確率シミュレーション</h1>
 </div>
 <div class="talk-subtitle">
-    <p>Monte-Carlo 法</p>
+    <p></p>
 </div>
 <div class="keyboard-usage">
     <p>(Press <code>?</code> for help, <code>n</code> and <code>p</code> for next and previous slide)</p>
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.05.24</p>
+  2020.05.15</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgae1a4db">
-<h2 id="orgae1a4db">シミュレーション</h2>
-<div class="outline-text-2" id="text-orgae1a4db">
+<section id="slide-org74cad3e">
+<h2 id="org74cad3e">計算機による数値実験</h2>
+<div class="outline-text-2" id="text-org74cad3e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6361de6">
-<h3 id="org6361de6">データ解析の枠組</h3>
+<section id="slide-org0a07717">
+<h3 id="org0a07717">データ解析の枠組</h3>
 <ul>
 <li>分析の目的:
 <ul>
@@ -72,44 +73,67 @@
 <li>将来の予測</li>
 
 </ul></li>
-<li>分析対象の集団全体のデータが入手できることは稀:
+<li>集団全体のデータが入手できることは稀:
 <ul>
 <li>現時点の集団に含まれているとは限らない</li>
 <li>将来のデータは入手不可</li>
 
 </ul></li>
-<li><b>問題</b> <br>
+<li><p>
+<b>問題</b>
+</p>
+<blockquote>
+<p>
 分析対象の集団の一部のデータのみを用いて，
-そこから集団全体の性質についての知見を得る</li>
+そこから集団全体の性質についての知見を得るには?
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2e74871">
-<h3 id="org2e74871">データのもつべき性質</h3>
+<section id="slide-orgebd76a5">
+<h3 id="orgebd76a5">データのもつべき性質</h3>
 <ul>
-<li>偏ったデータから集団全体の性質を推測することは困難
+<li>偏った一部のデータから全体の性質の推測は困難:
 <ul>
-<li>知りたい事柄: 日本全体の平均気温</li>
-<li>得られるデータ: 沖縄県の各地点の気温</li>
+<li>知りたい事柄: <span style="color:darkgreen;">日本全体の平均気温</span></li>
+<li>得られるデータ: <span style="color:darkgreen;">沖縄県の各地点の気温</span></li>
 
 </ul></li>
-<li>データを「ランダム」に収集すれば良い</li>
-<li><b>疑問</b> <br>
-「ランダム」にデータを収集することで
-問題が解決できる根拠は？</li>
+<li>データを <b>ランダム</b> に収集すれば良い:
+<ul>
+<li>そもそもランダムとは?</li>
+<li>ランダムにデータを収集するコストは?</li>
+
+</ul></li>
+<li><p>
+<b>問題</b> 
+</p>
+<blockquote>
+<p>
+<span style="color:darkred;">ランダム</span>
+にデータを収集することで課題が解決できる根拠は？
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2a68f9b">
-<h3 id="org2a68f9b">Monte Carlo 法</h3>
+<section id="slide-orgd2ea5d4">
+<h3 id="orgd2ea5d4">理論解析と数値実験</h3>
 <ul>
-<li><b>疑問</b> <br>
-「ランダム」にデータを収集することで
-問題が解決できる根拠は？</li>
+<li><p>
+<b>問題</b> 
+</p>
+<blockquote>
+<p>
+<span style="color:darkred;">ランダム</span>
+にデータを収集することで課題が解決できる根拠は？
+</p>
+</blockquote></li>
 <li>厳密な意味での解答: 
 <ul>
 <li>(測度論的)確率論</li>
@@ -129,27 +153,27 @@
 </section>
 </section>
 <section>
-<section id="slide-org59b37f7">
-<h2 id="org59b37f7">乱数</h2>
-<div class="outline-text-2" id="text-org59b37f7">
+<section id="slide-org2037857">
+<h2 id="org2037857">乱数</h2>
+<div class="outline-text-2" id="text-org2037857">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org93bb51e">
-<h3 id="org93bb51e">擬似乱数</h3>
+<section id="slide-orged43542">
+<h3 id="orged43542">擬似乱数</h3>
 <ul>
 <li>コンピューターで生成された数列:
 <ul>
 <li>完全にランダムに数字を発生されることは不可能</li>
-<li>Rでは ``Mersenne-Twister法&rsquo;&rsquo; が標準で用いられる <br>
-(<code>help(Random)</code> 参照)</li>
+<li>Rでは <b>Mersenne-Twister法</b> が標準で用いられる</li>
+<li><code>help(Random)</code> 参照</li>
 
 </ul></li>
 <li>数値シミュレーションは再現可能:
 <ul>
-<li>乱数の <b>シード値</b> を指定して再現性を担保 <br>
-同一のシード値から生成される乱数系列は同一 <br>
-(<code>set.seed()</code> 参照)</li>
+<li>乱数の <b>シード値</b> を指定して再現性を担保</li>
+<li>同一のシード値から生成される乱数系列は同一</li>
+<li>関数 <code>set.seed()</code> 参照</li>
 
 </ul></li>
 
@@ -157,22 +181,23 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org881d087">
-<h3 id="org881d087">乱数</h3>
+<section id="slide-orgf478d55">
+<h3 id="orgf478d55">基本的な乱数</h3>
 <ul>
-<li><b>ランダムサンプリング</b> <br>
-与えられた集合の要素を無作為抽出することで発生する乱数</li>
-<li><b>二項乱数</b> (確率 \(p\) に対する次数 \(n\) の二項乱数) <br>
+<li><b>ランダムサンプリング</b> (無作為抽出)<br />
+与えられた集合の要素をランダムに抽出する乱数</li>
+<li><b>二項乱数</b> (確率 \(p\) に対する次数 \(n\) の二項乱数) <br />
 確率 \(p\) で表が出るコインを \(n\) 回投げた際の表の数</li>
-<li><b>一様乱数</b> (区間 \((a,b)\) 上の一様乱数) <br>
+<li><b>一様乱数</b> (区間 \((a,b)\) 上の一様乱数) <br />
 決まった区間 \((a, b)\) からランダムに発生する乱数</li>
-<li>上記は基本的なもの</li>
+<li>(これ以外にも種々の乱数が存在)</li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org82ec24d">
-<h3 id="org82ec24d">乱数を発生する関数</h3>
+<section id="slide-org415cbfd">
+<h3 id="org415cbfd">乱数を発生する関数</h3>
 <ul>
 <li>Rには様々な確率分布に従う乱数が実装されている
 <ul>
@@ -184,48 +209,133 @@
 <li>これ以外は次回以降で取り上げる</li>
 
 </ul>
+
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org818d2f7">
-<h3 id="org818d2f7">関数の利用例</h3>
+<section id="slide-org3c89267">
+<h3 id="org3c89267">テスト</h3>
+<ul>
+<li><p>
+てすと
+</p>
 <div class="org-src-container">
 
-<pre  class="src src-R"><span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;sample&#12398;&#20351;&#12356;&#26041;</span>
-x <span style="color: #56B6C2;">&lt;-</span> 1:10 <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#23550;&#35937;&#12398;&#38598;&#21512;&#12434;&#12505;&#12463;&#12488;&#12523;&#12392;&#12375;&#12390;&#23450;&#32681;</span>
-set.seed(123) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20081;&#25968;&#12398;&#12471;&#12540;&#12489;&#20516;(&#20219;&#24847;&#12395;&#27770;&#12417;&#12390;&#12424;&#12356;)&#12434;&#25351;&#23450;</span>
-sample(x, 5)  <span style="color: #5C6370;"># </span><span style="color: #5C6370;">x&#12363;&#12425;5&#12388;&#12398;&#35201;&#32032;&#12434;&#37325;&#35079;&#12394;&#12375;&#12391;&#12521;&#12531;&#12480;&#12512;&#12395;&#25277;&#20986;</span>
-sample(x, length(x)) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">x&#12398;&#35201;&#32032;&#12398;&#12521;&#12531;&#12480;&#12512;&#12394;&#20006;&#12409;&#26367;&#12360;&#12392;&#12394;&#12427;</span>
-sample(x, 5, replace=<span style="color: #E5C07B;">TRUE</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">x&#12363;&#12425;5&#12388;&#12398;&#35201;&#32032;&#12434;&#37325;&#35079;&#12354;&#12426;&#12391;&#12521;&#12531;&#12480;&#12512;&#12395;&#25277;&#20986;</span>
-sample(1:6, 10, replace=<span style="color: #E5C07B;">TRUE</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#12469;&#12452;&#12467;&#12525;&#12434;10&#22238;&#25391;&#12427;&#23455;&#39443;&#12398;&#20877;&#29694;</span>
-sample(1:6, 10, prob=6:1, replace=<span style="color: #E5C07B;">TRUE</span>) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20986;&#12427;&#30446;&#12398;&#30906;&#29575;&#12395;&#20559;&#12426;&#12364;&#12354;&#12427;&#22580;&#21512;</span>
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;rbinom&#12398;&#20351;&#12356;&#26041;</span>
-rbinom(10, size=4, prob=0.5) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#30906;&#29575;0.5&#12395;&#23550;&#12377;&#12427;&#27425;&#25968;4&#12398;&#20108;&#38917;&#20081;&#25968;&#12434;10&#20491;&#30330;&#29983;</span>
-rbinom(20, size=4, prob=0.2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20491;&#25968;&#12434;20, &#30906;&#29575;&#12434;0.2&#12395;&#22793;&#26356;</span>
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;runif&#12398;&#20351;&#12356;&#26041;</span>
-runif(5, min=-1, max=2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21306;&#38291;(-1,2)&#19978;&#12398;&#19968;&#27096;&#20081;&#25968;&#12434;5&#20491;&#30330;&#29983;</span>
-runif(5) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#25351;&#23450;&#12375;&#12394;&#12356;&#22580;&#21512;&#12399;&#21306;&#38291;(0,1)&#12364;&#26082;&#23450;&#20516;</span>
-<span style="color: #5C6370;">### </span><span style="color: #5C6370;">&#38306;&#25968;set.seed&#12395;&#12388;&#12356;&#12390;</span>
-set.seed(1) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20081;&#25968;&#12398;&#21021;&#26399;&#20516;&#12434;seed=1&#12391;&#25351;&#23450;</span>
-runif(5) 
-set.seed(2) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20081;&#25968;&#12398;&#21021;&#26399;&#20516;&#12434;seed=2&#12391;&#25351;&#23450;</span>
-runif(5)    <span style="color: #5C6370;"># </span><span style="color: #5C6370;">seed=1&#12398;&#22580;&#21512;&#12392;&#30064;&#12394;&#12427;&#32080;&#26524;</span>
-set.seed(1) <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#20081;&#25968;&#12398;&#21021;&#26399;&#20516;&#12434;seed=1&#12391;&#25351;&#23450;</span>
-runif(5)    <span style="color: #5C6370;"># </span><span style="color: #5C6370;">&#21021;&#12417;&#12398;seed=1&#12398;&#22580;&#21512;&#12392;&#21516;&#12376;&#32080;&#26524;</span>
-</pre>
+<pre><code class=" R" >## 抽出する行番号のベクトルで指定
+airquality[1:10,] # 1-10行を抽出
+</code></pre>
 </div>
+
+<pre class="example">
+
+   Ozone Solar.R Wind Temp Month Day
+1     41     190  7.4   67     5   1
+2     36     118  8.0   72     5   2
+3     12     149 12.6   74     5   3
+4     18     313 11.5   62     5   4
+5     NA      NA 14.3   56     5   5
+6     28      NA 14.9   66     5   6
+7     23     299  8.6   65     5   7
+8     19      99 13.8   59     5   8
+9      8      19 20.1   61     5   9
+10    NA     194  8.6   69     5  10
+</pre></li>
+
+</ul>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orge9f0724">
+<h3 id="orge9f0724">関数の利用例 (1/3)</h3>
+<div class="org-src-container">
+
+<pre><code class=" R" >### 関数sampleの使い方
+x &lt;- 1:10 # サンプリング対象の集合をベクトルとして定義
+set.seed(123) # 乱数のシード値(任意に決めてよい)を指定
+sample(x, 5)  # xから5つの要素を重複なしでランダムに抽出
+sample(x, length(x)) # xの要素のランダムな並べ替えとなる
+sample(x, 5, replace=TRUE) # xから5つの要素を重複ありでランダムに抽出
+sample(1:6, 10, replace=TRUE) # サイコロを10回振る実験の再現
+sample(1:6, 10, prob=6:1, replace=TRUE) # 出る目の確率に偏りがある場合
+</code></pre>
+</div>
+
+<pre class="example">
+
+[1]  3 10  2  8  6
+
+ [1]  5  4  6  8  1  2  3  7  9 10
+
+[1] 9 9 9 3 8
+
+ [1] 2 2 1 6 3 4 6 1 3 5
+
+ [1] 1 1 2 2 2 1 1 1 2 1
+</pre>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb93b20e">
+<h3 id="orgb93b20e">関数の利用例 (2/3)</h3>
+<div class="org-src-container">
+
+<pre><code class=" R" >### 関数rbinomの使い方
+rbinom(10, size=4, prob=0.5) # 確率0.5に対する次数4の二項乱数を10個発生
+rbinom(20, size=4, prob=0.2) # 個数を20, 確率を0.2に変更
+### 関数runifの使い方
+runif(5, min=-1, max=2) # 区間(-1,2)上の一様乱数を5個発生
+runif(5) # 指定しない場合は区間(0,1)が既定値
+</code></pre>
+</div>
+
+<pre class="example">
+
+ [1] 3 0 2 3 1 2 1 1 3 3
+
+ [1] 0 1 0 0 0 1 1 1 1 1 1 1 1 1 0 1 0 0 1 0
+
+[1] -0.6665937 -0.2691416  1.0041668  0.2529403
+[5]  1.3645875
+
+[1] 0.1028646 0.4348927 0.9849570 0.8930511 0.8864691
+</pre>
+
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgb56c39c">
+<h3 id="orgb56c39c">関数の利用例 (3/3)</h3>
+<div class="org-src-container">
+
+<pre><code class=" R" >### 関数set.seedについて
+set.seed(1) # 乱数の初期値をseed=1で指定
+runif(5) 
+set.seed(2) # 乱数の初期値をseed=2で指定
+runif(5)    # seed=1の場合と異なる結果
+set.seed(1) # 乱数の初期値をseed=1で指定
+runif(5)    # 初めのseed=1の場合と同じ結果
+</code></pre>
+</div>
+
+<pre class="example">
+
+[1] 0.2655087 0.3721239 0.5728534 0.9082078 0.2016819
+
+[1] 0.1848823 0.7023740 0.5733263 0.1680519 0.9438393
+
+[1] 0.2655087 0.3721239 0.5728534 0.9082078 0.2016819
+</pre>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org086559b">
-<h2 id="org086559b">例題</h2>
-<div class="outline-text-2" id="text-org086559b">
+<section id="slide-orgf0e8a55">
+<h2 id="orgf0e8a55">例題</h2>
+<div class="outline-text-2" id="text-orgf0e8a55">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9d3cd96">
-<h3 id="org9d3cd96">コイン投げの賭け</h3>
+<section id="slide-orgd5283c4">
+<h3 id="orgd5283c4">コイン投げの賭け</h3>
 <p>
 AとBの二人で交互にコインを投げる．
 最初に表が出た方を勝ちとするとき，
@@ -234,8 +344,8 @@ AとBそれぞれの勝率はいくつとなるか？
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbc0a944">
-<h3 id="orgbc0a944">Buffonの針</h3>
+<section id="slide-orgf7109e6">
+<h3 id="orgf7109e6">Buffonの針</h3>
 <p>
 2次元平面上に等間隔 \(d\) で平行線が引いてある．
 長さ \(l\) の針を
@@ -246,8 +356,8 @@ AとBそれぞれの勝率はいくつとなるか？
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3d562d0">
-<h3 id="org3d562d0">Monty Hall 問題</h3>
+<section id="slide-org73750b9">
+<h3 id="org73750b9">Monty Hall 問題</h3>
 <p>
 ゲームの参加者の前に閉まった3つのドアがあって，
 1つのドアの後ろには景品の新車が，
@@ -256,18 +366,18 @@ AとBそれぞれの勝率はいくつとなるか？
 参加者が1つのドアを選択した後，
 司会のモンティが残りのドアのうちヤギがいるドアを開けてヤギを見せる．
 ここで参加者は，最初に選んだドアを，
-残っているドアに変更してもよいと言われる． <br>
+残っているドアに変更してもよいと言われる． <br />
 参加者はドアを変更すべきだろうか？
 </p>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6cea310">
-<h3 id="org6cea310">St Petersburgのパラドックス</h3>
+<section id="slide-org98a537f">
+<h3 id="org98a537f">St Petersburgのパラドックス</h3>
 <p>
 偏りのないコインを表が出るまで投げ続け，賞金を貰うゲームを考える．
 表が出るまでにコインを投げた回数が \(n\) 回であるとき，
-貰える賞金は \(2^{n}\) 円とする． <br>
+貰える賞金は \(2^{n}\) 円とする． <br />
 このとき賞金の期待値は
 </p>
 
@@ -291,8 +401,8 @@ AとBそれぞれの勝率はいくつとなるか？
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5dcf732">
-<h3 id="org5dcf732">秘書問題</h3>
+<section id="slide-org20303ae">
+<h3 id="org20303ae">秘書問題</h3>
 <p>
 以下の条件のもと秘書を1人雇うとする．
 </p>
@@ -318,6 +428,7 @@ AとBそれぞれの勝率はいくつとなるか？
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -333,33 +444,35 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
 { src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
 	{className: "animate",  initialize: (function(container, options){
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
 			if (typeof event.fragment.beginElement === "function" ) {
@@ -399,7 +512,7 @@ dependencies: [
 		    choices: [ {name: "dummyname", path: "dummypath"} ]},
 	 initialize: (function(container, options){
 	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
 	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
 	     container.innerHTML = img + caption;
 	 }) },
@@ -408,7 +521,8 @@ dependencies: [
 	     container.addEventListener('click', function(e) { RevealNotes.open(); });
 	 }) }
 ],
-  coursemod: { enabled: true, shown: false }});
+coursemod: { enabled: true, shown: false },
+});
 </script>
 </body>
 </html>
