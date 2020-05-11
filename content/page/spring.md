@@ -26,14 +26,15 @@ weight = 1003
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%83%BB%E8%A1%8C%E5%88%97%E3%81%AE%E6%BC%94%E7%AE%97%E3%81%A8%E9%96%A2%E6%95%B0.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide02.R)
     [[質問への回答]​](https://noboru-murata.github.io/sda/spring/code/qa02.R)
-3.  [**データの整理と集計**](https://noboru-murata.github.io/sda/spring/slide03.html)
-    [\*[PDF]​\*](https://noboru-murata.github.io/sda/spring/pdfs/slide03.pdf)
-    [\*[解答例]​\*](https://noboru-murata.github.io/sda/spring/code/slide03.R)
+3.  [データの整理と集計](https://noboru-murata.github.io/sda/spring/slide03.html)
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide03.pdf)
+    [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide03.R)
     [[サンプルデータ(jpdata.zip)]​](https://noboru-murata.github.io/sda/spring/data/jpdata.zip)
 4.  [データの視覚化](https://noboru-murata.github.io/sda/spring/slide04.html)
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide04.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide04.R)
     [[サンプルデータ(dataset4.zip)]​](https://noboru-murata.github.io/sda/spring/data/dataset4.zip)
+    [[宿題と質問への回答]​](https://noboru-murata.github.io/sda/spring/code/qa04.R)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
