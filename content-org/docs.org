@@ -69,6 +69,13 @@
       [[github:spring/code/slide04.R][[解答例]​]] 
       [[github:spring/data/dataset4.zip][[サンプルデータ(dataset4.zip)]​]]
       [[github:spring/code/qa04.R][[宿題と質問への回答]​]]
+   5. [[github:spring/slide05.html][確率シミュレーション]] 
+      [[github:spring/pdfs/slide05.pdf][[PDF]​]] 
+      [[github:spring/code/slide05.R][[解答例]​]] 
+      - [[https://www.iwanami.co.jp/kagaku/Kagaku_202005_Makino_preprint.pdf][牧野淳一郎: 3.11以後の科学リテラシー, 科学, 岩波書店]]
+      - [[http://www001.upp.so-net.ne.jp/rise/images/新型コロナ一考察.pdf][小田垣孝: 新型コロナウイルスの蔓延に関する一考察]]
+      - [[github:spring/pdfs/epidemic.pdf][感染症の確率シミュレーション]] 
+
 
 ** 参考: 2019年度版スライド
    5. [[github:spring/slide05.html][確率シミュレーション]] (Monte-Carlo法)
