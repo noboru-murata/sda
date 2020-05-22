@@ -160,14 +160,14 @@
        ### 2つのサイコロを振る試行の Monte-Carlo 法
        ## 試行(1回の実験)を行う関数を用意する
        myTrial <- function(){ # この問題では引数は不要
-	 dice <- sample(1:6, 2, replace=TRUE) # 2個のサイコロを振る
-	 return(dice)
+         dice <- sample(1:6, 2, replace=TRUE) # 2個のサイコロを振る
+         return(dice)
        }
        ## 乱数のシード値を指定
        set.seed(202005)
        ## Monte-Carlo法を実行
        myData <- replicate(10, # 10回実験
-			   myTrial()) # 実行する関数を指定
+                           myTrial()) # 実行する関数を指定
        print(myData) # 実験結果は行列として保存されている
      #+end_src
 * 演習
@@ -190,15 +190,15 @@
        ### コイン投げの賭け
        ## 試行を行う関数
        myTrial <- function(){ 
-	   while(TRUE){ # 永久に回るループ
-	       if(sample(c("h","t"),1)=="h"){ # h:head，t:tail
-		   return("Alice") # Aliceが表を出して終了
-	       }
-	       if(sample(c("h","t"),1)=="h"){
-		   return("Bob") # Bobが表を出して終了
-	       }
-	       ## どちらも裏ならもう一度ループ
-	   }
+           while(TRUE){ # 永久に回るループ
+               if(sample(c("h","t"),1)=="h"){ # h:head，t:tail
+                   return("Alice") # Aliceが表を出して終了
+               }
+               if(sample(c("h","t"),1)=="h"){
+                   return("Bob") # Bobが表を出して終了
+               }
+               ## どちらも裏ならもう一度ループ
+           }
        }
        ## 試行を行ってみる (勝った方の名前が表示される)
        myTrial()

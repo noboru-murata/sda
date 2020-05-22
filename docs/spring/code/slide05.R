@@ -38,7 +38,7 @@ myTrial <- function(){ # この問題では引数は不要
 set.seed(202005)
 ## Monte-Carlo法を実行
 myData <- replicate(10, # 10回実験
-		    myTrial()) # 実行する関数を指定
+                    myTrial()) # 実行する関数を指定
 print(myData) # 実験結果は行列として保存されている
 
 ### 練習1
@@ -46,13 +46,13 @@ print(myData) # 実験結果は行列として保存されている
 ## 試行を行う関数
 myTrial <- function(){ 
     while(TRUE){ # 永久に回るループ
-	if(sample(c("h","t"),1)=="h"){ # h:head，t:tail
-	    return("Alice") # Aliceが表を出して終了
-	}
-	if(sample(c("h","t"),1)=="h"){
-	    return("Bob") # Bobが表を出して終了
-	}
-	## どちらも裏ならもう一度ループ
+        if(sample(c("h","t"),1)=="h"){ # h:head，t:tail
+            return("Alice") # Aliceが表を出して終了
+        }
+        if(sample(c("h","t"),1)=="h"){
+            return("Bob") # Bobが表を出して終了
+        }
+        ## どちらも裏ならもう一度ループ
     }
 }
 ## 試行を行ってみる (勝った方の名前が表示される)
@@ -66,4 +66,4 @@ myData <- replicate(mc,myTrial())
 
 ## 簡単な集計 (この賭けは先手が有理なはず)
 table(myData) # 頻度を表示する
-table(myData)/mc # 確率(推定値)の計算
+table(myData)/mc # 勝率の計算
