@@ -78,7 +78,6 @@
 
 
 ** 参考: 2019年度版スライド
-   5. [[github:spring/slide05.html][確率シミュレーション]] (Monte-Carlo法)
    6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
    7. [[github:spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)
    8. [[github:spring/slide08.html][記述統計量]] (基礎的な記述統計量とデータの集約)

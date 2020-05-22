@@ -45,11 +45,10 @@ weight = 1003
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
 
-1.  [確率シミュレーション](https://noboru-murata.github.io/sda/spring/slide05.html) (Monte-Carlo法)
-2.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
-3.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
-4.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
-5.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
-6.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
-7.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
-8.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+1.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
+2.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
+3.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
+4.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
+5.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
+6.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
+7.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
