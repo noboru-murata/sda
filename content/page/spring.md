@@ -40,7 +40,7 @@ weight = 1003
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide05.R)
     -   [牧野淳一郎: 3.11以後の科学リテラシー, 科学, 岩波書店](https://www.iwanami.co.jp/kagaku/Kagaku%5F202005%5FMakino%5Fpreprint.pdf)
     -   [小田垣孝: 新型コロナウイルスの蔓延に関する一考察](http://www001.upp.so-net.ne.jp/rise/images/%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E4%B8%80%E8%80%83%E5%AF%9F.pdf)
-    -   [感染症の確率シミュレーション](https://noboru-murata.github.io/sda/spring/pdfs/epidemic.pdf)
+    -   [感染症の確率シミュレーション](https://noboru-murata.github.io/sda/spring/pdfs/epidemic.pdf) [[R Script (一部)]​](https://noboru-murata.github.io/sda/spring/code/epidemic.zip)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
