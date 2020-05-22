@@ -52,20 +52,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2020.05.15</p>
+  2020.05.22</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgf3b8578">
-<h2 id="orgf3b8578">計算機による数値実験</h2>
-<div class="outline-text-2" id="text-orgf3b8578">
+<section id="slide-org793e40f">
+<h2 id="org793e40f">計算機による数値実験</h2>
+<div class="outline-text-2" id="text-org793e40f">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgefc47ff">
-<h3 id="orgefc47ff">データ解析の枠組</h3>
+<section id="slide-org1cdb242">
+<h3 id="org1cdb242">データ解析の枠組</h3>
 <ul>
 <li>分析の目的:
 <ul>
@@ -93,8 +93,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org390c356">
-<h3 id="org390c356">データのもつべき性質</h3>
+<section id="slide-orgb4a3af6">
+<h3 id="orgb4a3af6">データのもつべき性質</h3>
 <ul>
 <li>偏った一部のデータから全体の性質の推測は困難:
 <ul>
@@ -122,8 +122,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd442785">
-<h3 id="orgd442785">理論解析と数値実験</h3>
+<section id="slide-org8fad434">
+<h3 id="org8fad434">理論解析と数値実験</h3>
 <ul>
 <li><p>
 <b>問題</b> 
@@ -153,14 +153,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgef3dd09">
-<h2 id="orgef3dd09">乱数</h2>
-<div class="outline-text-2" id="text-orgef3dd09">
+<section id="slide-orga345c69">
+<h2 id="orga345c69">乱数</h2>
+<div class="outline-text-2" id="text-orga345c69">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf845325">
-<h3 id="orgf845325">擬似乱数</h3>
+<section id="slide-org6da2c92">
+<h3 id="org6da2c92">擬似乱数</h3>
 <ul>
 <li>コンピューターで生成された数列:
 <ul>
@@ -181,8 +181,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org01a8024">
-<h3 id="org01a8024">基本的な乱数</h3>
+<section id="slide-org705fdef">
+<h3 id="org705fdef">基本的な乱数</h3>
 <ul>
 <li><b>ランダムサンプリング</b> (無作為抽出)<br />
 与えられた集合の要素をランダムに抽出する乱数</li>
@@ -196,8 +196,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb2abae2">
-<h3 id="orgb2abae2">乱数を発生する関数</h3>
+<section id="slide-org71d50aa">
+<h3 id="org71d50aa">乱数を発生する関数</h3>
 <ul>
 <li>Rには様々な確率分布に従う乱数が実装されている
 <ul>
@@ -212,8 +212,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4c2264e">
-<h3 id="org4c2264e">関数の利用例 (1/3)</h3>
+<section id="slide-org40abf24">
+<h3 id="org40abf24">関数の利用例 (1/3)</h3>
 <div class="org-src-container">
 
 <pre><code class=" R" >### 関数sampleの使い方
@@ -242,8 +242,8 @@ sample(1:6, 10, prob=6:1, replace=TRUE) # 出る目の確率に偏りがある�
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfa7a253">
-<h3 id="orgfa7a253">関数の利用例 (2/3)</h3>
+<section id="slide-org586b345">
+<h3 id="org586b345">関数の利用例 (2/3)</h3>
 <div class="org-src-container">
 
 <pre><code class=" R" >### 関数rbinomの使い方
@@ -261,15 +261,16 @@ runif(5) # 指定しない場合は区間(0,1)が既定値
 
  [1] 0 1 0 0 0 1 1 1 1 1 1 1 1 1 0 1 0 0 1 0
 
-[1] -0.6665937 -0.2691416  1.0041668  0.2529403  1.3645875
+[1] -0.6665937 -0.2691416  1.0041668  0.2529403
+[5]  1.3645875
 
 [1] 0.1028646 0.4348927 0.9849570 0.8930511 0.8864691
 </pre>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5334951">
-<h3 id="org5334951">関数の利用例 (3/3)</h3>
+<section id="slide-org27db6d7">
+<h3 id="org27db6d7">関数の利用例 (3/3)</h3>
 <div class="org-src-container">
 
 <pre><code class=" R" >### 関数set.seedについて
@@ -295,14 +296,14 @@ runif(5)    # 初めのseed=1の場合と同じ結果
 </section>
 </section>
 <section>
-<section id="slide-org6bed7f5">
-<h2 id="org6bed7f5">乱数を用いた数値実験</h2>
-<div class="outline-text-2" id="text-org6bed7f5">
+<section id="slide-org0091ab8">
+<h2 id="org0091ab8">乱数を用いた数値実験</h2>
+<div class="outline-text-2" id="text-org0091ab8">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org03ee181">
-<h3 id="org03ee181">Monte-Carlo法</h3>
+<section id="slide-orgf99c037">
+<h3 id="orgf99c037">Monte-Carlo法</h3>
 <ul>
 <li>確率的現象の理解
 <ul>
@@ -331,8 +332,8 @@ runif(5)    # 初めのseed=1の場合と同じ結果
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1dcf136">
-<h3 id="org1dcf136">関数 <code>replicate()</code></h3>
+<section id="slide-orgfbd612b">
+<h3 id="orgfbd612b">関数 <code>replicate()</code></h3>
 <p>
 指定した回数繰り返して関数(プログラム)を評価する
 </p>
@@ -357,8 +358,8 @@ runif(5)    # 初めのseed=1の場合と同じ結果
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgeaf13f2">
-<h3 id="orgeaf13f2">関数 <code>replecate()</code> の例</h3>
+<section id="slide-orgdf3dee0">
+<h3 id="orgdf3dee0">関数 <code>replecate()</code> の例</h3>
 <ul>
 <li><p>
 2つのサイコロを振る試行
@@ -393,12 +394,12 @@ print(myData) # 実験結果は行列として保存されている
 </section>
 </section>
 <section>
-<section id="slide-org2330297" data-background="#fef4f4">
-<h2 id="org2330297">演習</h2>
+<section id="slide-org66f25c8" data-background="#fef4f4">
+<h2 id="org66f25c8">演習</h2>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5c0e22a" data-background="#fef4f4">
-<h3 id="org5c0e22a">練習問題</h3>
+<section id="slide-org279b5a1" data-background="#fef4f4">
+<h3 id="org279b5a1">練習問題</h3>
 <ul>
 <li><p>
 コイン投げの賭け
@@ -419,14 +420,14 @@ Alice と Bob の二人で交互にコインを投げる．
 </section>
 </section>
 <section>
-<section id="slide-orge2cf08b">
-<h2 id="orge2cf08b">例題</h2>
-<div class="outline-text-2" id="text-orge2cf08b">
+<section id="slide-org9d20699">
+<h2 id="org9d20699">例題</h2>
+<div class="outline-text-2" id="text-org9d20699">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga9908c5">
-<h3 id="orga9908c5">Buffonの針</h3>
+<section id="slide-orgde6db29">
+<h3 id="orgde6db29">Buffonの針</h3>
 <blockquote>
 <p>
 2次元平面上に等間隔 \(d\) で平行線が引いてある．
@@ -439,8 +440,8 @@ Alice と Bob の二人で交互にコインを投げる．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5192669">
-<h3 id="org5192669">Monty Hall 問題</h3>
+<section id="slide-orgd2b2497">
+<h3 id="orgd2b2497">Monty Hall 問題</h3>
 <blockquote>
 <p>
 ゲームの参加者の前に閉まった3つのドアがあって，
@@ -460,8 +461,8 @@ Alice と Bob の二人で交互にコインを投げる．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org176469b">
-<h3 id="org176469b">St Petersburgのパラドックス</h3>
+<section id="slide-org589bf69">
+<h3 id="org589bf69">St Petersburgのパラドックス</h3>
 <blockquote>
 <p>
 偏りのないコインを表が出るまで投げ続け，賞金を貰うゲームを考える．
@@ -493,8 +494,8 @@ Alice と Bob の二人で交互にコインを投げる．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0584c83">
-<h3 id="org0584c83">秘書問題</h3>
+<section id="slide-orgfef514a">
+<h3 id="orgfef514a">秘書問題</h3>
 <blockquote>
 <p>
 以下の条件のもと秘書を1人雇うとする．

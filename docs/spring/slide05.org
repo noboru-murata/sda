@@ -1,7 +1,7 @@
 #+TITLE: 確率シミュレーション
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2020.05.15
+#+DATE: 2020.05.22
 :reveal:
 # #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
