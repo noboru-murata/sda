@@ -75,10 +75,12 @@
       - [[https://www.iwanami.co.jp/kagaku/Kagaku_202005_Makino_preprint.pdf][牧野淳一郎: 3.11以後の科学リテラシー, 科学, 岩波書店]]
       - [[http://www001.upp.so-net.ne.jp/rise/images/新型コロナ一考察.pdf][小田垣孝: 新型コロナウイルスの蔓延に関する一考察]]
       - [[github:spring/pdfs/epidemic.pdf][感染症の確率シミュレーション]] [[github:spring/code/epidemic.zip][[R Script (一部)]​]] 
+   6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
+      [[github:spring/pdfs/slide06.pdf][[PDF]​]] 
+      [[github:spring/code/slide06.R][[解答例]​]] 
 
 
 ** 参考: 2019年度版スライド
-   6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
    7. [[github:spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)
    8. [[github:spring/slide08.html][記述統計量]] (基礎的な記述統計量とデータの集約)
    9. [[github:spring/slide09.html][推定]] (確率分布を推定する)

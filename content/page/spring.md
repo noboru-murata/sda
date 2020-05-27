@@ -41,14 +41,16 @@ weight = 1003
     -   [牧野淳一郎: 3.11以後の科学リテラシー, 科学, 岩波書店](https://www.iwanami.co.jp/kagaku/Kagaku%5F202005%5FMakino%5Fpreprint.pdf)
     -   [小田垣孝: 新型コロナウイルスの蔓延に関する一考察](http://www001.upp.so-net.ne.jp/rise/images/%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E4%B8%80%E8%80%83%E5%AF%9F.pdf)
     -   [感染症の確率シミュレーション](https://noboru-murata.github.io/sda/spring/pdfs/epidemic.pdf) [[R Script (一部)]​](https://noboru-murata.github.io/sda/spring/code/epidemic.zip)
+6.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide06.pdf)
+    [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide06.R)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
 
-1.  [極限定理](https://noboru-murata.github.io/sda/spring/slide06.html) (大数の法則・中心極限定理・少数の法則)
-2.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
-3.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
-4.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
-5.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
-6.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
-7.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+1.  [確率分布](https://noboru-murata.github.io/sda/spring/slide07.html) (いろいろな離散分布と連続分布)
+2.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
+3.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
+4.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
+5.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
+6.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)

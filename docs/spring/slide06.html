@@ -15,11 +15,12 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
 <link rel="stylesheet" href="./myconf.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,9 +32,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -51,28 +52,27 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.05.31</p>
+  2020.05.29</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgbab3968">
-<h2 id="orgbab3968">基本事項の復習</h2>
-<div class="outline-text-2" id="text-orgbab3968">
+<section id="slide-orgbef1da0">
+<h2 id="orgbef1da0">基本事項の復習</h2>
+<div class="outline-text-2" id="text-orgbef1da0">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org990c12a">
-<h3 id="org990c12a">確率変数</h3>
+<section id="slide-orgd3dcb82">
+<h3 id="orgd3dcb82">確率変数</h3>
 <ul>
-<li>乱数の数学的モデル: 値がランダムに決定される変数</li>
-<li>任意の区間 \([a,b]\) に含まれる確率が定められている <br>
+<li>乱数の数学モデル: 値がランダムに決定される変数</li>
+<li>任意の区間 \([a,b]\) に含まれる確率が定められている <br />
 (数学的には厳密性を欠くが，本講義ではこの定義)</li>
 <li><p>
 確率変数 \(X\) が区間 \([a,b]\) \((a\leq b)\) に含まれる確率
 </p>
-
 <div>
 \begin{equation}
   P(a\leq X\leq b)
@@ -83,31 +83,30 @@
 <p>
 (特に \(a=b\) のとき \(P(X=a)\) と書く)
 </p></li>
-<li>本章では有限個の値のみをとる確率変数を考える <br>
+<li>本章では有限個の値のみをとる確率変数を考える <br />
 (無限個の値，特に連続的な値については次回以降)</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org56941ce">
-<h3 id="org56941ce">平均と分散</h3>
+<section id="slide-org17888d7">
+<h3 id="org17888d7">平均と分散</h3>
 <ul>
 <li>確率変数 \(X\) の取りうる値が有限個: \(x_1,x_2,\dotsc,x_N\)</li>
 <li><p>
 <b>平均</b> もしくは <b>期待値</b>
 </p>
-
 <div>
 \begin{equation}
   \mathbb{E}[X]:=\sum_{i=1}^Nx_iP(X=x_i)
 \end{equation}
 
 </div></li>
+
 <li><p>
 <b>分散</b> (\(=\text{標準偏差}^{2}\))
 </p>
-
 <div>
 \begin{equation}
   \mathrm{Var}(X)
@@ -122,52 +121,82 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7a38d54" data-background="#fef4f4">
-<h3 id="org7a38d54">演習</h3>
+<section id="slide-org3c90eeb">
+<h3 id="org3c90eeb">例題</h3>
 <ul>
 <li><p>
-確率変数 \(X\): <br>
-偶数の出る確率が奇数の2倍のサイコロの目
+問題
 </p>
-
+<blockquote>
+<p>
+確率変数 \(X\) は
+偶数の出る確率が奇数の2倍のサイコロの目を表すとする．
+</p>
 <div>
 \begin{align*}
   &P(X=1)=P(X=3)=P(X=5)=1/9\\ 
   &P(X=2)=P(X=4)=P(X=6)=2/9
 \end{align*}
 
-</div></li>
-<li>\(X\) の平均と分散は?</li>
+</div>
 
-</ul>
-
+<p>
+このとき \(X\) の平均と分散を求めよ．
+</p>
+</blockquote>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf00d692">
-<h3 id="orgf00d692">解答 (計算例)</h3>
-<ul>
+<section></li>
 <li><p>
+解答 (計算例)
+</p>
+<blockquote>
+<p>
 \(X\) の平均は
 </p>
-
 <div>
 \begin{equation}
   \mathbb{E}[X]=\sum_{x=1}^6xP(X=x)
   ={11}/{3}=3.6666\dots
 \end{equation}
 
-</div></li>
-<li><p>
+</div>
+
+<p>
 \(X\) の分散は
 </p>
-
 <div>
 \begin{align}
   \mathbb{E}[X^2]&=\sum_{x=1}^6x^2P(X=x)={49}/{3}\\
   \mathrm{Var}(X)&={49}/{3}-{121}/{9}={26}/{9}=2.88\dots
 \end{align}
 
-</div></li>
+</div>
+</blockquote>
+<div class="slide-footer"><br></div>
+</section>
+<section></li>
+<li><p>
+解答 (Rでの計算例)
+</p>
+<div class="org-src-container">
+
+<pre><code class=" R" >p &lt;- rep(c(1/9,2/9),3) # 確率の値 (1/9 と 2/9 を交互に3回繰り返す)
+x &lt;- 1:6 # サイコロの目の値
+(mu &lt;- sum(x*p)) # 平均値の計算
+(var &lt;- sum((x-mu)^2*p)) # 分散の計算
+sqrt(var) # 標準偏差
+</code></pre>
+</div>
+
+<pre class="example">
+
+[1] 3.666667
+
+[1] 2.888889
+
+[1] 1.699673
+</pre></li>
 
 </ul>
 
@@ -175,44 +204,53 @@
 </section>
 </section>
 <section>
-<section id="slide-orgc218d6f">
-<h2 id="orgc218d6f">独立性と同分布性</h2>
-<div class="outline-text-2" id="text-orgc218d6f">
+<section id="slide-org53ef166">
+<h2 id="org53ef166">独立性と同分布性</h2>
+<div class="outline-text-2" id="text-org53ef166">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd2ffc27">
-<h3 id="orgd2ffc27">データの統計的性質</h3>
+<section id="slide-org591d1da">
+<h3 id="org591d1da">同時分布</h3>
 <ul>
-<li>統計的な枠組: 観測データの一つ一つが確率変数</li>
-<li>確率変数の列 \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
+<li>観測データは確率変数の集合</li>
+<li>確率変数の <b>列</b> \(X_1,X_2,\dotsc,X_n\) に対する考察が重要</li>
 <li><p>
-「 \(X_1\) が \(x_1\) という値をとり，
-\(X_2\) が \(x_2\) という値をとり， \(\dots\) ，
-\(X_n\) が \(x_n\) という値をとる」という事象が起きる確率:
-<b>同時分布</b>
+定義
 </p>
-
+<blockquote>
+<p>
+&ldquo;\(X_1\) が \(x_1\) という値をとり，
+\(X_2\) が \(x_2\) という値をとり， \(\dots\) ，
+\(X_n\) が \(x_n\) という値をとる&rdquo;
+という事象が起きる確率を
+<b>同時分布</b>
+という
+</p>
 <div>
 \begin{equation}
   P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org07f6bdd">
-<h3 id="org07f6bdd">独立性</h3>
+<section id="slide-org3e3c086">
+<h3 id="org3e3c086">独立性</h3>
 <ul>
-<li>無関係にサンプリングされた観測データ</li>
+<li>無関係にサンプリングされた観測データの性質</li>
 <li><p>
+定義
+</p>
+<blockquote>
+<p>
 確率変数列 \(X_1,X_2,\dotsc,X_n\) が <b>独立</b> であるとは，
 任意の \(n\) 個の実数 \(x_1,x_2,\dotsc,x_n\) に対して
 </p>
-
 <div>
 \begin{multline}
   P(X_1=x_1,X_2=x_2,\dotsc,X_n=x_n)\\
@@ -223,21 +261,25 @@
 
 <p>
 が成り立つことをいう
-</p></li>
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbe158ca">
-<h3 id="orgbe158ca">同分布性</h3>
+<section id="slide-orge84298c">
+<h3 id="orge84298c">同分布性</h3>
 <ul>
-<li>同一の法則に従って生成された観測データ</li>
+<li>同一の法則に従って生成された観測データの性質</li>
 <li><p>
+定義
+</p>
+<blockquote>
+<p>
 確率変数列 \(X_1,X_2,\dotsc,X_n\) が <b>同分布</b> であるとは，
 任意の実数 \(x\) に対して
 </p>
-
 <div>
 \begin{equation}
   P(X_1=x)=P(X_2=x)=\cdots=P(X_n=x)
@@ -247,24 +289,35 @@
 
 <p>
 が成り立つことをいう
-</p></li>
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org148117a">
-<h3 id="org148117a">独立同分布性</h3>
+<section id="slide-orge3abbcc">
+<h3 id="orge3abbcc">独立同分布性</h3>
 <ul>
 <li>一般に分析対象のデータには
 <b>独立性</b> と <b>同分布性</b> 
 が同時に仮定される</li>
-<li>独立かつ同分布な確率変数列を
- <b>独立同分布</b>
- もしくは
- <b>i.i.d.</b> 
-であるという<br>
-(i.i.d.はindependent and identically distributedの略)</li>
+<li><p>
+定義
+</p>
+<blockquote>
+<p>
+独立かつ同分布な確率変数列を
+<b>独立同分布</b>
+もしくは
+<b>i.i.d.</b> 
+であるという
+</p>
+
+<p>
+(i.i.d. はindependent and identically distributedの略)
+</p>
+</blockquote></li>
 
 </ul>
 
@@ -272,18 +325,18 @@
 </section>
 </section>
 <section>
-<section id="slide-orgc5a4838">
-<h2 id="orgc5a4838">大数の法則</h2>
-<div class="outline-text-2" id="text-orgc5a4838">
+<section id="slide-orgde28bb5">
+<h2 id="orgde28bb5">大数の法則</h2>
+<div class="outline-text-2" id="text-orgde28bb5">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdb0b140">
-<h3 id="orgdb0b140">大数の法則の概要</h3>
+<section id="slide-org72fd618">
+<h3 id="org72fd618">大数の法則の概要</h3>
 <ul>
 <li>同一の法則に従って生成された集団から
 <b>ランダムな</b> 観測を多数繰り返すと，
-観測値の平均は「真の平均値」に近づく</li>
+<b>観測値の平均</b> は <b>真の平均値</b> に近づく</li>
 <li>具体的な例: 
 <ul>
 <li>歪みの無いコインの表が出た回数の割合</li>
@@ -296,31 +349,57 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc63057b">
-<h3 id="orgc63057b">無限列の独立性と同分布性</h3>
+<section id="slide-orgd5b53ce">
+<h3 id="orgd5b53ce">無限列の独立性と同分布性</h3>
 <ul>
-<li>\(X_1,X_2,\dotsc\) が <b>独立</b> であるとは，
+<li>無限列に対しては任意の部分列について考える</li>
+<li><p>
+独立性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>独立</b> であるとは，
 任意の正整数 \(n\) に対して \(X_1,X_2,\dotsc,X_n\) が
-独立であることをいう</li>
-<li>\(X_1,X_2,\dotsc\) が <b>同分布</b> であるとは，
+独立であることをいう
+</p>
+</blockquote></li>
+<li><p>
+同分布性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>同分布</b> であるとは，
 任意の正整数 \(n\) に対して \(X_1,X_2,\dotsc,X_n\) が
-同分布であることをいう</li>
-<li>\(X_1,X_2,\dotsc\) が <b>独立同分布</b>
+同分布であることをいう
+</p>
+</blockquote></li>
+<li><p>
+独立同分布性
+</p>
+<blockquote>
+<p>
+\(X_1,X_2,\dotsc\) が <b>独立同分布</b>
 もしくは <b>i.i.d.</b> であるとは，
-\(X_1,X_2,\dotsc\) が独立かつ同分布であることをいう</li>
+\(X_1,X_2,\dotsc\) が独立かつ同分布であることをいう
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5d9432d">
-<h3 id="org5d9432d">大数の強法則</h3>
+<section id="slide-orgee17ee7">
+<h3 id="orgee17ee7">大数の強法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
 \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
 その平均を \(\mu\) とする．
 このとき,  \(X_1,\dotsc,X_n\) の標本平均
 </p>
-
 <div>
 \begin{equation}
   \bar{X}_n := \frac{1}{n}\sum_{i=1}^nX_i
@@ -330,33 +409,50 @@
 
 <p>
 が \(n\to\infty\) のとき \(\mu\) に収束する確率は1である．
-このことを「 \(\bar{X}_{n}\) は
-\(n\to\infty\) のとき \(\mu\) に <b>概収束</b> する」という．
 </p>
 
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org04a0c65" data-background="#fef4f4">
-<h3 id="org04a0c65">演習</h3>
 <p>
-大数の法則の実行例 <code>mc-lln.r</code> において，
-乱数のシード値・出現確率の変更・乱数の変更などを行っても
-大数の法則が成立することを確認せよ． <br>
-また，サンプル数の増減によって精度がどの程度変わるか観察せよ．
+これを
+&ldquo;\(\bar{X}_{n}\) は
+\(n\to\infty\) のとき \(\mu\) に <b>概収束</b> する&rdquo;
+という．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org01acc06">
-<h2 id="org01acc06">中心極限定理</h2>
-<div class="outline-text-2" id="text-org01acc06">
+<section id="slide-org6f607b8" data-background="#fef4f4">
+<h2 id="org6f607b8">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgf055c50" data-background="#fef4f4">
+<h3 id="orgf055c50">練習問題</h3>
+<ul>
+<li>大数の法則の数値実験を行いなさい．
+<ul>
+<li>乱数のシード値・出現確率の変更・乱数の変更などを
+行っても大数の法則が成立することを確認しなさい．</li>
+<li>サンプル数の増減によって精度がどの程度変わるか観察しなさい．</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdb3afd2">
+<h2 id="orgdb3afd2">中心極限定理</h2>
+<div class="outline-text-2" id="text-orgdb3afd2">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0ff9d09">
-<h3 id="org0ff9d09">中心極限定理の概要</h3>
+<section id="slide-org1395f5d">
+<h3 id="org1395f5d">中心極限定理の概要</h3>
 <ul>
 <li>大数の法則の主張: 
 <ul>
@@ -370,13 +466,13 @@
 <li><p>
 推定誤差がある区間 \([\alpha,\beta]\) に入る確率で定量的に評価可能
 </p>
-
 <div>
 \begin{equation}
   P(\alpha\leq \bar{X}_n-\mu\leq \beta)
 \end{equation}
 
 </div></li>
+
 <li>上式の正確な計算は一般には困難</li>
 
 </ul></li>
@@ -386,14 +482,18 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2c91d23">
-<h3 id="org2c91d23">中心極限定理</h3>
+<section id="slide-org56b50a3">
+<h3 id="org56b50a3">中心極限定理</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
 \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
 その平均を \(\mu\) ，標準偏差を \(\sigma\) とする．
 このとき，すべての実数 \(a < b\) に対して
 </p>
-
 <div>
 \begin{equation}
   P\Bigl(a\leq\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\leq b \Bigr)
@@ -406,21 +506,23 @@
 <p>
 が成り立つ．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7ce4d66">
-<h3 id="org7ce4d66">中心極限定理の意味</h3>
+<section id="slide-org33afccc">
+<h3 id="org33afccc">中心極限定理の意味</h3>
 <ul>
-<li>\(X_i\) の分布が何であっても，
-サンプル数 \(n\) が十分大きければ，
-標本平均を正規化した量の \(\sqrt{n}(\bar{X}_n-\mu)/\sigma\) の分布は，
-標準正規確率分布で近似できる</li>
 <li><p>
-正規化した誤差は，
-サンプル数 \(n\) が十分大きければ <b>標準正規分布</b>
+\(X_i\) の分布が何であっても，
+サンプル数 \(n\) が十分大きければ，
+標本平均と真の平均の差
+\(\bar{X}_n-\mu\) 
+の分布は，
+<b>標準正規分布</b>
 </p>
-
 <div>
 \begin{equation}
   P\Bigl(a\frac{\sigma}{\sqrt{n}}\leq\bar{X}_n-\mu\leq
@@ -432,17 +534,20 @@
 </div>
 
 <p>
-で近似できる<br>
-被積分関数\(\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\)
-を <b>標準正規密度</b> という
+で近似できる
 </p></li>
+<li>被積分関数
+\(\phi(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\)
+を 
+<b>標準正規密度</b> 
+という</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9b300fb">
-<h3 id="org9b300fb">数値シミュレーションの設計</h3>
+<section id="slide-orgc99bafe">
+<h3 id="orgc99bafe">数値実験の設計</h3>
 <ul>
 <li>\(\sqrt{n}(\bar{X}_n-\mu)/\sigma\) の分布と
 標準正規分布を比較する</li>
@@ -457,29 +562,38 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge7acd3f" data-background="#fef4f4">
-<h3 id="orge7acd3f">演習</h3>
-<p>
-中心極限定理の実行例 <code>mc-clt.r</code> において，
-乱数のシード値・出現確率の変更・乱数の変更などを行っても
-中心極限定理が成立することを確認せよ． <br>
-また，サンプル数の増減によって精度がどの程度変わるか観察せよ．
-</p>
+</section>
+<section>
+<section id="slide-org654125f" data-background="#fef4f4">
+<h2 id="org654125f">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org96ddf2e" data-background="#fef4f4">
+<h3 id="org96ddf2e">練習問題</h3>
+<ul>
+<li>中心極限定理の数値実験を行いなさい．
+<ul>
+<li>乱数のシード値・出現確率の変更・乱数の変更などを行っても
+中心極限定理が成立することを確認しなさい．</li>
+<li>サンプル数の増減によって精度がどの程度変わるか観察しなさい．</li>
 
+</ul></li>
+
+</ul>
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orga3cd76c">
-<h2 id="orga3cd76c">少数の法則</h2>
-<div class="outline-text-2" id="text-orga3cd76c">
+<section id="slide-org834d86a">
+<h2 id="org834d86a">少数の法則</h2>
+<div class="outline-text-2" id="text-org834d86a">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7249fe8">
-<h3 id="org7249fe8">少数の法則の概要</h3>
+<section id="slide-orgbb2f70c">
+<h3 id="orgbb2f70c">少数の法則の概要</h3>
 <ul>
-<li>滅多に起きない事が起こる回数の分布に関する法則</li>
+<li>滅多に起きない事が起こる回数に関する法則</li>
 <li>典型的な例:
 <ul>
 <li>ある製品の不良品率 \(p\) はとても小さいとする</li>
@@ -487,8 +601,8 @@
 不良品は平均的には \(\lambda=np\) 個発生するが，
 日によって不良品の個数 \(S_n\) には多少のばらつきが生じる</li>
 <li>個数 \(S_n\) は確率変数であるが，
-\(S_n\) がとる値の確率法則は？</li>
-<li>強度 \(\lambda\) の <b>Poisson分布</b> で近似できることが知られている</li>
+\(S_n\) がとる値の確率法則は
+強度 \(\lambda\) の <b>Poisson分布</b> で近似できることが知られている</li>
 
 </ul></li>
 <li>これを正確に述べたのが <b>少数の法則</b></li>
@@ -497,31 +611,36 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge68e93e">
-<h3 id="orge68e93e">少数の法則</h3>
+<section id="slide-orgd2315df">
+<h3 id="orgd2315df">少数の法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
 \(X_1,X_2,\dotsc,X_n\) を独立な確率変数列とし，
-各 \(i=1,2,\dotsc,n\) について \(X_i\) は確率 \(p_{n,i}\) で1を，
-確率 \(1-p_{n,i}\) で0をとるとする:
+各 \(i=1,2,\dotsc,n\) について 
+\(X_i\) は確率 \(p_{n,i}\) で 1 を，
+確率 \(1-p_{n,i}\) で 0 をとるとする:
 </p>
-
 <div>
 \begin{align}
   &P(X_i=1)=p_{n,i},\\
   &P(X_i=0)=1-p_{n,i}\quad
-  (i=1,2,\dots,n).
+    (i=1,2,\dots,n).
 \end{align}
 
 </div>
-
+</blockquote>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3891331">
-<h3 id="org3891331">少数の法則 (つづき)</h3>
+<section>
+<blockquote>
 <p>
-このとき, ある正の実数 \(\lambda\) が存在して, \(n\to\infty\) のとき
+このとき
+ある正の実数 \(\lambda\) が存在して, \(n\to\infty\) のとき
 </p>
-
 <div>
 \begin{equation}
   \max_{i=1,2,\dots,n}p_{n,i}\to0,\quad
@@ -533,7 +652,6 @@
 <p>
 ならば，任意の整数 \(k\geq0\) に対して以下が成り立つ:
 </p>
-
 <div>
 \begin{equation}
   P\Bigl(\sum_{i=1}^nX_i=k\Bigr)
@@ -542,18 +660,19 @@
 \end{equation}
 
 </div>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org00d46b9">
-<h3 id="org00d46b9">補足</h3>
+<section id="slide-orga471a4b">
+<h3 id="orga471a4b">補足</h3>
 <ul>
-<li>定理の \(\sum_{i=1}^nX_i\) が不良品の例の \(S_n\) に対応する</li>
 <li><p>
 確率変数の取りうる値が0以上の整数全体で，
 値が整数 \(k\geq0\) となる確率が
 </p>
-
 <div>
 \begin{equation}
   e^{-\lambda}\frac{\lambda^k}{k!}
@@ -563,42 +682,55 @@
 
 <p>
 で与えられるものを，
-強度 \(\lambda\) の <b>Poisson型確率変数</b> と呼び，
+強度 \(\lambda\) の <b>Poisson型確率変数</b> ，
 その確率法則を強度 \(\lambda\) のPoisson分布と呼ぶ
 </p></li>
+<li>定理の \(\sum_{i=1}^nX_i\) が不良品の例の \(S_n\) に対応する</li>
 <li>Poisson分布の確率の値は <code>dpois()</code> で計算できる</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgebe7026" data-background="#fef4f4">
-<h3 id="orgebe7026">演習</h3>
-<p>
-少数の法則の実行例 <code>mc-lsn.r</code> において，
-乱数のシード値を変更しても少数の法則が成立することを確認せよ． <br>
-また，パラメータ \(n,p\) の変更によって
-結果がどのように変わるか観察せよ．
-</p>
+</section>
+<section>
+<section id="slide-org2f70eb3" data-background="#fef4f4">
+<h2 id="org2f70eb3">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9b2d0c8" data-background="#fef4f4">
+<h3 id="org9b2d0c8">練習問題</h3>
+<ul>
+<li>少数の法則の数値実験を行いなさい．
+<ul>
+<li>乱数のシード値を変更しても少数の法則が成立することを確認しなさい．</li>
+<li>パラメータ \(n,p\) の変更によって結果がどのように変わるか観察せよ．</li>
 
+</ul></li>
+
+</ul>
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-org632f1fc">
-<h2 id="org632f1fc">補遺・重複対数の法則</h2>
-<div class="outline-text-2" id="text-org632f1fc">
+<section id="slide-orged0c19e">
+<h2 id="orged0c19e">補遺</h2>
+<div class="outline-text-2" id="text-orged0c19e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org68a0387">
-<h3 id="org68a0387">重複対数の法則</h3>
+<section id="slide-orgf939bd0">
+<h3 id="orgf939bd0">重複対数の法則</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
 \(X_1,X_2,\dotsc\) を独立同分布な確率変数列とし，
 その平均を \(\mu\) ，標準偏差を \(\sigma\) とする．
 このとき
 </p>
-
 <div>
 \begin{align}
   &\limsup_{n\to\infty}
@@ -616,15 +748,22 @@
 <p>
 が成り立つ．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge54d9c2">
-<h3 id="orge54d9c2">Hartman-Wintnerの定理</h3>
+<section id="slide-orga20bdfb">
+<h3 id="orga20bdfb">Hartman-Wintnerの定理</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
 前定理の条件のもと，列
 </p>
-
 <div>
 \begin{equation}
   \Bigl(\frac{\sqrt{n}(\bar{X}_{n}-\mu)}
@@ -637,22 +776,15 @@
 のある部分列の収束先となるような実数全体の集合を \(C\) とすると，
 \(C\) が閉区間 \([-1,1]\) に一致する確率は1である. 
 </p>
+</blockquote></li>
 
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgc93bf2a" data-background="#fef4f4">
-<h3 id="orgc93bf2a">演習</h3>
-<p>
-重複対数の法則の実行例 <code>mc-lil.r</code> において，
-乱数のシード値・出現確率の変更・乱数の変更などを行っても
-重複対数の法則が成立することを確認せよ． <br>
-また，サンプル数の増減によって精度がどの程度変わるか観察せよ．
-</p>
+</ul>
 <div class="slide-footer"><br></div>
 </section>
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -668,33 +800,35 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
 { src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
 	{className: "animate",  initialize: (function(container, options){
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
 			if (typeof event.fragment.beginElement === "function" ) {
@@ -734,7 +868,7 @@ dependencies: [
 		    choices: [ {name: "dummyname", path: "dummypath"} ]},
 	 initialize: (function(container, options){
 	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
 	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
 	     container.innerHTML = img + caption;
 	 }) },
@@ -743,7 +877,8 @@ dependencies: [
 	     container.addEventListener('click', function(e) { RevealNotes.open(); });
 	 }) }
 ],
-  coursemod: { enabled: true, shown: false }});
+coursemod: { enabled: true, shown: false },
+});
 </script>
 </body>
 </html>

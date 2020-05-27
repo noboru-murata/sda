@@ -2,16 +2,28 @@
 #+SUBTITLE: 基礎的な記述統計量とデータの集約
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2019.06.06
-:preamble:
+#+DATE: 2020.06.??
+:reveal:
+# #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
 #+STARTUP: hidestars content
 # C-c C-x C-v でinlineを切り替え
 # <l C-i でlatex block
 # C-c '
-#+OPTIONS: LaTeX:t    
-#+PROPERTY: results output
-#+PROPERTY: exports both
+#+OPTIONS: date:t H:4 num:nil toc:nil \n:nil
+#+OPTIONS: @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t 
+#+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+PROPERTY: header-args:R :session *R* :cache yes 
+#+PROPERTY: header-args:R+ :exports both :results output
+#+PROPERTY: header-args:R+ :tangle no
+#+PROPERTY: header-args:latex :exports results :results raw
+
+#+begin_src R :exports none
+  setwd("~/Desktop/lectures/u-tokyo/spring/slide")
+#+end_src
+#+begin_src R :exports none :tangle yes
+  ### 第6回 演習問題解答例
+#+end_src
 :end:
 
 * 基礎的な記述統計量
