@@ -49,10 +49,10 @@ for(i in c(12,34,56,78,90)){ # シード値を指定
     set.seed(i)
     xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
     hist(xbars, breaks=20,
-	 col="azure", border="lightblue",
-	 xlim=c(1,6), ylim=c(0,200), 
-	 xlab=expression(bar(X)[n]), 
-	 main=paste0("n=",n)) 
+         col="azure", border="lightblue",
+         xlim=c(1,6), ylim=c(0,200), 
+         xlab=expression(bar(X)[n]), 
+         main=paste0("n=",n)) 
     abline(v=mu, col="red", lwd=2, lty="dotted")
     abline(h=0, col="grey", lwd=2, lty="solid")
 }
@@ -64,10 +64,10 @@ for(i in 1:5){ # pをランダムに設定して実験
     mu <- weighted.mean(omega, p) # 理論上の平均
     xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
     hist(xbars, breaks=20,
-	 col="azure", border="lightblue",
-	 xlim=c(1,6), ylim=c(0,200), 
-	 xlab=expression(bar(X)[n]), 
-	 main=paste0("n=",n)) 
+         col="azure", border="lightblue",
+         xlim=c(1,6), ylim=c(0,200), 
+         xlab=expression(bar(X)[n]), 
+         main=paste0("n=",n)) 
     abline(v=mu, col="red", lwd=2, lty="dotted")
     abline(h=0, col="grey", lwd=2, lty="solid")
 }
@@ -78,10 +78,10 @@ mu <- weighted.mean(omega, p) # 理論上の平均
 for(n in c(10,100,1000)){ # サンプル数を変えて実験
     xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
     hist(xbars, breaks=20,
-	 col="azure", border="lightblue",
-	 xlim=c(1,6), ylim=c(0,200),
-	 xlab=expression(bar(X)[n]), 
-	 main=paste0("n=",n)) 
+         col="azure", border="lightblue",
+         xlim=c(1,6), ylim=c(0,200),
+         xlab=expression(bar(X)[n]), 
+         main=paste0("n=",n)) 
     abline(v=mu, col="red", lwd=2, lty="dotted")
     abline(h=0, col="grey", lwd=2, lty="solid")
 }

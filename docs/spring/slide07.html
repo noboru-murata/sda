@@ -52,20 +52,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2020.06.??</p>
+  2020.06.05</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgeed06b3">
-<h2 id="orgeed06b3">一般の確率変数</h2>
-<div class="outline-text-2" id="text-orgeed06b3">
+<section id="slide-org1aeecf3">
+<h2 id="org1aeecf3">一般の確率変数</h2>
+<div class="outline-text-2" id="text-org1aeecf3">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8d5e711">
-<h3 id="org8d5e711">確率分布</h3>
+<section id="slide-orge44fdc5">
+<h3 id="orge44fdc5">確率分布</h3>
 <ul>
 <li>確率変数 \(X\) : 
 <ul>
@@ -94,19 +94,19 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6423df2">
-<h3 id="org6423df2">極限定理</h3>
+<section id="slide-orgac032f8">
+<h3 id="orgac032f8">極限定理</h3>
 <ul>
 <li>大数の法則，
 中心極限定理，
-重複対数の法則など</li>
+少数の法則など</li>
 <li>緩やかな条件のもとで一般の確率変数の列についても成立する
 <ul>
-<li>2次のモーメントをもたない場合には
-中心極限定理は成立しない <br />
-(そもそも分散が定義できない)</li>
 <li>大数の強法則は平均が存在すれば成立する <br />
 (平均と分散は後に定義する)</li>
+<li>2次のモーメントをもたない(計算できない)場合には
+中心極限定理は成立しない <br />
+(そもそも分散が定義できない)</li>
 
 </ul></li>
 
@@ -114,8 +114,13 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd85e31b">
-<h3 id="orgd85e31b">確率変数列の独立性</h3>
+<section id="slide-org3b9e695">
+<h3 id="org3b9e695">確率変数列の独立性</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
 <p>
 \(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が <b>独立</b> であるとは，
 \(a_i\leq b_i\) \((i=1,\dots,n)\) なる
@@ -132,11 +137,19 @@
 <p>
 が成り立つことをいう．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfbabbcb">
-<h3 id="orgfbabbcb">確率変数列の同分布性</h3>
+<section id="slide-org6768d05">
+<h3 id="org6768d05">確率変数列の同分布性</h3>
+<ul>
+<li><p>
+定義
+</p>
+<blockquote>
 <p>
 \(n\) 個の確率変数 \(X_{1},X_{2},\dotsc,X_n\) が <b>同分布</b> であるとは，
 \(a\leq b\) なる任意の実数 \(a,b\) に対して
@@ -151,19 +164,22 @@
 <p>
 が成り立つことをいう．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgfad0629">
-<h2 id="orgfad0629">離散分布</h2>
-<div class="outline-text-2" id="text-orgfad0629">
+<section id="slide-orgdca5f02">
+<h2 id="orgdca5f02">離散分布</h2>
+<div class="outline-text-2" id="text-orgdca5f02">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7763b47">
-<h3 id="org7763b47">離散分布</h3>
+<section id="slide-org6920e33">
+<h3 id="org6920e33">離散分布</h3>
 <ul>
 <li>離散型確率変数:
 <ul>
@@ -175,7 +191,9 @@
 <ul>
 <li>離散型確率変数の確率分布</li>
 <li>\(X=x\) となる確率 \(P(X=x)\) で完全に決定される</li>
-<li>関数 \(f(x)=P(X=x)\) を <b>確率関数</b> (または <b>確率質量関数</b>)と呼ぶ</li>
+<li>関数 \(f(x)=P(X=x)\) を 
+<b>確率関数</b> (<b>確率質量関数</b>) 
+と呼ぶ</li>
 
 </ul></li>
 
@@ -183,12 +201,16 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc396568">
-<h3 id="orgc396568">離散分布の平均</h3>
+<section id="slide-orgd2490e9">
+<h3 id="orgd2490e9">離散分布の平均</h3>
 <ul>
 <li><p>
-離散型の確率変数 \(X\) の平均: <br />
+定義
+</p>
+<blockquote>
+<p>
 以下の右辺が定義できる(絶対収束する)とき
+離散型の確率変数 
 \(X\) の <b>平均</b> (または <b>期待値</b> )を
 </p>
 <div>
@@ -199,50 +221,60 @@
 </div>
 
 <p>
-で定義する <br />
-ただし \(\mathcal{X}\) は \(X\) の取りうる値(無限個も可)の集合
-</p></li>
-<li><b>注:</b> 級数 \(\sum_{x\in\mathcal{X}}xP(X=x)\) が
+で定義する．
+</p>
+
+<p>
+ただし 
+\(\mathcal{X}\) は \(X\) の取りうる値(無限個も可)の集合
+</p>
+</blockquote>
+<ul>
+<li>級数 \(\sum_{x\in\mathcal{X}}xP(X=x)\) が
 定義できない場合は
 \(X\) は平均をもたない</li>
 
-</ul>
+</ul></li>
 
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga726266">
-<h3 id="orga726266">離散分布の平均 (つづき)</h3>
+<section>
 <ul>
 <li><p>
 確率変数の変換 \(\varphi(X)\) の期待値:
 </p>
+<blockquote>
 <div>
 \begin{equation}
   \mathbb{E}[\varphi(X)]:=\sum_{x\in\mathcal{X}}\varphi(x)P(X=x)
 \end{equation}
 
-</div></li>
-
+</div>
+</blockquote></li>
 <li><p>
 \(p\) 次の <b>モーメント</b> (あるいは <b>積率</b> ):
 </p>
+<blockquote>
 <div>
 \begin{equation}
   \mathbb{E}[X^p]=\sum_{x\in\mathcal{X}}x^pP(X=x)
 \end{equation}
 
-</div></li>
-
-<li><b>注:</b>
-\(X\) が正整数 \(p\) 次のモーメントをもてば，
+</div>
+</blockquote>
+<ul>
+<li>\(X\) が正整数 \(p\) 次のモーメントをもてば，
 \(q\leq p\) なるすべての正整数 \(q\) 次のモーメントをもつ</li>
+
+</ul></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0ece547">
-<h3 id="org0ece547">離散分布の分散</h3>
+<section id="slide-org113d849">
+<h3 id="org113d849">離散分布の分散</h3>
 <ul>
 <li><p>
 <b>分散</b> :
@@ -265,14 +297,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org651836b">
-<h2 id="org651836b">離散一様分布</h2>
-<div class="outline-text-2" id="text-org651836b">
+<section id="slide-orgd741177">
+<h2 id="orgd741177">離散一様分布</h2>
+<div class="outline-text-2" id="text-orgd741177">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd0c23e4">
-<h3 id="orgd0c23e4">離散一様分布の確率関数</h3>
+<section id="slide-orgc541fcd">
+<h3 id="orgc541fcd">離散一様分布の確率関数</h3>
 <ul>
 <li>集合 \(\{x_{1},\dots,x_n\}\) 上の離散一様分布: <br />
 \(x_{1},\dots,x_n\) は相異なる実数を箱(壺)から取り出す試行</li>
@@ -291,8 +323,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge5c1500">
-<h3 id="orge5c1500">離散一様分布の平均と分散</h3>
+<section id="slide-org30af49c">
+<h3 id="org30af49c">離散一様分布の平均と分散</h3>
 <ul>
 <li><p>
 平均:
@@ -322,8 +354,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org44f0b85">
-<h3 id="org44f0b85">実行例: <code>dist-dunif.r</code></h3>
+<section id="slide-orgeb7c357">
+<h3 id="orgeb7c357">実行例: <code>dist-dunif.r</code></h3>
 <ul>
 <li>歪みのないサイコロを1回投げたときに出る目の分布は, 
 集合 \(\{1,\dots,6\}\) 上の離散一様分布に従う</li>
@@ -336,14 +368,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgfb025ed">
-<h2 id="orgfb025ed">二項分布</h2>
-<div class="outline-text-2" id="text-orgfb025ed">
+<section id="slide-org7dc323a">
+<h2 id="org7dc323a">二項分布</h2>
+<div class="outline-text-2" id="text-org7dc323a">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2168e05">
-<h3 id="org2168e05">二項分布の確率関数</h3>
+<section id="slide-org9fb2853">
+<h3 id="org9fb2853">二項分布の確率関数</h3>
 <ul>
 <li>試行回数 \(n\) , 成功確率 \(p\) の二項分布: <br />
 確率 \(p\) で成功する試行を \(n\) 回行った総成功回数</li>
@@ -363,8 +395,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org47162d9">
-<h3 id="org47162d9">二項分布の平均と分散</h3>
+<section id="slide-org2641cdd">
+<h3 id="org2641cdd">二項分布の平均と分散</h3>
 <ul>
 <li><p>
 平均:
@@ -385,8 +417,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7a9b65e">
-<h3 id="org7a9b65e">二項分布の平均と分散</h3>
+<section id="slide-org3138501">
+<h3 id="org3138501">二項分布の平均と分散</h3>
 <ul>
 <li><p>
 2次モーメント:
@@ -421,8 +453,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5ec0cee">
-<h3 id="org5ec0cee">実行例 : <code>dist-binom.r</code></h3>
+<section id="slide-org02e9421">
+<h3 id="org02e9421">実行例 : <code>dist-binom.r</code></h3>
 <ul>
 <li>表が出る確率が \(p\) のコインを \(n\) 回投げたときに表が出る回数は，
 試行回数 \(n\) ，成功確率 \(p\) の二項分布に従う</li>
@@ -434,8 +466,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb76c862" data-background="#fef4f4">
-<h3 id="orgb76c862">演習</h3>
+<section id="slide-org2daae62" data-background="#fef4f4">
+<h3 id="org2daae62">演習</h3>
 <ul>
 <li>二項分布の平均と分散の計算を確認しなさい．</li>
 <li>\(X_{1},\dotsc,X_n\) を成功確率 \(p\) の
@@ -450,14 +482,14 @@ Bernoulli分布に従う独立同分布な確率変数列とする．
 </section>
 </section>
 <section>
-<section id="slide-org9adfed6">
-<h2 id="org9adfed6">Poisson分布</h2>
-<div class="outline-text-2" id="text-org9adfed6">
+<section id="slide-orgfeba256">
+<h2 id="orgfeba256">Poisson分布</h2>
+<div class="outline-text-2" id="text-orgfeba256">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org41331d6">
-<h3 id="org41331d6">Poisson分布の確率関数</h3>
+<section id="slide-org4a90db6">
+<h3 id="org4a90db6">Poisson分布の確率関数</h3>
 <ul>
 <li>強度 \(\lambda\) のPoisson分布: \(P_o(\lambda)\) (\(\lambda > 0\))<br />
 少数の法則に現れた滅多に起こらない事象の起こる回数の分布</li>
@@ -475,8 +507,8 @@ Bernoulli分布に従う独立同分布な確率変数列とする．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org19e9b8f">
-<h3 id="org19e9b8f">Poisson分布の平均</h3>
+<section id="slide-orge974881">
+<h3 id="orge974881">Poisson分布の平均</h3>
 <ul>
 <li><p>
 平均:
@@ -496,8 +528,8 @@ Bernoulli分布に従う独立同分布な確率変数列とする．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd7652ec">
-<h3 id="orgd7652ec">Poisson分布の分散</h3>
+<section id="slide-org3e75a36">
+<h3 id="org3e75a36">Poisson分布の分散</h3>
 <ul>
 <li><p>
 2次モーメント:
@@ -529,8 +561,8 @@ Bernoulli分布に従う独立同分布な確率変数列とする．
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc0a92b9">
-<h3 id="orgc0a92b9">実行例: <code>dist-pois.r</code></h3>
+<section id="slide-orgba261b0">
+<h3 id="orgba261b0">実行例: <code>dist-pois.r</code></h3>
 <ul>
 <li>放射性物質から一定時間に放射される粒子の数や，
 一定期間に起こる交通事故の数などはPoisson分布に従うことが知られている</li>
@@ -543,8 +575,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7c0b6b7" data-background="#fef4f4">
-<h3 id="org7c0b6b7">演習</h3>
+<section id="slide-org1cd2123" data-background="#fef4f4">
+<h3 id="org1cd2123">演習</h3>
 <ul>
 <li>Poisson分布の平均と分散の計算を確認しなさい．</li>
 <li>\(X,Y\) を独立な2つの確率変数とし，
@@ -559,14 +591,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-org77eacfd">
-<h2 id="org77eacfd">幾何分布</h2>
-<div class="outline-text-2" id="text-org77eacfd">
+<section id="slide-org10d2c73">
+<h2 id="org10d2c73">幾何分布</h2>
+<div class="outline-text-2" id="text-org10d2c73">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org88e430c">
-<h3 id="org88e430c">幾何分布の確率関数</h3>
+<section id="slide-orgc04e062">
+<h3 id="orgc04e062">幾何分布の確率関数</h3>
 <ul>
 <li>成功確率 \(p\) の幾何分布: \((0 < p\leq 1)\) <br />
 成功するまでの回数の分布</li>
@@ -584,8 +616,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org362c73f">
-<h3 id="org362c73f">幾何分布の平均</h3>
+<section id="slide-org35fa958">
+<h3 id="org35fa958">幾何分布の平均</h3>
 <ul>
 <li><p>
 平均: 
@@ -607,8 +639,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge3d40a6">
-<h3 id="orge3d40a6">幾何分布の分散</h3>
+<section id="slide-org2336512">
+<h3 id="org2336512">幾何分布の分散</h3>
 <ul>
 <li><p>
 2次モーメント:
@@ -642,8 +674,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org76af070">
-<h3 id="org76af070">実行例: <code>dist-geom.r</code></h3>
+<section id="slide-orgaecb629">
+<h3 id="orgaecb629">実行例: <code>dist-geom.r</code></h3>
 <ul>
 <li>表が出る確率が \(p\) のコインを投げ続けて，
 初めて表が出るまでに出た裏の回数は，
@@ -657,14 +689,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-orgf9659c7">
-<h2 id="orgf9659c7">連続分布</h2>
-<div class="outline-text-2" id="text-orgf9659c7">
+<section id="slide-orgc79e4b1">
+<h2 id="orgc79e4b1">連続分布</h2>
+<div class="outline-text-2" id="text-orgc79e4b1">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org134fbd0">
-<h3 id="org134fbd0">連続分布</h3>
+<section id="slide-org702f909">
+<h3 id="org702f909">連続分布</h3>
 <ul>
 <li>連続型確率変数:
 <ul>
@@ -693,8 +725,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org79a77b0">
-<h3 id="org79a77b0">連続分布の平均</h3>
+<section id="slide-org129e5d7">
+<h3 id="org129e5d7">連続分布の平均</h3>
 <ul>
 <li><p>
 連続型の確率変数 \(X\) の平均: <br />
@@ -719,8 +751,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org419501c">
-<h3 id="org419501c">連続分布の平均 (つづき)</h3>
+<section id="slide-org471c9b8">
+<h3 id="org471c9b8">連続分布の平均 (つづき)</h3>
 <ul>
 <li><p>
 確率変数の変換 \(\varphi(X)\) の期待値:
@@ -750,8 +782,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6120de4">
-<h3 id="org6120de4">連続分布の分散</h3>
+<section id="slide-org65d8734">
+<h3 id="org65d8734">連続分布の分散</h3>
 <ul>
 <li><p>
 分散:
@@ -773,14 +805,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-orgcddf0a4">
-<h2 id="orgcddf0a4">一様分布</h2>
-<div class="outline-text-2" id="text-orgcddf0a4">
+<section id="slide-org7cffece">
+<h2 id="org7cffece">一様分布</h2>
+<div class="outline-text-2" id="text-org7cffece">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org05fbc95">
-<h3 id="org05fbc95">一様分布の密度関数</h3>
+<section id="slide-orgdfe182e">
+<h3 id="orgdfe182e">一様分布の密度関数</h3>
 <ul>
 <li>区間 \((a,b)\) 上の一様分布: \(U(a,b)\) <br />
 区間 \((a,b)\) のランダムな値の選択を表す分布</li>
@@ -802,8 +834,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga24f0fb">
-<h3 id="orga24f0fb">一様分布の平均</h3>
+<section id="slide-org84cac60">
+<h3 id="org84cac60">一様分布の平均</h3>
 <ul>
 <li><p>
 平均:
@@ -823,8 +855,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0b574be">
-<h3 id="org0b574be">一様分布の分散</h3>
+<section id="slide-orgbe9ddc9">
+<h3 id="orgbe9ddc9">一様分布の分散</h3>
 <ul>
 <li><p>
 2次モーメント:
@@ -858,8 +890,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf727f3d">
-<h3 id="orgf727f3d">実行例: <code>dist-unif.r</code></h3>
+<section id="slide-org3ba740a">
+<h3 id="org3ba740a">実行例: <code>dist-unif.r</code></h3>
 <ul>
 <li>一様分布に従う乱数の発生は <code>runif()</code> を用いる</li>
 <li>一様分布の確率密度関数は <code>dunif()</code> で計算できる</li>
@@ -870,14 +902,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-orgd895e68">
-<h2 id="orgd895e68">正規分布</h2>
-<div class="outline-text-2" id="text-orgd895e68">
+<section id="slide-org7537f48">
+<h2 id="org7537f48">正規分布</h2>
+<div class="outline-text-2" id="text-org7537f48">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc10252a">
-<h3 id="orgc10252a">正規分布の密度関数</h3>
+<section id="slide-org3e501e8">
+<h3 id="org3e501e8">正規分布の密度関数</h3>
 <ul>
 <li>平均 \(\mu\) , 分散 \(\sigma^2\) の正規分布: \(N(\mu,\sigma^2)\) <br />
 (\(\mu\) は実数, \(\sigma\) は正の実数)</li>
@@ -898,8 +930,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org57d66e8">
-<h3 id="org57d66e8">実行例: <code>dist-norm.r</code></h3>
+<section id="slide-orgf4de475">
+<h3 id="orgf4de475">実行例: <code>dist-norm.r</code></h3>
 <ul>
 <li>物理実験等の観測誤差の分布はしばしば正規分布でモデル化される</li>
 <li>真の平均を標本平均で推定した際の推定誤差の確率分布は，
@@ -909,8 +941,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org66d1001" data-background="#fef4f4">
-<h3 id="org66d1001">演習</h3>
+<section id="slide-org0fa2b7c" data-background="#fef4f4">
+<h3 id="org0fa2b7c">演習</h3>
 <ul>
 <li><p>
 \(U_{1},U_{2}\) を \((0,1)\) 上の一様分布に従う独立な確率変数とする．
@@ -935,8 +967,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd8f78e4">
-<h3 id="orgd8f78e4">正規分布の特徴</h3>
+<section id="slide-org82e4069">
+<h3 id="org82e4069">正規分布の特徴</h3>
 <ul>
 <li>中心極限定理の特殊な形 (de Moivre-Laplaceの定理)
 <ul>
@@ -966,8 +998,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org51bbc23">
-<h3 id="org51bbc23">二項分布の近似</h3>
+<section id="slide-org73f0ead">
+<h3 id="org73f0ead">二項分布の近似</h3>
 <ul>
 <li>正規近似の例: <code>dist-binom-norm.r</code></li>
 <li>Poisson近似の例: <code>dist-binom-pois.r</code></li>
@@ -983,14 +1015,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-orgff95e38">
-<h2 id="orgff95e38">ガンマ分布</h2>
-<div class="outline-text-2" id="text-orgff95e38">
+<section id="slide-orgefebd37">
+<h2 id="orgefebd37">ガンマ分布</h2>
+<div class="outline-text-2" id="text-orgefebd37">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org67b808a">
-<h3 id="org67b808a">ガンマ分布の密度関数</h3>
+<section id="slide-orgdea1d88">
+<h3 id="orgdea1d88">ガンマ分布の密度関数</h3>
 <ul>
 <li>パラメータ \(\nu\) , \(\alpha\) のガンマ分布: 
 \(\Gamma(\nu,\alpha)\) または \(G(\alpha,\nu)\) <br />
@@ -1024,8 +1056,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org23e59a1">
-<h3 id="org23e59a1">実行例: <code>dist-gamma.r</code></h3>
+<section id="slide-org11258f2">
+<h3 id="org11258f2">実行例: <code>dist-gamma.r</code></h3>
 <ul>
 <li>\(\nu,\alpha\) はそれぞれ <b>形状パラメータ</b> ， <b>レート</b> と呼ばれることがある</li>
 <li>平均は \(\nu/\alpha\) , 分散は \(\nu/\alpha^2\) で与えられる</li>
@@ -1040,8 +1072,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9ca397e">
-<h3 id="org9ca397e">指数分布</h3>
+<section id="slide-org06a3d93">
+<h3 id="org06a3d93">指数分布</h3>
 <ul>
 <li><p>
 パラメータ \(\lambda\) の指数分布: \(\mathrm{Exp}(\lambda)\) <br />
@@ -1066,8 +1098,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4f90505">
-<h3 id="org4f90505">\(\chi^2\) 分布</h3>
+<section id="slide-org8fad280">
+<h3 id="org8fad280">\(\chi^2\) 分布</h3>
 <ul>
 <li><p>
 自由度 \(k\) の \(\chi^2\) 分布: \(\chi^2(k)\) <br />
@@ -1093,8 +1125,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6e577e6">
-<h3 id="org6e577e6">\(\chi^2\) 分布の特徴 <code>dist-chisq-norm.r</code></h3>
+<section id="slide-org90e27e8">
+<h3 id="org90e27e8">\(\chi^2\) 分布の特徴 <code>dist-chisq-norm.r</code></h3>
 <ul>
 <li>標準正規分布に従う \(k\) 個の独立な確率変数の
 二乗和は自由度 \(k\) の \(\chi^2\) 分布に従う</li>
@@ -1105,14 +1137,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-org5ec7beb">
-<h2 id="org5ec7beb">\(t\) 分布</h2>
-<div class="outline-text-2" id="text-org5ec7beb">
+<section id="slide-org474b794">
+<h2 id="org474b794">\(t\) 分布</h2>
+<div class="outline-text-2" id="text-org474b794">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8be7bbc">
-<h3 id="org8be7bbc">\(t\) 分布の密度関数</h3>
+<section id="slide-org2c1d853">
+<h3 id="org2c1d853">\(t\) 分布の密度関数</h3>
 <ul>
 <li>自由度 \(\nu\) の(Studentの) \(t\) 分布: \(t(\nu)\) <br />
 (\(\nu\) は正の実数)</li>
@@ -1135,8 +1167,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgea44209">
-<h3 id="orgea44209">\(t\) 分布の平均と分散</h3>
+<section id="slide-orgc1bea98">
+<h3 id="orgc1bea98">\(t\) 分布の平均と分散</h3>
 <ul>
 <li><p>
 平均:
@@ -1165,8 +1197,8 @@ Poisson分布で近似できる (少数の法則)</li>
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org966b466">
-<h3 id="org966b466">\(t\) 分布の特徴 <code>dist-t-norm.r</code></h3>
+<section id="slide-orgea513a0">
+<h3 id="orgea513a0">\(t\) 分布の特徴 <code>dist-t-norm.r</code></h3>
 <ul>
 <li><p>
 \(Z\) を標準正規分布に従う確率変数，
@@ -1191,14 +1223,14 @@ Poisson分布で近似できる (少数の法則)</li>
 </section>
 </section>
 <section>
-<section id="slide-org996f065">
-<h2 id="org996f065">\(F\) 分布</h2>
-<div class="outline-text-2" id="text-org996f065">
+<section id="slide-org1175e3a">
+<h2 id="org1175e3a">\(F\) 分布</h2>
+<div class="outline-text-2" id="text-org1175e3a">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc512052">
-<h3 id="orgc512052">\(F\) 分布の密度関数</h3>
+<section id="slide-orgd8acb6a">
+<h3 id="orgd8acb6a">\(F\) 分布の密度関数</h3>
 <ul>
 <li>自由度 \(\nu_{1},\nu_{2}\) の \(F\) 分布: \(F(\nu_{1},\nu_{2})\) <br />
 (\(\nu_{1},\nu_{2}\) は正の実数)</li>
@@ -1221,8 +1253,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1e2dd4f">
-<h3 id="org1e2dd4f">\(F\) 分布の平均と分散</h3>
+<section id="slide-org18c8618">
+<h3 id="org18c8618">\(F\) 分布の平均と分散</h3>
 <ul>
 <li><p>
 平均: 
@@ -1253,8 +1285,8 @@ Poisson分布で近似できる (少数の法則)</li>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1526e44">
-<h3 id="org1526e44">\(F\) 分布の特徴 <code>dist-F-norm.r</code></h3>
+<section id="slide-orgcdc1fcf">
+<h3 id="orgcdc1fcf">\(F\) 分布の特徴 <code>dist-F-norm.r</code></h3>
 <ul>
 <li><p>
 \(Y_{1},Y_{2}\) をそれぞれ自由度 \(k_{1},k_{2}\) の \(\chi^2\) 分布に従う独立な

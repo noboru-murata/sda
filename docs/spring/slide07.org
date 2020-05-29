@@ -2,7 +2,7 @@
 #+SUBTITLE: いろいろな離散分布と連続分布
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2020.06.??
+#+DATE: 2020.06.05
 :reveal:
 # #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
@@ -22,7 +22,7 @@
   setwd("~/Desktop/lectures/u-tokyo/spring/slide")
 #+end_src
 #+begin_src R :exports none :tangle yes
-  ### 第6回 演習問題解答例
+  ### 第7回 演習問題解答例
 #+end_src
 :end:
 
@@ -44,37 +44,43 @@
 ** 極限定理
    - 大数の法則，
      中心極限定理，
-     重複対数の法則など
+     少数の法則など
    - 緩やかな条件のもとで一般の確率変数の列についても成立する
-     - 2次のモーメントをもたない場合には
-       中心極限定理は成立しない \\
-       (そもそも分散が定義できない)
      - 大数の強法則は平均が存在すれば成立する \\
        (平均と分散は後に定義する)
+     - 2次のモーメントをもたない(計算できない)場合には
+       中心極限定理は成立しない \\
+       (そもそも分散が定義できない)
    #    - 前回は有限個の値をとる確率変数列を扱った
    #   %- 一般の場合の確率変数列の独立性と同分布性は以下のように定義する
 
 ** 確率変数列の独立性
-   $n$ 個の確率変数 $X_{1},X_{2},\dotsc,X_n$ が *独立* であるとは，
-   $a_i\leq b_i$ $(i=1,\dots,n)$ なる
-   任意の実数 $a_{1},b_{1},\dots,a_n,b_n$ に対して
-   #+begin_src latex
-   \begin{multline}
-     P(a_{1}\leq X_{1}\leq b_{1},a_{2}\leq X_{2}\leq b_{2},\dots,a_n\leq X_n\leq b_n)\\
-     =P(a_{1}\leq X_{1}\leq b_{1})P(a_{2}\leq X_{2}\leq b_{2})\cdots P(a_n\leq X_n\leq b_n)
-   \end{multline}
-   #+end_src
-   が成り立つことをいう．
+   - 定義
+     #+begin_quote
+     $n$ 個の確率変数 $X_{1},X_{2},\dotsc,X_n$ が *独立* であるとは，
+     $a_i\leq b_i$ $(i=1,\dots,n)$ なる
+     任意の実数 $a_{1},b_{1},\dots,a_n,b_n$ に対して
+     #+begin_src latex
+       \begin{multline}
+         P(a_{1}\leq X_{1}\leq b_{1},a_{2}\leq X_{2}\leq b_{2},\dots,a_n\leq X_n\leq b_n)\\
+         =P(a_{1}\leq X_{1}\leq b_{1})P(a_{2}\leq X_{2}\leq b_{2})\cdots P(a_n\leq X_n\leq b_n)
+       \end{multline}
+     #+end_src
+     が成り立つことをいう．
+     #+end_quote
 
 ** 確率変数列の同分布性
-   $n$ 個の確率変数 $X_{1},X_{2},\dotsc,X_n$ が *同分布* であるとは，
-   $a\leq b$ なる任意の実数 $a,b$ に対して
-   #+begin_src latex
-   \begin{equation}
-     P(a\leq X_{1}\leq b)=P(a\leq X_{2}\leq b)=\cdots=P(a\leq X_n\leq b)
-   \end{equation}
-   #+end_src
-   が成り立つことをいう．
+   - 定義
+     #+begin_quote
+     $n$ 個の確率変数 $X_{1},X_{2},\dotsc,X_n$ が *同分布* であるとは，
+     $a\leq b$ なる任意の実数 $a,b$ に対して
+     #+begin_src latex
+       \begin{equation}
+         P(a\leq X_{1}\leq b)=P(a\leq X_{2}\leq b)=\cdots=P(a\leq X_n\leq b)
+       \end{equation}
+     #+end_src
+     が成り立つことをいう．
+     #+end_quote
 
 * 離散分布
 ** 離散分布
@@ -84,42 +90,52 @@
    - 離散分布:
      - 離散型確率変数の確率分布
      - $X=x$ となる確率 $P(X=x)$ で完全に決定される
-     - 関数 $f(x)=P(X=x)$ を *確率関数* (または *確率質量関数*)と呼ぶ
+     - 関数 $f(x)=P(X=x)$ を 
+       *確率関数* (*確率質量関数*) 
+       と呼ぶ
 
 ** 離散分布の平均
-   - 離散型の確率変数 $X$ の平均: \\
+   - 定義
+     #+begin_quote
      以下の右辺が定義できる(絶対収束する)とき
+     離散型の確率変数 
      $X$ の *平均* (または *期待値* )を
      #+begin_src latex
-     \begin{equation}
-       \mathbb{E}[X]:=\sum_{x\in\mathcal{X}}xP(X=x)
-     \end{equation}
+       \begin{equation}
+         \mathbb{E}[X]:=\sum_{x\in\mathcal{X}}xP(X=x)
+       \end{equation}
      #+end_src
-     で定義する \\
-     ただし $\mathcal{X}$ は $X$ の取りうる値(無限個も可)の集合
-   - *注:* 級数 $\sum_{x\in\mathcal{X}}xP(X=x)$ が
-     定義できない場合は
-     $X$ は平均をもたない
+     で定義する．
 
-** 離散分布の平均 (つづき)
-   - 確率変数の変換 $\varphi(X)$ の期待値:
+     ただし 
+     $\mathcal{X}$ は $X$ の取りうる値(無限個も可)の集合
+     #+end_quote
+     - 級数 $\sum_{x\in\mathcal{X}}xP(X=x)$ が
+       定義できない場合は
+       $X$ は平均をもたない
+   #+reveal: split
+   - 確率変数の変換 $\varphi(X)$ の期待値
+     #+begin_quote
      #+begin_src latex
      \begin{equation}
        \mathbb{E}[\varphi(X)]:=\sum_{x\in\mathcal{X}}\varphi(x)P(X=x)
      \end{equation}
      #+end_src
-   - $p$ 次の *モーメント* (あるいは *積率* ):
+     #+end_quote
+   - $p$ 次の *モーメント* (あるいは *積率* )
+     #+begin_quote
      #+begin_src latex
      \begin{equation}
        \mathbb{E}[X^p]=\sum_{x\in\mathcal{X}}x^pP(X=x)
      \end{equation}
      #+end_src
-   - *注:*
-     $X$ が正整数 $p$ 次のモーメントをもてば，
-     $q\leq p$ なるすべての正整数 $q$ 次のモーメントをもつ
+     #+end_quote
+     - $X$ が正整数 $p$ 次のモーメントをもてば，
+       $q\leq p$ なるすべての正整数 $q$ 次のモーメントをもつ
 
 ** 離散分布の分散
-   - *分散* :
+   - 定義
+     #+begin_quote
      #+begin_src latex
      \begin{align}
        \mathrm{Var}(X)
@@ -127,8 +143,9 @@
        =&\sum_{x\in\mathcal{X}}(x-\mathbb{E}[X])^2P(X=x)
      \end{align}
      #+end_src
-   - *注:* $X$ が2次のモーメントをもつときのみ定義できる
-   - 分散の平方根$\sqrt{\mathrm{Var}(X)}$ を *標準偏差* と呼ぶ
+     #+end_quote
+     - $X$ が2次のモーメントをもつときのみ定義できる
+     - 分散の平方根$\sqrt{\mathrm{Var}(X)}$ を *標準偏差* と呼ぶ
 
 * 離散一様分布
 ** 離散一様分布の確率関数

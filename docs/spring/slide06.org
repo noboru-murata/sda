@@ -252,7 +252,7 @@
      set.seed(121212) # 乱数のシード値の指定
      ## 試行(離散分布の標本平均の計算)を定義する
      myMean <- function(n,p) # 標本平均を計算する関数
-	 mean(sample(omega, size=n, prob=p, replace=TRUE))
+         mean(sample(omega, size=n, prob=p, replace=TRUE))
      omega <- 1:6 # 以下サイコロの場合で実験
      
      ## 基本の実験
@@ -274,54 +274,54 @@
      n <- 10 # 標本数
      xbars <- replicate(mc, myMean(n,p)) 
      hist(xbars, breaks=20,
-	  col="azure", border="lightblue",
-	  xlim=c(1,6), ylim=c(0,200), # 描画範囲を指定
-	  xlab=expression(bar(X)[n]), 
-	  main=paste0("n=",n)) # 回数をタイトルに表示
+          col="azure", border="lightblue",
+          xlim=c(1,6), ylim=c(0,200), # 描画範囲を指定
+          xlab=expression(bar(X)[n]), 
+          main=paste0("n=",n)) # 回数をタイトルに表示
      abline(v=mu, col="red", lwd=2, lty="dotted") # 理論値
      abline(h=0, col="grey", lwd=2, lty="solid")
 
      ## 乱数のシードによる違いを比較
      n <- 100 # 標本数
      for(i in c(12,34,56,78,90)){ # シード値を指定
-	 set.seed(i)
-	 xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
-	 hist(xbars, breaks=20,
-	      col="azure", border="lightblue",
-	      xlim=c(1,6), ylim=c(0,200), 
-	      xlab=expression(bar(X)[n]), 
-	      main=paste0("n=",n)) 
-	 abline(v=mu, col="red", lwd=2, lty="dotted")
-	 abline(h=0, col="grey", lwd=2, lty="solid")
+         set.seed(i)
+         xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
+         hist(xbars, breaks=20,
+              col="azure", border="lightblue",
+              xlim=c(1,6), ylim=c(0,200), 
+              xlab=expression(bar(X)[n]), 
+              main=paste0("n=",n)) 
+         abline(v=mu, col="red", lwd=2, lty="dotted")
+         abline(h=0, col="grey", lwd=2, lty="solid")
      }
 
      ## 出現確率の違いを比較
      n <- 100 # 標本数
      for(i in 1:5){ # pをランダムに設定して実験
-	 p <- runif(length(omega)) # 一様乱数で出現確率を設定
-	 mu <- weighted.mean(omega, p) # 理論上の平均
-	 xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
-	 hist(xbars, breaks=20,
-	      col="azure", border="lightblue",
-	      xlim=c(1,6), ylim=c(0,200), 
-	      xlab=expression(bar(X)[n]), 
-	      main=paste0("n=",n)) 
-	 abline(v=mu, col="red", lwd=2, lty="dotted")
-	 abline(h=0, col="grey", lwd=2, lty="solid")
+         p <- runif(length(omega)) # 一様乱数で出現確率を設定
+         mu <- weighted.mean(omega, p) # 理論上の平均
+         xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
+         hist(xbars, breaks=20,
+              col="azure", border="lightblue",
+              xlim=c(1,6), ylim=c(0,200), 
+              xlab=expression(bar(X)[n]), 
+              main=paste0("n=",n)) 
+         abline(v=mu, col="red", lwd=2, lty="dotted")
+         abline(h=0, col="grey", lwd=2, lty="solid")
      }
 
      ## サンプル数の違いを比較
      p <- rep(1:2, 3) # 出現確率は元の設定
      mu <- weighted.mean(omega, p) # 理論上の平均
      for(n in c(10,100,1000)){ # サンプル数を変えて実験
-	 xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
-	 hist(xbars, breaks=20,
-	      col="azure", border="lightblue",
-	      xlim=c(1,6), ylim=c(0,200),
-	      xlab=expression(bar(X)[n]), 
-	      main=paste0("n=",n)) 
-	 abline(v=mu, col="red", lwd=2, lty="dotted")
-	 abline(h=0, col="grey", lwd=2, lty="solid")
+         xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
+         hist(xbars, breaks=20,
+              col="azure", border="lightblue",
+              xlim=c(1,6), ylim=c(0,200),
+              xlab=expression(bar(X)[n]), 
+              main=paste0("n=",n)) 
+         abline(v=mu, col="red", lwd=2, lty="dotted")
+         abline(h=0, col="grey", lwd=2, lty="solid")
      }
    #+end_src
 
@@ -335,7 +335,7 @@
      - 推定誤差がある区間 $[\alpha,\beta]$ に入る確率で定量的に評価可能
        #+begin_src latex
        \begin{equation}
-	 P(\alpha\leq \bar{X}_n-\mu\leq \beta)
+         P(\alpha\leq \bar{X}_n-\mu\leq \beta)
        \end{equation}
        #+end_src
      - 上式の正確な計算は一般には困難
@@ -407,15 +407,15 @@
      set.seed(232323)    # 乱数のシード値の指定
      ## 試行(離散分布の標本平均の計算)を定義する
      myMean <- function(n,p) # 標本平均を計算する関数
-	 mean(sample(omega, size=n, prob=p, replace=TRUE))
+         mean(sample(omega, size=n, prob=p, replace=TRUE))
      omega <- 1:6 # 以下サイコロの場合で実験
      mc <- 10000 # Monte-Carlo実験の繰り返し回数
      
      ## 出現確率の違いを比較
      n <- 1000 # 標本数
      for(i in 1:5){ # pをランダムに設定して実験
-	 p <- runif(length(omega)) # 一様乱数で出現確率を設定
-	 mu <- weighted.mean(omega, p) # 理論上の平均
+         p <- runif(length(omega)) # 一様乱数で出現確率を設定
+         mu <- weighted.mean(omega, p) # 理論上の平均
          sigma <- sqrt( # 理論上の標準偏差(分散の平方根)
              weighted.mean(omega^2,p)-mu^2)
          xbars <- replicate(mc, myMean(n,p)) 
@@ -432,7 +432,7 @@
      p <- rep(1:2, 3) # 出現確率の比(奇数1:偶数2) (9で割らなくても大丈夫)
      (mu <- weighted.mean(omega, p)) # 理論上の平均
      (sigma <- sqrt( # 理論上の標準偏差(分散の平方根)
-	  weighted.mean(omega^2,p)-mu^2)) 
+          weighted.mean(omega^2,p)-mu^2)) 
      for(n in c(1,10,100,1000)){ # サンプル数を変えて実験
          xbars <- replicate(mc, myMean(n,p)) # mc回繰り返し
          hist(sqrt(n)*(xbars - mu)/sigma, breaks=30,
@@ -532,12 +532,12 @@
      ## それぞれの不良品数が生じた日数の割合のグラフを作成
      par(family = "HiraginoSans-W4") # 日本語フォントの指定
      plot(myData/N, type="h", col="royalblue", lwd=6, 
-	  xlab="不良品数", ylab="発生割合")
+          xlab="不良品数", ylab="発生割合")
      lines(min(x):max(x)+0.4, dpois(min(x):max(x),n*p),
-	   type="h", col="red", lwd=6) # 理論上の割合
+           type="h", col="red", lwd=6) # 理論上の割合
      legend("topright", inset=1/20, # 右上に配置
-	    legend=c("観測値", "理論値"), 
-	    col=c("royalblue", "red"), lwd=4) # 凡例
+            legend=c("観測値", "理論値"), 
+            col=c("royalblue", "red"), lwd=4) # 凡例
 
      ## nの違いを比較
      p <- 0.002
@@ -546,10 +546,10 @@
        myData <- table(x)/N # 集計
        par(family = "HiraginoSans-W4") 
        plot(myData, type="h", col="royalblue", lwd=6, 
-	    xlab="不良品数", ylab="発生割合",
-	    main=paste("n =",n,"p =",p))
+            xlab="不良品数", ylab="発生割合",
+            main=paste("n =",n,"p =",p))
        lines(min(x):max(x)+0.4, dpois(min(x):max(x),n*p),
-	   type="h", col="red", lwd=6) 
+           type="h", col="red", lwd=6) 
      }
 
      ## pの違いを比較
@@ -559,10 +559,10 @@
        myData <- table(x)/N # 集計
        par(family = "HiraginoSans-W4") 
        plot(myData, type="h", col="royalblue", lwd=6, 
-	    xlab="不良品数", ylab="発生割合",
-	    main=paste("n =",n,"p =",p))
+            xlab="不良品数", ylab="発生割合",
+            main=paste("n =",n,"p =",p))
        lines(min(x):max(x)+0.4, dpois(min(x):max(x),n*p),
-	   type="h", col="red", lwd=6) 
+           type="h", col="red", lwd=6) 
      }
    #+end_src
 
@@ -576,13 +576,13 @@
      #+begin_src latex
      \begin{align}
        &\limsup_{n\to\infty}
-	 \frac{\sqrt{n}(\bar{X}_{n}-\mu)}
-	 {\sqrt{2\sigma^2\log\log n}}
-	 =1\quad\text{a.s.},\\
+         \frac{\sqrt{n}(\bar{X}_{n}-\mu)}
+         {\sqrt{2\sigma^2\log\log n}}
+         =1\quad\text{a.s.},\\
        &\liminf_{n\to\infty}
-	 \frac{\sqrt{n}(\bar{X}_{n}-\mu)}
-	 {\sqrt{2\sigma^2\log\log n}}
-	 =-1\quad\text{a.s.}
+         \frac{\sqrt{n}(\bar{X}_{n}-\mu)}
+         {\sqrt{2\sigma^2\log\log n}}
+         =-1\quad\text{a.s.}
      \end{align}
      #+end_src
      が成り立つ．
@@ -595,7 +595,7 @@
      #+begin_src latex
      \begin{equation}
        \Bigl(\frac{\sqrt{n}(\bar{X}_{n}-\mu)}
-	 {\sqrt{2\sigma^2\log\log n}}\Bigr)_{n=3}^\infty
+         {\sqrt{2\sigma^2\log\log n}}\Bigr)_{n=3}^\infty
      \end{equation}
      #+end_src
      のある部分列の収束先となるような実数全体の集合を $C$ とすると，
