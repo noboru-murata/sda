@@ -18,6 +18,18 @@ myMean <- function(n,p) # 標本平均を計算する関数
 omega <- 1:6 # 以下サイコロの場合で実験
 
 ## 基本の実験
+p <- rep(1:2, 3) # 出現確率の比(奇数1:偶数2)を設定
+mu <- weighted.mean(omega, p) # 理論上の平均
+for(n in c(10,100,1000)){ # サンプル数を変えて実験
+    trial <- myMean(n,p) # 1回実験を行う
+    plot(p/sum(p), type="h", col="orange", lwd=4,
+         ylim=c(0,0.3), ylab="probability",
+         main=paste("n =",n)) 
+    abline(v=mu, col="red", lwd=2) # 真の平均
+    abline(v=trial, col="blue", lwd=2) # 観測値
+}
+
+## 統計的性質を見るための実験
 p <- rep(1:2, 3) # 出現確率の比(奇数1:偶数2)
 mu <- weighted.mean(omega, p) # 理論上の平均
 mc <- 1000 # Monte-Carlo実験の繰り返し回数
