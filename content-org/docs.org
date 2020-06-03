@@ -78,10 +78,11 @@
    6. [[github:spring/slide06.html][極限定理]] (大数の法則・中心極限定理・少数の法則)
       [[github:spring/pdfs/slide06.pdf][[PDF]​]] 
       [[github:spring/code/slide06.R][[解答例]​]] 
-
+   7. [[github:spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)
+      [[github:spring/pdfs/slide07.pdf][[PDF]​]] 
+      [[github:spring/code/slide07.R][[解答例]​]] 
 
 ** 参考: 2019年度版スライド
-   7. [[github:spring/slide07.html][確率分布]] (いろいろな離散分布と連続分布)
    8. [[github:spring/slide08.html][記述統計量]] (基礎的な記述統計量とデータの集約)
    9. [[github:spring/slide09.html][推定]] (確率分布を推定する)
    10. [[github:spring/slide10.html][検定]] (仮説の正当性をデータから検証する)
