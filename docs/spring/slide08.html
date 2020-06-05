@@ -17,7 +17,10 @@
 
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
 <link rel="stylesheet" href="./myconf.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,7 +34,7 @@
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/elements/1.1/ dcterms: http://purl.org/dc/terms/ dcmitype: http://purl.org/dc/dcmitype/ cc: http://creativecommons.org/ns#" typeof="dcmitype:InteractiveResource">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -49,20 +52,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.06.06</p>
+  2020.06.12</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-org96cb114">
-<h2 id="org96cb114">基礎的な記述統計量</h2>
-<div class="outline-text-2" id="text-org96cb114">
+<section id="slide-org9379969">
+<h2 id="org9379969">基礎的な記述統計量</h2>
+<div class="outline-text-2" id="text-org9379969">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgfb7e08e">
-<h3 id="orgfb7e08e">記述統計量</h3>
+<section id="slide-org64cbf3f">
+<h3 id="org64cbf3f">記述統計量</h3>
 <ul>
 <li><b>記述統計量</b> : (または要約統計量・基本統計量)
 <ul>
@@ -91,14 +94,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org1a01ed1">
-<h2 id="org1a01ed1">モーメントに基づく　記述統計量</h2>
-<div class="outline-text-2" id="text-org1a01ed1">
+<section id="slide-orgbe1d769">
+<h2 id="orgbe1d769">モーメントに基づく　記述統計量</h2>
+<div class="outline-text-2" id="text-orgbe1d769">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga90fba8">
-<h3 id="orga90fba8">平均</h3>
+<section id="slide-org8783fcd">
+<h3 id="org8783fcd">平均</h3>
 <ul>
 <li><p>
 <b>標本平均</b> (sample mean):
@@ -119,8 +122,8 @@
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb66c845">
-<h3 id="orgb66c845">分散・標準偏差</h3>
+<section id="slide-org9a5961c">
+<h3 id="org9a5961c">分散・標準偏差</h3>
 <ul>
 <li><p>
 <b>標本分散</b> (sample variance):
@@ -137,24 +140,24 @@
 <p>
 データのばらつき具合を表す記述統計量
 </p></li>
-<li><b>標本標準偏差</b> (sample standard deviation): <br>
+<li><b>標本標準偏差</b> (sample standard deviation): <br />
 標本分散の平方根</li>
 
 </ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf17788e">
-<h3 id="orgf17788e">独立同分布性</h3>
+<section id="slide-org9318da8">
+<h3 id="org9318da8">独立同分布性</h3>
 <ul>
 <li>統計解析における重要な仮定とその帰結:
 <ul>
-<li>確率変数 \(X_{1},X_{2},\dotsc,X_{n}\) が <b>同分布</b> <br>
-共通の平均 \(\mu\) および分散 \(\sigma^2\) を考えることができる <br>
+<li>確率変数 \(X_{1},X_{2},\dotsc,X_{n}\) が <b>同分布</b> <br />
+共通の平均 \(\mu\) および分散 \(\sigma^2\) を考えることができる <br />
 (適切な次数のモーメントの存在を仮定)</li>
-<li>確率変数 \(X_{1},X_{2},\dotsc,X_{n}\) が <b>独立同分布</b> <br>
+<li>確率変数 \(X_{1},X_{2},\dotsc,X_{n}\) が <b>独立同分布</b> <br />
 標本平均・標本分散・標本標準偏差は
 それぞれ \(n\to\infty\) のとき確率1で
-真の平均 \(\mu\) ・分散 \(\sigma^2\) ・標準偏差 \(\sigma\) に収束 <br>
+真の平均 \(\mu\) ・分散 \(\sigma^2\) ・標準偏差 \(\sigma\) に収束 <br />
 <b>(大数の強法則)</b></li>
 
 </ul></li>
@@ -164,13 +167,13 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb06c502">
-<h3 id="orgb06c502">推定量の一致性</h3>
+<section id="slide-org684617a">
+<h3 id="org684617a">推定量の一致性</h3>
 <p>
 サンプル数が大きい場合に「まともな」推定量となる根拠の1つ
 </p>
 <ul>
-<li><b>(強)一致性</b> (consistency): <br>
+<li><b>(強)一致性</b> (consistency): <br />
 推定量がサンプル数 \(n\to\infty\) のとき確率1で真の値に収束する性質</li>
 <li><b>(強)一致推定量</b> : 一致性をもつ推定量</li>
 <li>標本平均・標本分散・標本標準偏差は
@@ -180,14 +183,14 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2a1ed84">
-<h3 id="org2a1ed84">推定量の不偏性</h3>
+<section id="slide-org5703355">
+<h3 id="org5703355">推定量の不偏性</h3>
 <p>
 サンプル数が小さい場合の推定量の良さに関する性質の1つ
 </p>
 <ul>
 <li><p>
-<b>不偏性</b> (unbiasedness): <br>
+<b>不偏性</b> (unbiasedness): <br />
 パラメータ \(\theta\) の推定量 \(\hat{\theta}\)
 が不偏であるとは, \(\hat{\theta}\)
 の平均が真の値 \(\theta\) となる性質
@@ -207,8 +210,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdd6c6d9">
-<h3 id="orgdd6c6d9">標本平均・分散の不偏性</h3>
+<section id="slide-org9164692">
+<h3 id="org9164692">標本平均・分散の不偏性</h3>
 <ul>
 <li><p>
 標本平均は \(\mu\) の <b>不偏推定量である</b>:
@@ -236,8 +239,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org67df1e4">
-<h3 id="org67df1e4">不偏分散</h3>
+<section id="slide-orgec71a58">
+<h3 id="orgec71a58">不偏分散</h3>
 <p>
 不偏性を担保した分散の推定量
 </p>
@@ -261,8 +264,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8ccdc7e">
-<h3 id="org8ccdc7e">標本標準偏差</h3>
+<section id="slide-org6a58c15">
+<h3 id="org6a58c15">標本標準偏差</h3>
 <ul>
 <li>標本標準偏差: 通常, 不偏分散の平方根 \(s\) を指す</li>
 <li>一般に \(s\) は標準偏差 \(\sigma\) の <b>不偏推定量ではない</b></li>
@@ -272,8 +275,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgce7fcee" data-background="#fef4f4">
-<h3 id="orgce7fcee">演習</h3>
+<section id="slide-org49601e6" data-background="#fef4f4">
+<h3 id="org49601e6">演習</h3>
 <ul>
 <li><code>summary-unbiased.r</code> を確認しなさい</li>
 <li>標本標準偏差が不偏推定量となるかどうかを確かめなさい</li>
@@ -292,8 +295,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge647479" data-background="#fef4f4">
-<h3 id="orge647479">演習</h3>
+<section id="slide-orgd4bd284" data-background="#fef4f4">
+<h3 id="orgd4bd284">演習</h3>
 <p>
 <a href="https://www.e-stat.go.jp">https://www.e-stat.go.jp</a>
 から適当なデータをダウンロードして，
@@ -306,23 +309,23 @@
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-R">mydata <span style="color: #8be9fd;">&lt;-</span> read.csv(<span style="color: #f1fa8c;">"mydata.csv"</span>,
-                   fileEncoding=<span style="color: #f1fa8c;">"sjis"</span>,skip=8)      
-</pre>
+<pre><code class=" R" >mydata &lt;- read.csv("mydata.csv",
+		   fileEncoding="sjis",skip=8)      
+</code></pre>
 </div>
 
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgad60c73">
-<h2 id="orgad60c73">標準化と偏差値</h2>
-<div class="outline-text-2" id="text-orgad60c73">
+<section id="slide-org488be48">
+<h2 id="org488be48">標準化と偏差値</h2>
+<div class="outline-text-2" id="text-org488be48">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgadc5257">
-<h3 id="orgadc5257">標準化</h3>
+<section id="slide-orgfca89f8">
+<h3 id="orgfca89f8">標準化</h3>
 <p>
 複数のデータを分析するために単位や基準を揃える
 </p>
@@ -346,8 +349,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org25754bd">
-<h3 id="org25754bd">偏差値</h3>
+<section id="slide-orgd45cffd">
+<h3 id="orgd45cffd">偏差値</h3>
 <p>
 別の基準での標準化
 </p>
@@ -369,8 +372,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge92e63d" data-background="#fef4f4">
-<h3 id="orge92e63d">演習</h3>
+<section id="slide-org8334ae9" data-background="#fef4f4">
+<h3 id="org8334ae9">演習</h3>
 <ul>
 <li><code>summary-scale.r</code> を確認しなさい</li>
 <li><p>
@@ -390,14 +393,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org4e642cc">
-<h2 id="org4e642cc">歪度と尖度</h2>
-<div class="outline-text-2" id="text-org4e642cc">
+<section id="slide-orga7caa3f">
+<h2 id="orga7caa3f">歪度と尖度</h2>
+<div class="outline-text-2" id="text-orga7caa3f">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2ebe74b">
-<h3 id="org2ebe74b">歪度と尖度</h3>
+<section id="slide-orgd70d65c">
+<h3 id="orgd70d65c">歪度と尖度</h3>
 <p>
 正規分布からのずれを調べるための統計量
 </p>
@@ -415,8 +418,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgccd6b84">
-<h3 id="orgccd6b84">歪度</h3>
+<section id="slide-org1823f29">
+<h3 id="org1823f29">歪度</h3>
 <p>
 分布の非対称性を表す統計量
 </p>
@@ -448,8 +451,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org52c1dd2">
-<h3 id="org52c1dd2">尖度</h3>
+<section id="slide-org0a3cf83">
+<h3 id="org0a3cf83">尖度</h3>
 <p>
 平均の周囲の分布の尖り具合を表す統計量
 </p>
@@ -482,8 +485,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org41570ce">
-<h3 id="org41570ce">超過尖度</h3>
+<section id="slide-orgf8ff408">
+<h3 id="orgf8ff408">超過尖度</h3>
 <ul>
 <li>正規分布と比較して
 <ul>
@@ -516,8 +519,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orged5f055">
-<h3 id="orged5f055">標本歪度と標本尖度</h3>
+<section id="slide-org764134c">
+<h3 id="org764134c">標本歪度と標本尖度</h3>
 <p>
 観測データ \(X_{1},X_{2},\dotsc,X_{n}\) からの歪度と尖度の推定
 </p>
@@ -545,8 +548,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4835412">
-<h3 id="org4835412">歪度と尖度の計算</h3>
+<section id="slide-org4a867f2">
+<h3 id="org4a867f2">歪度と尖度の計算</h3>
 <ul>
 <li>標本歪度・標本尖度を計算する関数はRの標準機能にはない</li>
 <li><code>package::e1071</code> の利用例:
@@ -564,8 +567,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7267b58" data-background="#fef4f4">
-<h3 id="org7267b58">演習</h3>
+<section id="slide-org2232e13" data-background="#fef4f4">
+<h3 id="org2232e13">演習</h3>
 <ul>
 <li><code>summary-skewkurt.r</code> を確認しなさい．</li>
 <li>標本歪度のばらつきがどの程度あるか確かめなさい．</li>
@@ -577,20 +580,20 @@
 </section>
 </section>
 <section>
-<section id="slide-org2bc4bfe">
-<h2 id="org2bc4bfe">相関と共分散</h2>
-<div class="outline-text-2" id="text-org2bc4bfe">
+<section id="slide-org38b03b2">
+<h2 id="org38b03b2">相関と共分散</h2>
+<div class="outline-text-2" id="text-org38b03b2">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5d4fa6d">
-<h3 id="org5d4fa6d">相関と共分散</h3>
+<section id="slide-org376b57e">
+<h3 id="org376b57e">相関と共分散</h3>
 <p>
 複数のデータ間の関係性を知るための記述統計量
 </p>
 <ul>
 <li><p>
-<b>相関 (correlation)</b>: <br>
+<b>相関 (correlation)</b>: <br />
 \(x_1,x_2,\dots,x_N\) および \(y_1,y_2,\dots,y_N\) に対して
 </p>
 <div>
@@ -614,8 +617,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2c3ca14">
-<h3 id="org2c3ca14">相関と共分散</h3>
+<section id="slide-org8a0e727">
+<h3 id="org8a0e727">相関と共分散</h3>
 <ul>
 <li>直感的には2種類のデータ間の比例関係の大きさ</li>
 <li>相関の値は \(-1\) 以上 \(1\) 以下
@@ -638,8 +641,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org182bfcf" data-background="#fef4f4">
-<h3 id="org182bfcf">演習</h3>
+<section id="slide-orgad9c698" data-background="#fef4f4">
+<h3 id="orgad9c698">演習</h3>
 <ul>
 <li><code>summary-cor.r</code> を確認しなさい</li>
 <li><p>
@@ -660,14 +663,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org195c817">
-<h2 id="org195c817">順序に基づく統計量</h2>
-<div class="outline-text-2" id="text-org195c817">
+<section id="slide-org0364b55">
+<h2 id="org0364b55">順序に基づく統計量</h2>
+<div class="outline-text-2" id="text-org0364b55">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcb1e2d1">
-<h3 id="orgcb1e2d1">メディアン</h3>
+<section id="slide-org1306995">
+<h3 id="org1306995">メディアン</h3>
 <p>
 データの順序にもとづく記述統計量
 </p>
@@ -697,8 +700,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6510ad5">
-<h3 id="org6510ad5">分位点</h3>
+<section id="slide-org7c5d813">
+<h3 id="org7c5d813">分位点</h3>
 <ul>
 <li><p>
 \(100\alpha\) % <b>分位点 (percentile/quantile)</b>: メディアンの一般化
@@ -727,8 +730,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7a59454" data-background="#fef4f4">
-<h3 id="org7a59454">演習</h3>
+<section id="slide-org6e8047f" data-background="#fef4f4">
+<h3 id="org6e8047f">演習</h3>
 <ul>
 <li><code>summary-order.r</code> を確認しなさい</li>
 <li>自身のデータのヒストグラムを描き，
@@ -738,8 +741,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga16d292">
-<h3 id="orga16d292">連続分布の分位点</h3>
+<section id="slide-orgecc9d56">
+<h3 id="orgecc9d56">連続分布の分位点</h3>
 <ul>
 <li>分位点は推定や検定において重要な役割を果たす</li>
 <li><p>
@@ -773,15 +776,15 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9454c40">
-<h3 id="org9454c40">分位点の性質</h3>
+<section id="slide-org12c98a7">
+<h3 id="org12c98a7">分位点の性質</h3>
 <ul>
 <li>\(X_1,X_2,\dots,X_n\) が独立同分布な確率変数の列のとき,
 \(X_1,X_2,\dots,X_n\) の \(100\alpha\) %分位点は，
 \(n\to\infty\) のとき \(X_1,X_2,\dots,X_n\) の従う
 分布の \(100\alpha\) %分位点の <b>一致推定量</b></li>
 <li><p>
-分布の分位点の計算: <br>
+分布の分位点の計算: <br />
 <code>qxxx()</code> (分布の省略形が <code>xxx</code> )
 </p>
 <ul>
@@ -791,16 +794,16 @@
 </ul>
 <div class="org-src-container">
 
-<pre  class="src src-R">qnorm(alpha, mean=mu, sd=sigma)
-</pre>
+<pre><code class=" R" >qnorm(alpha, mean=mu, sd=sigma)
+</code></pre>
 </div></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2550f9c" data-background="#fef4f4">
-<h3 id="org2550f9c">演習</h3>
+<section id="slide-org5aeee21" data-background="#fef4f4">
+<h3 id="org5aeee21">演習</h3>
 <ul>
 <li><code>summary-quantile.r</code> を確認しなさい</li>
 <li>\(t\) 分布やガンマ分布の密度関数を描き，
@@ -812,23 +815,23 @@
 </section>
 </section>
 <section>
-<section id="slide-org28ca6ee">
-<h2 id="org28ca6ee">ばらつきの指標</h2>
-<div class="outline-text-2" id="text-org28ca6ee">
+<section id="slide-org541ddeb">
+<h2 id="org541ddeb">ばらつきの指標</h2>
+<div class="outline-text-2" id="text-org541ddeb">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8038fa6">
-<h3 id="org8038fa6">ばらつきの指標</h3>
+<section id="slide-org3e900d5">
+<h3 id="org3e900d5">ばらつきの指標</h3>
 <p>
 データのばらつきを測るための記述統計量
 </p>
 <ul>
-<li><b>範囲 (range)</b>: 最大値と最小値の差 <br>
+<li><b>範囲 (range)</b>: 最大値と最小値の差 <br />
 (外れ値の影響を大きく受ける)</li>
 <li><b>四分位範囲 (interquantile range)</b>: 
 第3四分位点と第1四分位点の差</li>
-<li><b>メディアン絶対偏差 (median absolute deviation)</b>: <br>
+<li><b>メディアン絶対偏差 (median absolute deviation)</b>: <br />
 \(X_1,X_2,\dots,X_n\) のメディアンを \(m\) としたとき,
 \(|X_1-m|,|X_2-m|,\dots,|X_n-m|\) のメディアン</li>
 
@@ -836,8 +839,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc8bdbbd" data-background="#fef4f4">
-<h3 id="orgc8bdbbd">演習</h3>
+<section id="slide-orgc80d3a3" data-background="#fef4f4">
+<h3 id="orgc80d3a3">演習</h3>
 <ul>
 <li><code>summary-range.r</code> を確認しなさい</li>
 <li>自身のデータのヒストグラムを描き，
@@ -849,14 +852,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orge5ad39f">
-<h2 id="orge5ad39f">頻度に基づく統計量</h2>
-<div class="outline-text-2" id="text-orge5ad39f">
+<section id="slide-orgcff9862">
+<h2 id="orgcff9862">頻度に基づく統計量</h2>
+<div class="outline-text-2" id="text-orgcff9862">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7d4b56a">
-<h3 id="org7d4b56a">頻度に基づく統計量</h3>
+<section id="slide-orgb45b37e">
+<h3 id="orgb45b37e">頻度に基づく統計量</h3>
 <ul>
 <li><b>モード (mode)</b> もしくは <b>最頻値</b> : データの中で最も頻度が高く現れる値</li>
 <li>モードはデータが有限個の値を取る場合に特に有効</li>
@@ -873,8 +876,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org20a4160" data-background="#fef4f4">
-<h3 id="org20a4160">演習</h3>
+<section id="slide-orgd7b038e" data-background="#fef4f4">
+<h3 id="orgd7b038e">演習</h3>
 <ul>
 <li><code>summary-mode.r</code> を確認しなさい</li>
 <li>東京都の風のデータについて，
@@ -889,6 +892,7 @@
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -921,9 +925,11 @@ dependencies: [
 { src: './reveal.js/plugin/jump/jump.js', async: true },
 { src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
 { src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 
 ,audioStartAtFragment: true,
   audio: {

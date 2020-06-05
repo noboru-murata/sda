@@ -1025,4 +1025,18 @@
        #+end_src
 
 
+** 課題
+   :PROPERTIES:
+   :reveal_background: #fef4f4
+   :END:
+   - 来週までに自身の興味のあるデータを収集しておく
+     - データ収集の方法を整理しておく
+     - 講義で利用する
+   - 参考となるサイト
+     - e-Stat (総務省) https://www.e-stat.go.jp
+     - 気象庁 http://www.jma.go.jp/jma/index.html
+     - World Bank https://data.worldbank.org
+     - Yahoo! finance https://finance.yahoo.com
+
+
 

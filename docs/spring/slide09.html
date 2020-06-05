@@ -15,11 +15,12 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
 <link rel="stylesheet" href="./myconf.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,9 +32,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -57,14 +58,14 @@
 </section>
 
 <section>
-<section id="slide-orgaf46b86">
-<h2 id="orgaf46b86">推定とは</h2>
-<div class="outline-text-2" id="text-orgaf46b86">
+<section id="slide-org0a32b65">
+<h2 id="org0a32b65">推定とは</h2>
+<div class="outline-text-2" id="text-org0a32b65">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcb1cbbc">
-<h3 id="orgcb1cbbc">統計解析の目標</h3>
+<section id="slide-org7db15b7">
+<h3 id="org7db15b7">統計解析の目標</h3>
 <ul>
 <li>観測データを確率変数の実現値と考えてモデル化</li>
 <li>観測データの背後の確率分布を <b>推定</b>
@@ -79,8 +80,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org68d4be4">
-<h3 id="org68d4be4">推定の枠組</h3>
+<section id="slide-org2d584df">
+<h3 id="org2d584df">推定の枠組</h3>
 <ul>
 <li>観測データは独立同分布な確率変数列 \(X_1,X_2,\dots,X_n\)</li>
 <li>\(X_i\) の従う共通の分布 \(\mathcal{L}\) を想定</li>
@@ -103,14 +104,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgfe68c1e">
-<h2 id="orgfe68c1e">点推定</h2>
-<div class="outline-text-2" id="text-orgfe68c1e">
+<section id="slide-orgdf1a834">
+<h2 id="orgdf1a834">点推定</h2>
+<div class="outline-text-2" id="text-orgdf1a834">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0c3cdad">
-<h3 id="org0c3cdad">パラメータの点推定</h3>
+<section id="slide-org1872973">
+<h3 id="org1872973">パラメータの点推定</h3>
 <ul>
 <li><p>
 \(\mathcal{L}\) に含まれるパラメータ \(\theta\) を \(X_1,\dots,X_n\) の関数
@@ -138,8 +139,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9eb021b">
-<h3 id="org9eb021b">良い推定量</h3>
+<section id="slide-org1d6f651">
+<h3 id="org1d6f651">良い推定量</h3>
 <ul>
 <li>一般に1つのパラメータの推定量は無数に存在</li>
 <li>推定量の良さを評価する基準が必要</li>
@@ -172,8 +173,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6958142">
-<h3 id="org6958142">良い不偏推定量</h3>
+<section id="slide-orgaa04597">
+<h3 id="orgaa04597">良い不偏推定量</h3>
 <ul>
 <li>一般に不偏推定量も複数存在
 <ul>
@@ -204,8 +205,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9ee06e7">
-<h3 id="org9ee06e7">Cramer-Raoの不等式</h3>
+<section id="slide-org281d6fd">
+<h3 id="org281d6fd">Cramer-Raoの不等式</h3>
 <p>
 \(\mathcal{L}\) は1次元パラメータ \(\theta\) を含む連続分布とし，
 その確率密度関数 \(f_\theta(x)\) は \(\theta\) に関して
@@ -234,8 +235,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc4bed28">
-<h3 id="orgc4bed28">一様最小分散不偏推定量</h3>
+<section id="slide-orgeba4785">
+<h3 id="orgeba4785">一様最小分散不偏推定量</h3>
 <ul>
 <li>定理の不等式: <b>Cramer-Raoの不等式</b></li>
 <li>下界 \(1/(nI(\theta))\) : <b>Cramer-Rao下界</b></li>
@@ -256,8 +257,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org89623cf">
-<h3 id="org89623cf">例: 正規分布モデルの標本平均</h3>
+<section id="slide-org9384fde">
+<h3 id="org9384fde">例: 正規分布モデルの標本平均</h3>
 <ul>
 <li>\(\mathcal{L}\) が平均 \(\mu\) , 分散 \(\sigma^2\) の正規分布を考える</li>
 <li><p>
@@ -280,8 +281,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7efc4c7" data-background="#fef4f4">
-<h3 id="org7efc4c7">演習</h3>
+<section id="slide-orgac0d31c" data-background="#fef4f4">
+<h3 id="orgac0d31c">演習</h3>
 <ul>
 <li><code>est-umvue.r</code> を確認しなさい．</li>
 <li>一様乱数を用いて，以下の平均値の推定量の分散を比較しなさい．
@@ -299,14 +300,14 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-orga9f51b9">
-<h2 id="orga9f51b9">最尤法</h2>
-<div class="outline-text-2" id="text-orga9f51b9">
+<section id="slide-orgf1d0548">
+<h2 id="orgf1d0548">最尤法</h2>
+<div class="outline-text-2" id="text-orgf1d0548">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc93e7b6">
-<h3 id="orgc93e7b6">離散分布の場合</h3>
+<section id="slide-org06c0695">
+<h3 id="org06c0695">離散分布の場合</h3>
 <ul>
 <li>確率関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
 <li>確率関数のパラメータ: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\)</li>
@@ -330,8 +331,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgef2880f">
-<h3 id="orgef2880f">尤度関数</h3>
+<section id="slide-orgc8d12a4">
+<h3 id="orgc8d12a4">尤度関数</h3>
 <ul>
 <li><p>
 \(\boldsymbol{\theta}\) <b>の尤度</b> \(L(\boldsymbol{\theta})\) : 
@@ -355,8 +356,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org22f2919">
-<h3 id="org22f2919">最尤法</h3>
+<section id="slide-org6b8de0f">
+<h3 id="org6b8de0f">最尤法</h3>
 <ul>
 <li><b>最尤法</b>: 観測データに対して「最も尤もらしい」パラメータ
 を \(\boldsymbol{\theta}\) の推定量として採用する方法</li>
@@ -389,8 +390,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdd73c9e">
-<h3 id="orgdd73c9e">最尤推定量の計算</h3>
+<section id="slide-org2d5a6a9">
+<h3 id="org2d5a6a9">最尤推定量の計算</h3>
 <ul>
 <li>扱い易い和の形に直すために対数を取ることが多い</li>
 <li><p>
@@ -415,8 +416,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org102baab">
-<h3 id="org102baab">連続分布の場合</h3>
+<section id="slide-org4774cf8">
+<h3 id="org4774cf8">連続分布の場合</h3>
 <ul>
 <li><b>確率密度関数</b> を用いて尤度を定義</li>
 <li>確率密度関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
@@ -449,8 +450,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbad8a98">
-<h3 id="orgbad8a98">例: Poisson分布</h3>
+<section id="slide-org08098f8">
+<h3 id="org08098f8">例: Poisson分布</h3>
 <ul>
 <li>\(\mathcal{L}\) をパラメータ \(\lambda>0\) のPoisson分布でモデル化</li>
 <li><p>
@@ -469,8 +470,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org80284c7">
-<h3 id="org80284c7">例: Poisson分布 (つづき)</h3>
+<section id="slide-org9116130">
+<h3 id="org9116130">例: Poisson分布 (つづき)</h3>
 <ul>
 <li><p>
 \(\ell(\lambda)\) の微分: 
@@ -497,8 +498,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4621049">
-<h3 id="org4621049">例: 指数分布</h3>
+<section id="slide-org81e14aa">
+<h3 id="org81e14aa">例: 指数分布</h3>
 <ul>
 <li>\(\mathcal{L}\) をパラメータ \(\lambda>0\) の指数分布でモデル化</li>
 <li><p>
@@ -516,8 +517,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7127322">
-<h3 id="org7127322">例: 指数分布 (つづき)</h3>
+<section id="slide-org3f66a70">
+<h3 id="org3f66a70">例: 指数分布 (つづき)</h3>
 <ul>
 <li><p>
 \(\ell(\lambda)\) の微分: 
@@ -544,8 +545,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org34c35b3">
-<h3 id="org34c35b3">例: ガンマ分布</h3>
+<section id="slide-org0492ef8">
+<h3 id="org0492ef8">例: ガンマ分布</h3>
 <ul>
 <li>\(\mathcal{L}\) をパラメータ \(\nu,\alpha>0\) のガンマ分布でモデル化</li>
 <li><p>
@@ -565,8 +566,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7d070b4" data-background="#fef4f4">
-<h3 id="org7d070b4">演習</h3>
+<section id="slide-orgf9ddf34" data-background="#fef4f4">
+<h3 id="orgf9ddf34">演習</h3>
 <ul>
 <li><code>est-mle.r</code> を確認しなさい．</li>
 <li>自身で収集したデータについてモデル化し，
@@ -578,14 +579,14 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-org0384069">
-<h2 id="org0384069">区間推定</h2>
-<div class="outline-text-2" id="text-org0384069">
+<section id="slide-org4099ad3">
+<h2 id="org4099ad3">区間推定</h2>
+<div class="outline-text-2" id="text-org4099ad3">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga1c2aa8">
-<h3 id="orga1c2aa8">推定誤差</h3>
+<section id="slide-org4c9c9a1">
+<h3 id="org4c9c9a1">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
 <li>推定結果の定量的な評価には推定誤差の評価が重要</li>
@@ -614,8 +615,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org66e3702">
-<h3 id="org66e3702">区間推定</h3>
+<section id="slide-orgeaa5159">
+<h3 id="orgeaa5159">区間推定</h3>
 <ul>
 <li><p>
 <b>区間推定</b>: 
@@ -641,10 +642,10 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orge297b01">
-<h3 id="orge297b01">信頼区間</h3>
+<section id="slide-orgb8b3e96">
+<h3 id="orgb8b3e96">信頼区間</h3>
 <ul>
-<li>信頼区間は幅が狭いほど推定精度が良い<br>
+<li>信頼区間は幅が狭いほど推定精度が良い<br />
 (真のパラメータが取りうる値の範囲を限定することになるため)</li>
 <li><p>
 最も推定精度の良い \(1{-}\alpha\) 信頼区間 \([L,U]\) は
@@ -668,14 +669,14 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-org0e0feb6">
-<h2 id="org0e0feb6">正規母集団の区間推定</h2>
-<div class="outline-text-2" id="text-org0e0feb6">
+<section id="slide-orgae02450">
+<h2 id="orgae02450">正規母集団の区間推定</h2>
+<div class="outline-text-2" id="text-orgae02450">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6172cdd">
-<h3 id="org6172cdd">正規分布の性質1</h3>
+<section id="slide-orgf4e327c">
+<h3 id="orgf4e327c">正規分布の性質1</h3>
 <p>
 正規分布に従う独立な確率変数の重み付き和は正規分布に従う
 </p>
@@ -692,8 +693,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orga0f8f94">
-<h3 id="orga0f8f94">正規分布の性質2</h3>
+<section id="slide-org16ae02f">
+<h3 id="org16ae02f">正規分布の性質2</h3>
 <ul>
 <li><p>
 \(k=n\), \(\mu_i=\mu\), \(\sigma_i^2=\sigma^2\), \(a_0=0\),
@@ -726,8 +727,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb41ff0c">
-<h3 id="orgb41ff0c">平均の区間推定 (分散既知)</h3>
+<section id="slide-orga855d38">
+<h3 id="orga855d38">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
 \(z_{1{-}\alpha/2}\) を標準正規分布の
@@ -765,8 +766,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf720c85">
-<h3 id="orgf720c85">正規分布の性質3</h3>
+<section id="slide-org9cf44da">
+<h3 id="org9cf44da">正規分布の性質3</h3>
 <ul>
 <li><p>
 \(X_1,X_2,\dots,X_n\) は独立同分布な確率変数列で，
@@ -788,8 +789,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org16e3b6d">
-<h3 id="org16e3b6d">正規分布の性質4</h3>
+<section id="slide-orgf1a2820">
+<h3 id="orgf1a2820">正規分布の性質4</h3>
 <ul>
 <li><p>
 上の命題と \(\sqrt{n}(\bar{X}-\mu)/\sigma\) が標準正規分布に従うこ
@@ -812,8 +813,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3c2f23f">
-<h3 id="org3c2f23f">平均の区間推定 (分散未知)</h3>
+<section id="slide-org15223b1">
+<h3 id="org15223b1">平均の区間推定 (分散未知)</h3>
 <ul>
 <li><p>
 \(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
@@ -841,8 +842,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcbb7851">
-<h3 id="orgcbb7851">正規分布の性質5</h3>
+<section id="slide-org9dd541c">
+<h3 id="org9dd541c">正規分布の性質5</h3>
 <ul>
 <li>\((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
 <li><p>
@@ -863,8 +864,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2ab9f4e">
-<h3 id="org2ab9f4e">分散の区間推定</h3>
+<section id="slide-orgfa54392">
+<h3 id="orgfa54392">分散の区間推定</h3>
 <ul>
 <li><p>
 \(\sigma^2\) について解いて
@@ -891,8 +892,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgeeed142" data-background="#fef4f4">
-<h3 id="orgeeed142">演習</h3>
+<section id="slide-org0b809dd" data-background="#fef4f4">
+<h3 id="org0b809dd">演習</h3>
 <ul>
 <li><code>est-ci-mean.r</code> を確認しなさい．</li>
 <li><code>est-ci-mean-unknown.r</code> を確認しなさい．</li>
@@ -904,14 +905,14 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-org48b6d10">
-<h2 id="org48b6d10">漸近正規性による区間推定</h2>
-<div class="outline-text-2" id="text-org48b6d10">
+<section id="slide-org655ffd2">
+<h2 id="org655ffd2">漸近正規性による区間推定</h2>
+<div class="outline-text-2" id="text-org655ffd2">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdd6accc">
-<h3 id="orgdd6accc">推定量の漸近正規性</h3>
+<section id="slide-org6cdb098">
+<h3 id="org6cdb098">推定量の漸近正規性</h3>
 <ul>
 <li><p>
 <b>漸近正規性</b>: 多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
@@ -930,8 +931,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd05f581">
-<h3 id="orgd05f581">標本平均の漸近正規性</h3>
+<section id="slide-orgd386687">
+<h3 id="orgd386687">標本平均の漸近正規性</h3>
 <ul>
 <li><p>
 確率分布 \(\mathcal{L}\) が2次のモーメントを持てば，
@@ -961,8 +962,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6c47e09">
-<h3 id="org6c47e09">標本平均の漸近正規性 (つづき)</h3>
+<section id="slide-org1423e1d">
+<h3 id="org1423e1d">標本平均の漸近正規性 (つづき)</h3>
 <ul>
 <li><p>
 \(z_{1{-}\alpha/2}\) を標準正規分布の
@@ -991,8 +992,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2e92ec1">
-<h3 id="org2e92ec1">平均の区間推定 (分散既知)</h3>
+<section id="slide-org5abb7c6">
+<h3 id="org5abb7c6">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
 \(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>:
@@ -1012,8 +1013,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3269690">
-<h3 id="org3269690">平均の区間推定 (分散未知)</h3>
+<section id="slide-orgd9da140">
+<h3 id="orgd9da140">平均の区間推定 (分散未知)</h3>
 <ul>
 <li>\(\sigma\) をその一致推定量 \(\hat{\sigma}\) で置き換えてもそのまま成立する</li>
 <li><p>
@@ -1043,8 +1044,8 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org305697d" data-background="#fef4f4">
-<h3 id="org305697d">演習</h3>
+<section id="slide-orgc38e363" data-background="#fef4f4">
+<h3 id="orgc38e363">演習</h3>
 <ul>
 <li><code>est-ci-mean-asymp.r</code> を確認しなさい．</li>
 <li><code>est-ci-mle.r</code> を確認しなさい．</li>
@@ -1057,6 +1058,7 @@ Cramer-Raoの不等式は
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1072,33 +1074,35 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
 { src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
 	{className: "animate",  initialize: (function(container, options){
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
 			if (typeof event.fragment.beginElement === "function" ) {
@@ -1138,7 +1142,7 @@ dependencies: [
 		    choices: [ {name: "dummyname", path: "dummypath"} ]},
 	 initialize: (function(container, options){
 	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
 	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
 	     container.innerHTML = img + caption;
 	 }) },
@@ -1147,7 +1151,8 @@ dependencies: [
 	     container.addEventListener('click', function(e) { RevealNotes.open(); });
 	 }) }
 ],
-  coursemod: { enabled: true, shown: false }});
+coursemod: { enabled: true, shown: false },
+});
 </script>
 </body>
 </html>

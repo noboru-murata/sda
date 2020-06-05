@@ -2,7 +2,7 @@
 #+SUBTITLE: 基礎的な記述統計量とデータの集約
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2020.06.??
+#+DATE: 2020.06.12
 :reveal:
 # #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
@@ -22,7 +22,7 @@
   setwd("~/Desktop/lectures/u-tokyo/spring/slide")
 #+end_src
 #+begin_src R :exports none :tangle yes
-  ### 第6回 演習問題解答例
+  ### 第8回 演習問題解答例
 #+end_src
 :end:
 
