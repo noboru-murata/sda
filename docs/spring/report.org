@@ -1,0 +1,45 @@
+#+TITLE: 期末課題
+#+SUBTITLE: 数理科学続論I / 統計データ解析I 
+#+AUTHOR: 村田 昇
+#+EMAIL: noboru.murata@eb.waseda.ac.jp
+#+DATE: 2020年度
+:preamble:
+#+INCLUDE: "./myconf.org"
+#+STARTUP: hidestars content
+# C-c C-x C-v でinlineを切り替え
+# <l C-i でlatex block
+# C-c '
+#+OPTIONS: LaTeX:t    
+#+PROPERTY: results output
+#+PROPERTY: exports both
+:end:
+
+* 締切 7月22日(水曜)
+
+* 内容	
+  以下のいずれかの課題についてレポートを提出しなさい．
+  - 本文は必ずPDFにすること
+  - 課題の指示に従って R Script および必要なデータをまとめてzipファイルとして提出すること
+
+** 1．確率シミュレーション
+興味のある確率事象をモデル化し，Monte-Carlo法による確率シミュレーションを用いて，その性質を議論しなさい．
+レポートには
+1. 動機付け
+2. モデル化
+3. 適切な視覚化を用いたシミュレーションの提示
+4. 考察
+をまとめなさい．
+
+提出に際しては適宜コメントを付けた R Script を添付すること．
+
+** 2．データ解析
+興味のある実データを適切な方法で収集し，検討したい仮説に対して合致した統計分析手法を選択して分析を行いなさい．
+レポートには
+1. 動機付け
+2. 検証すべき仮説
+3. 分析結果の整理
+4. 考察
+をまとめなさい．
+
+提出に際しては整理したデータのcsvファイルと適宜コメントを付けた R Script を添付すること．
+

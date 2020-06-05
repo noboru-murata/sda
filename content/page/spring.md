@@ -17,6 +17,8 @@ weight = 1003
 
 [ガイダンス資料](https://noboru-murata.github.io/sda/spring/slide00.html)
 
+[期末課題](https://noboru-murata.github.io/sda/spring/pdfs/report.pdf)
+
 
 ## スライド {#スライド}
 

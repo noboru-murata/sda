@@ -53,6 +53,8 @@
 
   [[github:spring/slide00.html][ガイダンス資料]]
 
+  [[github:spring/pdfs/report.pdf][期末課題]]
+
 ** スライド
    1. [[github:spring/slide01.html][Rの基本的な操作]]
       [[github:spring/pdfs/Rの基本的な操作.pdf][[PDF]​]]
