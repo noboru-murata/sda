@@ -1,41 +1,38 @@
+#+OPTIONS: date:t H:2 num:t toc:nil
 * Zoom 録画
 
+** 第1回
 トピック: 数理科学続論 I
 日付: 2020年4月17日 04:32 PM 大阪、札幌、東京
 
 ミーティングの記録:
 https://zoom.us/rec/share/3N1JA7_T2VxJYs_G53nbRKRiQp_Yeaa81ClN_vsNneyVrwqi8ytqgDF9T3BWt7Q
 
-===
-
+** 第2回
 トピック: 数理科学続論 I
 日付: 2020年4月24日 04:05 PM 大阪、札幌、東京
 
 ミーティングの記録:
 https://zoom.us/rec/share/ycMuNZHN9UBIbM_0uEX5C74PT5zueaa803Ib_adenUhefWW1vU4RAJoeZJw6lXp_
 
-===
-
+** 第3回
 トピック: 数理科学続論 I
 日付: 2020年5月1日 04:00 PM 大阪、札幌、東京
 
 ミーティングの記録:
 https://zoom.us/rec/share/_8I2FqmtrW9JeKv9zUCOVfQkJoDaT6a823IZrPcJnUhZTcnLMu7aOKdI4emgUoeT
 
-===
-
+** 第4回
 トピック: 数理科学続論 I
 日付: 2020年5月8日 04:37 PM 大阪、札幌、東京
 
 ミーティングの記録:
 https://zoom.us/rec/share/4pVVN7Lu8n1OQpGStkbOU7YnDqLbeaa82iAbqfUJmR40eeNgSaR5J84Uc-GM8STR
 
-===
-
+** 第5回
 トピック: 数理科学続論 I
 日付: 2020年5月22日 04:33 PM 大阪、札幌、東京
 
 ミーティングの記録:
 https://zoom.us/rec/share/zv5UPbrf0llLQp3sw0HYeYU7BonfX6a8hycc-_AFyR126ru3bBfFmLK1uvb3hH0y
 
-===
