@@ -1,4 +1,5 @@
 #+OPTIONS: date:t H:2 num:t toc:nil
+# C-c C-e h h
 * Zoom 録画
 
 ** 第1回
@@ -42,3 +43,12 @@ https://zoom.us/rec/share/zv5UPbrf0llLQp3sw0HYeYU7BonfX6a8hycc-_AFyR126ru3bBfFmL
 
 ミーティングの記録:
 https://zoom.us/rec/share/uupxMK7L1ERJG6fg5VjhRKkCMqPKaaa80CkXqKAMn0qHFIAH6qz780QdxKeN9n4X
+
+** 第7回
+トピック: 数理科学続論 I
+日付: 2020年6月5日 04:35 PM 大阪、札幌、東京
+
+ミーティングの記録:
+https://zoom.us/rec/share/9-pnEevq6zlLeJGdwVHiW6UnTqH8T6a813IY8vINy0tG_uLYLw8kCAGLt8I3LnfO
+
+
