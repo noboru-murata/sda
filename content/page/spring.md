@@ -52,6 +52,8 @@ weight = 1003
 8.  [記述統計量](https://noboru-murata.github.io/sda/spring/slide08.html) (基礎的な記述統計量とデータの集約)
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide08.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide08.R)
+    [[データ収集の例]​](https://noboru-murata.github.io/sda/spring/code/ex08.R)
+    [[サンプルデータ(prices.csv)]​](https://noboru-murata.github.io/sda/spring/data/prices.csv)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}

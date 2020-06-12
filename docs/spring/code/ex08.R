@@ -17,6 +17,9 @@ myData <- data.frame( # FB が 2012-05-18 からしかないので，2012-06 以
     AAPL['2012-06/',1])
 names(myData) <- companies
 
+## データを保存する
+write.csv(myData,file="data/prices.csv")
+
 ## グラフを書いてみる
 plot.ts(myData) # 時系列として表示
 matplot(myData, type="l", col=rainbow(6))

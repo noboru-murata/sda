@@ -86,6 +86,8 @@
    8. [[github:spring/slide08.html][記述統計量]] (基礎的な記述統計量とデータの集約)
       [[github:spring/pdfs/slide08.pdf][[PDF]​]] 
       [[github:spring/code/slide08.R][[解答例]​]] 
+      [[github:spring/code/ex08.R][[データ収集の例]​]]
+      [[github:spring/data/prices.csv][[サンプルデータ(prices.csv)]​]]
 
 ** 参考: 2019年度版スライド
    9. [[github:spring/slide09.html][推定]] (確率分布を推定する)
