@@ -651,7 +651,7 @@
                  # ただし多くの場合 d"乱数名"で定義されているので不要
        myData <- replicate(mc, myRandom()) # Monte-Carlo実験
        hist(myData, freq=FALSE) # 乱数の分布(密度)の表示
-       curve(myDist(x)) # 理論曲線(確率密度)を重ね描き，変数xを明示した方が良い
+       curve(myDist(x), add=TRUE) # 理論曲線(確率密度) 変数xを明示した方が良い
      #+end_src
 ** 練習問題
    :PROPERTIES:
