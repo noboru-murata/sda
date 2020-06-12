@@ -20,6 +20,12 @@ names(myData) <- companies
 ## データを保存する
 write.csv(myData,file="data/prices.csv")
 
+### ここまでが収集の例
+
+## 保存したデータを読み込む
+myData <- read.csv(file="data/prices.csv", row.names=1)
+companies <- names(myData)
+
 ## グラフを書いてみる
 plot.ts(myData) # 時系列として表示
 matplot(myData, type="l", col=rainbow(6))
