@@ -54,11 +54,13 @@ weight = 1003
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide08.R)
     [[データ収集の例]​](https://noboru-murata.github.io/sda/spring/code/ex08.R)
     [[サンプルデータ(prices.csv)]​](https://noboru-murata.github.io/sda/spring/data/prices.csv)
+9.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide09.pdf)
+    [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide09.R)
 
 
 ## 参考: 2019年度版スライド {#参考-2019年度版スライド}
 
-1.  [推定](https://noboru-murata.github.io/sda/spring/slide09.html) (確率分布を推定する)
-2.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
-3.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
-4.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+1.  [検定](https://noboru-murata.github.io/sda/spring/slide10.html) (仮説の正当性をデータから検証する)
+2.  [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
+3.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)

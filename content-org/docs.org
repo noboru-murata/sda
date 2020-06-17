@@ -88,9 +88,11 @@
       [[github:spring/code/slide08.R][[解答例]​]] 
       [[github:spring/code/ex08.R][[データ収集の例]​]]
       [[github:spring/data/prices.csv][[サンプルデータ(prices.csv)]​]]
+   9. [[github:spring/slide09.html][推定]] (確率分布を推定する)
+      [[github:spring/pdfs/slide09.pdf][[PDF]​]] 
+      [[github:spring/code/slide09.R][[解答例]​]] 
 
 ** 参考: 2019年度版スライド
-   9. [[github:spring/slide09.html][推定]] (確率分布を推定する)
    10. [[github:spring/slide10.html][検定]] (仮説の正当性をデータから検証する)
    11. [[github:spring/slide11.html][分散分析]] (複数のグループ間の違いを検証する)
    12. [[github:spring/slide12.html][回帰分析]] (変数間の関係を推測する)

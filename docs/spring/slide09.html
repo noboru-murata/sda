@@ -52,49 +52,57 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.06.14</p>
+  2020.06.19</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-org0a32b65">
-<h2 id="org0a32b65">推定とは</h2>
-<div class="outline-text-2" id="text-org0a32b65">
+<section id="slide-org07def5e">
+<h2 id="org07def5e">推定とは</h2>
+<div class="outline-text-2" id="text-org07def5e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7db15b7">
-<h3 id="org7db15b7">統計解析の目標</h3>
+<section id="slide-org9c6b6c8">
+<h3 id="org9c6b6c8">統計解析の目的</h3>
 <ul>
 <li>観測データを確率変数の実現値と考えてモデル化</li>
 <li>観測データの背後の確率分布を <b>推定</b>
 <ul>
-<li>分布のもつなんらかの特性量(平均や分散など)を評価する</li>
-<li>分布そのものを決定する</li>
+<li>分布のもつ特性量(平均や分散など)を評価する</li>
+<li>分布そのもの(確率関数や確率密度)を決定する</li>
 
 </ul></li>
-<li>統計学で広く利用されている推定方法を説明</li>
+<li>統計学で広く利用されている推定方法を説明
+<ul>
+<li>点推定</li>
+<li>区間推定</li>
+
+</ul></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2d584df">
-<h3 id="org2d584df">推定の枠組</h3>
+<section id="slide-org54f3014">
+<h3 id="org54f3014">推定の標準的な枠組</h3>
 <ul>
 <li>観測データは独立同分布な確率変数列 \(X_1,X_2,\dots,X_n\)</li>
-<li>\(X_i\) の従う共通の分布 \(\mathcal{L}\) を想定</li>
-<li>\(\mathcal{L}\)  としてすべての分布を考察対象とすることは困難
+<li>\(X_i\) の従う共通の法則 \(\mathcal{L}\) を想定
+<ul>
+<li>\(\mathcal{L}\) として全ての分布を考察対象とすることは困難
 <ul>
 <li>対象とする範囲が広くなりすぎる</li>
 <li>データ数 \(n\) が大きくないと意味のある結論を導き出せない</li>
 
 </ul></li>
-<li>確率分布 \(\mathcal{L}\) を特徴づけるパラメータ \(\theta\) を考察対象
+<li>確率分布 \(\mathcal{L}\) を特徴づけるパラメタ \(\theta\) を考察対象
 <ul>
 <li>\(\mathcal{L}\) の平均・分散・歪度・尖度など</li>
-<li>\(\mathcal{L}\) の <b>確率関数・確率密度関数のパラメータ</b></li>
+<li>\(\mathcal{L}\) の <b>確率関数・確率密度関数のパラメタ</b></li>
+
+</ul></li>
 
 </ul></li>
 
@@ -104,17 +112,23 @@
 </section>
 </section>
 <section>
-<section id="slide-orgdf1a834">
-<h2 id="orgdf1a834">点推定</h2>
-<div class="outline-text-2" id="text-orgdf1a834">
+<section id="slide-orgd1d1223">
+<h2 id="orgd1d1223">点推定</h2>
+<div class="outline-text-2" id="text-orgd1d1223">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1872973">
-<h3 id="org1872973">パラメータの点推定</h3>
+<section id="slide-org631ca35">
+<h3 id="org631ca35">点推定</h3>
 <ul>
 <li><p>
-\(\mathcal{L}\) に含まれるパラメータ \(\theta\) を \(X_1,\dots,X_n\) の関数
+定義
+</p>
+<blockquote>
+<p>
+点推定とは
+\(\mathcal{L}\) 
+に含まれるパラメタ \(\theta\) を \(X_1,\dotsc,X_n\) の関数
 </p>
 <div>
 \begin{equation}
@@ -122,29 +136,36 @@
 \end{equation}
 
 </div>
+
 <p>
-で推定すること
-</p></li>
-<li>\(\hat{\theta}\) を \(\theta\) の <b>推定量</b> と呼ぶ</li>
-<li>記述統計量は分布のパラメータの推定量の一つ
-<ul>
-<li>例: \(\mathcal{L}\) の平均 \(\mu\) を
+で推定することで，
+\(\hat{\theta}\) を \(\theta\) の <b>推定量</b> と呼ぶ．
+</p>
+</blockquote></li>
+<li><p>
+記述統計量は分布のパラメタの1つ
+</p>
+<blockquote>
+<p>
+例: 
+\(\mathcal{L}\) の平均 \(\mu\) を
 標本平均 \(\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\) によって
 推定することが点推定であり,
-\(\bar{X}\) は \(\mu\) の推定量となる．</li>
-
-</ul></li>
+\(\bar{X}\) は \(\mu\) の推定量となる．
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1d6f651">
-<h3 id="org1d6f651">良い推定量</h3>
+<section id="slide-org3555d32">
+<h3 id="org3555d32">良い推定量</h3>
 <ul>
-<li>一般に1つのパラメータの推定量は無数に存在</li>
-<li>推定量の良さを評価する基準が必要</li>
-<li>代表的な基準: <b>不偏性・一致性</b>
+<li>一般に1つのパラメタの推定量は無数に存在</li>
+<li><p>
+推定量の良さの代表的な基準: <b>不偏性・一致性</b>
+</p>
 <ul>
 <li><p>
 \(\hat{\theta}\) が \(\theta\) の不偏推定量:
@@ -155,6 +176,7 @@
 \end{equation}
 
 </div></li>
+
 <li><p>
 \(\hat{\theta}\) が \(\theta\) の(強)一致推定量:
 </p>
@@ -164,33 +186,45 @@
 \end{equation}
 
 </div></li>
-<li>例: 標本平均, 不偏分散はそれぞれ
-\(\mathcal{L}\) の平均, 分散の不偏かつ一致性をもつ推定量</li>
 
-</ul></li>
+</ul>
+
+<blockquote>
+<p>
+例: 
+標本平均, 不偏分散はそれぞれ
+\(\mathcal{L}\) の平均, 分散の不偏かつ一致性をもつ推定量
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaa04597">
-<h3 id="orgaa04597">良い不偏推定量</h3>
+<section id="slide-org1a6f75a">
+<h3 id="org1a6f75a">良い不偏推定量</h3>
 <ul>
-<li>一般に不偏推定量も複数存在
-<ul>
-<li>例: \(\mathcal{L}\) の平均 \(\mu\) の不偏推定量:
+<li><p>
+一般に不偏推定量も複数存在
+</p>
+<blockquote>
+<p>
+例: \(\mathcal{L}\) の平均 \(\mu\) の不偏推定量:
+</p>
 <ul>
 <li>標本平均 \(\bar{X}\)</li>
 <li>\(X_1\)</li>
 <li>\(X_1,\dots,X_n\) のメディアン
 ( \(\mathcal{L}\) が \(x=\mu\) に関して対称な場合)</li>
 
-</ul></li>
-
-</ul></li>
+</ul>
+</blockquote></li>
 <li>不偏推定量の良さを評価する基準が必要</li>
 <li><p>
 <b>一様最小分散不偏推定量</b>:
+</p>
+<blockquote>
+<p>
 \(\theta\) の任意の不偏推定量 \(\hat{\theta}'\) 
 に対して推定値のばらつき(分散)が最も小さいもの
 </p>
@@ -199,16 +233,22 @@
   \mathrm{Var}(\hat{\theta})\le\mathrm{Var}(\hat{\theta}')
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org281d6fd">
-<h3 id="org281d6fd">Cramer-Raoの不等式</h3>
+<section id="slide-org06d63ce">
+<h3 id="org06d63ce">Cramer-Raoの不等式</h3>
+<ul>
+<li><p>
+定理
+</p>
+<blockquote>
 <p>
-\(\mathcal{L}\) は1次元パラメータ \(\theta\) を含む連続分布とし，
+\(\mathcal{L}\) は1次元パラメタ \(\theta\) を含む連続分布とし，
 その確率密度関数 \(f_\theta(x)\) は \(\theta\) に関して
 偏微分可能であるとする．
 このとき，緩やかな仮定の下で，
@@ -221,6 +261,7 @@
 \end{equation}
 
 </div>
+
 <p>
 ただし
 </p>
@@ -232,37 +273,43 @@
 \end{equation}
 
 </div>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgeba4785">
-<h3 id="orgeba4785">一様最小分散不偏推定量</h3>
-<ul>
-<li>定理の不等式: <b>Cramer-Raoの不等式</b></li>
-<li>下界 \(1/(nI(\theta))\) : <b>Cramer-Rao下界</b></li>
-<li>\(I(\theta)\) : <b>Fisher情報量</b></li>
+</blockquote></li>
 
 </ul>
 
-<p>
-Cramer-Raoの不等式は
-一様最小分散不偏推定量を見出す方法の1つとして利用できる．
-</p>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2d3cf4b">
+<h3 id="org2d3cf4b">一様最小分散不偏推定量</h3>
+<ul>
+<li>用語の定義
+<ul>
+<li>下界 \(1/(nI(\theta))\) : <b>Cramer-Rao下界</b></li>
+<li>\(I(\theta)\) : <b>Fisher情報量</b></li>
 
+</ul></li>
+<li><p>
+定理 (Cramer-Raoの不等式の系)
+</p>
+<blockquote>
 <p>
 \(\theta\) の不偏推定量 \(\hat{\theta}\) で
 分散がCramer-Rao下界 \(1/(nI(\theta))\) に一致するものが存在すれば，
 それは一様最小分散不偏推定量となる．
 </p>
+</blockquote></li>
+
+</ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9384fde">
-<h3 id="org9384fde">例: 正規分布モデルの標本平均</h3>
+<section id="slide-org9cf94d3">
+<h3 id="org9cf94d3">例: 正規分布モデルの標本平均</h3>
 <ul>
-<li>\(\mathcal{L}\) が平均 \(\mu\) , 分散 \(\sigma^2\) の正規分布を考える</li>
+<li>\(\mathcal{L}\) は平均 \(\mu\) , 分散 \(\sigma^2\) の正規分布
+<ul>
 <li><p>
-平均パラメーター \(\mu\) に関するFisher情報量:
+平均パラメタ \(\mu\) に関するFisher情報量:
 </p>
 <div>
 \begin{align}
@@ -273,71 +320,97 @@ Cramer-Raoの不等式は
 \end{align}
 
 </div></li>
+
 <li>Cramer-Rao下界: \(\sigma^2/n\)</li>
 <li>標本平均 \(\bar{X}\) の分散: \(\sigma^2/n\) (=Cramer-Rao下界)</li>
+
+</ul></li>
 <li>\(\bar{X}\) は \(\mu\) の一様最小分散不偏推定量</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgac0d31c" data-background="#fef4f4">
-<h3 id="orgac0d31c">演習</h3>
+</section>
+<section>
+<section id="slide-orgf47922e" data-background="#fef4f4">
+<h2 id="orgf47922e">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9825dbf" data-background="#fef4f4">
+<h3 id="org9825dbf">練習問題</h3>
 <ul>
-<li><code>est-umvue.r</code> を確認しなさい．</li>
-<li>一様乱数を用いて，以下の平均値の推定量の分散を比較しなさい．
+<li>\(X\) を一様乱数に従う確率変数とし，
+平均値の推定量として以下を考える．
+それぞれの推定量の分散を比較しなさい．
 <ul>
-<li>標本平均</li>
-<li>メディアン</li>
-<li>最大値と最小値の平均</li>
+<li>標本平均 (mean)</li>
+<li>中央値 (median)</li>
+<li>最大値と最小値の平均 ((max+min)/2)</li>
+
+</ul></li>
+<li><p>
+ヒント: 以下のような関数を作り，Monte-Carlo実験を行えばよい
+</p>
+<div class="org-src-container">
+
+<pre><code class=" R" >myMeanEst &lt;- function(n, min, max){ # 観測データ数
+    x &lt;- runif(n, min=min, max=max) # 一様乱数を生成，範囲は引数から
+    return(c(xbar=mean(x),med=median(x),mid=(max(x)+min(x))/2))
+} # 3つまとめて計算する関数
+</code></pre>
+</div></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orga7522b9">
+<h2 id="orga7522b9">最尤法</h2>
+<div class="outline-text-2" id="text-orga7522b9">
+</div>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org2d16755">
+<h3 id="org2d16755">離散分布の場合</h3>
+<ul>
+<li>観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率
+<ul>
+<li>確率関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
+<li>確率関数のパラメタ: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\)</li>
+<li><p>
+独立な確率変数の同時確率:
+</p>
+<div>
+\begin{align}
+  & P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)
+    =\prod_{i=1}^nP(X_i=x_i)\\
+  &=
+     \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
+     =f_{\boldsymbol{\theta}}(x_1)\cdot
+     f_{\boldsymbol{\theta}}(x_2)\cdots
+     f_{\boldsymbol{\theta}}(x_n)
+\end{align}
+
+</div></li>
 
 </ul></li>
 
 </ul>
 
-
 <div class="slide-footer"><br></div>
 </section>
-</section>
-<section>
-<section id="slide-orgf1d0548">
-<h2 id="orgf1d0548">最尤法</h2>
-<div class="outline-text-2" id="text-orgf1d0548">
-</div>
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-org06c0695">
-<h3 id="org06c0695">離散分布の場合</h3>
+<section id="slide-org98780a0">
+<h3 id="org98780a0">尤度関数</h3>
 <ul>
-<li>確率関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
-<li>確率関数のパラメータ: \(\boldsymbol{\theta}:=(\theta_1,\dots,\theta_p)\)</li>
 <li><p>
-観測値 \(X_1=x_1,X_2=x_2,\dots,X_n=x_n\) の同時確率:
+定義
 </p>
-<div>
-\begin{align}
-  & P(X_1=x_1,X_2=x_2,\dots,X_n=x_n)\\
-  =&\prod_{i=1}^nP(X_i=x_i)\\
-  =&
-  \prod_{i=1}^nf_{\boldsymbol{\theta}}(x_i)
-  =f_{\boldsymbol{\theta}}(x_1)\cdot
-  f_{\boldsymbol{\theta}}(x_2)\cdots
-  f_{\boldsymbol{\theta}}(x_n)
-\end{align}
-
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgc8d12a4">
-<h3 id="orgc8d12a4">尤度関数</h3>
-<ul>
-<li><p>
-\(\boldsymbol{\theta}\) <b>の尤度</b> \(L(\boldsymbol{\theta})\) : 
-パラメータ \(\boldsymbol{\theta}\) に対して
-観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率: 
+<blockquote>
+<p>
+パラメタ \(\boldsymbol{\theta}\) に対して
+観測データ \(X_1,X_2,\dots,X_n\) が得られる理論上の確率
 </p>
 <div>
 \begin{equation}
@@ -345,25 +418,48 @@ Cramer-Raoの不等式は
   :=\prod_{i=1}^nf_{\boldsymbol{\theta}}(X_i)
 \end{equation}
 
-</div></li>
-<li>観測データ \(X_1,X_2,\dots,X_n\) が現れるのに
-パラメータ \(\boldsymbol{\theta}\) の値が
-どの程度尤もらしいかを測る尺度</li>
-<li><b>尤度関数</b> \(L(\boldsymbol{\theta})\) :
-\(\boldsymbol{\theta}\) の関数とみなしたもの</li>
+</div>
+
+<p>
+を
+\(\boldsymbol{\theta}\) の 
+<b>尤度</b> と言い，
+\(\boldsymbol{\theta}\) の関数 \(L\) を <b>尤度関数</b> と呼ぶ．
+</p>
+</blockquote>
+<ul>
+<li>観測データ 
+\(X_1,X_2,\dots,X_n\) 
+が現れるのにパラメタ 
+\(\boldsymbol{\theta}\) 
+の値がどの程度尤もらしいかを測る尺度</li>
+
+</ul></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6b8de0f">
-<h3 id="org6b8de0f">最尤法</h3>
+<section id="slide-orgb6233f2">
+<h3 id="orgb6233f2">最尤法</h3>
 <ul>
-<li><b>最尤法</b>: 観測データに対して「最も尤もらしい」パラメータ
-を \(\boldsymbol{\theta}\) の推定量として採用する方法</li>
 <li><p>
-<b>最尤推定量</b> \(\hat{\boldsymbol{\theta}}\) :
-尤度関数を最大とする \(\boldsymbol{\theta}\) 
+最尤法: 
+</p>
+<blockquote>
+<p>
+観測データに対して「最も尤もらしい」パラメタ値
+を \(\boldsymbol{\theta}\) の推定量として採用する方法
+を最尤法という．
+</p>
+</blockquote></li>
+<li><p>
+最尤推定量:
+</p>
+<blockquote>
+<p>
+\(\Theta\) を尤度関数の定義域として，
+尤度関数を最大とする  \(\hat{\boldsymbol{\theta}}\) 
 </p>
 <div>
 \begin{equation}
@@ -372,8 +468,15 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
+
 <p>
-または以下のように表現
+を 
+\(\boldsymbol{\theta}\) 
+の <b>最尤推定量</b> という．
+</p>
+
+<p>
+以下のように表現することもある．
 </p>
 <div>
 \begin{equation}
@@ -382,18 +485,15 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
-<p>
-\(\Theta\) は尤度関数の定義域
-</p></li>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2d5a6a9">
-<h3 id="org2d5a6a9">最尤推定量の計算</h3>
+<section id="slide-org238f5ad">
+<h3 id="org238f5ad">最尤推定量の計算</h3>
 <ul>
-<li>扱い易い和の形に直すために対数を取ることが多い</li>
 <li><p>
 <b>対数尤度関数</b>:
 </p>
@@ -408,19 +508,27 @@ Cramer-Raoの不等式は
 <ul>
 <li>対数関数は狭義増加</li>
 <li>\(\ell(\boldsymbol{\theta})\) の最大化と \(L(\boldsymbol{\theta})\) の最大化は同義</li>
+<li>扱い易い和の形なのでこちらを用いることが多い</li>
+<li>大数の法則を用いて対数尤度関数の収束が議論できる</li>
 
 </ul></li>
-<li>広い範囲の確率分布に対して最尤推定量は <b>一致性を持つ</b></li>
+<li><p>
+最尤推定量の性質
+</p>
+<blockquote>
+<p>
+広い範囲の確率分布に対して最尤推定量は <b>一致性</b> を持つ
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4774cf8">
-<h3 id="org4774cf8">連続分布の場合</h3>
+<section id="slide-orgae2ee26">
+<h3 id="orgae2ee26">連続分布の場合</h3>
 <ul>
-<li><b>確率密度関数</b> を用いて尤度を定義</li>
-<li>確率密度関数: \(f_{\boldsymbol{\theta}}(x)\)</li>
+<li><b>確率密度関数</b> \(f_{\boldsymbol{\theta}}(x)\) を用いて尤度を定義</li>
 <li><p>
 <b>尤度関数</b>: 
 </p>
@@ -450,12 +558,13 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org08098f8">
-<h3 id="org08098f8">例: Poisson分布</h3>
+<section id="slide-org1e017b9">
+<h3 id="org1e017b9">例: Poisson分布の最尤推定</h3>
 <ul>
-<li>\(\mathcal{L}\) をパラメータ \(\lambda>0\) のPoisson分布でモデル化</li>
+<li>\(\mathcal{L}\) をパラメタ \(\lambda>0\) のPoisson分布でモデル化
+<ul>
 <li><p>
-対数尤度関数 (未知パラメータ: \(\lambda\) )
+対数尤度関数 (未知パラメタ: \(\lambda\) )
 </p>
 <div>
 \begin{equation}
@@ -464,14 +573,17 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div></li>
+
 <li>少なくとも1つの \(i\) について \(X_i>0\) を仮定する</li>
 
-</ul>
+</ul></li>
 
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9116130">
-<h3 id="org9116130">例: Poisson分布 (つづき)</h3>
+<section>
+<ul>
+<li>(Poisson分布のつづき)
 <ul>
 <li><p>
 \(\ell(\lambda)\) の微分: 
@@ -483,6 +595,7 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div></li>
+
 <li>方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化</li>
 <li><p>
 \(\lambda\) の最尤推定量:
@@ -494,16 +607,19 @@ Cramer-Raoの不等式は
 
 </div></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org81e14aa">
-<h3 id="org81e14aa">例: 指数分布</h3>
+<section id="slide-org3ae8808">
+<h3 id="org3ae8808">例: 指数分布の最尤推定</h3>
 <ul>
-<li>\(\mathcal{L}\) をパラメータ \(\lambda>0\) の指数分布でモデル化</li>
+<li>\(\mathcal{L}\) をパラメタ \(\lambda>0\) の指数分布でモデル化
+<ul>
 <li><p>
-対数尤度関数 (未知パラメータ: \(\lambda\) )
+対数尤度関数 (未知パラメタ: \(\lambda\) )
 </p>
 <div>
 \begin{equation}
@@ -513,12 +629,15 @@ Cramer-Raoの不等式は
 
 </div></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3f66a70">
-<h3 id="org3f66a70">例: 指数分布 (つづき)</h3>
+<section>
+<ul>
+<li>(指数分布のつづき)
 <ul>
 <li><p>
 \(\ell(\lambda)\) の微分: 
@@ -530,6 +649,7 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div></li>
+
 <li>方程式 \(\ell'(\lambda)=0\) の解が \(\ell(\lambda)\) を最大化</li>
 <li><p>
 \(\lambda\) の最尤推定量:
@@ -541,16 +661,19 @@ Cramer-Raoの不等式は
 
 </div></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0492ef8">
-<h3 id="org0492ef8">例: ガンマ分布</h3>
+<section id="slide-org7f7a5ca">
+<h3 id="org7f7a5ca">例: ガンマ分布の最尤推定</h3>
 <ul>
-<li>\(\mathcal{L}\) をパラメータ \(\nu,\alpha>0\) のガンマ分布でモデル化</li>
+<li>\(\mathcal{L}\) をパラメタ \(\nu,\alpha>0\) のガンマ分布でモデル化
+<ul>
 <li><p>
-対数尤度関数 (未知パラメータ: \(\nu,\alpha\) )
+対数尤度関数 (未知パラメタ: \(\nu,\alpha\) )
 </p>
 <div>
 \begin{align}
@@ -560,18 +683,38 @@ Cramer-Raoの不等式は
 \end{align}
 
 </div></li>
+
 <li>\(\ell(\nu,\alpha)\) を最大化する \(\nu,\alpha\) は解析的に求まらないので実際の計算では数値的に求める</li>
 
-</ul>
+</ul></li>
 
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf9ddf34" data-background="#fef4f4">
-<h3 id="orgf9ddf34">演習</h3>
+<section>
 <ul>
-<li><code>est-mle.r</code> を確認しなさい．</li>
-<li>自身で収集したデータについてモデル化し，
-最尤推定量を求めなさい．</li>
+<li><p>
+Rでの計算例 (ガンマ分布の最尤推定量の例)
+</p>
+<div class="org-src-container">
+
+<pre><code class=" R" >library(stats4) # 関数mleを利用するため
+## 数値最適化のためには尤度関数を最初に評価する初期値が必要
+mle.gamma &lt;- function(x, # 観測データ
+		      nu0=1, alpha0=1){ # nu, alphaの初期値
+    ## 負の対数尤度関数を定義 (最小化を考えるため)
+    ll &lt;- function(nu, alpha) # nuとalphaの関数として定義 
+	suppressWarnings(-sum(dgamma(x, nu, alpha, log=TRUE)))
+    ## suppressWarnings は定義域外で評価された際の警告を表示させない
+    ## 最尤推定(負の尤度の最小化)
+    est &lt;- mle(minuslogl=ll, # 負の対数尤度関数
+	       start=list(nu=nu0, alpha=alpha0), # 初期値
+	       method="BFGS", # 最適化方法 (選択可能)
+	       nobs=length(x)) # 観測データ数
+    return(coef(est)) # 推定値のみ返す
+}
+</code></pre>
+</div></li>
 
 </ul>
 
@@ -579,20 +722,51 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-org4099ad3">
-<h2 id="org4099ad3">区間推定</h2>
-<div class="outline-text-2" id="text-org4099ad3">
+<section id="slide-org078dbc9" data-background="#fef4f4">
+<h2 id="org078dbc9">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-orgd2e6acf" data-background="#fef4f4">
+<h3 id="orgd2e6acf">練習問題</h3>
+<ul>
+<li><p>
+東京都の気候データ (<code>tokyo_weather.csv</code>) の
+風速の項目について以下の問に答えよ．
+</p>
+<div class="org-src-container">
+
+<pre><code class=" R" >myData &lt;- read.csv("data/tokyo_weather.csv", fileEncoding="utf8")
+</code></pre>
+</div>
+<ul>
+<li>全データを用いてヒストグラム(密度)を作成しなさい．</li>
+<li>ガンマ分布でモデル化して最尤推定を行いなさい．</li>
+<li>推定した結果をヒストグラムに描き加えて比較しなさい．</li>
+
+</ul></li>
+<li>自身で収集したデータを用いて，モデル化と最尤推定を試みよ．</li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+</section>
+<section>
+<section id="slide-orgdd9437f">
+<h2 id="orgdd9437f">区間推定</h2>
+<div class="outline-text-2" id="text-orgdd9437f">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4c9c9a1">
-<h3 id="org4c9c9a1">推定誤差</h3>
+<section id="slide-orgb9a5078">
+<h3 id="orgb9a5078">推定誤差</h3>
 <ul>
 <li>推定量 \(\hat{\theta}\) には推定誤差が必ず存在</li>
-<li>推定結果の定量的な評価には推定誤差の評価が重要</li>
+<li>推定結果の定量評価には推定誤差の評価が重要
+<ul>
 <li><p>
-「誤差 \(\hat{\theta}-\theta\) が
-区間 \([l,u]\) の外側(内側)にある確率が \(\alpha\) (\(1{-}\alpha\)) 以下 」 
+&ldquo;誤差 \(\hat{\theta}-\theta\) が
+区間 \([l,u]\) の内側にある確率が \(1{-}\alpha\) 以上 &rdquo; <br />
+(&ldquo;外側にある確率が \(\alpha\) 以下&rdquo; と言い換えてもよい)
 </p>
 <div>
 \begin{equation}
@@ -600,9 +774,14 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div></li>
+
+</ul></li>
+
+<li>パラメタの範囲の推定に書き換え
+<ul>
 <li><p>
-「 \(\theta\) が含まれる確率が \(1{-}\alpha\) 以上となるような区間
-\([\hat{\theta}-u,\hat{\theta}-l]\) を推定」
+&ldquo; \(\theta\) が含まれる確率が \(1{-}\alpha\) 以上となるような区間
+\([\hat{\theta}-u,\hat{\theta}-l]\) を推定&rdquo;
 </p>
 <div>
 \begin{equation}
@@ -611,17 +790,23 @@ Cramer-Raoの不等式は
 
 </div></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgeaa5159">
-<h3 id="orgeaa5159">区間推定</h3>
+<section id="slide-org323e98b">
+<h3 id="org323e98b">区間推定</h3>
 <ul>
 <li><p>
-<b>区間推定</b>: 
-未知パラメータ \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
-以下を満たす確率変数 \(L,U\) を観測データから求めること
+定義
+</p>
+<blockquote>
+<p>
+区間推定とは
+未知パラメタ \(\theta\) とある値 \(\alpha\in(0,1)\) に対して
+以下を満たす確率変数 \(L,U\) を観測データから求めることをいう．
 </p>
 <div>
 \begin{equation}
@@ -629,6 +814,7 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
+</blockquote>
 <ul>
 <li>区間 \([L,U]\) : \(1{-}\alpha\) <b>信頼区間</b> (\(100(1{-}\alpha)\) % と書くことも多い)</li>
 <li>\(L\) : \(1{-}\alpha\) <b>下側信頼限界</b></li>
@@ -642,13 +828,16 @@ Cramer-Raoの不等式は
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb8b3e96">
-<h3 id="orgb8b3e96">信頼区間</h3>
+<section id="slide-org63c214d">
+<h3 id="org63c214d">信頼区間の性質</h3>
 <ul>
-<li>信頼区間は幅が狭いほど推定精度が良い<br />
-(真のパラメータが取りうる値の範囲を限定することになるため)</li>
+<li>信頼区間は幅が狭いほど推定精度が良い
+<ul>
+<li>真のパラメタが取りうる値の範囲を限定することになるため</li>
+
+</ul></li>
 <li><p>
-最も推定精度の良い \(1{-}\alpha\) 信頼区間 \([L,U]\) は
+最も推定精度の良い \(1{-}\alpha\) 信頼区間 \([L,U]\)
 </p>
 <div>
 \begin{equation}
@@ -656,9 +845,11 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
-<p>
-(信頼区間の幅が狭いほど確率 \(P(L\le\theta\le U)\) は小さくなるため)
-</p></li>
+
+<ul>
+<li>信頼区間の幅が狭いほど \(P(L\le\theta\le U)\) は小さくなるため</li>
+
+</ul></li>
 <li>実行可能である限り
 \(1{-}\alpha\) 信頼区間 \([L,U]\) は上式を満たすように
 \(L,U\) を決定する</li>
@@ -669,34 +860,41 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-orgae02450">
-<h2 id="orgae02450">正規母集団の区間推定</h2>
-<div class="outline-text-2" id="text-orgae02450">
+<section id="slide-orga0047b2">
+<h2 id="orga0047b2">正規母集団の区間推定</h2>
+<div class="outline-text-2" id="text-orga0047b2">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf4e327c">
-<h3 id="orgf4e327c">正規分布の性質1</h3>
-<p>
-正規分布に従う独立な確率変数の重み付き和は正規分布に従う
-</p>
+<section id="slide-org9e4f13c">
+<h3 id="org9e4f13c">平均の区間推定 (分散既知)</h3>
 <ul>
-<li>\(Z_1,Z_2,\dots,Z_k\) を独立な確率変数列とし，
+<li>正規分布に従う独立な確率変数の重み付き和は正規分布に従う</li>
+<li><p>
+一般の場合
+</p>
+<blockquote>
+<p>
+\(Z_1,Z_2,\dots,Z_k\) を独立な確率変数列とし，
 各 \(i=1,2,\dots,k\) に対して \(Z_i\) は平均 \(\mu_i\) ，
 分散 \(\sigma_i^2\) の正規分布に従うとする．
 このとき \(a_0,a_1,\dots,a_k\) を \((k+1)\) 個の0でない実数とすると，
 \(a_0+\sum_{i=1}^ka_iZ_i\) は
 平均 \(a_0+\sum_{i=1}^ka_i\mu_i\) ，
-分散 \(\sum_{i=1}^ka_i^2\sigma_i^2\) の正規分布に従う．</li>
+分散 \(\sum_{i=1}^ka_i^2\sigma_i^2\) の正規分布に従う．
+</p>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org16ae02f">
-<h3 id="org16ae02f">正規分布の性質2</h3>
+<section>
 <ul>
 <li><p>
+同分布の場合
+</p>
+<blockquote>
+<p>
 \(k=n\), \(\mu_i=\mu\), \(\sigma_i^2=\sigma^2\), \(a_0=0\),
 \(a_i=1/n\;(i=1,\dots,n)\)
 </p>
@@ -706,31 +904,41 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
+
 <p>
-は平均 \(\mu\) , 分散 \(\sigma^2/n\) の正規分布に従う
-</p></li>
+は平均 \(\mu\) , 分散 \(\sigma^2/n\) の正規分布に従う．
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
 <li><p>
+同分布を標準化した場合
+</p>
+<blockquote>
+<p>
 \(k=1\) , \(\mu_1=\mu\) , \(\sigma_1^2=\sigma^2/n\) ,
 \(a_0=-\sqrt{n}\mu/\sigma\) , \(a_1=\sqrt{n}/\sigma\)
 </p>
 <div>
 \begin{equation}
-  \frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
+  Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
 \end{equation}
 
 </div>
+
 <p>
-は標準正規分布に従う
-</p></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orga855d38">
-<h3 id="orga855d38">平均の区間推定 (分散既知)</h3>
-<ul>
+は標準正規分布に従う．
+</p>
+</blockquote></li>
 <li><p>
+標準化した確率変数の確率
+</p>
+<blockquote>
+<p>
 \(z_{1{-}\alpha/2}\) を標準正規分布の
 \(1{-}\alpha/2\) 分位点とすれば
 </p>
@@ -740,36 +948,87 @@ Cramer-Raoの不等式は
     \le z_{1{-}\alpha/2}\Bigr)=1{-}\alpha
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
 <li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
 \(\mu\) について解くと
 </p>
 <div>
 \begin{equation}
-  P\Bigl(\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\le\mu
-    \le\bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n} \Bigr)=1{-}\alpha
+  P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\le\mu
+  \le\bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right)=1{-}\alpha
 \end{equation}
 
-</div></li>
-<li><p>
-\(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>:
+</div>
+
+<p>
+となるので，
+\(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b> は
+以下で構成される．
 </p>
 <div>
 \begin{equation}
-  \bigl[\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n},\;
-  \bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\bigr]
+  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
+  \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9cf44da">
-<h3 id="org9cf44da">正規分布の性質3</h3>
+<section id="slide-org21e9f12">
+<h3 id="org21e9f12">平均の区間推定 (分散未知)</h3>
+<ul>
+<li>\(\chi^2\) 分布の特徴付け
+<ul>
+<li>標準正規分布に従う \(k\) 個の独立な確率変数の
+二乗和は自由度 \(k\) の \(\chi^2\) 分布に従う</li>
+
+</ul></li>
+<li>\(t\) 分布の特徴付け
 <ul>
 <li><p>
+\(Z\) を標準正規分布に従う確率変数，
+\(Y\) を自由度 \(k\) の \(\chi^2\) 分布に従う確率変数とし，
+\(Z,Y\) は独立であるとする．
+このとき確率変数
+</p>
+<div>
+\begin{equation}
+  \frac{Z}{\sqrt{Y/k}}
+\end{equation}
+
+</div>
+
+<p>
+は自由度 \(k\) の \(t\) 分布に従う
+</p></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+標本平均と不偏分散の性質
+</p>
+<blockquote>
+<p>
 \(X_1,X_2,\dots,X_n\) は独立同分布な確率変数列で，
 平均 \(\mu\) ，分散 \(\sigma^2\) の正規分布に従うとする．
 不偏分散を
@@ -780,124 +1039,146 @@ Cramer-Raoの不等式は
 \end{equation}
 
 </div>
+
 <p>
 とすると， \(\bar{X}\) と \(s^2\) は独立であり，
 確率変数 \((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う．
-</p></li>
+</p>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf1a2820">
-<h3 id="orgf1a2820">正規分布の性質4</h3>
+<section>
 <ul>
 <li><p>
-上の命題と \(\sqrt{n}(\bar{X}-\mu)/\sigma\) が標準正規分布に従うこ
+標準化した確率変数の性質
+</p>
+<blockquote>
+<p>
+前の命題と \(\sqrt{n}(\bar{X}-\mu)/\sigma\) が標準正規分布に従うこ
 とから，
 確率変数
 </p>
 <div>
 \begin{equation}
+  T=
   \frac{\sqrt{n}(\bar{X}-\mu)}{s}
-  \left(=\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
-    {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}\right)
+  =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
+    {\sqrt{(n{-}1)s^2/\sigma^2\big/(n{-}1)}}
+  % =\frac{\sqrt{n}(\bar{X}-\mu)/\sigma}
+  %   {\sqrt{\frac{(n{-}1)s^2}{\sigma^2}\Big/(n{-}1)}}
 \end{equation}
 
 </div>
+
 <p>
-は自由度 \(n{-}1\) の \(t\) 分布に従う
-</p></li>
+は自由度 \(n{-}1\) の \(t\) 分布に従う．
+</p>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org15223b1">
-<h3 id="org15223b1">平均の区間推定 (分散未知)</h3>
+<section>
 <ul>
 <li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
 \(t_{1{-}\alpha/2}(n{-}1)\) を自由度 \(n{-}1\) の \(t\) 分布の
 \(1{-}\alpha/2\) 分位点とすれば
 </p>
 <div>
 \begin{equation}
-  P\Bigl(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
-    \le t_{1{-}\alpha/2}(n{-}1)\Bigr)=1{-}\alpha
+  P\left(-t_{1{-}\alpha/2}(n{-}1)\le\frac{\sqrt{n}(\bar{X}-\mu)}{s}
+  \le t_{1{-}\alpha/2}(n{-}1)\right)=1{-}\alpha
 \end{equation}
 
-</div></li>
-<li><p>
-分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>:
+</div>
+
+<p>
+となるので，
+分散が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b> は
+以下で構成される．
 </p>
 <div>
 \begin{equation}
-  \bigl[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot s/\sqrt{n},\;
-  \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot s/\sqrt{n}\bigr]
+  \left[\bar{X}-t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}},\;
+  \bar{X}+t_{1{-}\alpha/2}(n{-}1)\cdot\frac{s}{\sqrt{n}}\right]
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org9dd541c">
-<h3 id="org9dd541c">正規分布の性質5</h3>
+<section id="slide-org7c028c3">
+<h3 id="org7c028c3">分散の区間推定</h3>
 <ul>
-<li>\((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う</li>
 <li><p>
+不偏分散の性質
+</p>
+<blockquote>
+<p>
+\((n{-}1)s^2/\sigma^2\) は自由度 \(n{-}1\) の \(\chi^2\) 分布に従う
+</p>
+</blockquote></li>
+<li><p>
+不偏分散の確率
+</p>
+<blockquote>
+<p>
 \(\chi^2_{\alpha/2}(n{-}1)\) ,  \(\chi^2_{1{-}\alpha/2}(n{-}1)\) を
 それぞれ自由度 \(n{-}1\) の \(\chi^2\) 分布の
- \(\alpha/2, 1{-}\alpha/2\) 分位点とすれば
-</p>
-<div>
-\begin{equation}\label{eq:svar-chisq}
-  P\Bigl(\chi^2_{\alpha/2}(n{-}1)\le(n{-}1)s^2/\sigma^2
-    \le \chi^2_{1{-}\alpha/2}(n{-}1)\Bigr)
-  =1{-}\alpha
-\end{equation}
-
-</div></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgfa54392">
-<h3 id="orgfa54392">分散の区間推定</h3>
-<ul>
-<li><p>
-\(\sigma^2\) について解いて
-</p>
-<div>
-\begin{multline}
-  P\Bigl((n{-}1)s^2/\chi^2_{1{-}\alpha/2}(n{-}1)
-    \le \sigma^2\le(n{-}1)s^2/\chi^2_{\alpha/2}(n{-}1)\Bigr)\\
-  =1{-}\alpha
-\end{multline}
-
-</div></li>
-<li><p>
-\(\sigma^2\) の \(1{-}\alpha\) <b>信頼区間</b>: 
+\(\alpha/2, 1{-}\alpha/2\) 分位点とすれば
 </p>
 <div>
 \begin{equation}
-  \bigl[(n{-}1)s^2/\chi^2_{1{-}\alpha/2}(n{-}1),(n{-}1)s^2/\chi^2_{\alpha/2}(n{-}1)\bigr]
+  P\left(\chi^2_{\alpha/2}(n{-}1)\le\frac{(n{-}1)s^2}{\sigma^2}
+    \le\chi^2_{1{-}\alpha/2}(n{-}1)\right)
+  =1{-}\alpha
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0b809dd" data-background="#fef4f4">
-<h3 id="org0b809dd">演習</h3>
+<section>
 <ul>
-<li><code>est-ci-mean.r</code> を確認しなさい．</li>
-<li><code>est-ci-mean-unknown.r</code> を確認しなさい．</li>
-<li><code>est-ci-var.r</code> を確認しなさい．</li>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+\(\sigma^2\) について解くと
+</p>
+<div>
+\begin{equation}
+  P\left(\frac{(n{-}1)s^2}{\chi^2_{1{-}\alpha/2}(n{-}1)}
+    \le\sigma^2\le\frac{(n{-}1)s^2}{\chi^2_{\alpha/2}(n{-}1)}\right)
+  =1{-}\alpha
+\end{equation}
+
+</div>
+
+<p>
+となるので，
+\(\sigma^2\) の \(1{-}\alpha\) <b>信頼区間</b> は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\frac{(n{-}1)s^2}{\chi^2_{1{-}\alpha/2}(n{-}1)},
+    \frac{(n{-}1)s^2}{\chi^2_{\alpha/2}(n{-}1)}\right]
+\end{equation}
+
+</div>
+</blockquote></li>
 
 </ul>
 
@@ -905,67 +1186,72 @@ Cramer-Raoの不等式は
 </section>
 </section>
 <section>
-<section id="slide-org655ffd2">
-<h2 id="org655ffd2">漸近正規性による区間推定</h2>
-<div class="outline-text-2" id="text-org655ffd2">
+<section id="slide-orga1f2d15">
+<h2 id="orga1f2d15">漸近正規性にもとづく区間推定</h2>
+<div class="outline-text-2" id="text-orga1f2d15">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6cdb098">
-<h3 id="org6cdb098">推定量の漸近正規性</h3>
+<section id="slide-org7194c94">
+<h3 id="org7194c94">推定量の漸近正規性</h3>
 <ul>
-<li><p>
-<b>漸近正規性</b>: 多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
-</p>
+<li><b>漸近正規性</b>: 多くの推定量 \(\hat{\theta}\) の分布は正規分布で近似できる
 <ul>
 <li>モーメントに基づく記述統計量は漸近正規性をもつ</li>
 <li>最尤推定量は広い範囲の確率分布に対して漸近正規性をもつ</li>
+<li>いずれも中心極限定理にもとづく</li>
 
-</ul>
-<p>
-いずれも中心極限定理にもとづく
-</p></li>
+</ul></li>
 <li>正規分布を用いて近似的に信頼区間を構成することができる</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd386687">
-<h3 id="orgd386687">標本平均の漸近正規性</h3>
+<section id="slide-orgc08116e">
+<h3 id="orgc08116e">標本平均の漸近正規性</h3>
 <ul>
 <li><p>
+定理
+</p>
+<blockquote>
+<p>
 確率分布 \(\mathcal{L}\) が2次のモーメントを持てば，
 \(\mathcal{L}\) の平均 \(\mu\) の推定量である標本平均
-は漸近正規性をもつ
+は漸近正規性をもつ．
 </p>
 <div>
 \begin{equation}
   \bar{X}=\frac{1}{n}\sum_{i=1}^nX_i
 \end{equation}
 
-</div></li>
-<li>\(\mathcal{L}\) の標準偏差を \(\sigma\) とすれば, 
-任意の \(a\le b\) に対して以下が成立する</li>
+</div>
 
-</ul>
 <p>
-( \(\phi\) は標準正規分布の確率密度関数)
+\(\mathcal{L}\) の標準偏差を \(\sigma\) とすれば, 
+任意の \(a\le b\) に対して以下が成立する．
+(\(\phi\) は標準正規分布の確率密度関数)
 </p>
 <div>
-\begin{equation}\label{ci-clt}
+\begin{equation}
   P\left(a\le\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}
     \le b\right)\to\int_a^b\phi(x)dx\quad(n\to\infty)
 \end{equation}
 
 </div>
+</blockquote></li>
 
+</ul>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org1423e1d">
-<h3 id="org1423e1d">標本平均の漸近正規性 (つづき)</h3>
+<section id="slide-orge5931d9">
+<h3 id="orge5931d9">平均の区間推定 (分散既知)</h3>
 <ul>
 <li><p>
+標本平均の確率
+</p>
+<blockquote>
+<p>
 \(z_{1{-}\alpha/2}\) を標準正規分布の
 \(1{-}\alpha/2\) 分位点とすれば
 </p>
@@ -975,63 +1261,59 @@ Cramer-Raoの不等式は
     \le z_{1{-}\alpha/2}\right)\to1{-}\alpha\quad(n\to\infty)
 \end{equation}
 
-</div></li>
-<li><p>
-\(\mu\) について解くと
+</div>
+
+<p>
+となるので，
+\(\mu\) について解くと以下が成り立つ．
 </p>
 <div>
 \begin{multline}
-  P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}
-    \le\mu \le\bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n} \right)\\
+  P\left(\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}
+    \le\mu \le\bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right)\\
   \to1{-}\alpha\quad(n\to\infty)
 \end{multline}
 
-</div></li>
+</div>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+\(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>
+は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}},\;
+    \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\sigma}{\sqrt{n}}\right]
+\end{equation}
+
+</div>
+
+<p>
+(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
+</p>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5abb7c6">
-<h3 id="org5abb7c6">平均の区間推定 (分散既知)</h3>
+<section id="slide-org50e3493">
+<h3 id="org50e3493">平均の区間推定 (分散未知)</h3>
+<ul>
+<li>\(\sigma\) をその一致推定量 \(\hat{\sigma}\) で置き換えてもそのまま成立する
 <ul>
 <li><p>
-\(\sigma\) が既知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>:
-</p>
-<div>
-\begin{equation}
-  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n},\;
-  \bar{X}+z_{1{-}\alpha/2}\cdot\sigma/\sqrt{n}\right]
-\end{equation}
-
-</div>
-<p>
-(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
-</p></li>
-
-</ul>
-
-<div class="slide-footer"><br></div>
-</section>
-<section id="slide-orgd9da140">
-<h3 id="orgd9da140">平均の区間推定 (分散未知)</h3>
-<ul>
-<li>\(\sigma\) をその一致推定量 \(\hat{\sigma}\) で置き換えてもそのまま成立する</li>
-<li><p>
-\(\sigma\) が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>:
-</p>
-<div>
-\begin{equation}
-  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\hat{\sigma}/\sqrt{n},\;
-  \bar{X}+z_{1{-}\alpha/2}\cdot\hat{\sigma}/\sqrt{n}\right]
-\end{equation}
-
-</div>
-<p>
-(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
-</p></li>
-<li><p>
-\(\hat{\sigma}\) としては例えば不偏分散の平方根を用いる:
+\(\hat{\sigma}\) としては例えば不偏分散の平方根を用いる
 </p>
 <div>
 \begin{equation}
@@ -1040,17 +1322,96 @@ Cramer-Raoの不等式は
 
 </div></li>
 
+<li>実問題で平均はわからないが，分散はわかるという場合はあまりない</li>
+<li>\(t\) -分布は自由度 \(n\to\infty\) で標準正規分布なる</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section>
+<ul>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+\(\sigma\) が未知の場合の平均 \(\mu\) の \(1{-}\alpha\) <b>信頼区間</b>
+は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\bar{X}-z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}},\;
+    \bar{X}+z_{1{-}\alpha/2}\cdot\frac{\hat{\sigma}}{\sqrt{n}}\right]
+\end{equation}
+
+</div>
+
+<p>
+(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
+</p>
+</blockquote></li>
+
+</ul>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org7dacdc0">
+<h3 id="org7dacdc0">最尤推定量の区間推定</h3>
+<ul>
+<li><p>
+定理 (最尤推定量の漸近正規性)
+</p>
+<blockquote>
+<p>
+\(\mathcal{L}\) が1次元パラメタ \(\theta\) を含む連続分布とするとき，
+最尤推定量 \(\hat\theta\) は
+平均 \(\theta\) (真の値)，
+分散 \(1/nI(\hat\theta)\) の正規分布で近似できる．
+</p>
+</blockquote></li>
+<li><p>
+信頼区間の構成
+</p>
+<blockquote>
+<p>
+\(\theta\) の \(1{-}\alpha\) <b>信頼区間</b> は以下で構成される．
+</p>
+<div>
+\begin{equation}
+  \left[\hat{\theta}-z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}},\;
+    \hat{\theta}+z_{1{-}\alpha/2}\cdot\frac{1}{\sqrt{nI(\hat\theta)}}\right]  
+\end{equation}
+
+</div>
+
+<p>
+(サンプル数 \(n\) が十分大きい場合に近似的に正しい)
+</p>
+</blockquote></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc38e363" data-background="#fef4f4">
-<h3 id="orgc38e363">演習</h3>
+</section>
+<section>
+<section id="slide-orge5fd701" data-background="#fef4f4">
+<h2 id="orge5fd701">演習</h2>
+<div class="slide-footer"><br></div>
+</section>
+<section id="slide-org9891693" data-background="#fef4f4">
+<h3 id="org9891693">練習問題</h3>
 <ul>
-<li><code>est-ci-mean-asymp.r</code> を確認しなさい．</li>
-<li><code>est-ci-mle.r</code> を確認しなさい．</li>
-<li>自身で収集したデータについてモデル化し，
-区間推定を行いなさい．</li>
+<li>東京都の気候データ (<code>tokyo_weather.csv</code>) の
+日射量の項目について以下の問に答えよ．
+<ul>
+<li>全データによる平均値を計算しなさい．</li>
+<li>ランダムに抽出した50点を用いて，平均値の0.9(90%)信頼区間を求めなさい．</li>
+<li>上記の推定を100回繰り返した際，真の値(全データによる平均値)が信頼区間に何回含まれるか確認しなさい．</li>
+
+</ul></li>
+<li>自身で収集したデータで区間推定を試みよ．</li>
 
 </ul>
 <div class="slide-footer"><br></div>
