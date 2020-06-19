@@ -15,11 +15,12 @@
 
 <link rel="stylesheet" href="./reveal.js/css/theme/toc-style.css"/>
 
-<link rel="stylesheet" href="./reveal.js/css/theme/oer-reveal.css"/>
-
 <link rel="stylesheet" href="./reveal.js/lib/font/source-sans-pro/source-sans-pro.css"/>
 
+<link rel="stylesheet" href="./reveal.js/plugin/accessibility/helper.css"/>
+
 <link rel="stylesheet" href="./myconf.css"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/zenburn.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -31,9 +32,9 @@
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
-<body prefix="dc: http://purl.org/dc/terms/ cc: http://creativecommons.org/ns#">
+<body>
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide" data-state="no-toc-progress">
@@ -51,20 +52,20 @@
 </div>
 <div class="talk-author">
   <p>村田 昇<br />
-  2019.06.28</p>
+  2020.07.03</p>
 </div>
 
 </section>
 
 <section>
-<section id="slide-orgec6debf">
-<h2 id="orgec6debf">分散分析とは</h2>
-<div class="outline-text-2" id="text-orgec6debf">
+<section id="slide-org48cd5d5">
+<h2 id="org48cd5d5">分散分析とは</h2>
+<div class="outline-text-2" id="text-org48cd5d5">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org242937c">
-<h3 id="org242937c">分散分析</h3>
+<section id="slide-orgeb1962c">
+<h3 id="orgeb1962c">分散分析</h3>
 <ul>
 <li>平均の差の検定: 
 <b>2つのグループ間</b> で平均の差があるか否か</li>
@@ -87,8 +88,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaacee09">
-<h3 id="orgaacee09">基本的な考え方</h3>
+<section id="slide-org6a5dbc9">
+<h3 id="org6a5dbc9">基本的な考え方</h3>
 <ul>
 <li>データの変動を分解:
 <ul>
@@ -110,14 +111,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb86d568">
-<h2 id="orgb86d568">分散の比の検定 (再掲)</h2>
-<div class="outline-text-2" id="text-orgb86d568">
+<section id="slide-orgb016a03">
+<h2 id="orgb016a03">分散の比の検定 (再掲)</h2>
+<div class="outline-text-2" id="text-orgb016a03">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2ce91da">
-<h3 id="org2ce91da">分散の比の検定</h3>
+<section id="slide-org2698780">
+<h3 id="org2698780">分散の比の検定</h3>
 <ul>
 <li><p>
 2種類のデータの分散が等しいか否かを検定する
@@ -133,8 +134,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbe8b08d">
-<h3 id="orgbe8b08d">考え方</h3>
+<section id="slide-org0ae12fd">
+<h3 id="org0ae12fd">考え方</h3>
 <ul>
 <li>\(X_1,\dotsc,X_m\) の不偏分散: \(s_1^2\)</li>
 <li>\(Y_1,\dotsc,Y_n\) の不偏分散: \(s_2^2\)</li>
@@ -162,8 +163,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd494ee5">
-<h3 id="orgd494ee5">棄却域の取り方</h3>
+<section id="slide-org3581df4">
+<h3 id="org3581df4">棄却域の取り方</h3>
 <ul>
 <li>有意水準: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(m{-}1,n{-}1\) の \(F\) 分布の
@@ -196,8 +197,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org81c8bbb">
-<h3 id="org81c8bbb">検定の手順 (棄却域を用いる場合)</h3>
+<section id="slide-org0f976b2">
+<h3 id="org0f976b2">検定の手順 (棄却域を用いる場合)</h3>
 <ul>
 <li>データから検定統計量 \(F\) の値を計算</li>
 <li><p>
@@ -218,14 +219,14 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb5e751b">
-<h2 id="orgb5e751b">一元配置</h2>
-<div class="outline-text-2" id="text-orgb5e751b">
+<section id="slide-orgcd4d886">
+<h2 id="orgcd4d886">一元配置</h2>
+<div class="outline-text-2" id="text-orgcd4d886">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8b0ff7a">
-<h3 id="org8b0ff7a">一元配置の問題設定</h3>
+<section id="slide-orgcfb9701">
+<h3 id="orgcfb9701">一元配置の問題設定</h3>
 <ul>
 <li>グループ分けが1種類の場合</li>
 <li>\(p\) 個のグループ \(A_1,A_2,\dotsc,A_p\) を想定</li>
@@ -255,8 +256,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org76cc7e0">
-<h3 id="org76cc7e0">一元配置のモデル</h3>
+<section id="slide-orgde4f1d7">
+<h3 id="orgde4f1d7">一元配置のモデル</h3>
 <ul>
 <li><p>
 観測データのモデル:
@@ -288,8 +289,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4552b61">
-<h3 id="org4552b61">分析の考え方</h3>
+<section id="slide-orgd0c764d">
+<h3 id="orgd0c764d">分析の考え方</h3>
 <ul>
 <li>データの変動から因子間での変動と観測誤差の変動を抽出して比較</li>
 <li><p>
@@ -310,8 +311,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd3c0eed">
-<h3 id="orgd3c0eed">分析の考え方 (つづき)</h3>
+<section id="slide-org67ab8e0">
+<h3 id="org67ab8e0">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 各種変動:
@@ -338,8 +339,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbc3d34d">
-<h3 id="orgbc3d34d">分析の考え方 (つづき)</h3>
+<section id="slide-orgbb0a47e">
+<h3 id="orgbb0a47e">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 変動の分解:
@@ -370,8 +371,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4d00786">
-<h3 id="org4d00786">一元配置の検定</h3>
+<section id="slide-org5a61345">
+<h3 id="org5a61345">一元配置の検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -396,8 +397,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0319cb0">
-<h3 id="org0319cb0">棄却域の取り方</h3>
+<section id="slide-org58bc1b9">
+<h3 id="org58bc1b9">棄却域の取り方</h3>
 <ul>
 <li>有意水準: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(p{-}1,n{-}p\) の \(F\) 分布の \(1{-}\alpha\) 分位点:
@@ -425,8 +426,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org798956f">
-<h3 id="org798956f">検定の手順</h3>
+<section id="slide-orgc932e9b">
+<h3 id="orgc932e9b">検定の手順</h3>
 <ul>
 <li>データから検定統計量 \(F\) の値を計算</li>
 <li><p>
@@ -448,7 +449,7 @@
 
 </div>
 <p>
-(\(f(x)\) は自由度 \(p{-}1,n{-}p\) の \(F\) 分布の密度) <br>
+(\(f(x)\) は自由度 \(p{-}1,n{-}p\) の \(F\) 分布の密度) <br />
 \(p\) 値が \(\alpha\) 未満なら帰無仮説を棄却
 </p></li>
 
@@ -456,25 +457,25 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2d1f4a3">
-<h3 id="org2d1f4a3">分散分析表 (一元配置の場合)</h3>
-<table>
+<section id="slide-org8016b11">
+<h3 id="org8016b11">分散分析表 (一元配置の場合)</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
@@ -523,8 +524,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc16c761">
-<h3 id="orgc16c761">モデルの別表現</h3>
+<section id="slide-org3cf6192">
+<h3 id="org3cf6192">モデルの別表現</h3>
 <p>
 各水準の平均値の相対効果による定式化:
 </p>
@@ -556,8 +557,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd35c64e" data-background="#fef4f4">
-<h3 id="orgd35c64e">演習</h3>
+<section id="slide-org20489d7" data-background="#fef4f4">
+<h3 id="org20489d7">演習</h3>
 <ul>
 <li><code>anova-oneway.r</code> を確認しなさい．</li>
 <li>自身で収集したデータについて，
@@ -569,14 +570,14 @@
 </section>
 </section>
 <section>
-<section id="slide-org6fe3124">
-<h2 id="org6fe3124">二元配置</h2>
-<div class="outline-text-2" id="text-org6fe3124">
+<section id="slide-org231b723">
+<h2 id="org231b723">二元配置</h2>
+<div class="outline-text-2" id="text-org231b723">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgdc1f6ba">
-<h3 id="orgdc1f6ba">二元配置の問題</h3>
+<section id="slide-orgadd5fa7">
+<h3 id="orgadd5fa7">二元配置の問題</h3>
 <ul>
 <li>因子が2種類ある場合</li>
 <li>一方の因子の水準の平均値に差があるか否かを検定</li>
@@ -594,8 +595,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgb834b70">
-<h3 id="orgb834b70">二元配置のモデル</h3>
+<section id="slide-org6c7a48d">
+<h3 id="org6c7a48d">二元配置のモデル</h3>
 <ul>
 <li>2種類の因子 \(A, B\)
 <ul>
@@ -625,8 +626,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org96d6564">
-<h3 id="org96d6564">二元配置の例</h3>
+<section id="slide-orgd27192f">
+<h3 id="orgd27192f">二元配置の例</h3>
 <ul>
 <li>例: 複数の薬の治験の問題
 <ul>
@@ -650,8 +651,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc170828">
-<h3 id="orgc170828">分析の考え方</h3>
+<section id="slide-org3ee4a06">
+<h3 id="org3ee4a06">分析の考え方</h3>
 <ul>
 <li>データの変動から因子間での変動と観測誤差の変動を抽出して比較</li>
 <li><p>
@@ -678,8 +679,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf8abf17">
-<h3 id="orgf8abf17">分析の考え方 (つづき)</h3>
+<section id="slide-org2ec608d">
+<h3 id="org2ec608d">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 因子効果の推定量としての標本平均:
@@ -708,8 +709,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5432b8f">
-<h3 id="org5432b8f">分析の考え方 (つづき)</h3>
+<section id="slide-org2b322eb">
+<h3 id="org2b322eb">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 各種変動:
@@ -736,8 +737,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc020511">
-<h3 id="orgc020511">分析の考え方 (つづき)</h3>
+<section id="slide-orgf67f44c">
+<h3 id="orgf67f44c">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 変動の分解:
@@ -763,8 +764,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8c4650d">
-<h3 id="org8c4650d">分析の考え方 (つづき)</h3>
+<section id="slide-orgaa24f3c">
+<h3 id="orgaa24f3c">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 変動の分解:
@@ -789,8 +790,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org519db7a">
-<h3 id="org519db7a">二元配置の検定</h3>
+<section id="slide-org3118e92">
+<h3 id="org3118e92">二元配置の検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -815,8 +816,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org128b1b8">
-<h3 id="org128b1b8">棄却域の取り方</h3>
+<section id="slide-org4645366">
+<h3 id="org4645366">棄却域の取り方</h3>
 <ul>
 <li>有意水準: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(a{-}1,(a{-}1)(b{-}1)\) の \(F\) 分布の \(1{-}\alpha\) 分位点:
@@ -844,8 +845,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org92bea7e">
-<h3 id="org92bea7e">検定の手順</h3>
+<section id="slide-orgcdd46bd">
+<h3 id="orgcdd46bd">検定の手順</h3>
 <ul>
 <li>データから検定統計量 \(F_A\) の値を計算</li>
 <li><p>
@@ -867,7 +868,7 @@
 
 </div>
 <p>
-(\(f\) は自由度 \(a{-}1,(a{-}1)(b{-}1)\) の \(F\) 分布の確率密度関数)<br>
+(\(f\) は自由度 \(a{-}1,(a{-}1)(b{-}1)\) の \(F\) 分布の確率密度関数)<br />
 \(p\) 値が \(\alpha\) 未満なら帰無仮説を棄却
 </p></li>
 
@@ -875,23 +876,23 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd98655b">
-<h3 id="orgd98655b">分散分析表 (二配置の場合)</h3>
-<table>
+<section id="slide-org7d2fbd9">
+<h3 id="org7d2fbd9">分散分析表 (二配置の場合)</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 
-<col  class="org-left">
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
@@ -936,8 +937,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org28bf7d2">
-<h3 id="org28bf7d2">モデルの別表現</h3>
+<section id="slide-orgee52d39">
+<h3 id="orgee52d39">モデルの別表現</h3>
 <p>
 相対効果による定式化:
 </p>
@@ -982,8 +983,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org21edf07" data-background="#fef4f4">
-<h3 id="org21edf07">演習</h3>
+<section id="slide-org048c134" data-background="#fef4f4">
+<h3 id="org048c134">演習</h3>
 <ul>
 <li><code>anova-twoway.r</code> を確認しなさい．</li>
 <li>自身で収集したデータについて，
@@ -995,6 +996,7 @@
 </section>
 </div>
 </div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.js"></script>
 <script>
 // Full list of configuration options available here:
@@ -1010,33 +1012,35 @@ rollingLinks: false,
 keyboard: true,
 mouseWheel: true,
 fragmentInURL: true,
+hashOneBasedIndex: false,
 pdfSeparateFragments: false,
 
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
 transitionSpeed: 'default',
-multiplex: {
-    secret: '', // null if client
-    id: '', // id, obtained from socket.io server
-    url: '' // Location of socket.io server
-},
 
-// Optional libraries used to extend on reveal.js
+// Optional libraries used to extend reveal.js
 dependencies: [
-{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
-{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true}); } },
+{ src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/anything/anything.js' },
+{ src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
 { src: './reveal.js/plugin/jump/jump.js', async: true },
- { src: './reveal.js/plugin/toc-progress/toc-progress.js', async: true, callback: function() { toc_progress.initialize('reduce', 'rgba(120,138,130,0.2)'); toc_progress.create(); } },
- { src: './reveal.js/plugin/anything/anything.js' },
- { src: './reveal.js/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList && !Reveal.isSpeakerNotes(); } },
+{ src: './reveal.js/plugin/quiz/js/quiz.js', async: true, callback: function() { prepareQuizzes({preventUnanswered: true, skipStartButton: true}); } },
+{ src: './reveal.js/plugin/coursemod/coursemod.js', async: true },
+{ src: './reveal.js/plugin/accessibility/helper.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }]
-,audio: {
-    advance: -1, autoplay: true, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.3, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
-  anything: [
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+,audioStartAtFragment: true,
+  audio: {
+    advance: -1, autoplay: false, defaultDuration: 0, defaultAudios: false, playerOpacity: 0.8, playerStyle: 'position: fixed; bottom: 9.5vh; left: 0%; width: 30%; height:30px; z-index: 33;' },
+anything: [
+        // Following initialization code for class animate from anything-demo.html.
+        // Copyright (c) 2016 Asvin Goel, under The MIT License (MIT).
 	{className: "animate",  initialize: (function(container, options){
 		Reveal.addEventListener( 'fragmentshown', function( event ) {
 			if (typeof event.fragment.beginElement === "function" ) {
@@ -1076,7 +1080,7 @@ dependencies: [
 		    choices: [ {name: "dummyname", path: "dummypath"} ]},
 	 initialize: (function(container, options){
 	     var choice = Math.trunc( Math.random()*(options.choices.length) );
-	     var img = "<img data-src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
+	     var img = "<img src='" + options.choices[choice].path + "' alt='" + options.choices[choice].imgalt + "' />";
 	     var caption = options.imgcaption.replace(new RegExp('\{name\}', 'gm'), options.choices[choice].name);
 	     container.innerHTML = img + caption;
 	 }) },
@@ -1085,7 +1089,8 @@ dependencies: [
 	     container.addEventListener('click', function(e) { RevealNotes.open(); });
 	 }) }
 ],
-  coursemod: { enabled: true, shown: false }});
+coursemod: { enabled: true, shown: false },
+});
 </script>
 </body>
 </html>

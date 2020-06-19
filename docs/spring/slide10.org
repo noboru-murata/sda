@@ -2,25 +2,39 @@
 #+SUBTITLE: 仮説の正当性をデータから検証する
 #+AUTHOR: 村田 昇
 #+EMAIL: noboru.murata@eb.waseda.ac.jp
-#+DATE: 2019.06.21
-:preamble:
+#+DATE: 2020.06.26
+:reveal:
+# #+INCLUDE: "~/.emacs.d/oer-reveal-org/config-de.org"
 #+INCLUDE: "./myconf.org"
 #+STARTUP: hidestars content
 # C-c C-x C-v でinlineを切り替え
 # <l C-i でlatex block
 # C-c '
-#+OPTIONS: LaTeX:t    
-#+PROPERTY: results output
-#+PROPERTY: exports both
+#+OPTIONS: date:t H:4 num:nil toc:nil \n:nil
+#+OPTIONS: @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t 
+#+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+PROPERTY: header-args:R :session *R* :cache yes 
+#+PROPERTY: header-args:R+ :exports both :results output
+#+PROPERTY: header-args:R+ :tangle no
+#+PROPERTY: header-args:latex :exports results :results raw
+
+#+begin_src R :exports none
+  setwd("~/Desktop/lectures/u-tokyo/spring/slide")
+#+end_src
+#+begin_src R :exports none :tangle yes
+  ### 第10回 演習問題解答例
+#+end_src
 :end:
 
-* 仮説検定の考え方
+* 検定とは
 ** 統計的仮説検定
    - ある現象・母集団に対して仮定された仮説の真偽を，
      データに基づいて統計的に検証する方法
-   - 例: 
-     新しい薬の効能が古い薬よりも優れていること(仮説)を，
+     #+begin_quote
+     例: 
+     新しい薬の効能が古い薬よりも優れていること(仮説)を
      薬の治験結果(データ)から検証したい
+     #+end_quote
    - 推定と大きく異なるのは, 
      母集団の分布に対して何らかの *仮説* を考えるところ
 
@@ -33,14 +47,18 @@
      起こるかどうかを判断する
 
 ** 検定の用語
-   - *帰無仮説*:
-    検定統計量の分布を予想するために立てる仮説
-   - *対立仮説*:
+   - *帰無仮説*
+     #+begin_quote
+     検定統計量の分布を予想するために立てる仮説
+     #+end_quote
+   - *対立仮説*
+     #+begin_quote
     「帰無仮説が誤っているときに起こりうるシナリオ」として想定する仮説
-   - 慣習として
-     帰無仮説を *$H_0$*, 
-     対立仮説を *$H_1$* で表す
-   - 「帰無仮説を捨てて無に帰する」ことを期待する場合が多い
+     #+end_quote
+     - 慣習として
+       帰無仮説を *$H_0$*, 
+       対立仮説を *$H_1$* で表す
+     - 「帰無仮説を捨てて無に帰する」ことを期待する場合が多い
 
 ** 帰無仮説と対立仮説
    - 例: 薬の治験 (単純な場合)
@@ -51,60 +69,83 @@
      - 対立仮説 $H_1$: 新しい薬の方が古い薬より効能が高い
 
 ** 検定の準備
-   - *帰無分布*: 帰無仮説が正しい場合に検定統計量が従う分布
-     (統計量が取り得る値の範囲を予想する)
+   - 帰無分布
+     #+begin_quote
+     帰無仮説が正しい場合に検定統計量が従う分布
+     #+end_quote
+   - 棄却域
+     #+begin_quote
+     帰無仮説の下で統計量の取り得るべき範囲の外の領域
+     #+end_quote
+   - 仮説検定
      - 帰無仮説を *棄却*: 帰無仮説は誤っていると判断すること
      - 帰無仮説を *受容*: 帰無仮説を積極的に棄却できないこと
-   - *棄却域*: 帰無仮説を棄却するために決める領域
-    (帰無仮説の下で統計量の取り得る値の範囲外の領域)
    - 検定の誤り
      - *第一種過誤*: 「正しい帰無仮説を棄却する」誤り
      - *第二種過誤*: 「誤った帰無仮説を受容する」誤り
 
 ** 検定の設計指針
    - 検定統計量 $T$ に対して棄却域 $R$ を設計
-   - *サイズ*: 第一種過誤が *起きる確率*
-     \begin{equation}
-       \text{(サイズ)}
-       =P(\text{$T$ が$R$に含まれる}|\text{帰無仮説が正しい})
-     \end{equation}
-   - *検出力*: 第二種過誤が *起きない確率*
-     \begin{equation}
-       \text{(検出力)}
-       =P(\text{$T$ が$R$に含まれる}|\text{対立仮説が正しい})
-     \end{equation}
-   - *有意水準*: 第一種過誤が起きる確率(サイズ)として許容する上限
+     - *サイズ*: 第一種過誤が *起きる確率*
+       #+begin_src latex
+         \begin{equation}
+           \text{(サイズ)}
+           =P(\text{$T$ が$R$に含まれる}|\text{帰無仮説が正しい})
+         \end{equation}
+       #+end_src
+     - *検出力*: 第二種過誤が *起きない確率*
+       #+begin_src latex
+         \begin{equation}
+           \text{(検出力)}
+           =P(\text{$T$ が$R$に含まれる}|\text{対立仮説が正しい})
+         \end{equation}
+       #+end_src
+   - *有意水準*
+     #+begin_quote
+     第一種過誤が起きる確率(サイズ)として許容する上限
+     #+end_quote
 
 ** 棄却域の決め方
    - 検定を構成する場合の一般的な戦略: \\
-     棄却域 $R_{\alpha}$ は
-     - *サイズを小さく* (有意水準 $\alpha$ 以下に) 抑えた上で
+     棄却域 $R_{\alpha}$ は以下のように設定する
+     - *サイズを小さく* (有意水準 $\alpha$ 以下に) 抑える
      - 可能な限り *検出力を大きく* する
-     ように設定する
-     \begin{align}
-       &P(T \in R_{\alpha}|\text{帰無仮説が正しい})
-	 \le\alpha\\
-       &P(T \in R_{\alpha}|\text{対立仮説が正しい})
-	 \to\text{最大化}
-     \end{align}
-   - 対立仮説の立て方によって棄却域の形は変わり得る
+       #+begin_src latex
+         \begin{align}
+           P(T \in R_{\alpha}|\text{帰無仮説が正しい})
+             &\le\alpha\\
+           P(T \in R_{\alpha}|\text{対立仮説が正しい})
+             &\to\text{最大化}
+         \end{align}
+       #+end_src
+   - 対立仮説によって棄却域の形は変わり得る
 
 ** $p$ 値 (有意確率)
-   - 検定統計量の帰無分布での評価: 
+   - 帰無分布における検定統計量の評価:
+     #+begin_quote
      検定統計量の値が棄却域に含まれる有意水準の最小値を考える
+     #+end_quote
    - *$p$ 値 (有意確率)*: (検定統計量 $T$, 棄却域 $R_{\alpha}$)
-     \begin{equation}
-       \text{($p$ 値)}
-       =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
-     \end{equation}
+     #+begin_src latex
+       \begin{equation}
+         \text{($p$ 値)}
+         =\min\{\alpha\in(0,1)|\text{$T$ が$R_{\alpha}$に含まれる}\}
+       \end{equation}
+     #+end_src
    - $p$ 値が有意水準未満のときに帰無仮説を棄却する
 
 ** 検定に関する注意
    - 帰無仮説の受容の意味:
-     - 帰無仮説が正しいと仮定しても矛盾は生じない
-     - 帰無仮説の正しさを積極的に支持する結果ではない
-   - 一般に第二種過誤の起こる確率については何ら仮定がないため，
-     第二種過誤の起こる確率は非常に大きい可能性がある
+     #+begin_quote
+     帰無仮説が正しいと仮定しても矛盾は生じない
+     
+     帰無仮説の正しさを積極的に支持する結果ではない
+     #+end_quote
+   - 第二種過誤:
+     #+begin_quote
+     一般に第二種過誤の起こる確率については何ら仮定がないため，
+     その確率は非常に大きい可能性がある
+     #+end_quote
 
 * 正規母集団に対する　検定 (1標本)　
 ** 1標本データに対する仮定
