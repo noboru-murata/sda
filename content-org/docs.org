@@ -4,6 +4,7 @@
 #+author: Noboru Murata
 #+link: github https://noboru-murata.github.io/sda/
 # C-c C-e H A (generate MDs for all subtrees)
+#+STARTUP: hidestars content
 
 * 概要
   :PROPERTIES:
@@ -91,9 +92,11 @@
    9. [[github:spring/slide09.html][推定]] (確率分布を推定する)
       [[github:spring/pdfs/slide09.pdf][[PDF]​]] 
       [[github:spring/code/slide09.R][[解答例]​]] 
+   10. [[github:spring/slide10.html][検定]] (仮説の正当性をデータから検証する)
+      [[github:spring/pdfs/slide10.pdf][[PDF]​]] 
+      [[github:spring/code/slide10.R][[解答例]​]] 
 
 ** 参考: 2019年度版スライド
-   10. [[github:spring/slide10.html][検定]] (仮説の正当性をデータから検証する)
    11. [[github:spring/slide11.html][分散分析]] (複数のグループ間の違いを検証する)
    12. [[github:spring/slide12.html][回帰分析]] (変数間の関係を推測する)
 

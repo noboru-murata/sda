@@ -117,6 +117,20 @@
       - Zoom録画の情報はこちら (ITC-LMSにも掲示) \\
         [[https://noboru-murata.github.io/sda/zoom_record.html]]
 
+* 注意 (第9回)
+  - 講義の配信開始は 17:00 とします
+  - 時間までに演習環境を整えて下さい
+    - RStudio を準備
+    - 講義資料はこちらから
+      https://noboru-murata.github.io/sda/
+  - 以下のサイトは自習の助けになります
+    - RStudio.cloud の自習コース \\
+      https://rstudio.cloud/learn/primers
+    - Data Camp のR入門コース \\
+      https://www.datacamp.com/onboarding
+    - *"R オンライン 講座"* などで検索して下さい
+
+
 * 参考
   - 以下のサイトは自習の助けになります
     - RStudio.cloud の自習コース \\
