@@ -801,7 +801,7 @@
        \end{equation}
      #+end_src
    - ($p$ 値の計算や片側対立仮説への対応は前と同様)
-** F検定の
+** F検定の関数
    - 基本書式 
      #+begin_src R :eval no
        var.test(x, y, ratio = 1,
