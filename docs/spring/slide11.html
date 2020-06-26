@@ -58,38 +58,36 @@
 </section>
 
 <section>
-<section id="slide-org48cd5d5">
-<h2 id="org48cd5d5">分散分析とは</h2>
-<div class="outline-text-2" id="text-org48cd5d5">
+<section id="slide-org494057e">
+<h2 id="org494057e">分散分析とは</h2>
+<div class="outline-text-2" id="text-org494057e">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgeb1962c">
-<h3 id="orgeb1962c">分散分析</h3>
+<section id="slide-org3b86aa0">
+<h3 id="org3b86aa0">分散分析</h3>
 <ul>
-<li>平均の差の検定: 
+<li>平均の差の検定: <br />
 <b>2つのグループ間</b> で平均の差があるか否か</li>
-<li>分散分析: 
+<li>分散分析: <br />
 <b>2つ以上のグループ間</b> で平均の差があるか否か</li>
 <li><p>
-仮説の例: 
+分散分析における仮説の例:
 </p>
+<blockquote>
 <ul>
-<li>ある小売店について「売上高は月によって差があるか」</li>
-<li>ある銘柄の株価について「収益率は曜日によって差があるか」</li>
+<li>ある小売店について&ldquo;売上高は月によって差があるか&rdquo;</li>
+<li>ある銘柄の株価について&ldquo;収益率は曜日によって差があるか&rdquo;</li>
 
 </ul>
-<p>
-という仮説を検定するのに分散分析は有用
-</p></li>
-<li>検定問題の一つ</li>
+</blockquote></li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6a5dbc9">
-<h3 id="org6a5dbc9">基本的な考え方</h3>
+<section id="slide-org8dbba43">
+<h3 id="org8dbba43">基本的な考え方</h3>
 <ul>
 <li>データの変動を分解:
 <ul>
@@ -103,7 +101,8 @@
 <li>平均に差がある: グループ間の変動が増してより大きくなる</li>
 
 </ul></li>
-<li>分散分析は「データの変動の分析」 \\ (変動=不確定性)</li>
+<li>分散分析は <b>&ldquo;データの変動の分析&rdquo;</b> <br />
+(変動=不確定性)</li>
 
 </ul>
 
@@ -111,20 +110,20 @@
 </section>
 </section>
 <section>
-<section id="slide-orgb016a03">
-<h2 id="orgb016a03">分散の比の検定 (再掲)</h2>
-<div class="outline-text-2" id="text-orgb016a03">
+<section id="slide-orgf3b0d44">
+<h2 id="orgf3b0d44">分散の比の検定 (再掲)</h2>
+<div class="outline-text-2" id="text-orgf3b0d44">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2698780">
-<h3 id="org2698780">分散の比の検定</h3>
+<section id="slide-org5e00495">
+<h3 id="org5e00495">分散の比の検定</h3>
 <ul>
 <li><p>
 2種類のデータの分散が等しいか否かを検定する
 </p>
 <div>
-\begin{equation}%\label{mean-equal}
+\begin{equation}
   H_0:\sigma_1^2=\sigma_2^2\quad\text{vs}\quad H_1:\sigma_1^2\neq\sigma_2^2
 \end{equation}
 
@@ -134,8 +133,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0ae12fd">
-<h3 id="org0ae12fd">考え方</h3>
+<section id="slide-org14c9e25">
+<h3 id="org14c9e25">考え方</h3>
 <ul>
 <li>\(X_1,\dotsc,X_m\) の不偏分散: \(s_1^2\)</li>
 <li>\(Y_1,\dotsc,Y_n\) の不偏分散: \(s_2^2\)</li>
@@ -152,21 +151,21 @@
 </p>
 <div>
 \begin{equation}
-  F=s_1^2/s_2^2
+  F=\frac{s_1^2}{s_2^2}
 \end{equation}
 
 </div></li>
-<li>帰無仮説 \(H_0\) が正しいならば
-\(F\) は自由度 \(m{-}1,n{-}1\) の \(F\) 分布に従う</li>
+
+<li>帰無分布は自由度 \(m{-}1,n{-}1\) の \(F\) 分布</li>
 
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3581df4">
-<h3 id="org3581df4">棄却域の取り方</h3>
+<section id="slide-org2623b66">
+<h3 id="org2623b66">棄却域を用いる場合</h3>
 <ul>
-<li>有意水準: \(\alpha\in(0,1)\)</li>
+<li>有意水準を選択: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(m{-}1,n{-}1\) の \(F\) 分布の
 \(\alpha/2,\,1{-}\alpha/2\) 分位点:
 \(F_{\alpha/2}(m{-}1,n{-}1)\),
@@ -181,6 +180,7 @@
 \end{equation}
 
 </div></li>
+
 <li><p>
 第一種過誤の上限が \(\alpha\) の棄却域:
 </p>
@@ -197,8 +197,7 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org0f976b2">
-<h3 id="org0f976b2">検定の手順 (棄却域を用いる場合)</h3>
+<section>
 <ul>
 <li>データから検定統計量 \(F\) の値を計算</li>
 <li><p>
@@ -211,25 +210,25 @@
 \end{equation}
 
 </div></li>
-<li>\(p\) 値の計算や片側対立仮説への対応方法は前と同様</li>
+
+<li>(\(p\) 値の計算や片側対立仮説への対応は前と同様)</li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
 </section>
 <section>
-<section id="slide-orgcd4d886">
-<h2 id="orgcd4d886">一元配置</h2>
-<div class="outline-text-2" id="text-orgcd4d886">
+<section id="slide-orga457074">
+<h2 id="orga457074">一元配置</h2>
+<div class="outline-text-2" id="text-orga457074">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcfb9701">
-<h3 id="orgcfb9701">一元配置の問題設定</h3>
+<section id="slide-orgdf0116e">
+<h3 id="orgdf0116e">一元配置の問題設定</h3>
 <ul>
-<li>グループ分けが1種類の場合</li>
-<li>\(p\) 個のグループ \(A_1,A_2,\dotsc,A_p\) を想定</li>
+<li>グループ分けが1種類:
+\(p\) グループ \(A_1,A_2,\dotsc,A_p\)</li>
 <li><p>
 各グループ \(i\) ごとに \(n_i\) 個のデータを観測
 </p>
@@ -238,13 +237,18 @@
   Y_{i1},Y_{i2},\dotsc,Y_{in_i},\quad (i=1,2,\dotsc,p)
 \end{equation}
 
-</div></li>
-<li>例: 小売店の売上高の問題
+</div>
+
+<blockquote>
+<p>
+例: 小売店の売上高の問題
+</p>
 <ul>
 <li>\(A_1,A_2,\dotsc,A_p\): 月</li>
 <li>\(Y_{i1},Y_{i2},\dotsc,Y_{in_i}\): \(i\) 月の各日における売上高</li>
 
-</ul></li>
+</ul>
+</blockquote></li>
 <li>分散分析の用語:
 <ul>
 <li><b>因子</b>: グループ分けのこと (月ごと)</li>
@@ -256,18 +260,19 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgde4f1d7">
-<h3 id="orgde4f1d7">一元配置のモデル</h3>
+<section id="slide-orga365391">
+<h3 id="orga365391">一元配置のモデル</h3>
 <ul>
 <li><p>
 観測データのモデル:
 </p>
 <div>
-\begin{equation}\label{one-way}
+\begin{equation}
   Y_{ij}=\mu_i+\varepsilon_{ij}\quad(i=1,\dotsc,p;\;j=1,\dotsc,n_i).
 \end{equation}
 
 </div></li>
+
 <li>モデルの仮定:
 <ul>
 <li>水準 \(A_i\) における観測データの平均値 \(\mu_i\) は定数</li>
@@ -275,7 +280,17 @@
 
 </ul></li>
 <li><p>
-各水準 \(A_1,A_2,\dotsc,A_p\) の平均値に差があるか否かを検定する問題:
+検定問題
+</p>
+<blockquote>
+<p>
+各水準 \(A_1,A_2,\dotsc,A_p\) の平均に差があるか否かを検定する
+</p>
+</blockquote>
+<ul>
+<li>帰無仮説: 全ての水準で平均に差はない</li>
+<li><p>
+対立仮説: 平均の異なる水準がある
 </p>
 <div>
 \begin{equation}
@@ -285,38 +300,41 @@
 
 </div></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd0c764d">
-<h3 id="orgd0c764d">分析の考え方</h3>
+<section id="slide-org5073a92">
+<h3 id="org5073a92">分析の考え方</h3>
 <ul>
 <li>データの変動から因子間での変動と観測誤差の変動を抽出して比較</li>
 <li><p>
 各種平均: (\(n=\sum_{i=1}^pn_i\) は全サンプル数)
 </p>
+<blockquote>
 <div>
 \begin{align}
   &\text{(全データの標本平均)}
   &\bar{Y}_{\cdot\cdot}&=\frac{1}{n}\sum_{i=1}^p\sum_{j=1}^{n_i}Y_{ij},\\
   &\text{(水準$A_i$の標本平均)}
   &\bar{Y}_{i\cdot}&=\frac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\quad
-  (i=1,\dotsc,p).
+		     (i=1,\dotsc,p).
 \end{align}
 
-</div></li>
+</div>
+</blockquote></li>
 
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org67ab8e0">
-<h3 id="org67ab8e0">分析の考え方 (つづき)</h3>
+<section>
 <ul>
 <li><p>
 各種変動:
 </p>
+<blockquote>
 <div>
 \begin{align}
   &\text{(全変動)}
@@ -325,26 +343,24 @@
   &SS_W&=\sum_{i=1}^p\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{i\cdot})^2,\\
   &\text{(級間変動)}
   &SS_B&=\sum_{i=1}^p\sum_{j=1}^{n_i}(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2
-  =\sum_{i=1}^pn_i(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2.
+	 =\sum_{i=1}^pn_i(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2.
 \end{align}
 
 </div>
+</blockquote>
 <ul>
 <li><b>級内変動</b>: 各水準内でのデータの変動 (観測誤差に起因)</li>
 <li><b>級間変動</b>: 水準間でのデータの変動</li>
 
-</ul></li>
-
 </ul>
-
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgbb0a47e">
-<h3 id="orgbb0a47e">分析の考え方 (つづき)</h3>
+<section>
 <ul>
 <li><p>
 変動の分解:
 </p>
+<blockquote>
 <div>
 \begin{equation}
   \underbrace{\text{(全変動) }SS_T}_{\text{自由度 }n{-}1}
@@ -352,7 +368,8 @@
   +\underbrace{\text{(級間変動) }SS_B}_{\text{自由度 }p{-}1}
 \end{equation}
 
-</div></li>
+</div>
+</blockquote></li>
 <li>帰無仮説 \(H_0\) が正しい:
 <ul>
 <li>水準内・水準間でのデータの変動はともに観測誤差が原因</li>
@@ -367,12 +384,14 @@
 
 </ul></li>
 
+</ul></li>
+
 </ul>
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org5a61345">
-<h3 id="org5a61345">一元配置の検定</h3>
+<section id="slide-org16d32fa">
+<h3 id="org16d32fa">一元配置の検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -397,8 +416,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org58bc1b9">
-<h3 id="org58bc1b9">棄却域の取り方</h3>
+<section id="slide-org6bb303c">
+<h3 id="org6bb303c">棄却域の取り方</h3>
 <ul>
 <li>有意水準: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(p{-}1,n{-}p\) の \(F\) 分布の \(1{-}\alpha\) 分位点:
@@ -426,8 +445,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgc932e9b">
-<h3 id="orgc932e9b">検定の手順</h3>
+<section id="slide-org457b737">
+<h3 id="org457b737">検定の手順</h3>
 <ul>
 <li>データから検定統計量 \(F\) の値を計算</li>
 <li><p>
@@ -457,8 +476,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org8016b11">
-<h3 id="org8016b11">分散分析表 (一元配置の場合)</h3>
+<section id="slide-org28351a0">
+<h3 id="org28351a0">分散分析表 (一元配置の場合)</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -524,8 +543,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3cf6192">
-<h3 id="org3cf6192">モデルの別表現</h3>
+<section id="slide-orgfc70c84">
+<h3 id="orgfc70c84">モデルの別表現</h3>
 <p>
 各水準の平均値の相対効果による定式化:
 </p>
@@ -557,8 +576,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org20489d7" data-background="#fef4f4">
-<h3 id="org20489d7">演習</h3>
+<section id="slide-orgd964682" data-background="#fef4f4">
+<h3 id="orgd964682">演習</h3>
 <ul>
 <li><code>anova-oneway.r</code> を確認しなさい．</li>
 <li>自身で収集したデータについて，
@@ -570,23 +589,23 @@
 </section>
 </section>
 <section>
-<section id="slide-org231b723">
-<h2 id="org231b723">二元配置</h2>
-<div class="outline-text-2" id="text-org231b723">
+<section id="slide-orge3cdf65">
+<h2 id="orge3cdf65">二元配置</h2>
+<div class="outline-text-2" id="text-orge3cdf65">
 </div>
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgadd5fa7">
-<h3 id="orgadd5fa7">二元配置の問題</h3>
+<section id="slide-orgd1eb0ee">
+<h3 id="orgd1eb0ee">二元配置の問題</h3>
 <ul>
 <li>因子が2種類ある場合</li>
 <li>一方の因子の水準の平均値に差があるか否かを検定</li>
 <li>もう一方の因子の水準で平均値に差があるかは不問</li>
 <li>例: 複数の薬の効能を複数の被験者に投与する治験
 <ul>
-<li>「薬の種類」と「被験者番号」の2種類の因子</li>
-<li>「薬の種類」という因子での薬の効能の差を検証したい</li>
-<li>「被験者番号」という因子で効能に差があることは許容したい
+<li>&ldquo;薬の種類&rdquo;と&ldquo;被験者番号&rdquo;の2種類の因子</li>
+<li>&ldquo;薬の種類&rdquo;という因子での薬の効能の差を検証したい</li>
+<li>&ldquo;被験者番号&rdquo;という因子で効能に差があることは許容したい
 (薬の効き目には個人差があると考えられるため)</li>
 
 </ul></li>
@@ -595,8 +614,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org6c7a48d">
-<h3 id="org6c7a48d">二元配置のモデル</h3>
+<section id="slide-org4ec9b42">
+<h3 id="org4ec9b42">二元配置のモデル</h3>
 <ul>
 <li>2種類の因子 \(A, B\)
 <ul>
@@ -626,12 +645,12 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgd27192f">
-<h3 id="orgd27192f">二元配置の例</h3>
+<section id="slide-orgc6de7b8">
+<h3 id="orgc6de7b8">二元配置の例</h3>
 <ul>
 <li>例: 複数の薬の治験の問題
 <ul>
-<li>因子 \(A\): 「薬の種類」/ 因子 \(B\): 「被験者番号」</li>
+<li>因子 \(A\): &ldquo;薬の種類&rdquo;/ 因子 \(B\): &ldquo;被験者番号&rdquo;</li>
 <li>\(\alpha_i\): 薬 \(A_i\) の効能 / \(\beta_j\): 被験者 \(B_j\) 固有の薬の効きやすさ</li>
 <li>薬の効能に差があるか否かという検定</li>
 
@@ -651,8 +670,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3ee4a06">
-<h3 id="org3ee4a06">分析の考え方</h3>
+<section id="slide-orgc2d04f1">
+<h3 id="orgc2d04f1">分析の考え方</h3>
 <ul>
 <li>データの変動から因子間での変動と観測誤差の変動を抽出して比較</li>
 <li><p>
@@ -679,8 +698,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2ec608d">
-<h3 id="org2ec608d">分析の考え方 (つづき)</h3>
+<section id="slide-org98abb1e">
+<h3 id="org98abb1e">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 因子効果の推定量としての標本平均:
@@ -709,8 +728,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org2b322eb">
-<h3 id="org2b322eb">分析の考え方 (つづき)</h3>
+<section id="slide-orgc3d8268">
+<h3 id="orgc3d8268">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 各種変動:
@@ -737,8 +756,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgf67f44c">
-<h3 id="orgf67f44c">分析の考え方 (つづき)</h3>
+<section id="slide-orgbf2133e">
+<h3 id="orgbf2133e">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 変動の分解:
@@ -764,8 +783,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgaa24f3c">
-<h3 id="orgaa24f3c">分析の考え方 (つづき)</h3>
+<section id="slide-orgb46ca92">
+<h3 id="orgb46ca92">分析の考え方 (つづき)</h3>
 <ul>
 <li><p>
 変動の分解:
@@ -790,8 +809,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org3118e92">
-<h3 id="org3118e92">二元配置の検定</h3>
+<section id="slide-org606ec3a">
+<h3 id="org606ec3a">二元配置の検定</h3>
 <ul>
 <li><p>
 検定統計量:
@@ -816,8 +835,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org4645366">
-<h3 id="org4645366">棄却域の取り方</h3>
+<section id="slide-org7ec1de1">
+<h3 id="org7ec1de1">棄却域の取り方</h3>
 <ul>
 <li>有意水準: \(\alpha\in(0,1)\)</li>
 <li>自由度 \(a{-}1,(a{-}1)(b{-}1)\) の \(F\) 分布の \(1{-}\alpha\) 分位点:
@@ -845,8 +864,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgcdd46bd">
-<h3 id="orgcdd46bd">検定の手順</h3>
+<section id="slide-orgd529180">
+<h3 id="orgd529180">検定の手順</h3>
 <ul>
 <li>データから検定統計量 \(F_A\) の値を計算</li>
 <li><p>
@@ -876,8 +895,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org7d2fbd9">
-<h3 id="org7d2fbd9">分散分析表 (二配置の場合)</h3>
+<section id="slide-org16f81cc">
+<h3 id="org16f81cc">分散分析表 (二配置の場合)</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -937,8 +956,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-orgee52d39">
-<h3 id="orgee52d39">モデルの別表現</h3>
+<section id="slide-orgcb9ab22">
+<h3 id="orgcb9ab22">モデルの別表現</h3>
 <p>
 相対効果による定式化:
 </p>
@@ -983,8 +1002,8 @@
 
 <div class="slide-footer"><br></div>
 </section>
-<section id="slide-org048c134" data-background="#fef4f4">
-<h3 id="org048c134">演習</h3>
+<section id="slide-orgb722639" data-background="#fef4f4">
+<h3 id="orgb722639">演習</h3>
 <ul>
 <li><code>anova-twoway.r</code> を確認しなさい．</li>
 <li>自身で収集したデータについて，
