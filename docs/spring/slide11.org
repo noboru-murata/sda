@@ -239,7 +239,7 @@
    - $p$ 値を用いる方法: $p$ 値を計算
      #+begin_src latex
        \begin{equation}
-         \text{$p$値}=\int_{F}^\infty f(x)dx
+         \text{($p$値)}=\int_{F}^\infty f(x)dx
        \end{equation}
      #+end_src
      ($f(x)$ は自由度 $p{-}1,n{-}p$ の $F$ 分布の密度)
@@ -372,6 +372,7 @@
     - 因子 $A$ には $a$ 個の水準: $A_1,\dotsc,A_a$
     - 因子 $B$ には $b$ 個の水準: $B_1,\dotsc,B_b$
     - 因子 $A,B$ の水準がそれぞれ $A_i,B_j$ である観測値: $Y_{ij}$
+    - (各水準ごとに1つの観測値が得られる一番簡単な場合を想定)
   - 観測データのモデル:
     #+begin_src latex
       \begin{equation}
@@ -414,7 +415,7 @@
     #+begin_src latex
       \begin{align}
         &\text{(全データの標本平均)}
-        &\bar{Y}_{\cdot\cdot}&=\frac{1}{n}\sum_{i=1}^p\sum_{j=1}^{n_i}Y_{ij},\\
+        &\bar{Y}_{\cdot\cdot}&=\frac{1}{n}\sum_{i=1}^a\sum_{j=1}^{b}Y_{ij},\\
         &\text{(水準$A_i$の標本平均)}
         &\bar{Y}_{i\cdot}&=\frac{1}{b}\sum_{j=1}^bY_{ij}\quad
                            (i=1,\dotsc,a),\\
@@ -532,7 +533,7 @@
 ** $p$ 値を用いる場合
   - 値を計算
     \begin{equation}
-      \text{($p$値)}=\int_{F_A}^\infty f_{a{-}1,(a{-}1)(b{-}1)}(x)dx
+      \text{($p$値)}=\int_{F_A}^\infty f(x)dx
     \end{equation}
     ($f$ は自由度 $a{-}1,(a{-}1)(b{-}1)$ の $F$ 分布の確率密度関数)
   - $p$ 値が $\alpha$ 未満なら帰無仮説を棄却
