@@ -98,9 +98,9 @@
    11. [[github:spring/slide11.html][分散分析]] (複数のグループ間の違いを検証する)
       [[github:spring/pdfs/slide11.pdf][[PDF]​]] 
       [[github:spring/code/slide11.R][[解答例]​]] 
-
-** 参考: 2019年度版スライド
    12. [[github:spring/slide12.html][回帰分析]] (変数間の関係を推測する)
+      [[github:spring/pdfs/slide12.pdf][[PDF]​]] 
+      [[github:spring/code/slide12.R][[解答例]​]] 
 
 * 数理科学続論 J
   :PROPERTIES:

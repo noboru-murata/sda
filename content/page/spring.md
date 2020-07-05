@@ -63,8 +63,6 @@ weight = 1003
 11. [分散分析](https://noboru-murata.github.io/sda/spring/slide11.html) (複数のグループ間の違いを検証する)
     [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide11.pdf)
     [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide11.R)
-
-
-## 参考: 2019年度版スライド {#参考-2019年度版スライド}
-
-1.  [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+12. [回帰分析](https://noboru-murata.github.io/sda/spring/slide12.html) (変数間の関係を推測する)
+    [[PDF]​](https://noboru-murata.github.io/sda/spring/pdfs/slide12.pdf)
+    [[解答例]​](https://noboru-murata.github.io/sda/spring/code/slide12.R)
