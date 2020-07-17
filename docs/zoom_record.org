@@ -14,7 +14,7 @@ https://zoom.us/rec/share/3N1JA7_T2VxJYs_G53nbRKRiQp_Yeaa81ClN_vsNneyVrwqi8ytqgD
 日付: 2020年4月24日 04:05 PM 大阪、札幌、東京
 
 ミーティングの記録:
-https://zoom.us/rec/share/ycMuNZHN9UBIbM_0uEX5C74PT5zueaa803Ib_adenUhefWW1vU4RAJoeZJw6lXp
+[[https://zoom.us/rec/share/ycMuNZHN9UBIbM_0uEX5C74PT5zueaa803Ib_adenUhefWW1vU4RAJoeZJw6lXp_]]
 
 ** 第3回
 トピック: 数理科学続論 I
