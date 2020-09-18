@@ -10,11 +10,11 @@ weight = 1002
 
 1.  Rの基礎編 [(PDF)](https://noboru-murata.github.io/sda/docs/note1.pdf)
 2.  確率と統計編 [(PDF)](https://noboru-murata.github.io/sda/docs/note2.pdf)
-3.  多変量解析編 (準備中)
+3.  多変量解析編 [(PDF)](https://noboru-murata.github.io/sda/docs/note3.pdf)
 
 
 ## Rscript とデータ {#rscript-とデータ}
 
 1.  Rの基礎編 [(zipped)](https://noboru-murata.github.io/sda/docs/script1.zip)
 2.  確率と統計編 [(zipped)](https://noboru-murata.github.io/sda/docs/script2.zip)
-3.  多変量解析編 (準備中)
+3.  多変量解析編 [(zipped)](https://noboru-murata.github.io/sda/docs/script3.zip)

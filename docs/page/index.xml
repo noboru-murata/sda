@@ -6,18 +6,14 @@
     <description>Recent content in Pages on 統計データ解析</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0900</lastBuildDate>
-    
-	<atom:link href="https://noboru-murata.github.io/sda/page/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://noboru-murata.github.io/sda/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>講義資料</title>
       <link>https://noboru-murata.github.io/sda/page/notes/</link>
       <pubDate>Mon, 01 Apr 2019 00:00:00 +0900</pubDate>
       
       <guid>https://noboru-murata.github.io/sda/page/notes/</guid>
-      <description>テキスト  Rの基礎編 (PDF) 確率と統計編 (PDF) 多変量解析編 (準備中)  Rscript とデータ  Rの基礎編 (zipped) 確率と統計編 (zipped) 多変量解析編 (準備中)  </description>
+      <description>テキスト  Rの基礎編 (PDF) 確率と統計編 (PDF) 多変量解析編 (PDF)  Rscript とデータ  Rの基礎編 (zipped) 確率と統計編 (zipped) 多変量解析編 (zipped)  </description>
     </item>
     
     <item>
@@ -42,7 +38,7 @@
       <guid>https://noboru-murata.github.io/sda/page/autumn/</guid>
       <description>初めの数回でR言語の基本的な使い方を解説し，データを用いた実習を交えて多変量解析の様々な手法を学びます．
 講義資料としては
- Rの基礎編 (PDF) (Rscript) 多変量解析編 (準備中)  を主に使います．
+ Rの基礎編 (PDF) (Rscript) 多変量解析編 (PDF) (Rscript)  を主に使います．
 ガイダンス資料
 スライド (2019年度版)  RとRstudio (R言語の使い方) データの取り扱い 可視化とモンテカルロ法 回帰分析 - モデルの推定 回帰分析 - モデルの評価 回帰分析 - 予測と発展的なモデル 主成分分析 - 考え方 主成分分析 - 評価と視覚化 判別分析 - 考え方 判別分析 - 評価 クラスター分析 - 階層的方法 クラスター分析 - 非階層的方法 時系列解析 - 基本的なモデル 時系列解析 - 推定と予測  </description>
     </item>

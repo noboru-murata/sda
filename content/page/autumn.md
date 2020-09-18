@@ -11,7 +11,7 @@ weight = 1004
 講義資料としては
 
 -   Rの基礎編 [(PDF)](https://noboru-murata.github.io/sda/docs/note1.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script1.zip)
--   多変量解析編 (準備中)
+-   多変量解析編 [(PDF)](https://noboru-murata.github.io/sda/docs/note3.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script3.zip)
 
 を主に使います．
 
