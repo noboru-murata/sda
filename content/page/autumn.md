@@ -8,6 +8,12 @@ weight = 1004
 
 初めの数回でR言語の基本的な使い方を解説し，データを用いた実習を交えて多変量解析の様々な手法を学びます．
 
+各回の講義資料は
+
+-   [統計データ解析 II](https://noboru-murata.github.io/statistical-data-analysis2/)
+
+で随時公開します．
+
 講義資料としては
 
 -   Rの基礎編 [(PDF)](https://noboru-murata.github.io/sda/docs/note1.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script1.zip)
@@ -15,10 +21,14 @@ weight = 1004
 
 を主に使います．
 
-[ガイダンス資料](https://noboru-murata.github.io/sda/autumn/slide00.html)
+RおよびRStudioの導入については
+
+-   こちら [(PDF)](https://noboru-murata.github.io/sda/docs/install.pdf)
+
+を参照して下さい．
 
 
-## スライド (2019年度版) {#スライド--2019年度版}
+## 参考 (2019年度版スライド) {#参考--2019年度版スライド}
 
 1.  [RとRstudio](https://noboru-murata.github.io/sda/autumn/slide01.html) (R言語の使い方)
 2.  [データの取り扱い](https://noboru-murata.github.io/sda/autumn/slide02.html)

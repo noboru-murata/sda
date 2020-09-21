@@ -111,14 +111,20 @@
   データを用いた実習を交えて
   多変量解析の様々な手法を学びます．
 
+  各回の講義資料は
+  - [[https://noboru-murata.github.io/statistical-data-analysis2/][統計データ解析 II]]
+  で随時公開します．
+
   講義資料としては
    - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] [[github:docs/script1.zip][(Rscript)]]  
    - 多変量解析編 [[github:docs/note3.pdf][(PDF)]] [[github:docs/script3.zip][(Rscript)]]  
   を主に使います．
 
-  [[github:autumn/slide00.html][ガイダンス資料]]
-
-** スライド (2019年度版)
+  RおよびRStudioの導入については
+  - こちら [[github:docs/install.pdf][(PDF)]] 
+  を参照して下さい．
+  
+** 参考 (2019年度版スライド)
    1. [[github:autumn/slide01.html][RとRstudio]] (R言語の使い方)
    2. [[github:autumn/slide02.html][データの取り扱い]]
    3. [[github:autumn/slide03.html][可視化とモンテカルロ法]]
