@@ -37,7 +37,7 @@
    2. 確率と統計編 [[github:docs/script2.zip][(zipped)]] 
    2. 多変量解析編 [[github:docs/script3.zip][(zipped)]] 
 
-* 数理科学続論 I
+* 数理科学続論 I / 知能社会情報学講義II
   :PROPERTIES:
   :EXPORT_FILE_NAME: spring
   :EXPORT_DATE: <2019-04-01 Mon>
@@ -106,7 +106,7 @@
       [[github:spring/pdfs/slide12.pdf][[PDF]​]] 
       [[github:spring/code/slide12.R][[解答例]​]] 
 
-* 数理科学続論 J
+* 数理科学続論 J / 知能社会情報学講義III
   :PROPERTIES:
   :EXPORT_FILE_NAME: autumn
   :EXPORT_DATE: <2019-09-01 Sun>

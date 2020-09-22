@@ -1,5 +1,5 @@
 +++
-title = "数理科学続論 J"
+title = "数理科学続論 J / 知能社会情報学講義III"
 author = ["Noboru Murata"]
 date = 2019-09-01T00:00:00+09:00
 draft = false
