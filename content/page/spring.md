@@ -8,6 +8,12 @@ weight = 1003
 
 前半はR言語の基本的な使い方を解説し，後半はR言語を利用した数値シミュレーションを行いながら，確率論や推測統計の基礎を学びます．
 
+各回の講義資料は
+
+-   [統計データ解析 I](https://noboru-murata.github.io/statistical-data-analysis1/)
+
+にまとめました．
+
 講義資料としては
 
 -   Rの基礎編 [(PDF)](https://noboru-murata.github.io/sda/docs/note1.pdf) [(Rscript)](https://noboru-murata.github.io/sda/docs/script1.zip)

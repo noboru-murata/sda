@@ -47,6 +47,10 @@
   数値シミュレーションを行いながら，
   確率論や推測統計の基礎を学びます．
 
+  各回の講義資料は
+  - [[https://noboru-murata.github.io/statistical-data-analysis1/][統計データ解析 I]]
+  にまとめました．
+  
   講義資料としては
    - Rの基礎編 [[github:docs/note1.pdf][(PDF)]] [[github:docs/script1.zip][(Rscript)]] 
    - 確率と統計編 [[github:docs/note2.pdf][(PDF)]] [[github:docs/script2.zip][(Rscript)]] 

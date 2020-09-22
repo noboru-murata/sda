@@ -23,6 +23,8 @@
       
       <guid>https://noboru-murata.github.io/sda/page/spring/</guid>
       <description>前半はR言語の基本的な使い方を解説し，後半はR言語を利用した数値シミュレーションを行いながら，確率論や推測統計の基礎を学びます．
+各回の講義資料は
+ 統計データ解析 I  にまとめました．
 講義資料としては
  Rの基礎編 (PDF) (Rscript) 確率と統計編 (PDF) (Rscript)  を主に使います．
 ガイダンス資料
